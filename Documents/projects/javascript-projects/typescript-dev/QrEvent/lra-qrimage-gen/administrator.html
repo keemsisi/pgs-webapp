@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LRA QR | Administrator</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+<style>
+
+
+  body {
+  padding : 10px ;
+}
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+
+
+
+
+
+    
+header {
+  position: relative;
+  height: 300px;
+  background-image: linear-gradient(#ff9d2f, #ff6126);
+  margin: 0 auto;
+}
+
+h1 {
+  padding: 100px 0;
+  font: 44px "Arial";
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+  margin-top: 40px;
+}
+
+svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+
+@media (max-width: 699px) {
+  .svg--lg {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .svg--sm {
+    display: none;
+  }
+}
+
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+    width: 0px; 
+    height: 0px;
+    display: flex;
+  }
+
+  to{
+    opacity: 1 ; 
+    width: 400px;
+    height: 400px;
+    display: flex
+  }
+
+}
+
+@-o-keyframes fade-in{
+
+  from{
+    opacity: 0;
+    width: 0px; 
+    height: 0px;
+    display: flex;
+  }
+
+  to{
+    opacity: 1 ; 
+    width: 400px;
+    height: 400px;
+    display: flex
+  }
+
+}
+
+@-moz-keyframes fade-in{
+
+from{
+  opacity: 0;
+  width: 0px; 
+  height: 0px;
+  display: flex;
+}
+
+to{
+  opacity: 1 ; 
+  width: 400px;
+  height: 400px;
+  display: flex
+}
+}
+
+@-webkit-keyframes fade-in{
+
+from{
+  opacity: 0;
+  width: 0px; 
+  height: 0px;
+  display: flex;
+}
+
+to{
+  opacity: 1 ; 
+  width: 400px;
+  height: 400px;
+  display: flex
+}
+
+}
+
+
+  .count1{
+    border-radius: 10000px ;
+    border: 2px solid;
+    background-color: white;
+    animation: fade-in 0.7s ;
+    width:  300px;
+    height: 300px;
+  }
+
+  .count2{
+    border-radius: 10000px ;
+    border: 2px solid;
+    background-color: white;
+    width:  300px;
+    height: 300px;
+    animation: fade-in 0.7s;
+  }
+
+  .count3{
+    border-radius: 10000px ;
+    border: 2px solid;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    animation: fade-in 0.7s ;
+  }
+
+  .fixed-scroll-button{
+    position: fixed;
+    bottom: 0px ;
+    right: 0px;
+    border-radius: 200px ;
+  }
+
+  .shadow-class {
+    -webkit-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    -moz-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    z-index: 54;
+    /* background-color: deeppink; */
+    /* overflow: scroll;
+    overflow-x: hidden ; */
+  }
+
+   .shadow-class-x {
+    -webkit-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    -moz-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+
+  }
+
+  td {
+    font-size: 20px;
+    color: rgb(121, 111, 111);
+  }
+
+  td:hover{
+    background-color: deeppink;
+    color: white;
+    font-weight: bold;
+  }
+
+  tr:hover{
+    -webkit-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    -moz-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    z-index: 54;
+    color: white ;
+  }
+
+ 
+
+  content{
+    padding: 10px 16px ;
+  }
+
+  div.sticky{
+    position: sticky;
+    top: 0 ;
+    width: 100%;
+    background-color: #f6f6f6d7 ;
+  }
+
+
+  card-header    {
+        background-image: url(../images/back1.jpg);
+        background-repeat: repeat;
+        background-position: center  center;
+        min-height: 100%;
+        background-size: 30%;
+        background-attachment: fixed;
+        background-blend-mode: multiply   
+    }
+
+ 
+    </style>
+</head>
+<body style="background-color: white; overflow-x: hidden;">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light white"  role="navigation" style="z-index: 54; background-color: white; height: 100px">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent" style="margin-top: 50px; "> 
+
+        <div  class ="shadow-class-x sticky " style="top: 0px;position: fixed ; width: 100%; margin-top: 0px; height: 140px; border-radius: 2px; display: flex;justify-content: space-around ; overflow-x: auto scroll; margin-top: 30px; background-color: white;  border-bottom: 5px solid #f01872;" id="div-header">
+
+          <div class="col-md-2 mb-2 col-xs-2 lg-2 animated bounceIn" style="width: 400px; ">
+            <div class="widget style1 navy-bg">
+                <div class="row vertical-align">
+                    <div class="col-xs-3" style="height: 50px;">
+                        <i class="fa fa-users fa-3x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <h2 class="font-bold"  id="guest-count" style="padding-left: 10px"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-2 mb-2 col-xs-2 lg-2 animated bounceIn" style="width: 400px; ">
+          <div class="widget style1 navy-bg">
+              <div class="row vertical-align">
+                  <div class="col-xs-3" style="height: 50px;">
+                      <i class="fa fa-thumbs-up fa-3x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                      <h2 class="font-bold"  id="guest-checkin-count" style="padding-left: 10px"></h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+        <div class="col-md-2 mb-2 col-xs-2 lg-2 animated bounceIn" style="width: 400px; ">
+          <div class="widget style1 navy-bg">
+              <div class="row vertical-align">
+                  <div class="col-xs-3" style="height: 50px;">
+                      <i class="fa fa-thumbs-down fa-3x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                      <h2 class="font-bold"  id="guest-checkout-count" style="padding-left: 10px"></h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+        <div class="col-md-2 mb-2 col-xs-2 lg-2 animated bounceIn" style="width: 400px; ">
+            <div class="widget style1 navy-bg">
+                <div class="row vertical-align">
+                    <div class="col-xs-3" style="height: 50px;">
+                        <i class="fa fa-male fa-3x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <h2 class="font-bold"  id="guest-male-count" style="padding-left: 10px"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 mb-2 col-xs-2 lg-2 animated bounceIn" style="width: 400px; ">
+          <div class="widget style1 navy-bg">
+              <div class="row vertical-align">
+                  <div class="col-xs-3" style="height: 50px;">
+                      <i class="fa fa-female fa-3x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                      <h2 class="font-bold"  id="guest-female-count" style="padding-left: 10px"></h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    </nav>
+
+      <div class="container" style="display: flex ; justify-content: space-around">
+          <div  style="margin-top: 200px;">
+            <div class="col-md-4 mb-3">    
+              <button class="btn btn-success shadow-class-x" onclick="populateTable()" id="reload-btn" style="width: 200px ; height: 50px; background-color: white; color: black ; border: none;"> Reload Guest Table </button>
+          </div>
+        </div>
+
+        <div  style="margin-top: 200px;">
+          <div class="col-md-4 mb-3">    
+            <button class="btn btn-success shadow-class-x" onclick="populateTable2()" id="reload-btn" style="width: 200px ; height: 50px; background-color: white; color: black;border: none;"> Reload Vendor Table </button>
+        </div>
+        </div>  
+    </div>
+        
+
+
+
+        <ul class="nav nav-pills container" id="pills-tab" role="tablist" style="display: flex ; justify-content: space-around">
+
+            <li class="nav-item col-md-2 mb-2 col-xs-2 lg-2 shadow-class-x" >
+              <a class="nav-link active row vertical-align" id="pills-home-tab" data-toggle="pill" href="#table-1" role="tab" aria-controls="pills-home" aria-selected="true" style="text-align: center; color: black">GUESTS TABLE</a>
+            </li>
+
+            <li class="nav-item col-md-2 mb-2 col-xs-2 lg-2 shadow-class-x">
+              <a class="nav-link row vertical-align" id="pills-profile-tab" data-toggle="pill" href="#table-2" role="tab" aria-controls="pills-profile" aria-selected="false" style="text-align: center; color: black;">VENDORS TABLE</a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+
+          <div class="tab-pane fade show active" id="table-1" role="tabpanel" aria-labelledby="pills-home-tab">
+                <table class="table" id="table-data-1" >
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Last Checked In</th>
+                        <th scope="col">Last Checked Out</th>
+                        <th scope="col">Checked In</th>
+                        <th scope="col">Home Address</th>
+                        <th scope="col">House Color</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Age</th>
+                      </tr>
+
+                      <tr class="fltrow">
+                          <td ></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                    </thead>
+
+                    <tbody id="table-body"></tbody>
+                  </table>
+            </div>
+
+            <div class="tab-pane fade show active" id="table-2" role="tabpanel" aria-labelledby="pills-home-tab">
+                <table class="table" id="table-data-2" >
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Vendor Name</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Commodities</th>
+                        <th scope="col">Stand Number</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Last Checked In</th>
+                        <th scope="col">Last Checked Out</th>
+                        <th scope="col">Checked In</th>
+                      </tr>
+
+                      <tr class="fltrow">
+                          <td ></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                    </thead>
+
+                    <tbody id="table-body-2"></tbody>
+                  </table>
+            </div>
+          
+        </div>
+
+                <button class=" btn fixed-scroll-button shadow-class-x" style="height: 70px; width: 70px; background-color:orange" onclick="scrollToTop()">
+                  <i class="fa fa-4x fa-angle-up" class="container"></i>
+                </button>
+  </div>
+</div>
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript"  src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript"  src="tablefilter/tablefilter.js"></script>
+
+        <script data-config="">
+
+            var filtersConfig1 = {
+             base_path: 'tablefilter/',
+             auto_filter: {
+                           delay: 1 //milliseconds
+                         },
+                         filters_row_index: 1,
+                         state: true,
+                         alternate_rows: true,
+                         rows_counter: true,
+                         btn_reset: true,
+                         status_bar: true,
+                         msg_filter: 'Filtering...',
+                       };
+
+                       var tf1 = new TableFilter('table-data-1', filtersConfig1);
+                       tf1.init();
+
+            var filtersConfig2 = {
+             base_path: 'tablefilter/',
+             auto_filter: {
+                           delay: 1 //milliseconds
+                         },
+                         filters_row_index: 1,
+                         state: true,
+                         alternate_rows: true,
+                         rows_counter: true,
+                         btn_reset: true,
+                         status_bar: true,
+                         msg_filter: 'Filtering...',
+                       };
+
+                       var tf2 = new TableFilter('table-data-2', filtersConfig2);
+                       tf2.init();
+
+</script>
+
+
+
+
+
+<script>
+
+          var tableElement = document.getElementById("reload-btn")
+
+          function scrollToTop() {
+
+              window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: tableElement.offsetTop
+              });
+
+              console.log("Scroll is done");
+}
+
+
+            var offset = document.getElementById("div-header").offsetTop ; 
+            var xhr = new XMLHttpRequest(); 
+            xhr.responseType = "json";
+
+            var xhr1 = new XMLHttpRequest(); 
+            xhr1.responseType = "json";
+
+
+             var xhr5 = new XMLHttpRequest(); 
+            xhr5.responseType = "json";
+
+             var xhr2 = new XMLHttpRequest(); 
+             xhr2.responseType = "json";
+
+             var xhr3 = new XMLHttpRequest();
+             xhr3.response = "json";
+
+
+
+           window.onload = ()=> {
+            populateTable();
+            getGuestCount();
+            getCheckedIn() ;
+            getCheckedOut();
+            getGenderCount();
+            populateTable2()
+           }
+          
+          setInterval(()=>{
+            getGuestCount();
+            getCheckedIn() ;
+            getCheckedOut();
+            getGenderCount();
+          },5000);
+          
+          
+
+    var countIn1 = 0 , 
+    countIn2 = 0, 
+    countOut1 = 0 ,
+    countOut2 = 0 ,
+    genderMale1 = 0,
+    genderMale2 = 0 , 
+    genderFemale1 = 0 ,
+    genderFemale2 = 0
+    guestCount = 0 ,
+    vendorCount =0 ;
+
+
+    function getGenderCount() {
+      xhr3.open("GET",`/guest-vendor/count/gender`);
+      xhr3.response = "json";
+
+      xhr3.send();
+
+      xhr3.onreadystatechange = ()=>{
+        if (xhr3.readyState === 4){
+          // console.log("Guest gender count" ,JSON.parse(xhr3.response).rows)
+
+          genderMale1 = JSON.parse(xhr3.response).rows[0].count; // Male count
+          genderFemale1 = JSON.parse(xhr3.response).rows[1].count; // FEMALE GUEST count
+
+          genderMale2 = JSON.parse(xhr3.response).rows[2].count; // MALE VENDOR count
+          genderFemale2 = JSON.parse(xhr3.response).rows[3].count; // FEMALE VENDOR
+
+
+          document.getElementById("guest-male-count").innerHTML = parseInt(genderMale1) + parseInt(genderMale2);
+
+          document.getElementById("guest-female-count").innerHTML = parseInt(genderFemale1) + parseInt(genderFemale2);
+         
+         xhr3.abort();
+        }
+
+      }
+    }
+
+
+    function getGuestCount(){
+      xhr.open("GET","/guest-vendor/count/all");
+      xhr.response = "json";
+
+      xhr.send();
+
+      xhr.onreadystatechange = ()=>{
+        if (xhr.readyState === 4){
+          //console.log("Guest Count" ,xhr.response)
+          guestCount = xhr.response.rows[0].count;
+          vendorCount = xhr.response.rows[1].count;
+
+          document.getElementById("guest-count").innerHTML = parseInt(guestCount) + parseInt(vendorCount);
+
+           xhr.abort();
+        }
+      }
+    }
+
+    /*
+    *Search for the guest with corresponding attributes
+    */
+
+    function  getCheckedIn(){
+      xhr1.open("GET",`/registeredguest-and-vendor/count/?argv=${true}`);
+      xhr1.response = "json";
+
+      xhr1.send();
+
+      xhr1.onreadystatechange = ()=>{
+        if (xhr1.readyState === 4){
+          //console.log("Guest Checkin count" ,xhr1.response)
+          countIn1 = xhr1.response.rows[0].count;
+          countIn2 = xhr1.response.rows[1].count;
+
+          console.log(countIn1, countIn2)
+
+          document.getElementById("guest-checkin-count").innerHTML = parseInt(countIn1) + parseInt(countIn2) ;
+
+          xhr1.abort();
+        }
+      }
+
+    }
+
+
+
+
+    function  getCheckedOut(){
+      xhr2.open("GET",`/registeredguest-and-vendor/count/?argv=${false}`);
+      xhr2.response = "json";
+      xhr2.send();
+
+      xhr2.onreadystatechange = ()=>{
+        if (xhr2.readyState === 4){
+          //console.log(xhr2.response)
+
+          countOut1 = xhr2.response.rows[0].count;
+          countOut2 = xhr2.response.rows[1].count;
+
+          console.log(countOut1, countOut2)
+
+          document.getElementById("guest-checkout-count").innerHTML = parseInt(countOut1) + parseInt(countOut2) ;
+          xhr2.abort()
+        }
+      }
+    }
+
+  
+   
+    function populateTable(){
+
+      var oldTableBody = document.getElementById("table-body");
+      while(oldTableBody.firstChild){
+        oldTableBody.removeChild(oldTableBody.firstChild);
+      }
+
+      var responseData = [0];
+      var dataCounter = 1 ;
+      var offSet = 0;
+      var _count = 0 ;
+
+       var tableTimeOut =  setInterval(()=>{
+
+              if(responseData.length !=0 ){
+                xhr.open("GET", `/guest/registeredguest/all/${80}/${offSet}`);
+                xhr.send();
+                //console.log(xhr.readyState)
+
+                xhr.onreadystatechange = () => {
+                 if(xhr.readyState === 4 ){
+                  //  //console.log()
+                    responseData = xhr.response; // parse the response data ;
+                    //console.log(responseData);
+
+                    responseData.forEach(guest => {
+                        
+                    var tableBody       =  document.getElementById("table-body");
+                    var tableRow        =  document.createElement("tr");
+                    var tableRowHead    =  document.createElement("th");
+                    tableRowHead.scope  =  "col";
+
+                    var tableData1       =  document.createElement("td");
+                    var tableData2       =  document.createElement("td");
+                    var tableData3       =  document.createElement("td");
+                    var tableData4       =  document.createElement("td");
+                    var tableData5       =  document.createElement("td");
+                    var tableData6       =  document.createElement("td");
+                    var tableData7       =  document.createElement("td");
+                    var tableData8       =  document.createElement("td");
+                    var tableData9       =  document.createElement("td");
+                    var tableData10      =  document.createElement("td");
+                    var tableData11      =  document.createElement("td");
+                    // var tableDataCout    =  document.createElement("button");
+                    // var tableDataCin     =  document.createElement("button");
+
+                    // tableDataCin.classList.add("btn","btn-success" );
+                    // tableDataCin.innerHTML = "Check In" ;
+                    // tableDataCin.style = "text-align: center"
+
+                    // tableDataCout.classList.add("btn","btn-danger");
+                    // tableDataCout.innerHTML = "Check Out" ;
+                    // tableDataCout.style = "text-align: center"
+
+
+                    var tableData12     =  document.createElement("th");
+                    tableData12.scope    =  "row";
+
+                    tableData1.innerHTML = guest.firstname ;
+                    tableData2.innerHTML = guest.lastname ;
+                    tableData3.innerHTML = guest.phonenumber ;
+                    tableData4.innerHTML = guest.datecreated ;
+                    tableData5.innerHTML = guest.last_checked_in ;
+                    tableData6.innerHTML = guest.last_checked_out ;
+                    tableData7.innerHTML = guest.checked_in;
+                    tableData8.innerHTML = guest.home_address;
+                    tableData9.innerHTML = guest.house_color;
+                    tableData10.innerHTML = guest.gender;
+                    tableData11.innerHTML = guest.age;
+
+                    tableData12.innerHTML = dataCounter++ ;
+
+
+                // append table data to the table row
+                    tableRow.appendChild(tableData12);
+                    tableRow.appendChild(tableData1);
+                    tableRow.appendChild(tableData2);
+                    tableRow.appendChild(tableData3);
+                    tableRow.appendChild(tableData4);
+                    tableRow.appendChild(tableData5);
+                    tableRow.appendChild(tableData6);
+                    tableRow.appendChild(tableData7);
+                    tableRow.appendChild(tableData8);
+                    tableRow.appendChild(tableData9);
+                    tableRow.appendChild(tableData10);
+                    tableRow.appendChild(tableData11);
+
+
+
+                    //append child to the table body
+                    $('td').addClass("animated fadeInUp");
+                    tableBody.appendChild(tableRow);
+
+
+                    
+                });
+            
+              }
+            }
+          }
+
+          /* Clear the timeout when all the guest has been gotten from the database 
+          */
+          if(offSet > parseInt(document.getElementById("guest-count").innerHTML) ){
+            clearInterval(tableTimeOut)
+            // console.log("Time out is cleared....")
+          }
+
+          offSet +=80; //next offset
+
+        },2800);
+      }
+
+
+      //request for the table two
+      var xhr4 = new XMLHttpRequest();
+
+      var responseData2 = [0];
+
+
+
+
+      function populateTable2(){
+
+      //when the function populate table is called the old data will be removed from the table
+      var oldTableBody = document.getElementById("table-body-2");
+
+      while(oldTableBody.firstChild){
+
+        oldTableBody.removeChild(oldTableBody.firstChild);
+
+      }
+
+      var dataCounter = 1 ;
+      var offSet = 0;
+      var _count = 0 ;
+
+    xhr4.open("GET", `vendor/vendors/all/${1000}/${0}`);
+    xhr4.responseType = "json";
+    xhr4.send();
+    //console.log(xhr.readyState)
+
+       
+
+          xhr4.onreadystatechange = () => {
+
+           if(xhr4.readyState === 4 ){
+             console.log(xhr4.response)
+              responseData2 = xhr4.response; // parse the response data ;
+
+            if(responseData2.length === 2 ){
+              responseData2 = null ;
+              clearInterval(tableTimeOut2)
+            }else{
+              
+
+
+              responseData2.forEach(guest => {
+                  
+                  var tableBody       =  document.getElementById("table-body-2");
+                  var tableRow        =  document.createElement("tr");
+                  var tableRowHead    =  document.createElement("th");
+                  tableRowHead.scope  =  "col";
+    
+                  var tableData1      =  document.createElement("td");
+                  var tableData2      =  document.createElement("td");
+                  var tableData3      =  document.createElement("td");
+                  var tableData4      =  document.createElement("td");
+                  var tableData5      =  document.createElement("td");
+                  var tableData6      =  document.createElement("td");
+                  var tableData7      =  document.createElement("td");
+                  var tableData8      =  document.createElement("td");
+                  var tableData9      =  document.createElement("td");
+               
+    
+                  var tableData12     =  document.createElement("th");
+                  tableData12.scope    =  "row";
+    
+                  tableData1.innerHTML = guest.vendorname ;
+                  tableData2.innerHTML = guest.gender ;
+                  tableData3.innerHTML = guest.phonenumber ;
+                  tableData4.innerHTML = guest.commodities ;
+                  tableData5.innerHTML = guest.standnumber ;
+                  tableData6.innerHTML = guest.datecreated ;
+                  tableData7.innerHTML = guest.last_checked_in ;
+                  tableData8.innerHTML = guest.last_checked_out ;
+                  tableData9.innerHTML = guest.checked_in;
+              
+    
+                  tableData12.innerHTML = dataCounter++ ;
+    
+    
+              // append table data to the table row
+                  tableRow.appendChild(tableData12);
+                  tableRow.appendChild(tableData1);
+                  tableRow.appendChild(tableData2);
+                  tableRow.appendChild(tableData3);
+                  tableRow.appendChild(tableData4);
+                  tableRow.appendChild(tableData5);
+                  tableRow.appendChild(tableData6);
+                  tableRow.appendChild(tableData7);
+                  tableRow.appendChild(tableData8);
+                  tableRow.appendChild(tableData9);
+    
+                 
+    
+    
+    
+                  //append child to the table body
+                  $('td').addClass("animated fadeInUp");
+                  // $('td').css("font-size:20px");
+                  tableBody.appendChild(tableRow);
+                  // console.log(tableRow);
+                  
+              });
+            }
+        }
+      }
+    }
+
+    
+
+    </script>
+</body>
+</html> 

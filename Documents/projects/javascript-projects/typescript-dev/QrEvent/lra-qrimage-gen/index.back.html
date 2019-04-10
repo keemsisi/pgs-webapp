@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>Event QR Code Generator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+</head>
+
+<style>
+	tbody  {
+		border: 2px solid black ;
+	}
+
+	tr {
+		border: 2px solid black ;	
+	}
+	
+	input {
+		margin-top: 10px ;
+		border-radius: 20px ; 
+		font-size: 20px ;
+		height: 50px ;
+		width: 300px ;
+		border: 2px solid blue ;
+	}
+
+button{
+border-radius: 10px ;
+box-shadow: 1px 5px 10px rgb(130, 111, 239) ;
+font-size: 20px ;
+text-align: center ;
+background-color: blueviolet ;
+color: white ;
+height: 50px ;
+
+}
+
+.guest-table{
+background-color: rgb(18, 169, 169) ;
+}
+
+
+tr:nth-child(even){
+background-color: rgb(8, 167, 235) ;
+height: 50px ;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+border-radius: 20px ;
+box-shadow: 1px 5px 10px rgb(198, 197, 205) ;
+
+}
+
+tr:nth-child(odd){
+background-color: rgb(230, 227, 207) ;
+height: 50px ;
+border-radius: 20px ;
+
+}
+
+
+th{
+	padding-right: 100px; 
+	background-color: rgb(9, 75, 77);
+	color: white ;
+	font-family: Georgia, 'Times New Roman', Times, serif ;
+}
+
+table {
+	border-collapse: collapse ;
+	width: 100% ;
+	border: none;
+}
+
+th ,td{
+border-bottom: 2px solid #ddd ;
+text-align: center;
+border: none;
+font-size: 40px ;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+overflow: auto
+}
+
+
+</style>
+
+
+<body>
+<div style="width: 100% ; background-color:black; height: 300px ; color: white ;" >
+		<h1 style="text-align: center; padding-top: 100px; font-size: 50px"> Guest QrCode Generator</h1>
+</div>
+
+<button onclick="createQrCodeAll()" style="margin-bottom: 20px ;">Create QrCode For all Created Guests</button>
+<div  id = "server-message" style="color: green ; width: 50% ; font-size: 5px; border-radius: 10px ; visibility: hidden"></div>
+<br/>
+
+
+
+<div >
+		<!-- <label style="font-size: 20px ;font-family: monospace; margin-right: 15px">Enter Content to Encode:</label>
+		<input id="text" type="text"  style="width:50%"  onkeydown="checker(event)" placeholder="Enter content here"></input>
+		<br/> -->
+		
+		<label style="font-size: 20px; margin-right: 183px; font-family: monospace">Firstname:</label>
+		<input id = "firstname" type="text" placeholder="Enter guest firstname" #firstname style="width:50%" ></input>
+		<br/>
+
+		<label style="font-size: 20px ; margin-right: 195px ; font-family: monospace">Lastname:</label>
+		<input id = "lastname" type="text" placeholder="Enter guest firstname" #lastname style="width:50%"></input>
+		<br/>
+
+		<label style="font-size: 20px; margin-right: 150px ; font-family: monospace">Phone Number:</label>
+		<input id = "phonenumber" type="text" placeholder="Enter guest phonenumber" #phonenumber style="width:50%"></input>
+		<br/>
+		
+		<button id="addButton" onclick="addNewGuest(firstname ,lastname ,phonenumber)" onkeydown="addNewGuest(firstname ,lastname,phonenumber)" 
+		style="margin-left: 22%; width: 700px; margin-top: 30px; border-bottom: 3px solid #ddd; margin-bottom: 50px">Add Guest</button>
+</div>
+
+<div style="display: flex ;flex-direction: row ; flex-wrap: wrap">
+	<!-- /* <div id="qrcode" style="width:300px; height:300px; margin-top:15px; border: 2px solid blue"></div> */ -->
+	<div class="masterDiv" id="master" style=" display: flex ; flex-wrap: wrap"></div>
+
+
+<table>
+	<thead>
+		<th>Firstname</th>
+		<th>Lastname</th>
+		<th>Phone Number</th>
+	</thead>
+	<tbody class="guest-table" id="guest-table">
+	</tbody>
+</table>
+
+</div>
+
+
+<script type="text/javascript">
+
+var guestArray = []; // guest set array wiil remove all duplicates in the table row
+
+
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 300,
+	height : 300
+});
+
+
+
+function checker(event){
+	if(event.code === "Enter"){
+
+	var newChild = document.createElement('div');
+	newChild.setAttribute("style", "width:300px; height:300px; margin-top:15px; border: 2px solid blue; margin-left : 20px ; ");
+
+	qrcode = new QRCode(newChild, {width : 300,height : 300});
+
+	var elText = document.getElementById("text");
+	var masterDiv = document.getElementById('master');
+	
+	if (!elText.value) {
+		alert("Input a text");
+		elText.focus();
+		return;
+	}
+	
+	qrcode.makeCode(elText.value);
+	masterDiv.appendChild(newChild);
+
+	}	
+}
+
+function createQrCodeAll(){
+ var payload = []
+guestArray.forEach(element => {
+	payload.push(JSON.parse(element));
+});
+
+
+
+ var sendPayload = JSON.stringify(payload) ;
+
+console.log(sendPayload);
+//send the get payload request to the server ti generate new QrCode
+ $.get(`https://cedarqr-image-gen.appspot.com/generate/qrcode/new/all?data=${sendPayload}`, (data)=>{
+
+	 console.log(data)
+	 document.getElementById("server-message").innerHTML = data ;
+	 document.getElementById("server-message").setAttribute("style"," visibility: visible; font-size: 30px; margin-left : 30%; color:green");
+
+	 setTimeout(()=>{
+		document.getElementById("server-message").setAttribute("style"," visibility: hidden; transition : 1 all ;");
+	 },2500)
+	 });
+}
+
+
+function addNewGuest(firstname, lastname , phonenumber){
+if(firstname.value !="" && lastname.value !="" && phonenumber.value!= ""){
+	var newGuest =  {"firstname" :firstname.value,"lastname":lastname.value,"phonenumber":phonenumber.value};
+
+	if(!guestArray.includes(JSON.stringify(newGuest))){
+
+		guestArray.push(JSON.stringify(newGuest));
+		
+		var tableRow  =  document.createElement("tr");
+		var tableBody =   document.getElementById("guest-table");
+		var tableData1 =  document.createElement("td"); // firstname
+		var tableData2 =  document.createElement("td"); // lastname
+		var tableData3 =  document.createElement("td"); // phonenumber
+
+		tableRow.setAttribute("style","border: 2px solid black ;"); // set the border the table row 
+		
+		tableData1.innerHTML = firstname.value ;
+		tableData2.innerHTML = lastname.value ;
+		tableData3.innerHTML = phonenumber.value ;
+
+
+	// append table data to the table row 
+		tableRow.appendChild(tableData1);
+		tableRow.appendChild(tableData2);
+		tableRow.appendChild(tableData3);
+
+
+
+		//append child to the table body
+		tableBody.appendChild(tableRow);
+		console.log("table row added successfully");
+		console.log(guestArray);
+
+	}
+}else{
+	console.error("please fill input space very correctly");
+}
+
+}
+</script>
+</body>
+</html>

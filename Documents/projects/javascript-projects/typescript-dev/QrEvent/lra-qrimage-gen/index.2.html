@@ -1,0 +1,684 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title >Latter Rain Assembly | QR-Image Generator | Home </title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+</head>
+
+
+<style>
+
+  .chip.chip-md {
+  height: 42px;
+  line-height: 42px;
+  border-radius: 21px;
+  background-color: #ddd ;
+
+}
+
+.chip.chip-md img {
+  height: 42px;
+  width: 42px;
+  background-color: #ddd ;
+
+
+}
+
+.chip.chip-lg {
+  height: 52px;
+  line-height: 52px;
+  border-radius: 26px;
+  background-color: #ddd ;
+}
+
+.chip.chip-lg img {
+  height: 52px;
+  width: 52px;
+  background-color: #ddd ;
+}
+
+
+ @font-face {
+            font-family: greatvibes ;
+            src: url("fonts/greatvibes/GreatVibes-Regular.otf");
+  }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@-webkit-keyframes color_change {
+  0% { background-color: blueviolet; }
+	25% { background-color: rgb(30, 46, 124); }
+  75% { background-color : teal ;}
+  100% {background-color: #ff7700}
+}
+@-moz-keyframes color_change {
+  0% { background-color: blueviolet; }
+	25% { background-color: rgb(30, 46, 124); }
+  75% { background-color : teal ;}
+  100% {background-color: #ff7700}
+}
+@-ms-keyframes color_change {
+  0% { background-color: blueviolet; }
+	25% { background-color: rgb(30, 46, 124); }
+  75% { background-color : teal ;}
+  100% {background-color: #ff7700}
+}
+@-o-keyframes color_change {
+  0% { background-color: blueviolet; }
+	25% { background-color: rgb(30, 46, 124); }
+  75% { background-color : teal ;}
+  100% {background-color: #ff7700}
+}
+@keyframes color_change {
+  0% { background-color: blueviolet; }
+	25% { background-color: rgb(30, 46, 124); }
+  75% { background-color : teal ;}
+  100% {background-color: #ff7700}
+}
+
+.div-header{
+
+animation-name: color_change;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+animation-direction: alternate-reverse;
+
+}
+
+
+.server-message-fadeaway {
+    color: #FFFFFF;
+    text-align: center;
+
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -ms-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+    transition: opacity 3s ease-in-out;;
+     opacity: 1;
+}
+
+
+
+
+  .svg-background{
+
+    background-color: rgb(44, 14, 71);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='352' height='352' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23404' stroke-width='1.7'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23505'%3E%3Ccircle cx='769' cy='229' r='8'/%3E%3Ccircle cx='539' cy='269' r='8'/%3E%3Ccircle cx='603' cy='493' r='8'/%3E%3Ccircle cx='731' cy='737' r='8'/%3E%3Ccircle cx='520' cy='660' r='8'/%3E%3Ccircle cx='309' cy='538' r='8'/%3E%3Ccircle cx='295' cy='764' r='8'/%3E%3Ccircle cx='40' cy='599' r='8'/%3E%3Ccircle cx='102' cy='382' r='8'/%3E%3Ccircle cx='127' cy='80' r='8'/%3E%3Ccircle cx='370' cy='105' r='8'/%3E%3Ccircle cx='578' cy='42' r='8'/%3E%3Ccircle cx='237' cy='261' r='8'/%3E%3Ccircle cx='390' cy='382' r='8'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  #guest-master-div{
+
+    -webkit-box-shadow: -4px 4px 38px 1px rgba(0,0,0,0.42);
+    -moz-box-shadow: -4px 4px 38px 1px rgba(0,0,0,0.42);
+    box-shadow: -4px 4px 38px 1px rgba(0,0,0,0.42);
+
+    display:flex ;
+    border-radius: 5px ; 
+    margin-bottom: 100px; 
+    height: 700px;
+    width:100%;
+    flex-wrap: wrap ; 
+    justify-content: space-around
+
+  }
+
+  card_container:hover {
+    -webkit-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    -moz-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+  }
+
+  footer{
+    height: 400px; width: 100% ;  margin-top: 100px;
+    background-color: #ff7700;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    } 
+    
+
+
+    @media only screen and (min-width : 250px){
+      h2.header-title {
+        font-size: 20px;
+      }
+    }
+
+
+ @media only screen and (max-width : 250px){
+      button.btn.btn-success.container {
+        font-size: 15px;
+        width: 50px;
+        margin-left: 0;
+      }
+  }
+
+ .shadow-class {
+    -webkit-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    -moz-box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    box-shadow: -4px 4px 38px -9px rgba(0,0,0,0.42);
+    /* z-index: 54; */
+    border-top: 4px solid rgb(81, 9, 204);
+
+ }
+</style>
+<body>
+  <header style="z-index: 2; background-color: white ; height: 2px">
+      <nav class="navbar fixed-top navbar-expand-md navbar-light white shadow-class"  role="navigation" style="z-index: 2; background-color: white; height: 100px">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 50px">
+ 
+                  <form  class= "container form-inline my-2 my-lg-0 " onsubmit="return false ;" id="formObject">
+                      <div class="col-md-3 mb-3 col-xs-3 lg-3">
+                        <div class="row">
+                         <a id="adminBtn" class="btn btn-info" onclick="window.open('/administrator.html')" style="height:50px; width: 200px;margin-bottom: 50px; font-size: 15px">
+                          <h4 style=" color: #FFFFFF">Administrator</h4> 
+                         </a>
+                        </div>
+                      </div>
+      
+                      <div class="col-md-3 mb-3 col-xs-3 lg-3">
+                        <div class="row">
+                            <input type="file" class="form-control mr-sm-2" style="height:50px; width: 200px;margin-bottom: 50px; width: 200px" accept=".xlsx" name="excelfile" id="guestFileToUpload" value="upload excel file">
+                        </div>
+                     </div>
+            
+                     <div class="col-md-3 mb-3 col-xs-3 lg-3">
+                        <div class="row">
+                            <button class="btn btn-primary form-control"   style="height:50px; width: 200px;margin-bottom: 50px; font-size: 15px"  id="uploadBtn" type="submit" > Upload Guest</button>
+                        </div>
+                     </div>  
+                     
+                   
+
+                     <div class="col-md-3 mb-3 col-xs-3 lg-3">
+                        <div class="row">
+                            <button class="btn btn-success form-control"   style="height:50px; width: 200px;margin-bottom: 50px; font-size: 15px"  id="downloadBtn" disabled onclick="downloadAllQrGuest()"> Download Zip File</button>
+                          </div>
+                     </div>
+
+                    </form>
+           </div>
+        </nav>
+
+        
+      
+
+  </header>
+        </div>
+    </div>
+<div style="width:100%; overflow-x: hidden; ">
+       
+        <div class= "div-header"style="height: 400px; width: 100% ; background-color:blueviolet; margin-top: 20px;">
+            <div id="particles-js"></div>
+            <div class="container" style="margin: 0 auto; padding-top: 10px;">
+                <h1 class="header-title" style="color: #1f1d1d; font-size: 50px ; text-align: center; font-weight: bold; font-family: greatvibes " >The Latter Rain Assembly</h1>
+                <!-- <input  class="col-md-4 mb-3" type="file" id="fileToUpload" accept=".xlsx"> -->
+
+            </div>
+        </div>
+        <div>
+            <!---------------------------------------------Server successfuly created message ------------------------------------------------->
+            <div  class= "container" style="border-bottom: 5px solid rgb(8, 102, 93) ; width: 800px; margin-top: 20px; height: 200px"></div>
+            <div class="alert alert-danger container" role="alert" style="visibility: hidden;" id="field-not-complete"></div>
+            <div class="alert alert-info container" role="alert" style="visibility: hidden; display: flex ; margin-top: 100px; border-top: 3px solid green" id="server-message-success"></div>
+            <!-------------------------------------------------------Error Message-------------------------------------------------------------------------->
+            <div>
+                <small class="alert alert-info container" role="alert" style="visibility: hidden;display: flex ; margin-top: 100px; border-top: 3px solid red; overflow: scroll;" id="server-message-error"></small>
+            </div>
+
+                <form  class= "container shadow-class" style="margin-top: 100px ; ">
+                        <div class="form-row">
+                          <div class="col-md-4 mb-3">      
+                            <label for="validationServer01" style="font-weight: bold">First Name:</label>
+                            <input type="text" class="form-control is-valid" id="firstname" placeholder="First name" value="" #firstname required>
+                            <!-- <div class="invalid-feedback">
+                                    please provide first name
+                            </div> -->
+    
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="validationServer02" style="font-weight: bold">Last Name:</label>
+                            <input type="text" class="form-control is-valid" id="lastname" placeholder="Last name" value="" required #lastname>
+                           
+                            <div class="invalid-feedback">
+                              Please provide guest last name
+                            </div>
+                
+                            <div class="invalid-feedback">
+                                Please provide guest name &nbsp; &nbsp;&nbsp;
+                            </div>
+                
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="validationServer03" style="font-weight: bold">Phone Number</label>
+                            <div class="input-group">
+                              <input type="text" class="form-control is-valid" id="phonenumber" placeholder="Phone number" aria-describedby="inputGroupPrepend3" #phonenumber required>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 mb-3">
+                              <label for="validationServer03" style="font-weight: bold">Home Address</label>
+                              <div class="input-group">
+                                <input type="text" class="form-control is-valid" id="homeAddress" placeholder="Home Address" aria-describedby="inputGroupPrepend3" #phonenumber required>
+                              </div>
+                          </div>
+
+                          <div class="col-md-4 mb-3">
+                              <label for="validationServer03" style="font-weight: bold">House Color</label>
+                              <div class="input-group">
+                                  <select class="form-control is-valid" id="houseColor" #houseColor required>
+                                      <option class="form-control is-valid"  placeholder="Gender" aria-describedby="inputGroupPrepend3">----</option>
+                                      <option class="form-control is-valid"  placeholder="House Color" aria-describedby="inputGroupPrepend3" required>Single</option>
+                                    <option class="form-control is-valid"   placeholder="House Color" aria-describedby="inputGroupPrepend3"  required>Married</option>
+                                  </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServer03" style="font-weight: bold">Gender</label>
+                                <div class="input-group">
+                                  <select class="form-control is-valid" #phonenumber required id="gender">
+                                    <option class="form-control is-valid"  placeholder="House Color" aria-describedby="inputGroupPrepend3">----</option>
+                                    <option class="form-control is-valid"  placeholder="House Color" aria-describedby="inputGroupPrepend3" required>Red</option>
+                                    <option class="form-control is-valid"   placeholder="House Color" aria-describedby="inputGroupPrepend3"  required>Yellow</option>
+                                    <option class="form-control is-valid"  placeholder="House Color" aria-describedby="inputGroupPrepend3" required>Blue</option>
+                                    <option class="form-control is-valid"   placeholder="House Color" aria-describedby="inputGroupPrepend3"  required>Green</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="col-md-4 mb-3">
+                                  <label for="validationServer03" style="font-weight: bold">Age</label>
+                                  <div class="input-group">
+                                    <input type="number" class="form-control is-valid" id="age" placeholder="Age" aria-describedby="inputGroupPrepend3" #phonenumber required>
+                                  </div>
+                              </div>                             
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="input-group">
+                                <button class="btn btn-primary form-control" style="height:50px; width: 200px;margin-bottom: 50px;margin-top: 50px" onclick="addNewGuest()"> Add Guest</button>
+                            </div>
+                         </div>
+
+                      </form>
+        </div>  
+
+        <div class="container " style="display: flex; flex-wrap: wrap ; justify-content: space-around">
+          <div class="col-md-4 mb-3">
+            <div class="input-group">
+                <button class="btn btn-success form-control" style="height:50px; width: 200px;margin-bottom: 50px;margin-top: 50px" onclick="generateQrimageForAll()">Generator Qr-Image</button>
+            </div>
+         </div>
+  
+         <div class="col-md-4 mb-3">
+            <div class="input-group">
+                <button class="btn btn-info form-control" style="height:50px; width: 200px;margin-bottom: 50px;margin-top: 50px" onclick="downloadAllQrGuest()" disabled="true" id="downloadBtn2">Download All QR-Image</button>
+            </div>
+         </div>
+
+         <div class="col-md-4 mb-3">
+            <div class="input-group">
+                <button class="btn btn-danger form-control" style="height:50px; width: 200px;margin-bottom: 50px;margin-top: 50px" onclick="clearAllQrGuest()"> Clear All</button>
+            </div>
+         </div>
+
+        </div>
+
+        <div class="container" id="guest-master-div" style="overflow: auto"></div>
+
+
+        <div id="footer-div" class="svg-background">
+            <footer id="footer">
+                <di class="container">
+                  <div class="card container"  style="background-color: black ; mix-blend-mode: multiply; opacity: 0.9;z-index: 54; width: 100%">
+                    <h1 style="text-align: center; color: white; padding-top: 100px">
+                      Guest Image Code Generator
+                    </h1>
+                    <h4 style="text-align: center ; color: white ">
+                      Cedarview Telecommunication Limited 
+                    </h4>
+                  </div>
+                </di>
+              </footer>
+        </div>
+        
+</div>
+<script>
+
+
+    document.getElementById("downloadBtn").disabled = true ; 
+
+    
+
+    window.onload = ()=>{
+      setInterval(()=>{
+        if(window.document.getElementById("guestFileToUpload").value === ""){
+      window.document.getElementById("uploadBtn").disabled = true ;
+     }else{
+      window.document.getElementById("uploadBtn").disabled = false ;
+    }
+      },100)
+
+    }
+   
+
+
+
+    var xhrDownload = new XMLHttpRequest()
+    var creationDate = null;
+    var guestArray = [] ;
+    var storeCardStyles = ["bg-success","bg-info","bg-warning","bg-danger","bg-primary","bg-dark","bg-secondary"];
+    var geustCount =  1;
+    var sendGuestData = new XMLHttpRequest();
+    sendGuestData.responseType = "text";
+
+
+
+    /* This is the master div to get the append guest on the list*/
+    var masterGuestDiv = document.getElementById("guest-master-div");
+
+    if (localStorage.getItem("saved_guest") != null ) {
+      //load the last guest whem the session was closed or the browser was reloaded
+      masterGuestDiv = localStorage.getItem("saved_guest") ; //get the 
+    }
+
+    function generateQrimageForAll(){
+        var dateCreated = new Date() ;
+        var date = dateCreated.toString() ;
+        var month = dateCreated.getMonth();
+        var year = dateCreated.getFullYear() ;
+
+        creationDate = {"date":date , "month": month , "year":year} ;
+        console.log(creationDate)
+
+        var payload = []
+        guestArray.forEach(element => {
+          payload.push(JSON.parse(element));
+        });
+
+
+        var sendPayload = JSON.stringify(payload) ;
+        sendGuestData.open("GET",`/generate/qrcode/new/all?data=${sendPayload}&dateCreated=${JSON.stringify(creationDate)}`);
+        sendGuestData.responseType = "json"; // the response type the to be received from the server 
+
+        sendGuestData.send();
+        //send the get payload request to the server ti generate new QrCode
+         sendGuestData.onreadystatechange = (data)=>{
+          
+          if(sendGuestData.readyState === 4) {
+            //console.log(sendPayload);
+
+            var responseValue = sendGuestData.response
+            //console.log(responseValue);
+
+            var error = responseValue.error; 
+            var success = responseValue.success;
+
+            console.log(success)
+
+            /*set and display the error in a div*/
+            if(error.length !=0){
+              document.getElementById("server-message-error").innerHTML = error;
+              document.getElementById("server-message-error").setAttribute("style"," visibility: visible; font-size: 5px;color:red");
+              document.getElementById("server-message-error").classList.add("server-message-fadeaway");
+              setTimeout(()=>{
+              document.getElementById("server-message-error").setAttribute("style"," visibility: hidden; animation: transistion;");
+              error = "" ;
+            },5000);
+
+              /*Display a success message even though error message shows up**/
+              document.getElementById("server-message-success").innerHTML = success;
+              document.getElementById("server-message-success").setAttribute("style"," visibility: visible; font-size: 5px;color:green");
+              document.getElementById("server-message-success").classList.add("server-message-fadeaway");
+              
+              
+              setTimeout(()=>{
+              document.getElementById("server-message-success").setAttribute("style"," visibility: hidden; animation: transistion;");
+                success = "" ;
+            },3000);
+
+              document.getElementById("downloadBtn2").disabled = false ;
+
+            }//end if 
+
+            /*display the guest that were successfully created in the database and to a file*/
+            else if(success.length !=0){
+
+              document.getElementById("server-message-success").innerHTML = success;
+              document.getElementById("server-message-success").setAttribute("style"," visibility: visible; font-size: 30px;color:green");
+              document.getElementById("server-message-success").classList.add("server-message-fadeaway");
+
+              setTimeout(()=>{
+              document.getElementById("server-message-success").setAttribute("style"," visibility: hidden; animation: transistion;");
+              success = "" ;
+            },3000);
+            document.getElementById("downloadBtn2").disabled = false ;
+
+            }
+      }
+    }
+}
+
+   function addNewGuest(){
+     //console.log("-------------------->>>> Input entered") ;
+     var firstname = document.getElementById('firstname');
+     var lastname = document.getElementById('lastname');
+     var phonenumber = document.getElementById('phonenumber');
+     var homeAddress = document.getElementById('homeAddress');
+     var houseColor = document.getElementById('houseColor');
+     var gender = document.getElementById('gender');
+     var age = document.getElementById('age');
+     //console.log("Home Address :",homeAddress.value) ;
+      if(firstname.value !="" && lastname.value != "" && phonenumber.value != "" && homeAddress.value != "" && houseColor.value != "" && gender.value != "" && age.value !=""){
+          var newGuest =  {"firstname" :firstname.value,"lastname":lastname.value,"phonenumber":phonenumber.value,"homeAddress":homeAddress.value,"houseColor":houseColor.value ,"gender":gender.value,"age":age.value};
+          //console.log(newGuest);
+          if(!guestArray.includes(JSON.stringify(newGuest))){
+            var cardElement = document.createElement('div');
+            var color = storeCardStyles[Math.floor(Math.random()*storeCardStyles.length)];
+            cardElement.classList.add("class", "shadow-class");
+            cardElement.setAttribute("styles","float: left;border-bottom: 3px solid green ;");
+            var cardTitle1 =  document.createElement('div');
+            var cardTitle2 =  document.createElement('div');
+            var cardTitle3 =  document.createElement('div');
+            var cardTitle4 =  document.createElement('div');
+            var cardTitle5 =  document.createElement('div');
+            var cardTitle6 =  document.createElement('div');
+            var cardTitle7 =  document.createElement('div');
+
+
+
+            cardTitle1.classList.add("chip","chip-md");
+            cardTitle2.classList.add("chip","chip-md");
+            cardTitle3.classList.add("chip","chip-md");
+            cardTitle4.classList.add("chip","chip-md");
+            cardTitle5.classList.add("chip","chip-md");
+            cardTitle6.classList.add("chip","chip-md");
+            cardTitle7.classList.add("chip","chip-md");
+
+            cardTitle1.setAttribute("style","float: left;background-color: #ddd; margin: 5px 5px");
+            cardTitle2.setAttribute("style","float: left;background-color: #ddd; margin: 5px 5px");
+            cardTitle3.setAttribute("style","float: left;background-color: #ddd; margin: 5px 5px");
+            cardTitle4.setAttribute("style","float: left;background-color: #ddd; margin: 5px 5px");
+            cardTitle5.setAttribute("style","float: left;background-color: #ddd; margin: 5px 5px");
+            cardTitle6.setAttribute("style","float: left;background-color: #ddd; margin: 5px 5px");
+            cardTitle7.setAttribute("style","float: left; background-color: #ddd;margin: 5px 5px");
+  
+
+            
+       
+            guestArray.push(JSON.stringify(newGuest));
+            cardTitle1.innerHTML  = "&nbsp; &nbsp;&nbsp;Firstname :"+firstname.value+"&nbsp; &nbsp;&nbsp;" ;
+            cardTitle2.innerHTML = " &nbsp; &nbsp;&nbsp;Lastname :"+lastname.value+"&nbsp; &nbsp;&nbsp;" ;
+            cardTitle3.innerHTML  = "&nbsp; &nbsp;&nbsp; Phone Number :"+phonenumber.value+"&nbsp; &nbsp;&nbsp;";
+            cardTitle4.innerHTML = "&nbsp; &nbsp;&nbsp;Home Address :" +homeAddress.value+"&nbsp; &nbsp;&nbsp;";
+            cardTitle5.innerHTML =   "&nbsp; &nbsp;&nbsp;House Color :"+houseColor.value+"&nbsp; &nbsp;&nbsp;";
+            cardTitle6.innerHTML = "&nbsp; &nbsp;&nbsp;Gender :"+gender.value+"&nbsp; &nbsp;&nbsp;";
+            cardTitle7.innerHTML = "&nbsp; &nbsp;&nbsp;Age :" +age.value+"&nbsp; &nbsp;&nbsp;" ;
+
+            // cardElement.appendChild(cardHeader);
+            // cardElement.appendChild(cardBody);
+            cardElement.appendChild(cardTitle1);
+            cardElement.appendChild(cardTitle2);
+            cardElement.appendChild(cardTitle3);
+            cardElement.appendChild(cardTitle4);
+            cardElement.appendChild(cardTitle5);
+            cardElement.appendChild(cardTitle6);
+            cardElement.appendChild(cardTitle7);
+
+
+            //console.log(cardElement);
+            //append child to the table body
+            // cardElement.setAttribute("style","max-width: 18rem ; margin-left: 40px; margin-top: 50px; margin-bottom: 60px;");
+            masterGuestDiv.appendChild(cardElement);
+            //console.log("table row added successfully");
+            //console.log(guestArray);
+
+            document.getElementById('firstname').value = "" ;
+            document.getElementById('lastname').value = "" ;
+            document.getElementById('phonenumber').value = "" ;
+            document.getElementById('homeAddress').value= "" ;
+            document.getElementById("gender").value = "---Please Select gender---" ;
+            document.getElementById("age").value = "" ;
+            document.getElementById("houseColor").value = "---Please Select House Color---" ;
+    }
+
+}else{
+console.error("Message : Please all fields are required");
+document.getElementById('field-not-complete').innerHTML = "No field should be left blank...";
+document.getElementById('field-not-complete').style= "visibility: visible ; text-align: center";
+setTimeout(()=>{
+  document.getElementById('field-not-complete').style= "visibility: hidden; height: 100px; font-size: 20px;";
+
+},2000)
+}
+} // end add new guest 
+
+/*This will save the registered guest when the session is closed, window,reloaded*/
+window.onclose = ()=>{
+  localStorage.setItem("saved_guest",JSON.stringify(document.getElementById("guest-master-div")));
+}
+
+
+function clearAllQrGuest() {
+
+  var children =  document.getElementById("guest-master-div").childNodes ;
+  children.forEach(node=>{
+    document.getElementById("guest-master-div").removeChild(node);
+  });
+
+}
+ 
+ 
+function downloadAllQrGuest(){
+    xhrDownload.open("GET",`/guest/generated-qr-image/zipfile/download/?dateCreated=${JSON.stringify(creationDate)}`);
+    xhrDownload.send() ;
+
+    xhrDownload.onreadystatechange = (date=>{
+      var response =  "" ;
+      if (xhrDownload.readyState === 4){
+        response = xhrDownload.response ; 
+        console.log(response);
+      }
+      console.log(response)
+ 
+      window.open(response,self)
+
+    })
+}
+
+
+
+
+function downloadAllQrGuestXLSX(){
+    xhrDownload.open("GET",`/guest/generated-qr-image/zipfile/download/xlsx`);
+    xhrDownload.send() ;
+
+    xhrDownload.onreadystatechange = (date=>{
+      var response =  "" ;
+      if (xhrDownload.readyState === 4){
+        response = xhrDownload.response ; 
+        console.log(response);
+      }
+      console.log(response)
+ 
+      window.open(response,self)
+
+    })
+}
+
+var formUpload = new XMLHttpRequest();
+var excelZipGuestDownload = new XMLHttpRequest();
+
+
+//the submit button when the object is bein uploaded 
+document.getElementById("formObject").onsubmit = (e)=>{
+  uploadAndGenerateQrImage(); 
+  e.preventDefault()
+}
+
+
+function uploadAndGenerateQrImage(){
+
+console.log(" uploadAndGenerateQrImage is preparing to download ")
+
+
+  var form = document.getElementById("formObject");
+  console.log(form)
+
+  var formData = new FormData(form);
+
+  var dateCreated = new Date() ;
+  var date = dateCreated.toString() ;
+  var month = dateCreated.getMonth();
+  var year = dateCreated.getFullYear() ;
+
+  creationDate = {"date":date , "month": month , "year":year} ;
+  console.log(creationDate)
+  console.log("This is the form data" , formData);
+
+  formUpload.open("POST",`/guest/upload/xlsx/generate/qr-image/?dateCreated=${creationDate}`,true);
+
+  document.getElementById("uploadBtn").disabled = true ;
+
+  formUpload.send(formData);
+
+  formUpload.onreadystatechange = (data)=>{
+    if (formUpload.readyState === 4){
+      
+      console.log(formUpload.response);
+
+        document.getElementById("guestFileToUpload").value = "";
+
+        document.getElementById("uploadBtn").disabled = true;
+        document.getElementById("downloadBtn").disabled= false ;
+
+        //download all the guest file received
+        document.getElementById("downloadBtn").onclick = ()=>{
+          downloadAllQrGuestXLSX();
+        } 
+     
+    }
+  }
+  
+  console.log(formData) ;
+  return false ;
+
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript"  src="bootstrap/js/bootstrap.js"></script>
+<script  type="text/javascript" src="particles/particles.min.js"></script>
+<script type="text/javascript"  src="particles/app.js"></script>
+</body>
+</html>

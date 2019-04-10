@@ -1,0 +1,272 @@
+<!-----Author : Lasisi Akeem Adeshina--------->
+<!--------Client : Latter Ranin Assembly ---------->
+<!-----------Description  :  This file is shown to the use to chek in or check out the guest ---->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confirm Guest Check</title>
+    <!-- <link type="text/css" href="css/styles.css" rel="stylesheet"> -->
+
+
+
+    <style>
+
+
+
+    body    {
+        background-image: url(../images/download.jpeg);
+        background-repeat: repeat;
+        background-position: center  center;
+        min-height: 100%;
+        background-size: 30%;
+        background-attachment: fixed;
+        background-blend-mode: multiply   
+    }
+    
+    
+    @font-face {
+            font-family: greatvibes ;
+            src: url("fonts/greatvibes/GreatVibes-Regular.otf");
+        }
+    
+    @font-face{
+                font-family: cookieregular ;
+                src: url("fonts/cookie-font/Cookie-Regular.ttf");
+        }
+    
+    
+        @font-face{
+                font-family: carrington ;
+                src: url("fonts/carrington/Carrington.ttf");
+        }
+    
+    .card-check{
+                -webkit-box-shadow: -5px -4px 42px -4px rgba(0,0,0,0.57);
+                -moz-box-shadow: -5px -4px 42px -4px rgba(0,0,0,0.57);
+                box-shadow: -5px -4px 42px -4px rgba(0,0,0,0.57);
+    
+                margin: 0 auto ;
+                margin-top: 30px;
+                height: 850px ; 
+                width: 400px;
+                border-top: 15px solid rgba(219, 147, 14, 0.85);
+                border-radius: 20px;
+        }
+    
+
+    h1.header {
+
+                font-size: 70px ; 
+                font-family: cookieregular;
+                text-align: center ;         
+        }
+    
+    h2.header {
+                font-size: 40px ; 
+                font-family: cookieregular;
+                text-align: center ;
+    }
+    
+    button.btn {
+                height: 40px ;
+                width: 300px ;
+                background-color: blue;
+                border: none ;
+                border-radius: 10px ;
+                font-size: 25px ;
+                color: white;
+        }
+    
+            button.btn:hover {
+                background-color: green ;
+            }
+    
+    
+    
+    @media only screen and (max-width: 400px) {
+        /* For mobile phones: */
+        [class*="card-"] {
+            width:300px;
+            height: 700px;
+            font-size: 40px ;
+        }
+    
+    
+         h2.header,h1.header {
+            font-size: 40px ;
+        }
+    }
+    
+    
+    @media only screen and (max-width: 480px) {
+        /* For mobile phones: */
+        [class*="card-"] {
+
+            width: 300px;
+            height: 700;
+
+        }
+    
+        h2.header,h1.header {
+            font-size: 40px ;
+        }
+    }
+    
+
+    @media only screen and (orientation: landscape){
+        h2.header,h1.header {
+            font-size: 100px ;
+        }
+    
+         [class*="card-"] {
+            width: 400px;
+        }
+
+        h2.header,h1.header {
+            font-size: 40px ;
+        }
+    }
+    
+    @media only screen and (max-width: 700px) {
+        /* For mobile phones: */
+        [class*="card-"] {
+            width: 400px;
+        }
+    
+         
+    }
+    
+    
+    
+    /* @media only screen and (min-width : 760 ){
+        h2.header,h1.header {
+            font-size: 100px ;
+        }
+    
+        [class*="card-"] {
+            height: 600px;
+        } */
+    </style>
+<body>
+<div>
+        <div class="navbar navbar-light bg-light " style="height: 300px; background-color: darkcyan">
+                <h1 style="color: white; font-family: greatvibes; font-size: 60px; text-align: center; padding-top: 150px;"> Confirm Guest Check Action</h1>
+        </div>
+        
+        <div style="overflow-x: auto ; margin: 0 auto; margin-bottom: 200px;">
+                <div class="card-check" style="background-color: white;">
+                        <h2 class="header" id="vendor" style="border-bottom: 5px solid rgb(206, 5, 15);">VENDOR</h1>
+                        <h1 class="header" id="vendorname">Nill</h1>  
+                        <h1 class="header" id="" style="font-size: 30px;"> ( Vendor Name )</h1>  
+
+                        <h1  class="header" style="font-size: 40px" id="phonenumber">Nill</h1>
+                        <h1 class="header" style="font-size: 30px">( Phone Number )</h1>  
+
+
+                        <h2 class="header" id="standnumber">Nill</h1>
+                        <h1 class="header" style="font-size: 30px;"> ( Stand Number )</h1>  
+
+                        <h1  class="header" style="font-size: 30px" id="commodities">Nill</h1>
+                        <h1 class="header" style="font-size: 30px;">( Commodites )</h1>  
+
+                        <a class="container">
+                            <button class="btn container" onclick="routeAuthenticate()" id="check-btn" style="margin-top : 50px;"></button>
+                        </a> 
+                 </div>
+        </div>
+    </div>
+
+<script>
+    
+    var getState = new XMLHttpRequest();
+
+    var params  = new URLSearchParams(document.location.search.substring(1));
+    var vendorname= params.get("vendorname"); // 
+    var phonenumber = params.get("phonenumber"); //
+    var standnumber = params.get("standnumber"); //
+    var commodities = params.get("commodities"); //
+
+    window.onload = ()=>{
+
+        
+
+        console.log(vendorname,phonenumber,standnumber,commodities)
+        getVendorCheckedInState();
+    }
+
+     setInterval(()=>{
+    getVendorCheckedInState();
+
+  },500)
+
+
+    document.getElementById("vendorname").innerHTML = vendorname ; 
+    document.getElementById("phonenumber").innerHTML  =  phonenumber ;
+    document.getElementById("standnumber").innerHTML = standnumber;
+    document.getElementById("commodities").innerHTML = commodities;
+
+    
+
+
+    
+
+  function getVendorCheckedInState(){
+
+getState.onreadystatechange = (data)=>{
+
+try{
+            if( getState.response.checked_in !=undefined ){
+
+                if(getState.readyState === 4 ){
+                var val = getState.response.checked_in;
+
+                // console.log(val);
+                if(val === false){
+                        document.getElementById("check-btn").innerHTML = "Check In";
+                        document.getElementById("check-btn").style = "background-color : green";
+                }else if(val === true){
+                        document.getElementById("check-btn").innerHTML = "Check Out";
+                        document.getElementById("check-btn").style = "background-color : red";
+                    }
+                }
+        }else {
+                document.getElementById("check-btn").innerHTML = "...";
+                document.getElementById("check-btn").style = "background-color : orange";
+        } 
+    }catch (error){
+            console.log()
+        } // end catch
+  } //end get vendor state
+
+        getState.open("GET",`/vendor/checked/state/?vendorname=${vendorname}&phonenumber=${phonenumber}&standnumber=${standnumber}&commodities=${commodities}`);
+        getState.responseType = "json"
+        getState.send() ;
+} // end method getVendorState
+        
+    
+
+function routeAuthenticate(){
+    
+    let params = new URLSearchParams(document.location.search.substring(1));
+    let vendorname= params.get("vendorname"); // 
+    let phonenumber = params.get("phonenumber"); //
+    let standnumber = params.get("standnumber"); //
+    let commodities = params.get("commodites"); //
+
+    console.log(document.location.search.substring(0))
+    console.log(vendorname,phonenumber,standnumber,commodities);
+    // $.get("https://www.google.com")
+    window.open(`/vendor/qrcode/authenticate/?vendorname=${vendorname}&phonenumber=${phonenumber}&standnumber=${standnumber}&commodities=${commodities}`,self); // display the window in the same
+
+}
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript"  src="bootstrap/js/bootstrap.js"></script>
+<script  type="text/javascript" src="particles/particles.min.js"></script>
+</body>
+</html>

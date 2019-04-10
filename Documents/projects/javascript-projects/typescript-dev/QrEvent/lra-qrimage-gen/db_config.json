@@ -1,0 +1,7 @@
+{
+    "GCLOUD_PROJECT": "cedarqr-image-gen",
+    "DATA_BACKEND": "cloudsql",
+    "PSQL_USER": "cedarqrimagegen_admin",
+    "PSQL_PASSWORD": "cedarqrimagegen",
+    "INSTANCE_CONNECTION_NAME": "cedarqr-image-gen:us-central1:cedarqrimagegen"
+}
