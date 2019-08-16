@@ -1,0 +1,150 @@
+<!--Start Preloader-->
+<div class="preloader" style="display: none;">
+  <div class="d-table">
+    <div class="d-table-cell align-middle">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Preloader-->
+<!--start header-->
+<header id="header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Logo -->
+        <!-- <a class="logo" href="#"><img src="/assets/new-assets/images/logo.png" alt="logo"></a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"><i class="icofont-navigation-menu"></i></span>
+        </button>
+        <!-- navbar links -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" data-scroll-nav="0" [routerLink]="[ '' ]">Home</a>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#" data-scroll-nav="1">Features</a> -->
+              <a class="nav-link" data-scroll-nav="1" [routerLink]="[ '' ]">About PGS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-scroll-nav="2" [routerLink]="[ '/' ]" >Contact Administrator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-scroll-nav="3">Terms and Condition</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-scroll-nav="4">FUNAAB Homepage</a>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Blog</a> -->
+            </li>
+            <li class="nav-item download-btn">
+              <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/cv-documentation' ]">Create and Submit CV </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<section class="bg bg-2" id="faq-area">
+  <div class="faq-area-img"><img alt="" class="img-fluid" src="/assets/new-assets/images/faq-bg-1.png"></div>
+  <div class="container" [formGroup]="surveyGroup">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="section-heading text-center">
+          <h5>A Quicky!</h5>
+          <h2 class="text-white">Welcome to PGS Quick Survey Section</h2>
+          <p class="text-light">This survey helps us serve you better and improve the promotional Grading System</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div id="accordion" role="tablist">
+
+          <div class="card v-dark">
+            <div class="card-header active" id="faq1" role="tab">
+              <h5 class="mb-0"><a aria-controls="collapse1" aria-expanded="true" data-toggle="collapse"
+                  href="#collapse1">What do you think about the promotional grading system ?</a></h5>
+            </div>
+            <div aria-labelledby="faq1" class="collapse show" data-parent="#accordion" id="collapse1" role="tabpanel">
+              <div class="card-body">
+                <p>What do you think about the promotional grading system ?</p>
+                <textarea name="" id="" cols="40" rows="10" formControlName="survey1"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="card v-dark">
+            <div class="card-header" id="faq2" role="tab">
+              <h5 class="mb-0"><a aria-controls="collapse2" aria-expanded="false" class="collapsed"
+                  data-toggle="collapse" href="#collapse2">What other features do you think we can inporve on ?</a>
+              </h5>
+            </div>
+            <div aria-labelledby="faq2" class="collapse" data-parent="#accordion" id="collapse2" role="tabpanel">
+              <div class="card-body">
+                <textarea name="" id="" cols="40" rows="10" placeholder="Please enter your feebaack here"
+                  formControlName="survey2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="card v-dark">
+            <div class="card-header" id="faq3" role="tab">
+              <h5 class="mb-0"><a aria-controls="collapse3" aria-expanded="false" class="collapsed"
+                  data-toggle="collapse" href="#collapse3">What do you think about the user inteface ?</a></h5>
+            </div>
+            <div aria-labelledby="faq3" class="collapse" data-parent="#accordion" id="collapse3" role="tabpanel">
+              <div class="card-body">
+                <textarea name="" id="" cols="40" rows="10" placeholder="Enter your feedback here..."
+                  formControlName="survey3"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="card v-dark">
+            <div class="card-header" id="faq4" role="tab">
+              <h5 class="mb-0"><a aria-controls="collapse4" aria-expanded="false" class="collapsed"
+                  data-toggle="collapse" href="#collapse4">Please tell us how the form preview is
+                </a> </h5>
+            </div>
+            <div aria-labelledby="faq4" class="collapse" data-parent="#accordion" id="collapse4" role="tabpanel">
+              <div class="card-body">
+                <p>
+                  <mat-radio-group class="radio-display" formControlName="survey4">
+                    <mat-radio-button value="Good" class="radio-button-display">Good</mat-radio-button>
+                    <mat-radio-button value="Very Good" class="radio-button-display">Very Good</mat-radio-button>
+                    <mat-radio-button value="Partially Good" class="radio-button-display">Partially Good
+                    </mat-radio-button>
+                    <mat-radio-button value="Aweful Look" class="radio-button-display">Aweful Look</mat-radio-button>
+                    <mat-radio-button value="Perfect" class="radio-button-display">Perfect</mat-radio-button>
+                  </mat-radio-group>
+                </p>
+              </div>
+            </div>
+
+           
+
+          </div>
+
+          <ul class="navbar-nav ml-auto container">
+              <li class="nav-item download-btn" style="width: 400px;">
+                  <a class="nav-link" data-scroll-nav="5" (click)="submitSurvey()"  style="color: white ;"> Submit Survey Now </a>
+              </li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<p-toast position="bottom-right"></p-toast>

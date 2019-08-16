@@ -1,0 +1,59 @@
+<!--Start Preloader-->
+<div class="preloader" style="display: none;">
+  <div class="d-table">
+    <div class="d-table-cell align-middle">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Preloader-->
+<!--start header-->
+<header id="header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Logo -->
+        <!-- <a class="logo" href="#"><img src="/assets/new-assets/images/logo.png" alt="logo"></a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"><i class="icofont-navigation-menu"></i></span>
+        </button>
+        <!-- navbar links -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active"  data-scroll-nav="0" [routerLink]="[ '' ]">Home</a>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#" data-scroll-nav="1">Features</a> -->
+              <a class="nav-link" [routerLink]="[ '' ]" data-scroll-nav="1">About PGS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="[ '/' ]" data-scroll-nav="2">Contact Administrator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="[ '/' ]" data-scroll-nav="3">Terms and Condition</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#" data-scroll-nav="4">FUNAAB Homepage</a>
+              </li> -->
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Blog</a> -->
+            </li>
+            <li class="nav-item download-btn">
+              <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/quick-survey' ]"> Quick Survey </a>
+            </li>
+
+
+            <li class="nav-item download-btn">
+              <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/cv-preview-edit' ]"> Search|Preview CV </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

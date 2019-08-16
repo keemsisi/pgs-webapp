@@ -1,0 +1,13 @@
+.radio-display {
+    display: flex ;
+    flex-direction: column ;
+    margin: 15px 0;
+}
+
+.radio-button-display {
+    margin: 5px ;
+}
+
+.marging-left-0 {
+    margin: 0 ;
+}
