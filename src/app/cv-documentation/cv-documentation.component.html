@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <app-pgs-header></app-pgs-header>
 
 
@@ -1714,10 +1715,218 @@
 
                     </mat-expansion-panel>
                   </mat-accordion>
+=======
+
+
+<mat-card class="margin-top-20">
+  <mat-card-header >
+  
+  
+    <div mat-card-avatar>
+    <!-- a-md-i -->
+    </div>
+  
+    <mat-card-title class="card-header-bg-color">
+      <h3>Promotional Grading System &rArr; Application Form</h3>
+    </mat-card-title>.
+  
+<!--    <mat-card-subtitle>-->
+<!--      This form is to be filled in by the school-->
+<!--      and varified by the evaluators-->
+<!--    </mat-card-subtitle>-->
+  </mat-card-header>
+  
+   <mat-card-content>
+     <mat-horizontal-stepper [linear]="false" #stepper>
+      <mat-step>
+          <ng-template matStepLabel>Phase 1</ng-template>
+  
+        <form [formGroup]="personalInformation">
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Name in full (Surname first in Capital letter)" formControlName="nameInFull">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Place of Birth</mat-label>
+            <input matInput placeholder="Place of birth" formControlName="placeOfBirth">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker1" placeholder="Select Date of Birth" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 startView="year" ></mat-datepicker>
+          </mat-form-field>
+
+          <!-- <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Sex</mat-label>
+            <input matInput placeholder="Sex" formControlName="sex">
+          </mat-form-field> -->
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10">
+            <mat-label>Sex</mat-label>
+            <mat-select placeholder="Sex"  formControlName="sex" >
+                <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+              <mat-option value="Rather Not Say">Rather Not Say</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10">
+            <mat-label>Marital Status</mat-label>
+            <mat-select placeholder="Marital Status"  formControlName="maritalStatus" >
+                <mat-option value="Single">Single</mat-option>
+              <mat-option value="Married">Married</mat-option>
+              <mat-option value="Divorced">Divorced</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Nationality</mat-label>
+            <input matInput placeholder="Nationality" formControlName="nationality">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Town</mat-label>
+            <input matInput placeholder="Town" formControlName="town">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>State Of Origin</mat-label>
+            <input matInput placeholder="State of Origin" formControlName="stateOfOrigin">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>L.G.A</mat-label>
+            <input matInput placeholder="Local Government Area" formControlName="lga">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Senatorial Destrict</mat-label>
+            <input matInput placeholder="Senatorial Destrict " formControlName="senatorialDestrict">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="width-95 marging-left-10 ">
+            <mat-label>Address One</mat-label>
+            <input matInput placeholder="Contact Address One" formControlName="contactAddressOne" class="custom-textarea">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-95 marging-left-10 ">
+              <mat-label>Address Two</mat-label>
+              <input matInput placeholder="Contact Address Two" formControlName="contactAddressTwo" class="custom-textarea">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="width-95 marging-left-10 ">
+              <mat-label>Address Three</mat-label>
+              <input matInput placeholder="Contact Address Three" formControlName="contactAddressThree" class="custom-textarea">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Phone Number(s) ... separate multiple phonenumber with a comma" formControlName="phoneNumber">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+            <mat-label>Email Address</mat-label>
+            <input matInput placeholder="Email Address" formControlName="emailAddress">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+            <mat-label>Present Employer</mat-label>
+            <input matInput placeholder="Present Employer" formControlName="presentEmployer">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10">
+            <mat-label>Present Post</mat-label>
+            <mat-select placeholder="Present Post"  formControlName="presentPost" class="input">
+              <mat-option value="Pre-primary">Senior Software Engineer</mat-option>
+              <mat-option value="Primary">Head Of Department</mat-option>
+              <mat-option value="Jnr.Sec. School">Laboratory Scientist</mat-option>
+              <mat-option value="Snr. Sec. School">Snr. Sec. School</mat-option>
+              <mat-option value="NFE (Basic)">Senior AI Developer</mat-option>
+              <mat-option value="NFE (Post Lteracy)">NFE (Post Literacy)</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+            <mat-label>Salary</mat-label>
+            <input matInput placeholder="Salary" formControlName="salary">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" class="width-45 marging-left-10">
+            <mat-label>Post Applied For</mat-label>
+            <mat-select placeholder="Post Applied For"  formControlName="postAppliedFor" class="input" >
+              <mat-option value="Pre-primary">Senior Software Engineer</mat-option>
+              <mat-option value="Primary">Head Of Department</mat-option>
+              <mat-option value="Jnr.Sec. School">Laboratory Scientist</mat-option>
+              <mat-option value="Snr. Sec. School">Snr. Sec. School</mat-option>
+              <mat-option value="NFE (Basic)">Senior AI Developer</mat-option>
+              <mat-option value="NFE (Post Lteracy)">NFE (Post Literacy)</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </form>
+
+        <div class="margin-top-20" style="float: right;">
+          <!-- <button  mat-raised-button matStepperPrevious mat-raised-button color="primary">Back</button> -->
+          <button  mat-raised-button matStepperNext mat-raised-button color="primary" style="min-width: 100px;">Next >></button>
+       </div>
+
+
+      </mat-step>
+
+       <!-- <mat-step [stepControl]="dateAndSignature">
+      
+        <form [formGroup]="dateAndSignature">
+  
+               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>'
+
+               <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                 <mat-label>Date</mat-label>
+                 <input matInput [matDatepicker]="picker2" placeholder="Choose a date" formControlName="dateSigned">
+                   <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                   <mat-datepicker touchUi #picker2 startView="year"></mat-datepicker>
+                  </mat-form-field>
+  
+        </form>
+             
+            <div>
+              <button mat-raised-button matStepperPrevious>Back</button>
+              <button mat-raised-button matStepperNext>Next</button>
+            </div>
+            
+       </mat-step> -->
 
 
 
 
+
+
+
+
+
+
+
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
+
+
+
+
+<<<<<<< HEAD
 
                   <mat-accordion>
                     <mat-expansion-panel [expanded]="step === 16" (opened)="setStep(16)" hideToggle>
@@ -1810,10 +2019,74 @@
 
                     </mat-expansion-panel>
                   </mat-accordion>
+=======
+    <mat-step [stepControl]="educationalBackground">
+      <form [formGroup]="educationalBackground">
+        
+          <ng-template matStepLabel> Phase 2 </ng-template>
+
+         - <mat-accordion class="example-headers-align">
+              <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Educational Background
+                        </mat-panel-title>
+                       <!-- <mat-panel-description class="float-right">
+                          Enter your educational background details
+                          <mat-icon>account_circle</mat-icon>
+                        </mat-panel-description> -->
+                      </mat-expansion-panel-header>
+
+                    
+
+                      <div formArrayName="educationArray">
+                          <button mat-raised-button color="primary" title="Add" (click)="addEducational(i)" style="margin-bottom: 10px ; min-width: 150px;">
+                              <mat-icon matSuffix>add</mat-icon>
+                          </button>
+                          
+                        <div *ngFor="let work of educationalBackground.controls.educationArray.controls; let i = index">
+
+                          <button mat-raised-button  title="Remove" (click)="removeEducational(i)" style="margin-bottom: 10px; color: red">
+                              <mat-icon matSuffix>delete</mat-icon>
+                          </button>
+
+                          <div formGroupName="{{i}}">
+                              <mat-form-field appearance="outline" class="width-30 marging-right-5">
+                                  <mat-label>School Attended</mat-label>
+                                  <input matInput placeholder="School Attended" formControlName="schoolAttended">
+                              </mat-form-field>
+            
+                              <mat-form-field appearance="outline" class="width-30 marging-right-5 ">
+                                  <mat-label>From Date</mat-label>
+                                  <input matInput [matDatepicker]="picker3" placeholder="From Date" formControlName="fromDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker3 startView="year"></mat-datepicker>
+                              </mat-form-field>
+        
+        
+                              <mat-form-field appearance="outline" class="width-30">
+                                  <mat-label>To Date</mat-label>
+                                  <input matInput [matDatepicker]="picker4" placeholder="To Date" formControlName="toDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker4 startView="year"></mat-datepicker>
+                              </mat-form-field>
+            
+                              <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/commendation" multiple="multiple" ></p-fileUpload>
+                          </div>
+
+                      </div>
+                    </div>
+                       
+                      <mat-action-row>
+                        <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+                      </mat-action-row>
+                  </mat-expansion-panel>
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 
 
 
 
+<<<<<<< HEAD
                   <mat-accordion>
                     <mat-expansion-panel [expanded]="step === 18" (opened)="setStep(18)" hideToggle>
                       <mat-expansion-panel-header>
@@ -1981,11 +2254,115 @@
                       </div>
                     </mat-expansion-panel>
                   </mat-accordion>
+=======
+                  
+                    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                      
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Academic And Professional Qaulification
+                        </mat-panel-title>
+                       <!-- <mat-panel-description class="float-right">
+                            The academic and professional Qualification acquired
+                        <mat-icon>map</mat-icon>
+                        </mat-panel-description>-->
+                      </mat-expansion-panel-header>
+
+                      <div formArrayName= "academicAndProfessionalQaulification">
+                        <div *ngFor="let work of educationalBackground.controls.academicAndProfessionalQaulification.controls; let i = index">
+                          <button mat-raised-button color="accent" title="Remove" (click)="removeEducationalaIndex(i)" style="margin-bottom: 10px">
+                              <mat-icon matSuffix>delete</mat-icon>
+                          </button>
+                          <div formGroupName="{{i}}">
+                              <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                  <mat-label>School Attended</mat-label>
+                                  <input matInput placeholder="School Attended" formControlName="schoolAttended">
+                              </mat-form-field>
+             
+                              <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                  <mat-label>From Date</mat-label>
+                                  <input matInput [matDatepicker]="picker5" placeholder="From Date" formControlName="fromDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker5 startView="year"></mat-datepicker>
+                              </mat-form-field>
+        
+        
+                              <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                  <mat-label>To Date</mat-label>
+                                  <input matInput [matDatepicker]="picker6" placeholder="From Date" formControlName="toDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker6 startView="year"></mat-datepicker>
+                              </mat-form-field>
+            
+                              <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/publication" multiple="multiple"></p-fileUpload>
+                          </div>
+                        </div>
+                      </div>
+
+                      
+                      <mat-action-row>
+                        <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                        <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+                      </mat-action-row>
+                    </mat-expansion-panel>
+                  
+
+
+
+                    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Prizes Recieved
+                        </mat-panel-title>
+                       <!-- <mat-panel-description class="float-right">
+                          The prizes received over the years
+                          <mat-icon>date_range</mat-icon>
+                        </mat-panel-description>-->
+                      </mat-expansion-panel-header>
+
+                      <div formArrayName="prizes">
+
+                        <button mat-raised-button color="accent" title="Remove" (click)="addEducational(i)" style="margin-bottom: 10px">
+                          <mat-icon matSuffix>add</mat-icon>
+                        </button>
+
+
+                            <div *ngFor="let work of educationalBackground.controls.prizes.controls; let i = index">
+                              <button mat-raised-button color="accent" title="Remove" (click)="removeEducationalaIndex(i)" style="margin-bottom: 10px">
+                                  <mat-icon matSuffix>delete</mat-icon>
+                              </button>
+                              <div formGroupName="{{i}}">
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Award Title</mat-label>
+                                      <input matInput placeholder="School Attended" formControlName="schoolAttended">
+                                  </mat-form-field>
+                
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                      <mat-label>Date</mat-label>
+                                      <input matInput [matDatepicker]="picker7" placeholder="From Date" formControlName="fromDate">
+                                        <mat-datepicker-toggle matSuffix [for]="picker7"></mat-datepicker-toggle>
+                                        <mat-datepicker touchUi #picker7 startView="year"></mat-datepicker>
+                                  </mat-form-field>
+                                  
+                                  <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/prizes" multiple="multiple"></p-fileUpload>
+                              </div>
+                            </div>
+                      </div>
+                  
+                      <mat-action-row>
+                          <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                          <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+                      </mat-action-row>
+
+                    </mat-expansion-panel>
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 
 
 
 
 
+<<<<<<< HEAD
                   <!-- <mat-accordion>
                       <mat-expansion-panel [expanded]="step === 21" (opened)="setStep(21)" hideToggle>
                         <mat-expansion-panel-header>
@@ -2078,12 +2455,174 @@
                   </mat-action-row>
 
                 </mat-expansion-panel>
+=======
+                    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                             Honours
+                          </mat-panel-title>
+                          <!--<mat-panel-description class="float-right">
+                            The Honours received over the years
+                            <mat-icon>date_range</mat-icon>
+                          </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+  
+                        <div formArrayName="honours">
+  
+                          <button mat-raised-button color="primary" (click)="addEducational()" style="margin-bottom: 10px;" title="Add New">
+                            <mat-icon>add</mat-icon>
+                         </button>
+
+                            <div *ngFor="let work of educationalBackground.controls.prizes.controls; let i = index">
+                                <button mat-raised-button color="accent" title="Remove" (click)="removeEducational(i)" style="margin-bottom: 10px">
+                                    <mat-icon matSuffix>delete</mat-icon>
+                                </button>
+                                <div formGroupName="{{i}}">
+                                    <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                        <mat-label>Award Title</mat-label>
+                                        <input matInput placeholder="School Attended" formControlName="schoolAttended">
+                                    </mat-form-field>
+                  
+                                    <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                        <mat-label>Year</mat-label>
+                                        <input matInput [matDatepicker]="picker8" placeholder="From Date" formControlName="fromDate">
+                                          <mat-datepicker-toggle matSuffix [for]="picker8"></mat-datepicker-toggle>
+                                          <mat-datepicker touchUi #picker8 startView="year"></mat-datepicker>
+                                    </mat-form-field>
+                                    
+                                    <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/honours" multiple="multiple"></p-fileUpload>
+                                </div>
+                              </div>
+                        </div>
+                    
+                        <mat-action-row>
+                            <button mat-raised-button color="warn" (click)="prevStep()" class="marging-left-10">Previous</button>
+                            <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+                        </mat-action-row>
+
+                      </mat-expansion-panel>
+
+
+
+                      
+
+                      <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                National Recognitions
+                            </mat-panel-title>
+                           <!-- <mat-panel-description class="float-right">
+                              Your national recognitions
+                              <mat-icon>award</mat-icon>
+                            </mat-panel-description>-->
+                          </mat-expansion-panel-header> 
+    
+                          <div formArrayName="nationalRecognitions">
+    
+                              <mat-icon>date_range</mat-icon>
+                              <div *ngFor="let work of educationalBackground.controls.prizes.controls; let i = index">
+                                  <button mat-raised-button color="accent" title="Remove" (click)="removeEducationalaIndex(i)" style="margin-bottom: 10px">
+                                      <mat-icon matSuffix>delete</mat-icon>
+                                  </button>
+                                  <div formGroupName="{{i}}">
+                                      <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                          <mat-label>Award Title</mat-label>
+                                          <input matInput placeholder="School Attended" formControlName="schoolAttended">
+                                      </mat-form-field>
+                    
+                                      <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                          <mat-label>Year</mat-label>
+                                          <input matInput [matDatepicker]="picker9" placeholder="From Date" formControlName="fromDate">
+                                            <mat-datepicker-toggle matSuffix [for]="picker9"></mat-datepicker-toggle>
+                                            <mat-datepicker touchUi #picker9 startView="year"></mat-datepicker>
+                                      </mat-form-field>
+                                      
+                                      <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/national_recognitions" multiple="multiple"></p-fileUpload>
+                                  </div>
+                                </div>
+                          </div>
+                      
+                          <mat-action-row>
+                              <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                              <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+                          </mat-action-row>
+
+                        </mat-expansion-panel>
+
+
+
+
+                        <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)" hideToggle>
+
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                  International Recognitions Received
+                              </mat-panel-title>
+                             <!-- <mat-panel-description class="float-right">
+                                Your international Recognitions
+                                <mat-icon>date_range</mat-icon>
+                              </mat-panel-description> -->
+                            </mat-expansion-panel-header>
+      
+                            <div formArrayName="internationalRecognitions">
+      
+                                <mat-icon>date_range</mat-icon>
+                                <div *ngFor="let work of educationalBackground.controls.prizes.controls; let i = index">
+                                    <button mat-raised-button color="accent" title="Remove" (click)="removeEducationalaIndex(i)" style="margin-bottom: 10px">
+                                        <mat-icon matSuffix>delete</mat-icon>
+                                    </button>
+                                    <div formGroupName="{{i}}">
+                                        <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                            <mat-label>Award Title</mat-label>
+                                            <input matInput placeholder="School Attended" formControlName="schoolAttended">
+                                        </mat-form-field>
+                      
+                                        <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                            <mat-label>Year</mat-label>
+                                            <input matInput [matDatepicker]="picker10" placeholder="From Date" formControlName="fromDate">
+                                              <mat-datepicker-toggle matSuffix [for]="picker10"></mat-datepicker-toggle>
+                                              <mat-datepicker touchUi #picker10 startView="year"></mat-datepicker>
+                                        </mat-form-field>
+                                        
+                                        <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/international_recognitions" multiple="multiple"></p-fileUpload>
+                                    </div>
+                                  </div>
+                            </div>
+                        
+                          
+                            <mat-action-row>
+                                <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                                <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+                            </mat-action-row>
+                          </mat-expansion-panel>
+                    
+                  </mat-accordion>    
+         </form> 
+
+         <div style="margin-top: 20px;">
+            <button mat-raised-button color="warn" matStepperPrevious class="marging-right-10"> << Previous</button>
+            <button mat-raised-button color="primary" matStepperNext>Next >> </button>
+         </div>
+
+       </mat-step>
+  
 
 
 
 
 
 
+
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
+
+
+
+
+
+
+<<<<<<< HEAD
                 <mat-expansion-panel [expanded]="step === 23" (opened)="setStep(23)" hideToggle>
 
                   <mat-expansion-panel-header>
@@ -2197,10 +2736,205 @@
 
                 </mat-expansion-panel>
 
+=======
 
 
 
 
+
+
+
+   <mat-step [stepControl]="masterFormGroupings">
+      <ng-template matStepLabel>Phase 3</ng-template>
+
+     <form [formGroup]="masterFormGroupings">
+
+
+
+        - <mat-accordion class="example-headers-align">
+                    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Work Experience
+                        </mat-panel-title>
+                       <!-- <mat-panel-description class="float-right">
+                          The information of the Organisation worked with
+                          <mat-icon>account_circle</mat-icon>
+                        </mat-panel-description> -->
+                      </mat-expansion-panel-header>
+
+
+                      <button mat-raised-button color="primary" (click)="addWorkExp()" style="margin-bottom: 10px;" title="Add New">
+                          <mat-icon>add</mat-icon>
+                       </button>
+            
+                     <div formArrayName="workExperience">
+                          <div *ngFor="let work of masterFormGroupings.controls.workExperience.controls; let i = index">
+                            <button mat-raised-button color="accent" title="Remove" (click)="removeWorkExpIndex(i)" style="margin-bottom: 10px">
+                                <mat-icon matSuffix>delete</mat-icon>
+                            </button>
+                            
+                            <div formGroupName="{{i}}">
+            
+                                
+                                <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                    <mat-label>Organisation</mat-label>
+                                    <input matInput placeholder="Email Address" formControlName="organization">
+                                </mat-form-field>
+            
+
+                                <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+                                  <mat-label>Post Held</mat-label>
+                                  <input matInput placeholder="Post Held" formControlName="postHeld">
+                               </mat-form-field>
+            
+                                <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                    <mat-label>From</mat-label>
+                                    <input matInput [matDatepicker]="picker11" placeholder="Choose a date" formControlName="fromDate">
+                                      <mat-datepicker-toggle matSuffix [for]="picker11"></mat-datepicker-toggle>
+                                      <mat-datepicker touchUi #picker11 startView="year"></mat-datepicker>
+                                </mat-form-field>
+            
+            
+                                <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+                                    <mat-label>To</mat-label>
+                                    <input matInput [matDatepicker]="picker12" placeholder="Choose a date" formControlName="toDate">
+                                      <mat-datepicker-toggle matSuffix [for]="picker12"></mat-datepicker-toggle>
+                                      <mat-datepicker touchUi #picker12 startView="year"></mat-datepicker>
+            
+                                </mat-form-field>
+
+                            </div>
+                          </div>
+                    </div>              
+              <mat-action-row>
+                  <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                  <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+
+
+
+          <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Publications 
+                          </mat-panel-title>
+                         <!-- <mat-panel-description class="float-right">
+                            Your Publications over the years
+                            <mat-icon>account_circle</mat-icon>
+                          </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+
+
+                        <button mat-raised-button color="primary" (click)="addPub()" style="margin-bottom: 10px;" title="Add New">
+                            <mat-icon>add</mat-icon>
+                         </button>
+
+                        <div formArrayName="publications">
+                            <div *ngFor="let work of masterFormGroupings.controls.publications.controls; let i = index">
+                              <button mat-raised-button color="accent" title="Remove" (click)="removePub(i)" style="margin-bottom: 10px">
+                                  <mat-icon matSuffix>delete</mat-icon>
+                              </button>
+                              
+                              <div formGroupName="{{i}}">
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Title</mat-label>
+                                      <input matInput placeholder="Title" formControlName="title">
+                                  </mat-form-field>
+                
+                                  <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+                                      <mat-label>Publication Year</mat-label>
+                                      <input matInput [matDatepicker]="picker14" placeholder="Choose a date" formControlName="publicationYear">
+                                        <mat-datepicker-toggle matSuffix [for]="picker14"></mat-datepicker-toggle>
+                                        <mat-datepicker touchUi #picker14 startView="year"></mat-datepicker>
+                                  </mat-form-field>
+
+
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Publisher</mat-label>
+                                      <input matInput placeholder="Publisher" formControlName="publisher">
+                                  </mat-form-field>
+                
+                                  <!----------upload document here for the publication--------------->
+                                  <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/publication" multiple="multiple"></p-fileUpload>
+                
+                              </div>
+                            </div>
+                      </div>
+            <mat-action-row>
+                <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+
+
+
+
+
+
+
+            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Refrees
+                          </mat-panel-title>
+                         <!-- <mat-panel-description class="float-right">
+                            Your Refrees 
+                            <mat-icon>account_circle</mat-icon>
+                          </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+
+
+                        <button mat-raised-button color="primary" (click)="addRefree()" style="margin-bottom: 10px;" title="Add New">
+                            <mat-icon>add</mat-icon>
+                         </button>
+
+                        <div formArrayName="refrees">
+                            <div *ngFor="let work of masterFormGroupings.controls.refrees.controls; let i = index">
+                              <button mat-raised-button color="accent" title="Remove" (click)="removeRefreeIndex(i)" style="margin-bottom: 10px">
+                                  <mat-icon matSuffix>delete</mat-icon>
+                              </button>
+                              
+                              <div formGroupName="{{i}}">
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Title</mat-label>
+                                      <input matInput placeholder="Refree Full Name" formControlName="refreeFullName">
+                                  </mat-form-field>
+                
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Occupation</mat-label>
+                                      <input matInput placeholder="Occupation" formControlName="occupation">
+                                  </mat-form-field>
+
+
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                    <mat-label>Phone Number</mat-label>
+                                    <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                  <mat-label>Address</mat-label>
+                                  <input matInput placeholder="Contact Address" formControlName="address">
+                                </mat-form-field>
+                
+                                  <!----------upload document here for the publication--------------->
+                                  <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/publication" multiple="multiple"></p-fileUpload>
+                
+                              </div>
+                            </div>
+                      </div>
+            <mat-action-row>
+                <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
+
+
+
+
+<<<<<<< HEAD
 
                 <mat-expansion-panel [expanded]="step === 25" (opened)="setStep(25)" hideToggle>
 
@@ -2523,11 +3257,249 @@
 
 
       </mat-card>
+=======
+           <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Organisation And Professional Bodies
+                          </mat-panel-title>
+                         <!-- <mat-panel-description class="float-right">
+                            Enter organization and professional body here
+                            <mat-icon>account_circle</mat-icon>
+                          </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+
+
+                        <button mat-raised-button color="primary" (click)="addMembershipOfProfessionalBodies()" style="margin-bottom: 10px;" title="Add New">
+                            <mat-icon>add</mat-icon>
+                         </button>
+
+                        <div formArrayName="membershipOfProfessionalBodies">
+                            <div *ngFor="let work of masterFormGroupings.controls.membershipOfProfessionalBodies.controls; let i = index">
+                              <button mat-raised-button color="accent" title="Remove" (click)="removeMembershipOfProfessionalBodiesIndex(i)" style="margin-bottom: 10px">
+                                  <mat-icon matSuffix>delete</mat-icon>
+                              </button>
+                              
+                              <div formGroupName="{{i}}">
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Organization Name</mat-label>
+                                      <input matInput placeholder="Email Address" formControlName="organizationName">
+                                  </mat-form-field>
+                
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                      <mat-label>Date Joined</mat-label>
+                                      <input matInput [matDatepicker]="picker15" placeholder="Select date" formControlName="yearJoined">
+                                        <mat-datepicker-toggle matSuffix [for]="picker15"></mat-datepicker-toggle>
+                                        <mat-datepicker touchUi #picker15 startView="year"></mat-datepicker>
+                                  </mat-form-field>
+
+
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Post Held</mat-label>
+                                      <input matInput placeholder="Email Address" formControlName="postHeld">
+                                  </mat-form-field>
+                
+                                  <!----------upload document here for the publication--------------->
+                                  <!-- <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/publication" multiple="multiple"></p-fileUpload> -->
+                
+                              </div>
+                            </div>
+                      </div>
+            <mat-action-row>
+                <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+ 
 
 
 
 
 
+
+        
+        <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                           Assignments
+                          </mat-panel-title>
+                         <!-- <mat-panel-description class="float-right">
+                            Enter your assignments here
+                            <mat-icon>account_circle</mat-icon>
+                          </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+
+
+                        <button mat-raised-button color="primary" (click)="addSpecialAssignment()" style="margin-bottom: 10px;" title="Add New">
+                            <mat-icon>add</mat-icon>
+                         </button>
+
+                        <div formArrayName="specialAssignment">
+                            <div *ngFor="let work of masterFormGroupings.controls.specialAssignment.controls; let i = index">
+                              <button mat-raised-button color="accent" title="Remove" (click)="removeSpecialAssignment(i)" style="margin-bottom: 10px">
+                                  <mat-icon matSuffix>delete</mat-icon>
+                              </button>
+                              
+                              <div formGroupName="{{i}}">
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Assignment</mat-label>
+                                      <input matInput placeholder="Assignment" formControlName="assignment">
+                                  </mat-form-field>
+                
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Description</mat-label>
+                                      <input matInput placeholder="Email Address" formControlName="description">
+                                  </mat-form-field>
+
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                    <mat-label>Assignment Year</mat-label>
+                                    <input matInput [matDatepicker]="picker16" placeholder="Choose a date" formControlName="year">
+                                      <mat-datepicker-toggle matSuffix [for]="picker16"></mat-datepicker-toggle>
+                                      <mat-datepicker touchUi #picker16 startView="year"></mat-datepicker>
+                                 </mat-form-field>
+                
+                                  <!----------upload document here for the publication--------------->
+                                  <!-- <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/publication" multiple="multiple"></p-fileUpload> -->
+                
+                              </div>
+                            </div>
+                      </div>
+                <mat-action-row>
+                    <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                    <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+                </mat-action-row>
+              </mat-expansion-panel>
+
+
+
+
+
+
+         <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Extra Curricula Activities
+                          </mat-panel-title>
+                         <!-- <mat-panel-description class="float-right">
+                            Enter your extra currivula activites here
+                            <mat-icon>account_circle</mat-icon>
+                          </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+
+
+                        <button mat-raised-button color="primary" (click)="addExtraCurriculaActivities()" style="margin-bottom: 10px;" title="Add New">
+                            <mat-icon col>add</mat-icon>
+                         </button>
+
+                        <div formArrayName="extraCurriculaActivities">
+                            <div *ngFor="let work of masterFormGroupings.controls.extraCurriculaActivities.controls; let i = index">
+                              <button mat-raised-button color="accent" title="Remove" (click)="removeExtraCurriculaActivities(i)" style="margin-bottom: 10px">
+                                  <mat-icon matSuffix>delete</mat-icon>
+                              </button>
+                              
+                              <div formGroupName="{{i}}">
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                      <mat-label>Title</mat-label>
+                                      <input matInput placeholder="Title" formControlName="assignment">
+                                  </mat-form-field>
+ 
+
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10">
+                                    <mat-label>Description</mat-label>
+                                    <input matInput placeholder="A Brief Description here..." formControlName="description">
+                                 </mat-form-field>
+                
+                                  <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
+                                      <mat-label>Date </mat-label>
+                                      <input matInput [matDatepicker]="picker17" placeholder="Choose a date" formControlName="date">
+                                        <mat-datepicker-toggle matSuffix [for]="picker17"></mat-datepicker-toggle>
+                                        <mat-datepicker touchUi #picker17 startView="year"></mat-datepicker>
+                                  </mat-form-field>
+                
+                                  <!----------upload document here for the publication--------------->
+                                  <p-fileUpload name="myfile[]" url="http://localhost:8081/upload/extra_curricula_activities" multiple="multiple"></p-fileUpload>
+                
+                              </div>
+                            </div>
+                      </div>
+            <mat-action-row>
+                <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>  
+
+     </form>
+
+     <div class="margin-top-20" style="float: right;">
+          <button mat-raised-button color="warn" matStepperPrevious class="marging-right-10"> << Previous </button>
+          <button mat-raised-button color="primary" matStepperNext> Next >> </button>
+     </div>
+
+    </mat-step>
+
+
+
+    <mat-step [stepControl]="dateAndSignature">
+      <ng-template matStepLabel>Signature & Date </ng-template>
+
+      <form [formGroup]="dateAndSignature">
+
+             <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>'
+
+             <mat-form-field appearance="outline" class="width-45 marging-left-10 ">
+               <mat-label>Date</mat-label>
+               <input matInput [matDatepicker]="picker2" placeholder="Choose a date" formControlName="dateSigned">
+                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                 <mat-datepicker touchUi #picker2 startView="year"></mat-datepicker>
+              </mat-form-field>
+
+              <div class="marging-right-10 ">
+                  <button mat-raised-button color="secondary" (click)="clearSignature()" class="marging-right-10" style="font: bold">Clear Signature</button>
+              </div>
+
+
+
+      </form>
+           
+      <div class="margin-top-20" style="float: right;">
+          <button mat-raised-button color="warn" matStepperPrevious class="marging-right-10"> << Previous </button>
+          <button mat-raised-button color="primary" matStepperNext> Next >> </button>
+     </div>
+
+     </mat-step>
+
+
+
+     <mat-step [stepControl]="finalStage">
+      <div>
+        <h2>
+          Are you sure all the information provided are correct ? If not you can make a calm check on the it by going back!
+        </h2>
+
+        <h2>
+          
+        </h2>
+          
+
+      </div>
+      <div class="margin-top-50" style="float: right;">
+          <button mat-raised-button color="warn" matStepperPrevious class="marging-right-10"> << Previous </button>
+          <button mat-raised-button color="primary" (click) = "processApplication()"> Submit Application </button>
+     </div>
+       </mat-step>
+ 
+
+    </mat-horizontal-stepper>
+   </mat-card-content>
+</mat-card>
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
+
+
+
+
+
+<<<<<<< HEAD
       <ng-container *ngIf="showBlurBackgroundOverlay; then blurBody; else unBlurBody"></ng-container>
       <!--------------------------Background Overlay-------------------------------->
       <ng-template #blurBody>
@@ -2548,3 +3520,19 @@
   </section>
   <!-- <app-footer></app-footer> -->
 </div>
+=======
+<ng-container *ngIf="showBlurBackgroundOverlay; then blurBody; else unBlurBody"></ng-container>
+<!--------------------------Background Overlay-------------------------------->
+<ng-template #blurBody>
+  <div class="overlay">
+    <h2 style="text-align: center">
+      Your Registeration was successful
+    </h2>
+  </div>
+</ng-template>
+
+<ng-template #unBlurBody>
+
+</ng-template>
+
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b

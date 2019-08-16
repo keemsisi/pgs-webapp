@@ -8,7 +8,11 @@ import { CacheService } from './cache.service';
   providedIn: 'root'
 })
 export class CustomHttpServicesService {
+<<<<<<< HEAD
   readonly serverURL = 'http://localhost:8081';
+=======
+  serverURL = 'http://localhost:8081';
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 
   constructor(private clientHttpRequest: HttpClient , private cacheService: CacheService) {
 
@@ -48,6 +52,7 @@ export class CustomHttpServicesService {
     return this.clientHttpRequest.post(this.serverURL + '/users/grant',
     { 'username' : username, 'password': password }, {responseType : 'json'});
   }
+<<<<<<< HEAD
 
     /**
    * 
@@ -66,6 +71,8 @@ export class CustomHttpServicesService {
     return this.clientHttpRequest.post(`${this.serverURL}` + '/survey/add' , {'survey' : survey } , {responseType: 'json'} );
   }
 
+=======
+>>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 }
 
 /**

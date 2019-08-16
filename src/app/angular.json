@@ -28,64 +28,23 @@
               "src/styles.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-<<<<<<< HEAD
-              "node_modules/primeicons/primeicons.css",
-              "src/assets/css/animate.css",
-              "src/assets/css/bootstrap.min.css",
-              "src/assets/css/flaticon.css",
-              "src/assets/css/font-awesome.min.css",
-              "src/assets/css/icofont.min.css",
-              "src/assets/css/magnific-popup.css",
-              "src/assets/css/owl.carousel.min.css",
-              "src/assets/css/responsive.css",
-              "src/assets/new-assets/css/responsive.css",
-              "src/assets/new-assets/css/style.css"
-            ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "src/assets/js/jquery-3.3.1.min.js",
-              "node_modules/hammerjs/hammer.js",
-              "src/assets/js/popper.min.js",
-              "src/assets/js/bootstrap.min.js",
-              "src/assets/js/contact.js" ,
-              "src/assets/js/counterup.min.js",
-              "src/assets/js/custom.js",
-              "src/assets/js/magnific-popup.min.js",
-              "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/scrollIt.min.js",
-              "src/assets/js/validator.min.js",
-              "src/assets/js/waypoints.js",
-              "src/assets/js/wow.min.js",
-              "src/assets/js/wow.min.js",
-              "src/assets/newsletter/ajax-newsletter-form.js"
-=======
               "node_modules/primeicons/primeicons.css"
             ],
-
-
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/hammerjs/hammer.js"
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
             ]
+
           },
 
           "configurations": {
             "production": {
-<<<<<<< HEAD
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }],
-=======
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -95,13 +54,6 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-<<<<<<< HEAD
-              "budgets": [{
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }]
-=======
               "budgets": [
                 {
                   "type": "initial",
@@ -109,7 +61,6 @@
                   "maximumError": "5mb"
                 }
               ]
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
             }
           }
         },
