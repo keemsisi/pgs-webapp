@@ -11,7 +11,6 @@ import { SignaturePadModule } from 'angular2-signaturepad';
 import {CvDocumentationComponent} from './cv-documentation/cv-documentation.component';
 import {PGSHomeComponent} from './pgs-home/pgs-home.component';
 import {HomeComponent} from './home/home.component';
-<<<<<<< HEAD
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule } from '@angular/common/http';
 
@@ -26,13 +25,6 @@ import { MatPasswordStrengthModule } from '@angular-material-extensions/password
 
 
 
-=======
-import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
-import {RouterModule} from '@angular/router';
-import {FileUploadModule} from 'primeng/fileupload';
-import {HttpClientModule } from '@angular/common/http';
-
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 
 
 
@@ -43,7 +35,6 @@ import {
   MatOptionModule, MatSelectModule, MatInputModule,
   MatDatepickerModule, MatRadioModule,
   MatNativeDateModule, MatIconModule,
-<<<<<<< HEAD
   MatExpansionModule,
   MatToolbarModule,
   MatListModule,MatTableModule , MatProgressSpinnerModule ,
@@ -97,12 +88,6 @@ const appRoute: Routes = [
     {path : '**' , component : PagenotfoundComponent},
 ];
 
-=======
-  MatExpansionModule
-} from '@angular/material';
-
-
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 
 @NgModule({
   declarations: [
@@ -110,7 +95,6 @@ const appRoute: Routes = [
     CvDocumentationComponent,
     PGSHomeComponent,
     HomeComponent,
-<<<<<<< HEAD
     PagenotfoundComponent,
     LoginCredentialsComponent,
     PgsHomeLandingComponent,
@@ -126,14 +110,10 @@ const appRoute: Routes = [
     PgsHeaderComponent,
     FooterComponent,
     ContactAdministratorComponent,
-=======
-    PagenotfoundComponent
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     MatPasswordStrengthModule.forRoot(),
     RouterModule.forRoot(appRoute),
     MatButtonModule, MatSidenavModule, MatStepperModule, MatCardModule, MatFormFieldModule, MatCardModule
@@ -149,21 +129,3 @@ const appRoute: Routes = [
 })
 export class AppModule { }
  
-=======
-    RouterModule.forRoot([
-      {path : '' , component : PGSHomeComponent} ,
-      {path : 'cv-documentation' , component : CvDocumentationComponent},
-      {path : '**' , component : PagenotfoundComponent}
-    ]),
-    MatButtonModule, MatSidenavModule, MatStepperModule, MatCardModule, MatFormFieldModule, MatCardModule
-    , MatCheckboxModule, ReactiveFormsModule, FormsModule, MatOptionModule, MatSelectModule, MatDatepickerModule,
-    MatDatepickerModule, MatRadioModule, MatNativeDateModule , MatInputModule,
-    SignaturePadModule, MatRadioModule, BrowserAnimationsModule,
-    MatIconModule, FileUploadModule, HttpClientModule, MatExpansionModule
-
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
