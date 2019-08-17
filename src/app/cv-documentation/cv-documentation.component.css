@@ -3,13 +3,6 @@
     width: 400px;
 }
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 .width-5{
     width: 5%;
 }.width-10{
@@ -183,10 +176,6 @@
   margin: 15px 0;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 .custom-textarea {
   height: auto;
   /**margin-top: 20px; */
@@ -229,7 +218,6 @@ input .input{
         background-color: rgba(0,0,0,0.5); /* Black background with opacity */
         z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
         cursor: pointer; /* Add a pointer on hover */
-<<<<<<< HEAD
 }
 
 .overlay_1 {
@@ -244,6 +232,4 @@ input .input{
     background-color: rgba(44, 9, 58, 0.979); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
-=======
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
 }

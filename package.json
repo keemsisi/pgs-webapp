@@ -11,53 +11,38 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@angular-material-extensions/password-strength": "^3.8.0",
-=======
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
     "@angular/animations": "^7.1.4",
     "@angular/cdk": "^7.1.1",
     "@angular/common": "^7.1.4",
     "@angular/compiler": "^7.1.4",
     "@angular/core": "^7.1.4",
-<<<<<<< HEAD
     "@angular/flex-layout": "^5.0.0-beta.14",
-=======
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
     "@angular/forms": "^7.1.4",
     "@angular/http": "^7.1.4",
     "@angular/material": "^7.1.1",
     "@angular/platform-browser": "^7.1.4",
     "@angular/platform-browser-dynamic": "^7.1.4",
     "@angular/router": "^7.1.4",
-<<<<<<< HEAD
     "@types/html2canvas": "0.0.35",
     "@types/jspdf": "^1.3.1",
     "@types/pdfkit": "^0.10.0",
-=======
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
     "angular2-signaturepad": "^2.8.0",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
     "jquery": "^2.2.4",
-<<<<<<< HEAD
     "jspdf": "^1.5.3",
-=======
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
     "mdi": "^2.2.43",
     "multer": "^1.4.1",
     "mutter": "^1.0.1",
     "primeicons": "^1.0.0",
     "primeng": "^7.1.0",
     "rxjs": "^6.3.3",
-<<<<<<< HEAD
     "rxjs-compat": "^6.5.2",
-=======
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.10.0",
+    "@angular-devkit/build-angular": "~0.7.0",
     "@angular/cli": "~7.1.4",
     "@angular/compiler-cli": "^7.1.4",
     "@angular/language-service": "^7.1.4",
