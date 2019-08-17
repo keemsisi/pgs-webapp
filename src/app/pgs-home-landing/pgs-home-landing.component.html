@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<div class="version-drak">
+<div class="version-drak" style="width: 100% ; width: 100% ; overflow: hidden;">
   <!--Start Preloader-->
   <div class="preloader" style="display: none;">
     <div class="d-table">
@@ -32,7 +31,7 @@
                 <a class="nav-link"  data-scroll-nav="9" style="color: white">Promot Bot</a>
               </li> -->
               <li class="nav-item">
-                  <a class="nav-link active" href="#" data-scroll-nav="0">Home</a>
+                <a class="nav-link active" [routerLink]="[ '']" data-scroll-nav="0">Home</a>
               </li>
               <li class="nav-item">
                 <!-- <a class="nav-link" href="#" data-scroll-nav="1">Features</a> -->
@@ -60,13 +59,14 @@
 
 
               <li class="nav-item download-btn">
-                  <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/admin-contact' ]"> Contact Administrator </a>
+                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/admin-contact' ]"> Contact Administrator </a>
               </li>
 
               <li class="nav-item download-btn">
-                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/admin-contact' ]"> Predatory Journals </a>
-            </li>
-<!-- 
+                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/predatory-journals' ]"> Predatory Journals
+                </a>
+              </li>
+              <!-- 
               <li class="nav-item">
                 <a class="nav-link" href="#" data-scroll-nav="2">Contact Administrator</a>
               </li> -->
@@ -233,147 +233,3 @@
   <!--start about area-->
   <!-- <app-footer></app-footer> -->
 </div>
-=======
-<mat-sidenav-container  color="primary">
-    <mat-sidenav  #sidenav role="navigation" >
-     <mat-nav-list>
-      <a mat-list-item>
-        <mat-icon class="icon">input</mat-icon>
-        <span class="label">Login</span>
-      </a>
-      <a mat-list-item
-          routerLink="/">
-        <mat-icon class="icon">home</mat-icon>
-          <span class="label">Home</span>
-      </a>
-      <a mat-list-item
-        routerLink="/dashboard">
-        <mat-icon class="icon">dashboard</mat-icon>
-        <span class="label">Dashboard</span>
-      </a>
-      <a  mat-list-item
-          type="button">
-        <mat-icon class="icon">input</mat-icon>
-        <span class="label">LogOut</span>
-      </a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-       <div fxHide.gt-xs>
-         <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-       <div>
-         <!-- <a routerLink="/">
-           Promotional Gradding System
-         </a> -->
-       </div>
-       
-      </mat-toolbar>
-      <main>
-        <!-- <router-outlet></router-outlet> -->
-
-
-        <ng-container>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>
-                  <h1 style="font-size: 30px">
-                      Welcome to Promotional Gradding System
-                  </h1>
-                </mat-card-title>
-                <mat-card-subtitle></mat-card-subtitle>
-              </mat-card-header>
-              <mat-card-content>
-              
-                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px ; text-justify: inter-word">
-                  The site belongs to the deparment of Computer Science , Federal University of Agriculture,
-                  Abeokuta and such it is strictly for the staff of the deparment to use.
-                </p>
-          
-                <div style="display: flex ; justify-content: space-between ; margin-left: 10%; margin-right: 10%;">
-          
-                  <mat-card class="matcard" color='primary'>
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>
-                          <h1 style="font-size: 20px">
-                              About Promotional Gradding System
-                          </h1>
-                      </mat-card-title>
-                      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-                    </mat-card-header>
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                    <mat-card-content>
-                      <p>
-                        The Promotional Gradding System (PGS) have been built to effectively grade the Lecturer's performance based
-                        on their qualifications and academic excellence .This will further check if they are due for promotion based on some sensitive criterias.
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <!-- <a [routerLink]="['/cv-documentation']" routerLinkActive="router-link-active" > -->
-                        <!-- <button mat-raised-button color='primary'> Register an Account Now</button> -->
-                      <!-- </a> -->
-                      <!--  -->
-                    </mat-card-actions>
-                  </mat-card>
-              
-              
-                  <mat-card class="matcard">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>
-                          <h1 style="font-size: 20px">
-                              How to Get In
-                          </h1>
-                      </mat-card-title>
-                      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-                    </mat-card-header>
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                    <mat-card-content>
-                      <p>
-                        If you do not have an account with here on PGS yet, kindly click on the bellow button to sign up otherwise click on the next 
-                        button to loging to your account.
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <a [routerLink]="['/cv-documentation']" routerLinkActive="router-link-active" >
-                        <button mat-raised-button color='accent' style='margin-right: 20px;'>Sing Up</button>
-                      </a>
-          
-                      <a  href="http://localhost:4300" >
-                        <button mat-raised-button color='primary' style="margin-right: 20px;">Login</button>
-                      </a>
-          
-                      <!--  -->
-                    </mat-card-actions>
-                  </mat-card>
-                </div>
-              </mat-card-content>
-              <!-- <mat-card-actions>
-                <button mat-button>Ok</button>
-              </mat-card-actions> -->
-            </mat-card>
-          </ng-container>
-          
-          <div style="width: 100% ; height: 50%; background-color: rgb(129, 48, 204)">
-            <div>
-          
-            </div>
-          </div>
-            <footer>
-              <div >
-          
-              </div>
-            </footer>
-
-
-      </main>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
-  <!-- <router-outlet></router-outlet> -->
-
->>>>>>> 3ef147db79ca826e40a81226191d60342b05183b
