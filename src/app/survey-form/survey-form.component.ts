@@ -38,13 +38,13 @@ export class SurveyFormComponent implements OnInit {
       } else if (error.status === 404) {
         this.messageService.add({
           severity: 'success', 'closable': true,
-          detail: 'Client Error ', summary: 'Oops... rotue not found'
+          detail: 'Slight Issue', summary: 'Your Survey can not be processed now, please try again later'
         });
       } else {
         // console.log(error);
         this.messageService.add({
           severity: 'error', 'closable': true,
-          detail: 'Client Error ', summary: 'Oops... Cant processs your survey for now!'
+          detail: 'Slight Issue', summary: 'Your Survey can not be processed now, please try again later'
         });
       }
     });

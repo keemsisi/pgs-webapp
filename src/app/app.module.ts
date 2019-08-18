@@ -70,6 +70,7 @@ import { PgsHeaderComponent } from './pgs-header/pgs-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PredatoryJournalsComponent } from './predatory-journals/predatory-journals.component';
 import { CvDocumentationStageComponent } from './cv-documentation-stage/cv-documentation-stage.component';
+import { AssesmentComponent } from './assesment/assesment.component';
 
 const appRoute: Routes = [
     {path : '' , component : PgsHomeLandingComponent },
@@ -89,6 +90,7 @@ const appRoute: Routes = [
     {path : 'view-edit-cv' , component : FileAupploadingsComponent, canActivate : [FileUploadGuard]},
     {path : 'admin-contact' , component : ContactAdministratorComponent},
     {path : 'predatory-journals' , component : PredatoryJournalsComponent},
+    {path : 'cv-assessment' , component : AssesmentComponent},
     {path : '**' , component : PagenotfoundComponent},
 ];
 
@@ -115,7 +117,8 @@ const appRoute: Routes = [
     FooterComponent,
     ContactAdministratorComponent,
     PredatoryJournalsComponent,
-    CvDocumentationStageComponent
+    CvDocumentationStageComponent,
+    AssesmentComponent
   ],
   imports: [
     BrowserModule,
