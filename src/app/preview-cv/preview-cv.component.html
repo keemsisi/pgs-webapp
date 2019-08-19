@@ -1,9 +1,62 @@
-<div style="overflow-x: hidden ; width: 100% ; height: 100%;">
+<!--start header-->
+<div class="version-drak" style="width: 100% ; width: 100% ; overflow: hidden;">
+  <!--start header-->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <!-- Logo -->
+          <!-- <a class="logo" href="#"><img src="/assets/new-assets/images/logo.png" alt="logo"></a> -->
+
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"><i class="icofont-navigation-menu"></i></span>
+          </button>
+          <!-- navbar links -->
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ml-auto">
+              <!-- <li class="nav-item">
+                <a class="nav-link"  data-scroll-nav="9" style="color: white">Promot Bot</a>
+              </li> -->
+              <li class="nav-item download-btn">
+                <a class="nav-link active" [routerLink]="[ '']" data-scroll-nav="0">Home</a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Blog</a> -->
+              </li>
+
+              <!-- 
+              <li class="nav-item download-btn">
+                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/predatory-journals' ]"> Predatory Journals
+                </a>
+              </li>
+
+
+              <li class="nav-item download-btn">
+                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/admin-contact' ]"> Contact Admin </a>
+              </li> -->
+
+              <!-- 
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-scroll-nav="2">Contact Administrator</a>
+              </li> -->
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+</div>
+
+
+<div style="overflow-x: hidden ; width: 100% ; height: 100%; margin-top: 30px;">
   <div [ngClass]="{'card-header': hideCard}" id="pdfwrapper">
     <mat-card>
       <mat-card-header>
         <mat-card-title>YOUR CURRICULUM VITAE PREVIEW</mat-card-title>
-        <mat-card-subtitle>A preview of your CV before sumitting</mat-card-subtitle>
+        <mat-card-subtitle>A Preview of your CV before Submission</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <div class="margin-top-20">

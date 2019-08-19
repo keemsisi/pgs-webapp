@@ -21,7 +21,8 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./cv-documentation.component.css']
 })
 export class CvDocumentationComponent implements OnInit, AfterViewInit {
-  serverURL: 'http://localhost:8081';
+  // serverURL: 'http://localhost:8081';
+  serverURL: 'https://promotbotformserver.herokuapp.com';
 
   belongsTo: Array<string> = [
     'Religious Body',
@@ -1605,9 +1606,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     const dateAndSignature = masterFormValues['dateAndSignature'];
 
 
-    const phoneNumbers =      personalFormValues['phoneNumbers'];
-    const contactAddresses =  personalFormValues['contactAddresses'];
-    const emailAddresses =    personalFormValues['emailAddresses'];
+    const phoneNumbers = personalFormValues['phoneNumbers'];
+    const contactAddresses = personalFormValues['contactAddresses'];
+    const emailAddresses = personalFormValues['emailAddresses'];
 
 
     this.loadFormGroupValues('workExperience', workExperience, this.initWorkExp());
@@ -1932,7 +1933,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     });
 
     setTimeout(() => {
-      window.location.reload(true);
+      // window.location.reload(true);
+      this.router.navigate(['/cv-documentation']);
     }, 1000);
 
   }

@@ -1,18 +1,6 @@
 
 
 <div class="version-drak" style="width: 100% ; width: 100% ; overflow: hidden;">
-  <!--Start Preloader-->
-  <div class="preloader" style="display: none;">
-    <div class="d-table">
-      <div class="d-table-cell align-middle">
-        <div class="spinner">
-          <div class="double-bounce1"></div>
-          <div class="double-bounce2"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--End Preloader-->
   <!--start header-->
   <header id="header">
     <div class="container">
@@ -32,10 +20,10 @@
               <!-- <li class="nav-item">
                 <a class="nav-link"  data-scroll-nav="9" style="color: white">Promot Bot</a>
               </li> -->
-              <li class="nav-item">
+              <li class="nav-item download-btn">
                 <a class="nav-link active" [routerLink]="[ '']" data-scroll-nav="0">Home</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item download-btn">
                 <!-- <a class="nav-link" href="#" data-scroll-nav="1">Features</a> -->
                 <a class="nav-link" href="#" data-scroll-nav="1">About</a>
               </li>
@@ -49,25 +37,28 @@
                 <!-- <a class="nav-link" href="#">Blog</a> -->
               </li>
               <li class="nav-item download-btn">
-                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/cv-assessment' ]">Assesment </a>
+                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/cv-assessment' ]">Assesment</a>
               </li>
 
 
 
               <li class="nav-item download-btn">
-                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/cv-documentation-stage' ]"> Submit CV </a>
+                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/cv-documentation-stage' ]">Submit CV</a>
               </li>
 
 
 
-              <li class="nav-item download-btn">
-                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/admin-contact' ]"> Contact Administrator </a>
-              </li>
 
               <li class="nav-item download-btn">
                 <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/predatory-journals' ]"> Predatory Journals
                 </a>
               </li>
+
+
+              <li class="nav-item download-btn">
+                <a class="nav-link" data-scroll-nav="5" [routerLink]="[ '/admin-contact' ]"> Contact Admin </a>
+              </li>
+
               <!-- 
               <li class="nav-item">
                 <a class="nav-link" href="#" data-scroll-nav="2">Contact Administrator</a>
@@ -174,4 +165,5 @@
     </div>
   </div>
 </section>
+<app-footer></app-footer>
 <p-toast position="bottom-right"></p-toast>
