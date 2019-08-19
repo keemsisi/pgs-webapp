@@ -76,9 +76,9 @@ export class PreviewCvComponent implements OnInit {
   prizesDisplayColumn: string[] = ['no', 'title', 'date'];
   honoursDisplayColumn: string[] = ['no', 'title', 'date'];
   scholarshipsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-  nationalRecognitionsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-  internationalRecognitionsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-  loginCredRecognitionsDisplayColumn: string[] = ['no', 'username', 'password', 'dateReg'];
+  nationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
+  internationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
+  loginCredRecommendationsDisplayColumn: string[] = ['no', 'username', 'password', 'dateReg'];
   paperReviewingDisplayColumn: string[] = ['no', 'paperR'];
 
   displayEdu: string[] = ['no', 'edu', 'fromDate', 'toDate'];
@@ -127,8 +127,8 @@ export class PreviewCvComponent implements OnInit {
         'professionalQualifications': [{}],
         'prizes': [{}],
         'honours': [{}],
-        'nationalRecognitions': [{}],
-        'internationalRecognitions': [{}]
+        'nationalRecommendations': [{}],
+        'internationalRecommendations': [{}]
       },
       'personalInformation': {},
       'loginCredentials': [{}]
@@ -228,8 +228,8 @@ export class PreviewCvComponent implements OnInit {
     //       'professionalQualifications': [{ 'receivedFrom': '', 'date': '' }],
     //       'prizes': [{ 'receivedFrom': '', 'title': '', 'date': '' }], 'scholarships': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
     //       'honours': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
-    //       'nationalRecognitions': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
-    //       'internationalRecognitions': [{ 'receivedFrom': '', 'title': '', 'date': '' }]
+    //       'nationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
+    //       'internationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }]
     //     },
     //     'loginCred': { 'username': '', 'password': '', 'dateReg': 'Fri Jul 26 2019 23:05:19 GMT+0100 (West Africa Standard Time)' }
     //   };

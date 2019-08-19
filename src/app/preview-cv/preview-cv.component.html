@@ -254,7 +254,7 @@
         </mat-table>
 
         <h4 style=" margin-top: 5% ; font-weight: bold"></h4>
-        <mat-table [dataSource]="objectDataSource.eaphni.nationalRecognitions" class="mat-elevation-z8"
+        <mat-table [dataSource]="objectDataSource.eaphni.nationalRecommendations" class="mat-elevation-z8"
           style="width: 100% ;">
 
           <ng-container matColumnDef="no">
@@ -285,7 +285,7 @@
 
 
         <h4 style=" margin-top: 5% ; font-weight: bold">NATIONAL AND INTERNATIONAL RECOMMENDATION</h4>
-        <mat-table [dataSource]="objectDataSource.eaphni.nationalRecognitions" class="mat-elevation-z8"
+        <mat-table [dataSource]="objectDataSource.eaphni.nationalRecommendations" class="mat-elevation-z8"
           style="width: 100% ;">
 
           <ng-container matColumnDef="no">
@@ -309,8 +309,8 @@
             <td mat-cell *matCellDef="let element"> {{element.date}} </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="nationalRecognitionsDisplayColumn"></tr>
-          <tr mat-row *matRowDef="let row; columns: nationalRecognitionsDisplayColumn"></tr>
+          <tr mat-header-row *matHeaderRowDef="nationalRecommendationsDisplayColumn"></tr>
+          <tr mat-row *matRowDef="let row; columns: nationalRecommendationsDisplayColumn"></tr>
 
         </mat-table>
 

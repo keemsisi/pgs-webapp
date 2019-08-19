@@ -124,7 +124,7 @@ const appRoute: Routes = [
     BrowserModule,
     AppRoutingModule,
     MatPasswordStrengthModule.forRoot(),
-    RouterModule.forRoot(appRoute),
+    RouterModule.forRoot(appRoute , {useHash : true}),
     MatButtonModule, MatSidenavModule, MatStepperModule, MatCardModule, MatFormFieldModule, MatCardModule
     , MatCheckboxModule, ReactiveFormsModule, FormsModule, MatOptionModule, MatSelectModule, MatDatepickerModule,
     MatDatepickerModule, MatRadioModule, MatNativeDateModule , MatInputModule,

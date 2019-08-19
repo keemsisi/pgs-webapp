@@ -98,10 +98,10 @@
           <mat-expansion-panel [expanded]="stepper === 4" (opened)="setStepper(4)" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                National Recognitions File Uploads
+                National Recommendations File Uploads
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <p-fileUpload auto="auto" name="myfile[]" #nationalRecognition multiple="multiple" auto="auto"
+            <p-fileUpload auto="auto" name="myfile[]" #nationalRecommendation multiple="multiple" auto="auto"
               (onUpload)="onBasicUpload($event)" (onError)=onBasicError($event)></p-fileUpload>
 
             <mat-action-row>
@@ -115,10 +115,10 @@
           <mat-expansion-panel [expanded]="stepper === 5" (opened)="setStepper(5)" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                International Recognitions File Uploads
+                International Recommendations File Uploads
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <p-fileUpload auto="auto" name="myfile[]" #internationalRecognitions multiple="multiple" auto="auto"
+            <p-fileUpload auto="auto" name="myfile[]" #internationalRecommendations multiple="multiple" auto="auto"
               (onUpload)="onBasicUpload($event)" (onError)=onBasicError($event)></p-fileUpload>
 
             <mat-action-row>

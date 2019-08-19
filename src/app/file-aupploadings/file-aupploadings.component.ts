@@ -18,8 +18,8 @@ export class FileAupploadingsComponent implements OnInit {
 
   @ViewChild('prizes') prizesF: FileUpload;
   @ViewChild('commendation') commendationF: FileUpload;
-  @ViewChild('nationalRecognition') nationalRecognitionF: FileUpload;
-  @ViewChild('internationalRecognitions') internationalRecognitionsF: FileUpload;
+  @ViewChild('nationalRecommendation') nationalRecommendationF: FileUpload;
+  @ViewChild('internationalRecommendations') internationalRecommendationsF: FileUpload;
   @ViewChild('academicAndProfessionalQaulification') academicAndProfessionalQaulificationF: FileUpload;
   @ViewChild('specialAssignements') specialAssignemtnsF: FileUpload;
   @ViewChild('publications') publicationsF: FileUpload;
@@ -86,9 +86,9 @@ export class FileAupploadingsComponent implements OnInit {
       this.username;
       this.commendationF.url  = this.cacheService.serverURL + '/upload/commendations/' +
       this.username;
-      this.nationalRecognitionF.url  = this.cacheService.serverURL + '/upload/national-recognitions/' +
+      this.nationalRecommendationF.url  = this.cacheService.serverURL + '/upload/national-recognitions/' +
       this.username;
-      this.internationalRecognitionsF.url  = this.cacheService.serverURL + '/upload/international-recognitions/' +
+      this.internationalRecommendationsF.url  = this.cacheService.serverURL + '/upload/international-recognitions/' +
       this.username;
       this.academicAndProfessionalQaulificationF.url  = this.cacheService.serverURL + '/upload/national-and-professional-qaulifications/' +
       this.username;

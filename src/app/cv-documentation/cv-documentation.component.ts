@@ -84,8 +84,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
   prizesFiles: Array<File> = [];
   honoursFiles: Array<File> = [];
-  nationalRecognitionsFiles: Array<File> = [];
-  internationalRecognitionsFiles: Array<File> = [];
+  nationalRecommendationsFiles: Array<File> = [];
+  internationalRecommendationsFiles: Array<File> = [];
   commendationFiles: Array<File> = [];
   publicationsFiles: Array<File> = [];
   specialAssignmentATEFiles: Array<File> = [];
@@ -94,7 +94,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   extraCurriculaActivitiesFiles: Array<File> = [];
   educationalCertificates: Array<[]> = [];
   academicAndProfessionFiles: Array<File> = [];
-  nationalRecognitionFiles: Array<File> = [];
+  nationalRecommendationFiles: Array<File> = [];
   myfile = [];
   usernameCond: boolean;
   passwordMismatched: boolean;
@@ -112,8 +112,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
   @ViewChild('prizes') prizesF: FileUpload;
   @ViewChild('commendation') commendationF: FileUpload;
-  @ViewChild('nationalRecognition') nationalRecognitionF: FileUpload;
-  @ViewChild('internationalRecognitions') internationalRecognitionsF: FileUpload;
+  @ViewChild('nationalRecommendation') nationalRecommendationF: FileUpload;
+  @ViewChild('internationalRecommendations') internationalRecommendationsF: FileUpload;
   @ViewChild('academicQualifications') academicQualificationsF: FileUpload;
   @ViewChild('specialAssignements') specialAssignemtnsF: FileUpload;
   @ViewChild('publications') publicationsF: FileUpload;
@@ -234,9 +234,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    * 
    * @param $event 
    */
-  onSelectNationalRecognitionsFiles($event) {
+  onSelectNationalRecommendationsFiles($event) {
     for (const file of $event.target.files) {
-      this.nationalRecognitionsFiles.push(file);
+      this.nationalRecommendationsFiles.push(file);
     }
   }
 
@@ -245,9 +245,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   * 
   * @param $event 
   */
-  onRemoveNationalRecognitionsFiles($event) {
+  onRemoveNationalRecommendationsFiles($event) {
     for (const file of $event.target.file) {
-      this.nationalRecognitionsFiles.push(file);
+      this.nationalRecommendationsFiles.push(file);
     }
   }
 
@@ -255,9 +255,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   * 
   * @param $event 
   */
-  onSelectInternationalRecognitionsFiles($event) {
+  onSelectInternationalRecommendationsFiles($event) {
     for (const file of $event.target.files) {
-      this.internationalRecognitionsFiles.push(file);
+      this.internationalRecommendationsFiles.push(file);
     }
   }
 
@@ -266,9 +266,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    *
    * @param $event
    */
-  onRemoveInternationalRecognitionsFiles($event) {
+  onRemoveInternationalRecommendationsFiles($event) {
     for (const file of $event.target.files) {
-      this.internationalRecognitionsFiles.push(file);
+      this.internationalRecommendationsFiles.push(file);
     }
   }
 
@@ -446,9 +446,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    * 
    * @param $even
    */
-  onSelectNationalRecognitionFiles($event) {
+  onSelectNationalRecommendationFiles($event) {
     for (const file of $event.target.files) {
-      this.nationalRecognitionsFiles.push(file);
+      this.nationalRecommendationsFiles.push(file);
     }
   }
 
@@ -457,9 +457,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
      * 
      * @param $even
   */
-  onRemoveNationalRecognitionFiles($event) {
+  onRemoveNationalRecommendationFiles($event) {
     for (const file of $event.target.files) {
-      this.nationalRecognitionsFiles.push(file);
+      this.nationalRecommendationsFiles.push(file);
     }
   }
 
@@ -572,30 +572,30 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
 
-  addNationalRecognitions(): void {
-    (<FormArray>this.eaphni.controls['nationalRecognitions']).push(this.initPHNI());
+  addNationalRecommendations(): void {
+    (<FormArray>this.eaphni.controls['nationalRecommendations']).push(this.initPHNI());
   }
 
   /**
    * 
    * @param indexAt The Index of the educational background to remove 
    */
-  removeNationalRecognitions(indexAt: number): boolean {
-    (<FormArray>this.eaphni.controls['nationalRecognitions']).removeAt(indexAt);
+  removeNationalRecommendations(indexAt: number): boolean {
+    (<FormArray>this.eaphni.controls['nationalRecommendations']).removeAt(indexAt);
     return true;
   }
 
 
-  addInternationalRecognitions(): void {
-    (<FormArray>this.eaphni.controls['internationalRecognitions']).push(this.initPHNI());
+  addInternationalRecommendations(): void {
+    (<FormArray>this.eaphni.controls['internationalRecommendations']).push(this.initPHNI());
   }
 
   /**
    * 
    * @param indexAt The Index of the educational background to remove
    */
-  removeInternationalRecognitions(indexAt: number): boolean {
-    (<FormArray>this.eaphni.controls['internationalRecognitions']).removeAt(indexAt);
+  removeInternationalRecommendations(indexAt: number): boolean {
+    (<FormArray>this.eaphni.controls['internationalRecommendations']).removeAt(indexAt);
     return true;
   }
 
@@ -1648,8 +1648,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     const prizes = eaphiFormValues['prizes'];
     const scholarships = eaphiFormValues['scholarships'];
     const honours = eaphiFormValues['honours'];
-    const nationalRecognitions = eaphiFormValues['nationalRecognitions'];
-    const internationalRecognitions = eaphiFormValues['internationalRecognitions'];
+    const nationalRecommendations = eaphiFormValues['nationalRecommendations'];
+    const internationalRecommendations = eaphiFormValues['internationalRecommendations'];
 
 
     this.loadFormGroupValuesE('educationArray', educationArray, this.initeaphni());
@@ -1658,8 +1658,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     this.loadFormGroupValuesE('prizes', prizes, this.initPHNI());
     this.loadFormGroupValuesE('scholarships', scholarships, this.initPHNI());
     this.loadFormGroupValuesE('honours', honours, this.initPHNI());
-    this.loadFormGroupValuesE('nationalRecognitions', nationalRecognitions, this.initPHNI());
-    this.loadFormGroupValuesE('internationalRecognitions', internationalRecognitions, this.initPHNI());
+    this.loadFormGroupValuesE('nationalRecommendations', nationalRecommendations, this.initPHNI());
+    this.loadFormGroupValuesE('internationalRecommendations', internationalRecommendations, this.initPHNI());
 
     this.personalInformation.patchValue(personalFormValues); // set the partial value of the formgroup
     this.loadFormGroupValuesPer('phoneNumbers', phoneNumbers, this.initPhoneNumber());
@@ -1753,8 +1753,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       prizes: this.fb.array([this.initPHNI()]),
       scholarships: this.fb.array([this.initPHNI()]),
       honours: this.fb.array([this.initPHNI()]),
-      nationalRecognitions: this.fb.array([this.initPHNI()]),
-      internationalRecognitions: this.fb.array([this.initPHNI()]),
+      nationalRecommendations: this.fb.array([this.initPHNI()]),
+      internationalRecommendations: this.fb.array([this.initPHNI()]),
     });
 
     /***********************************************
@@ -1987,8 +1987,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       '3': <FormArray>this.eaphni.get('prizes'),
       '4': <FormArray>this.eaphni.get('scholarships'),
       '5': <FormArray>this.eaphni.get('honours'),
-      '6': <FormArray>this.eaphni.get('nationalRecognitions'),
-      '7': <FormArray>this.eaphni.get('internationalRecognitions'),
+      '6': <FormArray>this.eaphni.get('nationalRecommendations'),
+      '7': <FormArray>this.eaphni.get('internationalRecommendations'),
     };
   }
 }
