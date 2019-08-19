@@ -126,6 +126,7 @@ export class PreviewCvComponent implements OnInit {
         'academicQualifications': [{}],
         'professionalQualifications': [{}],
         'prizes': [{}],
+        'scholarships': [{}],
         'honours': [{}],
         'nationalRecommendations': [{}],
         'internationalRecommendations': [{}]
