@@ -309,7 +309,7 @@ export class PreviewCvComponent implements OnInit {
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['phoneNumbers']).length; index++) {
       const element = this.objectDataSource['personalInformation']['phoneNumbers'][index]['phoneNumber'];
       // // console.log(element);
-      phoneNum  += ' , ' + element ;
+      phoneNum  += + element + ' , '  ;
       // console.log(phoneNum);
 
     }
@@ -319,7 +319,7 @@ export class PreviewCvComponent implements OnInit {
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['contactAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['contactAddresses'][index]['contactAddress'];
       // // console.log(element);
-      contactAdd  += ' ,  ' + element  ;
+      contactAdd  += element   +  ' , ';
       // console.log(contactAdd);
 
     }
@@ -327,7 +327,7 @@ export class PreviewCvComponent implements OnInit {
 
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['emailAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['emailAddresses'][index]['emailAddress'];
-      //console.log(element);
+      // console.log(element);
       emailAdd  +=' , ' + element ;
       // console.log(emailAdd);
     }

@@ -194,7 +194,7 @@
 
 
         <h4 style=" margin-top: 5% ; font-weight: bold">(ii) PRIZES , HONOURS , SCHOLARSHIPS , NATIONAL AND
-          INTERNATIONAL RECOMMENDATION
+          PRIZES
         </h4>
         <mat-table [dataSource]="objectDataSource.eaphni.prizes" class="mat-elevation-z8" style="width: 100% ;">
 
@@ -224,7 +224,7 @@
 
         </mat-table>
 
-        <h4 style=" margin-top: 5% ; font-weight: bold"></h4>
+        <h4 style=" margin-top: 5% ; font-weight: bold">HONOURS</h4>
         <mat-table [dataSource]="objectDataSource.eaphni.honours" class="mat-elevation-z8" style="width: 100% ;">
 
           <ng-container matColumnDef="no">
@@ -253,7 +253,40 @@
 
         </mat-table>
 
-        <h4 style=" margin-top: 5% ; font-weight: bold"></h4>
+
+
+        <h4 style=" margin-top: 5% ; font-weight: bold">SCHOLARSHIPS</h4>
+        <mat-table [dataSource]="objectDataSource.eaphni.scholarships" class="mat-elevation-z8" style="width: 100% ;">
+
+          <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element ;let i  = index; "> {{ i  + 1 }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="receivedFrom">
+            <th mat-header-cell *matHeaderCellDef> RECEIVED FROM </th>
+            <td mat-cell *matCellDef="let element"> {{element.receivedFrom}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> TITLE </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> DATE </th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="scholarshipsDisplayColumn"></tr>
+          <tr mat-row *matRowDef="let row; columns: scholarshipsDisplayColumn"></tr>
+
+        </mat-table>
+
+
+
+        <h4 style=" margin-top: 5% ; font-weight: bold">NATIONAL RECOMMENDATION</h4>
         <mat-table [dataSource]="objectDataSource.eaphni.nationalRecommendations" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -278,14 +311,14 @@
             <td mat-cell *matCellDef="let element"> {{element.title}} </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="honoursDisplayColumn"></tr>
-          <tr mat-row *matRowDef="let row; columns: honoursDisplayColumn"></tr>
+          <tr mat-header-row *matHeaderRowDef="nationalRecommendationsDisplayColumn"></tr>
+          <tr mat-row *matRowDef="let row; columns: nationalRecommendationsDisplayColumn"></tr>
 
         </mat-table>
 
 
-        <h4 style=" margin-top: 5% ; font-weight: bold">NATIONAL AND INTERNATIONAL RECOMMENDATION</h4>
-        <mat-table [dataSource]="objectDataSource.eaphni.nationalRecommendations" class="mat-elevation-z8"
+        <h4 style=" margin-top: 5% ; font-weight: bold">INTERNATIONAL RECOMMENDATION</h4>
+        <mat-table [dataSource]="objectDataSource.eaphni.internationalRecommendations" class="mat-elevation-z8"
           style="width: 100% ;">
 
           <ng-container matColumnDef="no">
@@ -309,8 +342,8 @@
             <td mat-cell *matCellDef="let element"> {{element.date}} </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="nationalRecommendationsDisplayColumn"></tr>
-          <tr mat-row *matRowDef="let row; columns: nationalRecommendationsDisplayColumn"></tr>
+          <tr mat-header-row *matHeaderRowDef="internationalRecommendationsDisplayColumn"></tr>
+          <tr mat-row *matRowDef="let row; columns: internationalRecommendationsDisplayColumn"></tr>
 
         </mat-table>
 

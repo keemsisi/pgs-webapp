@@ -106,13 +106,29 @@
           </div>
 
 
-          <div class="container">
-            <div class="margin-top-20" style="float: right;  margin-right: 70px; ;">
-              <button mat-raised-button mat-raised-button color="primary"
-                style="min-width: 100px; background-color: rgb(245, 12, 12) " (click)="deleteAllSavedFormsValues()">
-                Delete All Form Details
-              </button>
+
+
+
+          <div class="container row" #d>
+            <!--start read more button-->
+            <div class="col-md-6 col-lg-6 col-x-6" #1>
+              <div class="margin-top-70 marging-left-40" >
+                <button mat-raised-button mat-raised-button style="min-width: 100px; background-color: red ; font-weight: bold ; text-align: center; color: white"
+                  (click)="deleteAllSavedFormsValues()">
+                  Clear All Fields
+                </button>
+              </div>
             </div>
+
+            <div class="col-md-6 col-lg-6 col-x-6" #2>
+              <div class="margin-top-70 marging-left-40">
+                  <button mat-raised-button mat-raised-button style="min-width: 100px; background-color: rgb(137, 6, 236) ; font-weight: bold ; text-align: center; color: white"
+                  (click)="saveAllFormsValues()">
+                  Save and Continue
+                </button>
+              </div>
+            </div>
+            <!--end read more button-->
           </div>
 
         </div>
@@ -131,36 +147,7 @@
 
 
         <mat-card class="margin-top-20 card-m">
-          <mat-card-header>
 
-
-            <div mat-card-avatar>
-            </div>
-
-            <mat-card-title class="card-header-bg-color">
-              <!-- <h3>NEW CURRICULUM VITAE</h3> -->
-
-
-
-            </mat-card-title>.
-
-            <mat-card-subtitle>
-              <mat-error *ngIf="usernameCond">
-                Please choose another username before you can submit the form
-              </mat-error>
-            </mat-card-subtitle>
-
-            <div class="margin-top-20" style="float: right; margin-right: 40px;">
-              <button mat-raised-button mat-raised-button color="primary" style="min-width: 100px;"
-                (click)="saveAllFormsValues()">
-                Save Form Details
-              </button>
-            </div>
-
-
-
-
-          </mat-card-header>
 
 
 
@@ -678,11 +665,7 @@
 
                             <mat-form-field appearance="outline" class="width-30 marging-right-5 ">
                               <mat-label>Date Scholarship was Recieved</mat-label>
-                              <!-- <input matInput [matDatepicker]="picker8" placeholder="From Date" formControlName="date"> -->
                               <input matInput placeholder="Date Received" formControlName="date">
-                              <!-- <mat-datepicker-toggle matSuffix [for]="picker8"></mat-datepicker-toggle>
-                              <mat-datepicker touchUi #picker8 startView="year"></mat-datepicker> -->
-
                             </mat-form-field>
                           </div>
                         </div>

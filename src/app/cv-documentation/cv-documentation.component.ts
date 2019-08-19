@@ -556,14 +556,23 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
 
-  addScholarship(): void {
-    (<FormArray>this.eaphni.controls['scholarships']).push(this.initPHNI());
 
+  initScholarship(): FormGroup {
+    return this.fb.group({
+      receivedFrom: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
+      title: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
+      date: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4,}'))]),
+    });
+  }
+
+
+  addScholarship(): void {
+    (<FormArray>this.eaphni.controls['scholarships']).push(this.initScholarship());
   }
 
   /**
    * 
-   * @param indexAt The Index of the educational background to remove 
+   * @param indexAt The Index of the educational background to remove
    */
   removeScholarship(indexAt: number): boolean {
     (<FormArray>this.eaphni.controls['scholarships']).removeAt(indexAt);
@@ -1385,11 +1394,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
   public initExtraCurriculaActivities(): FormGroup {
     return this.fb.group({
-      // title: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
-      activity: new FormControl(''),
-      // fromDate: new FormControl(''),
-      // toDate: new FormControl(''),
-
+      activity: new FormControl('')
     });
   }
 
@@ -1656,7 +1661,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     this.loadFormGroupValuesE('academicQualifications', academicQualifications, this.initAcademicQualification());
     this.loadFormGroupValuesE('professionalQualifications', professionalQualifications, this.initProfessionalQualification());
     this.loadFormGroupValuesE('prizes', prizes, this.initPHNI());
-    this.loadFormGroupValuesE('scholarships', scholarships, this.initPHNI());
+    this.loadFormGroupValuesE('scholarships', scholarships, this.initScholarship());
     this.loadFormGroupValuesE('honours', honours, this.initPHNI());
     this.loadFormGroupValuesE('nationalRecommendations', nationalRecommendations, this.initPHNI());
     this.loadFormGroupValuesE('internationalRecommendations', internationalRecommendations, this.initPHNI());
@@ -1751,7 +1756,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       academicQualifications: this.fb.array([this.initAcademicQualification()]),
       professionalQualifications: this.fb.array([this.initProfessionalQualification()]),
       prizes: this.fb.array([this.initPHNI()]),
-      scholarships: this.fb.array([this.initPHNI()]),
+      scholarships: this.fb.array([this.initScholarship()]),
       honours: this.fb.array([this.initPHNI()]),
       nationalRecommendations: this.fb.array([this.initPHNI()]),
       internationalRecommendations: this.fb.array([this.initPHNI()]),
@@ -1977,8 +1982,6 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       '31': <FormArray>this.masterFormGroupings.get('publications').get('editedConf')
     };
   }
-
-
   private getEaphiFormControls(): Object {
     return {
       '0': <FormArray>this.eaphni.get('educationArray'),
@@ -1992,8 +1995,6 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     };
   }
 }
-
-
 interface ValuesInterface {
   key: string;
   value: string;
