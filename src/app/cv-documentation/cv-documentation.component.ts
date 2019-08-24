@@ -96,7 +96,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   academicAndProfessionFiles: Array<File> = [];
   nationalRecommendationFiles: Array<File> = [];
   myfile = [];
-  usernameCond: boolean;
+  SpNoCond: boolean;
   passwordMismatched: boolean;
   signatureFound = false;
 
@@ -472,7 +472,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   onBasicError(event) {
     // console.log(event);
     // if( event.error.TypeError  === "Cannot read property 'toLowerCase' of undefined" ) {
-    // this.addErrorMessage('Cant not upload file (username field is empty)');
+    // this.addErrorMessage('Cant not upload file (SpNo field is empty)');
     // } else {
     this.addErrorMessage('File(s) failed to attach');
     // }
@@ -1509,7 +1509,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     //     // window.open('http://localhost:4300', '_self');
 
     //     // disable the file upload navigation from the front end app
-    //     // this.router.navigate(['/fileuploads', this.loginCredentials.get('username').value]);
+    //     // this.router.navigate(['/fileuploads', this.loginCredentials.get('SpNo').value]);
 
 
     //     // navigate back to the home page after successful cv
@@ -1739,13 +1739,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     });
 
     this.loginCredentials = this.fb.group({
-      username: new FormControl('', [Validators.required]),
+      SpNo: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
       dateReg: new FormControl(Date())
     });
 
-    this.loginCredentials.get('username').valueChanges.subscribe(data => {
-      // console.log('has ERROR ', this.loginCredentials.get('username').hasError('exists'));
+    this.loginCredentials.get('SpNo').valueChanges.subscribe(data => {
+      // console.log('has ERROR ', this.loginCredentials.get('SpNo').hasError('exists'));
     });
 
     /**
@@ -1872,13 +1872,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
      * Custom asynchronous validator
      * *********************************
      */
-    this.loginCredentials.get('username').valueChanges.subscribe(data => {
-      this.httpRequest.checkUsername(this.loginCredentials.get('username').value).subscribe(
+    this.loginCredentials.get('SpNo').valueChanges.subscribe(data => {
+      this.httpRequest.checkSpNo(this.loginCredentials.get('SpNo').value).subscribe(
         dat => {
           if (dat.exists) {
-            this.usernameCond = true;
+            this.SpNoCond = true;
           } else {
-            this.usernameCond = false;
+            this.SpNoCond = false;
           }
         }
       );

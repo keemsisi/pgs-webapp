@@ -159,32 +159,32 @@
 
                 <form [formGroup]="loginCredentials">
                   <mat-form-field appearance="outline" style="width: 100% ; margin-top: 5%">
-                    <mat-label>Username</mat-label>
+                    <mat-label>SpNo</mat-label>
 
                     <mat-icon matPrefix>user</mat-icon>
-                    <input matInput placeholder="Enter Username" formControlName="username">
+                    <input matInput placeholder="Enter SpNo" formControlName="SpNo">
 
                     <mat-error
-                      *ngIf="loginCredentials.get('username').hasError('required') && loginCredentials.get('username').touched">
-                      Username is required
+                      *ngIf="loginCredentials.get('SpNo').hasError('required') && loginCredentials.get('SpNo').touched">
+                      SpNo is required
                     </mat-error>
 
-                    <mat-error *ngIf="loginCredentials.get('username').hasError('pattern')">
-                      Invalid username
+                    <mat-error *ngIf="loginCredentials.get('SpNo').hasError('pattern')">
+                      Invalid SpNo
                     </mat-error>
 
-                    <!-- <mat-error *ngIf="loginCredentials.get('username').hasError('exists')">
-                          Username is already taken...
+                    <!-- <mat-error *ngIf="loginCredentials.get('SpNo').hasError('exists')">
+                          SpNo is already taken...
                         </mat-error> -->
 
                   </mat-form-field>
-                  <mat-error *ngIf="usernameCond">
-                    Username already taken
+                  <mat-error *ngIf="SpNoCond">
+                    SpNo already taken
                   </mat-error>
 
                   <!-- 
-                    <mat-error *ngIf="loginCredentials.get('username').hasError('exists')">
-                      Username is already taken...
+                    <mat-error *ngIf="loginCredentials.get('SpNo').hasError('exists')">
+                      SpNo is already taken...
                     </mat-error> -->
 
 
@@ -263,7 +263,7 @@
 
                   <div class="margin-top-20" style="float: right;">
                     <button mat-raised-button matStepperNext mat-raised-button color="primary" style="min-width: 100px;"
-                      [disabled]='usernameCond'>Next </button>
+                      [disabled]='SpNoCond'>Next </button>
                   </div>
                 </form>
               </mat-step>
@@ -2577,7 +2577,7 @@
                   <button mat-raised-button color="warn" matStepperPrevious class="marging-right-10"> Previous
                   </button>
                   <button mat-raised-button color="primary" (click)="processApplication()"
-                    [disabled]="usernameCond && loginCredentials.get('username').value!=''">
+                    [disabled]="SpNoCond && loginCredentials.get('SpNo').value!=''">
                     Proceed to Preview
                   </button>
                 </div>

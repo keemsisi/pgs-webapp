@@ -20,7 +20,7 @@ export class PreviewCvComponent implements OnInit {
   eaphni: Array<Object> = [{}];
   masterFormGroupings: Array<Object> = [{}];
 
-  username: String;
+  SpNo: String;
   payloadData: FormGroup;
   base64Img = null;
   margins = {
@@ -78,7 +78,7 @@ export class PreviewCvComponent implements OnInit {
   scholarshipsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
   nationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
   internationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-  loginCredRecommendationsDisplayColumn: string[] = ['no', 'username', 'password', 'dateReg'];
+  loginCredRecommendationsDisplayColumn: string[] = ['no', 'SpNo', 'password', 'dateReg'];
   paperReviewingDisplayColumn: string[] = ['no', 'paperR'];
 
   displayEdu: string[] = ['no', 'edu', 'fromDate', 'toDate'];
@@ -150,7 +150,7 @@ export class PreviewCvComponent implements OnInit {
   ) {
 
 
-    if (this.activatedRoute.snapshot.paramMap.has('username')) {
+    if (this.activatedRoute.snapshot.paramMap.has('SpNo')) {
       this.processOne();
     // } else if (this.activatedRoute.snapshot.paramMap.has('payload')) {
     //   this.processTwo();
@@ -232,7 +232,7 @@ export class PreviewCvComponent implements OnInit {
     //       'nationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
     //       'internationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }]
     //     },
-    //     'loginCred': { 'username': '', 'password': '', 'dateReg': 'Fri Jul 26 2019 23:05:19 GMT+0100 (West Africa Standard Time)' }
+    //     'loginCred': { 'SpNo': '', 'password': '', 'dateReg': 'Fri Jul 26 2019 23:05:19 GMT+0100 (West Africa Standard Time)' }
     //   };
 
 
@@ -286,8 +286,8 @@ export class PreviewCvComponent implements OnInit {
 
 
   public processOne() {
-    this.username = this.activatedRoute.snapshot.paramMap.get('username');
-    this.getUserInformation(this.username);
+    this.SpNo = this.activatedRoute.snapshot.paramMap.get('SpNo');
+    this.getUserInformation(this.SpNo);
     this.tempo();
     this.addSuccessMessage('Your data was loaded successfully');
   }
@@ -495,9 +495,9 @@ export class PreviewCvComponent implements OnInit {
     // this.masterFormGroupings = this.objectDataSource['masterFormGroupings'];
   }
 
-  getUserInformation(username): void {
-    this.httpRequest.getUserInformation(username).subscribe(data => {
-      this.objectDataSource = data; // assigns the username ;
+  getUserInformation(SpNo): void {
+    this.httpRequest.getUserInformation(SpNo).subscribe(data => {
+      this.objectDataSource = data; // assigns the SpNo ;
       this.processLoadedData();
     }, (error: HttpErrorResponse) => {
       this.messageService.add({

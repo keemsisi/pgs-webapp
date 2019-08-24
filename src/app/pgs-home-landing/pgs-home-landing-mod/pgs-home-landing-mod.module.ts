@@ -10,4 +10,4 @@ import { PgsHomeLandingModRoutingModule } from './pgs-home-landing-mod-routing.m
     PgsHomeLandingModRoutingModule
   ]
 })
-export class PgsHomeLandingModModule { }
+export class PgsHomeLandingModModule {}

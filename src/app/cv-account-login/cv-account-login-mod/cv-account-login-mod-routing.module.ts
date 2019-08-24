@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CvAccountLoginComponent } from '../cv-account-login.component';
 
 const routes: Routes = [
-  {path : '' , component: CvAccountLoginComponent}
+  {path : 'cv-account-login' , component: CvAccountLoginComponent}
 ];
 
 @NgModule({

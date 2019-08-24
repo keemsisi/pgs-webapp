@@ -11,7 +11,7 @@ export class LoginGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(this.loginCache.loggedIn) { // allow the login is the username is verified from the server
+    if(this.loginCache.loggedIn) { // allow the login is the SpNo is verified from the server
       return true ;
     } else {
        return false;

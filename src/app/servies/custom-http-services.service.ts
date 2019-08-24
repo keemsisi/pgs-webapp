@@ -34,34 +34,34 @@ export class CustomHttpServicesService {
 
   /**
    * 
-   * @param username
+   * @param SpNo
    */
-  public checkUsername(value): Observable <any> {
-    return this.clientHttpRequest.post(this.serverURL + '/users/exists', { 'username' : value }, {responseType : 'json'});
+  public checkSpNo(value): Observable <any> {
+    return this.clientHttpRequest.post(this.serverURL + '/users/exists', { 'SpNo' : value }, {responseType : 'json'});
   }
 
 
   /**
    * 
-   * @param username
+   * @param SpNo
    */
-  public grantUserLogin(username , password): Observable <any> {
+  public grantUserLogin(SpNo , password): Observable <any> {
     return this.clientHttpRequest.post(this.serverURL + '/users/grant',
-    { 'username' : username, 'password': password }, {responseType : 'json'});
+    { 'SpNo' : SpNo, 'password': password }, {responseType : 'json'});
   }
 
     /**
    * 
-   * @param username The usename of the user
+   * @param SpNo The usename of the user
    */
-  getUserInformation(username): Observable<any> {
-    return this.clientHttpRequest.get(`${this.serverURL}` + '/applicants/byusername/'  + username, {responseType: 'json'});
+  getUserInformation(SpNo): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + '/applicants/bySpNo/'  + SpNo, {responseType: 'json'});
   }
 
 
   /**
    *
-   * @param username The usename of the user
+   * @param SpNo The usename of the user
    */
   submitSurvey(survey): Observable<any> {
     return this.clientHttpRequest.post(`${this.serverURL}` + '/survey/add' , {'survey' : survey } , {responseType: 'json'} );
