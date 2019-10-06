@@ -5,9 +5,9 @@ import { LoginGuard } from 'src/app/login.guard';
 
 const routes: Routes = [
   {
-    path: "account-dasboard",
+    path: "account-dashboard",
     component: AccountDashboardComponent,
-    canActivate: [LoginGuard]
+    // canActivate: [LoginGuard]
   }
 ];
 
@@ -15,4 +15,14 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AccountDashboardModRoutingModule { }
+export class AccountDashboardModRoutingModule { 
+  // constructor(){
+  //   new Promise(function(resolve  , reject){
+  //     resolve(3232323);
+  //     reject(23232)
+  //   }).then(function(value) {
+  //     console.log(value)
+  //     return value ;
+  //   });
+  // }
+}

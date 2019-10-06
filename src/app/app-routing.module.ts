@@ -147,18 +147,22 @@ const appRoute: Routes = [
 
   { path: '**', component: PagenotfoundComponent },
 
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoute, { useHash: true })],
-  exports: [RouterModule,
+  exports: [
+    RouterModule,
     CvDocumentationModModule,
     PgsHomeLandingModModule,
     ContactAdministratorModModule,
     EditCvModModule,
-    FileUploadingModModule, AsssessmentModModule,
-    ForgotPasswordModule, LoginModule, RegisterModule,
+    FileUploadingModModule, 
+    AsssessmentModModule,
+    ForgotPasswordModule, 
+    LoginModule,
+    RegisterModule,
     AccountDashboardModModule
   ]
 })

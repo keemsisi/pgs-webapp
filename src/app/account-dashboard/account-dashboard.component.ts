@@ -5,6 +5,7 @@ import { CustomHttpServicesService } from '../services/custom-http-services.serv
 import { CacheService } from '../services/cache.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
+import { DataObjectModel } from '../models/object.model';
 
 @Component({
   selector: 'app-account-dashboard',
@@ -13,7 +14,7 @@ import { of } from 'rxjs';
 })
 export class AccountDashboardComponent implements OnInit {
 
-  staffCv : {} = {} ;
+  cvDataSource : Object = new DataObjectModel().model ;
   
   constructor(private fb: FormBuilder, private httpRequest: CustomHttpServicesService,
     private messageService: MessageService, private cacheService: CacheService, private router: Router) {

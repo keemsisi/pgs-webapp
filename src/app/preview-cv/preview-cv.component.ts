@@ -7,6 +7,9 @@ import { CustomHttpServicesService } from '../services/custom-http-services.serv
 import { HttpErrorResponse } from '@angular/common/http';
 import * as jspdf from 'jspdf';
 import * as html2canvas from 'html2canvas';
+import { Observable } from 'rxjs';
+import { CVDataModel } from '../models/data.model';
+import { DataObjectModel } from '../models/object.model';
 
 
 @Component({
@@ -14,7 +17,7 @@ import * as html2canvas from 'html2canvas';
   templateUrl: './preview-cv.component.html',
   styleUrls: ['./preview-cv.component.css']
 })
-export class PreviewCvComponent implements OnInit {
+export class PreviewCvComponent extends CVDataModel implements OnInit {
   personalInformation: Object = {};
   loginCredentials: Array<Object> = [{}];
   eaphni: Array<Object> = [{}];
@@ -30,116 +33,14 @@ export class PreviewCvComponent implements OnInit {
     width: 550
   };
 
-  @Input() dashboardCV : {} = {};
+  @Input('dashboardCV') dashboardCV: Object ; 
 
-  ELEMENT_DATA: PeriodicElement[] = [];
-  EDU_DATA: PeriodicElement[] = [];
-  WORk_DATA: PeriodicElement[] = [];
-  COURSES_TAUGHT_DATA: PeriodicElement[] = [];
-  COURSES_DESCRIPTION_DATA: PeriodicElement[] = [];
   showBlurBackgroundOverlay = false;
   hideCard = false;
 
-
-
-  displayedColumns: string[] = ['no', 'name', 'value'];
-  workExperienceDisplayColumn: string[] = ['no', 'organization', 'postHeld', 'duties', 'fromDate', 'toDate'];
-  otherWorkDisplayColumn: string[] = ['no', 'organization', 'postHeld', 'duties', 'fromDate', 'toDate'];
-  schoolworkexpDisplayColumn: string[] =
-    ['courseCode', 'creditHours', 'numOfLecturers', 'numberOfRegStd', 'contribution', 'session', 'school', 'level'];
-  courseDescriptionsDisplayColumn: string[] = ['no', 'courseCode', 'courseTitle'];
-  commendationDisplayColumn: string[] = ['no', 'by', 'commendationFor', 'commendationDate'];
-  researchInterestsDisplayColumn: string[] = ['no', 'interest'];
-  commissionedProjectDisplayColumn: string[] = ['no', 'commissionedProject'];
-  articlesAccDisplayColumn: string[] = ['no', 'pubName', 'title', 'publisher', 'sn', 'availableAt', 'used', 'lf', 'journalAc'];
-  artInPDisplayColumn: string[] = ['no', 'pubName', 'title', 'publisher', 'sn', 'availableAt', 'used', 'lf', 'journalA'];
-  booksDisplayColumn: string[] = ['no', 'book', 'used'];
-  bookArticlesOrChapterDisplayColumn: string[] = ['no', 'bookArtChapt', 'used'];
-  editedConfDisplayColumn: string[] = ['no', 'pubName', 'title', 'publisher', 'sn', 'availableAt', 'used', 'lf', 'editCP'];
-  technicalReportDisplayColumn: string[] = ['no', 'report'];
-  researchInProgressDisplayColumn: string[] = ['no', 'researchInProgress'];
-  thesisDissProDisplayColumn: string[] = ['no', 'thesis'];
-  papersDisplayColumn: string[] = ['no', 'paper', 'used'];
-  conferencesAttendedDisplayColumn: string[] = ['no', 'confPapR'];
-  paperDisplayColumn: string[] = ['no', 'confPapR', 'used'];
-  refreesDisplayColumn: string[] = ['no', 'refreeFullName', 'occupation', 'phoneNumber', 'address', 'email'];
-  papersReadDisplayColumn: string[] = ['no', 'paper', 'used'];
-  membershipOfProfessionalBodiesDisplayColumn: string[] = ['no', 'postHeld', 'organization', 'no'];
-  specialAssignmentATEDisplayColumn: string[] = ['no', 'postHeld', 'organization', 'fromDate', 'toDate'];
-  specialAssignmentMCDisplayColumn: string[] = ['no', 'postHeld', 'organization', 'fromDate', 'toDate'];
-  specialAssignmentCSDisplayColumn: string[] = ['no', 'postHeld', 'communityServiceDescription', 'fromDate', 'toDate'];
-  trainingProgrammeDisplayColumn: string[] = ['no', 'description', 'training'];
-  fellowshipProgrammeDisplayColumn: string[] = ['no', 'post', 'organization', 'date'];
-  supervisionPostDisplayColumn: string[] = ['no', 'title', 'nameOfStudent', '_d1', '_d2', 'soleColla', 'degree'];
-  extraCurriculaActivitiesDisplayColumn: string[] = ['no', 'activity'];
-  educationArrayDisplayColumn: string[] = ['no', 'schoolAttended', 'fromDate', 'toDate'];
-  academicQualificationsDisplayColumn: string[] = ['no', 'title', 'date'];
-  professionalQualificationsDisplayColumn: string[] = ['no', 'title', 'date'];
-  prizesDisplayColumn: string[] = ['no', 'title', 'date'];
-  honoursDisplayColumn: string[] = ['no', 'title', 'date'];
-  scholarshipsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-  nationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-  internationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-  loginCredRecommendationsDisplayColumn: string[] = ['no', 'SpNo', 'password', 'dateReg'];
-  paperReviewingDisplayColumn: string[] = ['no', 'paperR'];
-
-  displayEdu: string[] = ['no', 'edu', 'fromDate', 'toDate'];
-  dataSource = this.ELEMENT_DATA;
-
-  objectDataSource =
-    {
-      'masterFormGroupings':
-      {
-        'workExperience': [{}],
-        'otherWorkExperience': [{}],
-        'schoolworkexp': [{}],
-        'courseDescriptions': [{}],
-        'conferencesAttended': [{}],
-        'papersRead': [{}],
-        'refrees': [{}],
-        'membershipOfProfessionalBodies': [{}],
-        'specialAssignmentATE': [{}],
-        'specialAssignmentMC': [{}],
-        'specialAssignmentCS': [{}],
-        'trainingProgramme': [{}],
-        'fellowship': [{}],
-        'supervisionPost': [{}],
-        'supervisionPostPart': [{}],
-        'extraCurriculaActivities': [{}],
-        'dateAndSignature': { 'base64Image': '', 'signature': '', 'dateSigned': '' },
-        'paperReviewing': [{}],
-        'commendation': [{}],
-        'researchInterests': [{}],
-        'commissionedProject': [{}],
-        'publications': {
-          'artInP': [{}],
-          'articlesAcc': [{}],
-          'books': [{}],
-          'bookArticlesOrChapter': [{}],
-          'editedConf': [{}],
-          'researchInProgress': [{}],
-          'technicalReport': [{}],
-          'thesisDissPro': [{}],
-          'papers': [{}]
-        }
-      },
-      'eaphni': {
-        'educationArray': [{}],
-        'academicQualifications': [{}],
-        'professionalQualifications': [{}],
-        'prizes': [{}],
-        'scholarships': [{}],
-        'honours': [{}],
-        'nationalRecommendations': [{}],
-        'internationalRecommendations': [{}]
-      },
-      'personalInformation': {},
-      'loginCredentials': [{}]
-    };
   romanNumbering = ['(i)', '(ii)', '(iii)', '(iv)', '(v)', '(vi)', '(vii)', '(viii)', '(ix)', '(x)', '(xi)', '(xii)', '(xiii)'];
 
-
-  @ViewChild('createdCV' , {static : true}) createdCV: ElementRef;
+  @ViewChild('createdCV', { static: true }) createdCV: ElementRef;
 
 
   constructor(
@@ -151,17 +52,11 @@ export class PreviewCvComponent implements OnInit {
     private fb: FormBuilder
   ) {
 
+    /**
+     * The superclass to init all inhereted attributes , functions and modules 
+     */
+    super(); //initailise the  super class before the rest
 
-    if (this.activatedRoute.snapshot.paramMap.has('SpNo')) {
-      this.processOne();
-    // } else if (this.activatedRoute.snapshot.paramMap.has('payload')) {
-    //   this.processTwo();
-     } else if (this.cacheService.payloadData !== '') {
-        this.processTwo();
-    } else {
-      this.personalInformation = {} ;
-      this.addErrorMessage('No data to load');
-    }
 
     // this.objectDataSource =
 
@@ -284,27 +179,51 @@ export class PreviewCvComponent implements OnInit {
 
   ngOnInit() {
 
+    if (this.activatedRoute.snapshot.paramMap.has('SpNo')) {
+
+      this.processOne();
+      // } else if (this.activatedRoute.snapshot.paramMap.has('payload')) {
+      //   this.processTwo();
+
+    } 
+    
+    else if (this.dashboardCV != (null || undefined) && typeof this.dashboardCV === 'object') {
+      this.objectDataSource = this.dashboardCV;
+    }
+
+    else if (this.cacheService.payloadData !== '') {
+      this.processTwo();
+
+    }
+
+    else {
+
+      this.personalInformation = {};
+      this.addErrorMessage('No data to load');
+
+    }
+
   }
 
 
-  public processOne() {
+  private processOne() {
     this.SpNo = this.activatedRoute.snapshot.paramMap.get('SpNo');
     this.getUserInformation(this.SpNo);
-    this.tempo();
+    this.initPreviewPage();
     this.addSuccessMessage('Your data was loaded successfully');
   }
 
-  public processTwo() {
+  private processTwo() {
     // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload'));
     this.objectDataSource = JSON.parse(this.cacheService.payloadData);
-    this.tempo();
+    this.initPreviewPage();
     // console.log(this.objectDataSource);
     this.processLoadedData();
     this.addSuccessMessage('Your data was loaded successfully');
   }
 
 
-  public tempo() {
+  private initPreviewPage() {
     let phoneNum = '';
     let contactAdd = '';
     let emailAdd = '';
@@ -312,7 +231,7 @@ export class PreviewCvComponent implements OnInit {
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['phoneNumbers']).length; index++) {
       const element = this.objectDataSource['personalInformation']['phoneNumbers'][index]['phoneNumber'];
       // // console.log(element);
-      phoneNum  += + element + ' , '  ;
+      phoneNum += + element + ' , ';
       // console.log(phoneNum);
 
     }
@@ -322,7 +241,7 @@ export class PreviewCvComponent implements OnInit {
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['contactAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['contactAddresses'][index]['contactAddress'];
       // // console.log(element);
-      contactAdd  += element   +  ' , ';
+      contactAdd += element + ' , ';
       // console.log(contactAdd);
 
     }
@@ -331,7 +250,7 @@ export class PreviewCvComponent implements OnInit {
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['emailAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['emailAddresses'][index]['emailAddress'];
       // console.log(element);
-      emailAdd  +=' , ' + element ;
+      emailAdd += ' , ' + element;
       // console.log(emailAdd);
     }
 
@@ -547,10 +466,7 @@ export class PreviewCvComponent implements OnInit {
 }
 
 
-export interface PeriodicElement {
-  name: string;
-  value: string | Array<Object>;
-}
+
 
 
 export interface WorkExperience {
@@ -597,5 +513,3 @@ export interface ResearchInterests {
   interest: string;
   outline: string;
 }
-
-
