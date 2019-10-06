@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'p2p-betapp'`, () => {
+  it(`should have as title 'pgs-webapp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('p2p-betapp');
+    expect(app.title).toEqual('pgs-webapp');
   });
 
-  it('should render title', () => {
+  it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('p2p-betapp app is running!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to pgs-webapp!');
   });
 });
