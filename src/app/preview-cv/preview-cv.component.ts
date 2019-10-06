@@ -33,14 +33,18 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     width: 550
   };
 
-  @Input('dashboardCV') dashboardCV: Object ; 
+  @Input('dashboardCV') dashboardCV: Object;
 
   showBlurBackgroundOverlay = false;
   hideCard = false;
 
+
   romanNumbering = ['(i)', '(ii)', '(iii)', '(iv)', '(v)', '(vi)', '(vii)', '(viii)', '(ix)', '(x)', '(xi)', '(xii)', '(xiii)'];
 
   @ViewChild('createdCV', { static: true }) createdCV: ElementRef;
+
+  @Input() showCard: Boolean = true;
+  @Input() showHeader: Boolean = true;
 
 
   constructor(
@@ -57,123 +61,6 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
      */
     super(); //initailise the  super class before the rest
 
-
-    // this.objectDataSource =
-
-    //   {
-    //     'masterFormGroupings': {
-    //       'workExperience': [{ 'organization': '', 'postHeld': '', 'duties': '', 'fromDate': '', 'toDate': '' }],
-    //       'otherWorkExperience': [{ 'organization': '', 'postHeld': '', 'duties': '', 'fromDate': '', 'toDate': '' }],
-    //       'schoolworkexp': [{
-    //         'courseCode': '', 'creditHours': '', 'numOfLecturers': '',
-    //         'numberOfRegStd': '', 'contribution': '', 'session': '', 'school': '', 'level': ''
-    //       }],
-    //       'courseDescriptions': [{ 'courseCode': '', 'courseTitle': '' }],
-    //       'paperReviewing': [{ 'paperR': '' }],
-    //       'commendation': [{ 'by': 'AKEEM', 'commendationFor': '', 'commendationDate': '' }],
-    //       'researchInterests': [{ 'interest': '' }],
-    //       'commissionedProject': [{ 'commissionedProject': '' }],
-
-    //       'publications': {
-    //         'artInP': [{ 'journalA': '', 'used': '' }],
-    //         'articlesAcc': [{ 'journalAc': '', 'used': '' }],
-    //         'books': [{ 'book': '', 'used': '' }],
-    //         'bookArticlesOrChapter': [{ 'bookArtChapt': '', 'used': '' }],
-    //         'editedConf': [{ 'editCP': '', 'used': '' }],
-    //         'researchInProgress': [{ 'researchInProgress': '' }],
-    //         'technicalReport': [{ 'report': '' }],
-    //         'thesisDissPro': [{ 'thesis': '' }],
-    //         'papers': [{ 'paper': '', 'used': '' }]
-    //       },
-
-
-    //       'conferencesAttended': [{ 'confPapR': '' }],
-    //       'papersRead': [{ 'paper': '', 'used': '' }],
-    //       'refrees': [{ 'refreeFullName': '', 'occupation': '', 'phoneNumber': '', 'address': '', 'email': '' }],
-    //       'membershipOfProfessionalBodies': [{ 'postHeld': '', 'organization': '', 'no': '' }],
-    //       'specialAssignmentATE': [{ 'postHeld': '', 'organization': '', 'fromDate': '', 'toDate': '' }],
-    //       'specialAssignmentMC': [{ 'postHeld': '', 'organization': '', 'fromDate': '', 'toDate': '' }],
-    //       'specialAssignmentCS': [{ 'postHeld': '', 'communityServiceDescription': '', 'fromDate': '', 'toDate': '' }],
-    //       'trainingProgramme': [{ 'training': '', 'description': '' }],
-    //       'fellowship': [{ 'post': '', 'organization': '', 'date': '' }],
-    //       'supervisionPost': [{ 'title': '', 'nameOfStudent': '', '_d1': '', '_d2': '', 'soleColla': '', 'degree': '' }],
-    //       'supervisionPostPart': [{ 'title': '', 'nameOfStudent': '', '_d1': '', '_d2': '', 'soleColla': '', 'degree': '' }],
-    //       'extraCurriculaActivities': [{ 'activity': '' }],
-    //       'dateAndSignature': { 'dateSigned': '', 'signature': null, 'base64Image': '' },
-    //     },
-
-    //     'personalInformation': {
-    //       'nameInFull': '',
-    //       'dob': '',
-    //       'placeOfBirth': '',
-    //       'age': '', 'sex': '',
-    //       'maritalStatus': '',
-    //       'nationality': '',
-    //       'town': '',
-    //       'townAndStateOfOrigin': '',
-    //       'lga': '',
-    //       'phoneNumbers': [{ 'phoneNumber': '' }],
-    //       'emailAddresses': [{ 'emailAddress': '' }],
-    //       'contactAddresses': [{ 'contactAddress': '' }],
-    //       'presentEmployer': '',
-    //       'presentPostAndSalary': '',
-    //       'postOnPromotion': '',
-    //     },
-
-    //     'eaphni': {
-    //       'educationArray': [{ 'schoolAttended': '', 'fromDate': '', 'toDate': '' }]
-    //       , 'academicQualifications': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
-    //       'professionalQualifications': [{ 'receivedFrom': '', 'date': '' }],
-    //       'prizes': [{ 'receivedFrom': '', 'title': '', 'date': '' }], 'scholarships': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
-    //       'honours': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
-    //       'nationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
-    //       'internationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }]
-    //     },
-    //     'loginCred': { 'SpNo': '', 'password': '', 'dateReg': 'Fri Jul 26 2019 23:05:19 GMT+0100 (West Africa Standard Time)' }
-    //   };
-
-
-    // this.personalInformation = this.objectDataSource['personalInformation'];
-    // this.masterFormGroupings = this.objectDataSource['masterFormGroupings'];
-    // this.eaphni = this.objectDataSource['eaphni'];
-    // this.loginCredentials = this.objectDataSource['loginCredentials'];
-
-    // const phoneNum = '';
-    // const contactAdd = '';
-    // const emailAdd = '';
-
-    // Array<Object>(this.personalInformation['phoneNumbers']).forEach((phone) => {
-    //   phoneNum.concat(`<li>${phoneNum}</li>`);
-    // });
-
-
-    // Array<Object>(this.personalInformation['contactAddresses']).forEach((comtact) => {
-    //   phoneNum.concat(`<li>${contactAdd}</li>`);
-
-    // });
-
-    // Array<Object>(this.personalInformation['emailAddresses']).forEach((email) => {
-    //   phoneNum.concat(`<li>${emailAdd}</li>`);
-    // });
-
-
-    // this.ELEMENT_DATA = [{ name: 'NAME IN FULL ', value: '' },
-    // { name: 'DATE OF BIRTH', value: 'JUNE 14' },
-    // { name: 'PLACE OF BIRTH', value: '' },
-    // { name: 'AGE', value: '' },
-    // { name: 'SEX', value: '' },
-    // { name: 'MARITAL STATUS', value: '' },
-    // { name: 'NATIONALITY', value: '' },
-    // { name: 'TOWN AND STATE OF ORIGIN', value: '' },
-    // { name: 'LOCAL GOVERNMENT AREA', value: '' },
-    // { name: 'NATIONALITY', value: '' },
-    // { name: 'PHONE NUMBER', value: phoneNum },
-    // { name: 'CONTACT ADDRESS', value: contactAdd },
-    // { name: 'EMAIL ADDRESSES', value: emailAdd },
-    // { name: 'PRESENT POST AND SALARY', value: '' },
-    // { name: 'POST ON PROMOTION', value: '' }
-    // ];
-
   }
 
 
@@ -185,13 +72,9 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
       // } else if (this.activatedRoute.snapshot.paramMap.has('payload')) {
       //   this.processTwo();
 
-    } 
-    
-    else if (this.dashboardCV != (null || undefined) && typeof this.dashboardCV === 'object') {
-      this.objectDataSource = this.dashboardCV;
     }
 
-    else if (this.cacheService.payloadData !== '') {
+    else if (this.cacheService.payloadData !== undefined ) {
       this.processTwo();
 
     }
@@ -212,6 +95,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     this.initPreviewPage();
     this.addSuccessMessage('Your data was loaded successfully');
   }
+
 
   private processTwo() {
     // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload'));
@@ -276,43 +160,6 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
 
   public downloadCVAsPDF() {
-    // const pdf = new jspdf('p', 'pt', 'letter');
-    // // source can be HTML-formatted string, or a reference
-    // // to an actual DOM element from which the text will be scraped.
-    // const source = this.createdCV;
-
-    // // we support special element handlers. Register them with jQuery-style 
-    // // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
-    // // There is no support for any other type of selectors 
-    // // (class, of compound) at this time.
-    // const specialElementHandlers = {
-    //   // element with id of "bypass" - jQuery style selector
-    //   '#bypassme':  (element, renderer) {
-    //     // true = "handled elsewhere, bypass text extraction"
-    //     return true;
-    //   }
-    // };
-    // const margins = {
-    //   top: 80,
-    //   bottom: 60,
-    //   left: 40,
-    //   width: 522
-    // };
-    // // all coords and widths are in jsPDF instance's declared units
-    // // 'inches' in this case
-    // pdf.fromHTML(
-    //   source.nativeElement, // HTML string or DOM elem ref.
-    //   margins.left, // x coord
-    //   margins.top, { // y coord
-    //     'width': margins.width, // max width of content on PDF
-    //     'elementHandlers': specialElementHandlers
-    //   },
-
-    //    (dispose) {
-    //     // dispose: object with X, Y of the last line add to the PDF
-    //     //          this allow the insertion of new lines after html
-    //     pdf.save('Test.pdf');
-    //   }, margins);
 
 
     const pdf = new jspdf('p', 'pt', 'a4');
@@ -448,9 +295,13 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
       }
     });
   }
+
+
   public done() {
     this.router.navigateByUrl('http://localhost:8083'); // user dashboard login page
   }
+
+
   public blurDocument(cond) {
     this.showBlurBackgroundOverlay = cond;
   }
@@ -513,3 +364,121 @@ export interface ResearchInterests {
   interest: string;
   outline: string;
 }
+
+
+
+    // this.objectDataSource =
+
+    //   {
+    //     'masterFormGroupings': {
+    //       'workExperience': [{ 'organization': '', 'postHeld': '', 'duties': '', 'fromDate': '', 'toDate': '' }],
+    //       'otherWorkExperience': [{ 'organization': '', 'postHeld': '', 'duties': '', 'fromDate': '', 'toDate': '' }],
+    //       'schoolworkexp': [{
+    //         'courseCode': '', 'creditHours': '', 'numOfLecturers': '',
+    //         'numberOfRegStd': '', 'contribution': '', 'session': '', 'school': '', 'level': ''
+    //       }],
+    //       'courseDescriptions': [{ 'courseCode': '', 'courseTitle': '' }],
+    //       'paperReviewing': [{ 'paperR': '' }],
+    //       'commendation': [{ 'by': 'AKEEM', 'commendationFor': '', 'commendationDate': '' }],
+    //       'researchInterests': [{ 'interest': '' }],
+    //       'commissionedProject': [{ 'commissionedProject': '' }],
+
+    //       'publications': {
+    //         'artInP': [{ 'journalA': '', 'used': '' }],
+    //         'articlesAcc': [{ 'journalAc': '', 'used': '' }],
+    //         'books': [{ 'book': '', 'used': '' }],
+    //         'bookArticlesOrChapter': [{ 'bookArtChapt': '', 'used': '' }],
+    //         'editedConf': [{ 'editCP': '', 'used': '' }],
+    //         'researchInProgress': [{ 'researchInProgress': '' }],
+    //         'technicalReport': [{ 'report': '' }],
+    //         'thesisDissPro': [{ 'thesis': '' }],
+    //         'papers': [{ 'paper': '', 'used': '' }]
+    //       },
+
+
+    //       'conferencesAttended': [{ 'confPapR': '' }],
+    //       'papersRead': [{ 'paper': '', 'used': '' }],
+    //       'refrees': [{ 'refreeFullName': '', 'occupation': '', 'phoneNumber': '', 'address': '', 'email': '' }],
+    //       'membershipOfProfessionalBodies': [{ 'postHeld': '', 'organization': '', 'no': '' }],
+    //       'specialAssignmentATE': [{ 'postHeld': '', 'organization': '', 'fromDate': '', 'toDate': '' }],
+    //       'specialAssignmentMC': [{ 'postHeld': '', 'organization': '', 'fromDate': '', 'toDate': '' }],
+    //       'specialAssignmentCS': [{ 'postHeld': '', 'communityServiceDescription': '', 'fromDate': '', 'toDate': '' }],
+    //       'trainingProgramme': [{ 'training': '', 'description': '' }],
+    //       'fellowship': [{ 'post': '', 'organization': '', 'date': '' }],
+    //       'supervisionPost': [{ 'title': '', 'nameOfStudent': '', '_d1': '', '_d2': '', 'soleColla': '', 'degree': '' }],
+    //       'supervisionPostPart': [{ 'title': '', 'nameOfStudent': '', '_d1': '', '_d2': '', 'soleColla': '', 'degree': '' }],
+    //       'extraCurriculaActivities': [{ 'activity': '' }],
+    //       'dateAndSignature': { 'dateSigned': '', 'signature': null, 'base64Image': '' },
+    //     },
+
+    //     'personalInformation': {
+    //       'nameInFull': '',
+    //       'dob': '',
+    //       'placeOfBirth': '',
+    //       'age': '', 'sex': '',
+    //       'maritalStatus': '',
+    //       'nationality': '',
+    //       'town': '',
+    //       'townAndStateOfOrigin': '',
+    //       'lga': '',
+    //       'phoneNumbers': [{ 'phoneNumber': '' }],
+    //       'emailAddresses': [{ 'emailAddress': '' }],
+    //       'contactAddresses': [{ 'contactAddress': '' }],
+    //       'presentEmployer': '',
+    //       'presentPostAndSalary': '',
+    //       'postOnPromotion': '',
+    //     },
+
+    //     'eaphni': {
+    //       'educationArray': [{ 'schoolAttended': '', 'fromDate': '', 'toDate': '' }]
+    //       , 'academicQualifications': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
+    //       'professionalQualifications': [{ 'receivedFrom': '', 'date': '' }],
+    //       'prizes': [{ 'receivedFrom': '', 'title': '', 'date': '' }], 'scholarships': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
+    //       'honours': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
+    //       'nationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
+    //       'internationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }]
+    //     },
+    //     'loginCred': { 'SpNo': '', 'password': '', 'dateReg': 'Fri Jul 26 2019 23:05:19 GMT+0100 (West Africa Standard Time)' }
+    //   };
+
+
+    // this.personalInformation = this.objectDataSource['personalInformation'];
+    // this.masterFormGroupings = this.objectDataSource['masterFormGroupings'];
+    // this.eaphni = this.objectDataSource['eaphni'];
+    // this.loginCredentials = this.objectDataSource['loginCredentials'];
+
+    // const phoneNum = '';
+    // const contactAdd = '';
+    // const emailAdd = '';
+
+    // Array<Object>(this.personalInformation['phoneNumbers']).forEach((phone) => {
+    //   phoneNum.concat(`<li>${phoneNum}</li>`);
+    // });
+
+
+    // Array<Object>(this.personalInformation['contactAddresses']).forEach((comtact) => {
+    //   phoneNum.concat(`<li>${contactAdd}</li>`);
+
+    // });
+
+    // Array<Object>(this.personalInformation['emailAddresses']).forEach((email) => {
+    //   phoneNum.concat(`<li>${emailAdd}</li>`);
+    // });
+
+
+    // this.ELEMENT_DATA = [{ name: 'NAME IN FULL ', value: '' },
+    // { name: 'DATE OF BIRTH', value: 'JUNE 14' },
+    // { name: 'PLACE OF BIRTH', value: '' },
+    // { name: 'AGE', value: '' },
+    // { name: 'SEX', value: '' },
+    // { name: 'MARITAL STATUS', value: '' },
+    // { name: 'NATIONALITY', value: '' },
+    // { name: 'TOWN AND STATE OF ORIGIN', value: '' },
+    // { name: 'LOCAL GOVERNMENT AREA', value: '' },
+    // { name: 'NATIONALITY', value: '' },
+    // { name: 'PHONE NUMBER', value: phoneNum },
+    // { name: 'CONTACT ADDRESS', value: contactAdd },
+    // { name: 'EMAIL ADDRESSES', value: emailAdd },
+    // { name: 'PRESENT POST AND SALARY', value: '' },
+    // { name: 'POST ON PROMOTION', value: '' }
+    // ];

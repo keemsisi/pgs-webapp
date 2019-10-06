@@ -1,7 +1,7 @@
 <!--start header-->
 <div class="version-drak" style="width: 100% ; width: 100% ; overflow: hidden;">
   <!--start header-->
-  <header id="header">
+  <header id="header" *ngIf="showHeader == true;">
     <div class="container">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -51,30 +51,43 @@
 </div>
 
 
-<div style="overflow-x: hidden ; width: 100% ; height: 100%; margin-top: 30px;">
-  <div [ngClass]="{'card-header': hideCard}" id="pdfwrapper">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>YOUR CURRICULUM VITAE PREVIEW</mat-card-title>
-        <mat-card-subtitle>A Preview of your CV before Submission</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="margin-top-20">
-          <!-- <button mat-raised-button color="info" class="marging-right-10" (click)="downloadCVAsPDF()"> DOWNLOAD CV -->
-          <!-- </button> -->
-          <button mat-raised-button color="accent" class="marging-left-10" (click)="submit()">
-            SUBMIT CV NOW
-          </button>
-          <button mat-raised-button color="primary" class="marging-left-10" (click)="printCV()">
-            PRINT CV
-          </button>
-          <button mat-raised-button color="primary" class="marging-left-10" [routerLink]="[ '/quick-survey']">
-            QUICK SURVEY
-          </button>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+<!-- <div style="overflow-x: hidden ; width: 100% ; height: 100%; margin-top: 30px;"> -->
+
+  <div style="overflow-x: hidden; margin-top: 30px;">
+
+  <ng-container *ngIf="showCard == true; else cardElse">
+    <div [ngClass]="{'card-header': hideCard}" id="pdfwrapper">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>YOUR CURRICULUM VITAE PREVIEW</mat-card-title>
+          <mat-card-subtitle>A Preview of your CV before Submission</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="margin-top-20">
+            <!-- <button mat-raised-button color="info" class="marging-right-10" (click)="downloadCVAsPDF()"> DOWNLOAD CV -->
+            <!-- </button> -->
+            <button mat-raised-button color="accent" class="marging-left-10" (click)="submit()">
+              SUBMIT CV NOW
+            </button>
+            <button mat-raised-button color="primary" class="marging-left-10" (click)="printCV()">
+              PRINT CV
+            </button>
+            <button mat-raised-button color="primary" class="marging-left-10" [routerLink]="[ '/quick-survey']">
+              QUICK SURVEY
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+
+  
+  <ng-template #cardElse>
+    <!---------------------Display no card if the condition if false -->
+  </ng-template>
+
+
+
 
 
   <div style="margin-left: 100px ; margin-right: 100px;">
@@ -256,7 +269,8 @@
 
 
         <h4 style=" margin-top: 5% ; font-weight: bold">SCHOLARSHIPS</h4>
-        <mat-table [dataSource]="objectDataSource['eaphni']['scholarships']" class="mat-elevation-z8" style="width: 100% ;">
+        <mat-table [dataSource]="objectDataSource['eaphni']['scholarships']" class="mat-elevation-z8"
+          style="width: 100% ;">
 
           <ng-container matColumnDef="no">
             <th mat-header-cell *matHeaderCellDef></th>

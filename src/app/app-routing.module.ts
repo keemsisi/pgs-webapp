@@ -101,7 +101,6 @@ const appRoute: Routes = [
   },
 
 
-
   { path: 'cv-preview-edit', component: EditCvComponent },
 
 
@@ -133,11 +132,11 @@ const appRoute: Routes = [
       ),
   },
 
-  { path: 'predatory-journals', component: PredatoryJournalsComponent },
+  { path: 'predatory-journals', component: PredatoryJournalsComponent } ,
 
   {
     path: 'cv-assessment',
-    loadChildren: () => import(
+    loadChildren: () => import (
       './assesment/assessment/asssessment-mod/asssessment-mod.module').then(
         function (module) {
           module.AsssessmentModModule
@@ -153,6 +152,7 @@ const appRoute: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(appRoute, { useHash: true })],
   exports: [
+    
     RouterModule,
     CvDocumentationModModule,
     PgsHomeLandingModModule,
@@ -164,6 +164,9 @@ const appRoute: Routes = [
     LoginModule,
     RegisterModule,
     AccountDashboardModModule
+
   ]
 })
+
+
 export class AppRoutingModule { }

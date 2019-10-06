@@ -14,13 +14,22 @@ import { DataObjectModel } from '../models/object.model';
 })
 export class AccountDashboardComponent implements OnInit {
 
-  cvDataSource : Object = new DataObjectModel().model ;
+  
   
   constructor(private fb: FormBuilder, private httpRequest: CustomHttpServicesService,
     private messageService: MessageService, private cacheService: CacheService, private router: Router) {
+
+      if (this.cacheService.SpNo == undefined ) {
+        this.cacheService.payloadData = JSON.stringify(new DataObjectModel().model);
+        console.log("DATA MODEL " + this.cacheService.payloadData.toString());
+      } else {
+        // ... fetch from the database and display
+        console.log("NO");
+      }
   }
 
   ngOnInit() {
+    
   }
 
 

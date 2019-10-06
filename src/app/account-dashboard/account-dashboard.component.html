@@ -7,7 +7,74 @@
 
 
 <mat-tab-group>
-  <mat-tab label="User Account Dashboard "></mat-tab>
+
+
+  <section>
+    <mat-icon aria-hidden="false" aria-label="Example home icon">user</mat-icon>
+
+    <mat-tab label="User Account Dashboard ">
+
+      <div class="mag">
+        <mat-card>
+          <div class="cotainer container-fluid row" style="display: flexbox ; justify-content: space-evenly">
+
+            <div class="row container">
+
+              <mat-card class="mag col-md-6  col-xs-6 col-lg-6 ">
+                <mat-card-header>
+                  <mat-card-title>Total Submitted CV Updates</mat-card-title>
+                  <mat-card-subtitle>Number of times CV has been updated</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <h2>30</h2>
+                </mat-card-content>
+              </mat-card>
+
+              <mat-card class=" mag col-md-6  col-xs-6 col-lg-6 ">
+                <mat-card-header>
+                  <mat-card-title>Current Post Applied</mat-card-title>
+                  <mat-card-subtitle>Current Post Applied for</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <h2>Professor</h2>
+                </mat-card-content>
+              </mat-card>
+
+
+              <mat-card class=" mag col-md-6  col-xs-6 col-lg-6 ">
+                <mat-card-header>
+                  <mat-card-title>Current Rank/Title</mat-card-title>
+                  <mat-card-subtitle>Your current rank</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <h2>Lecturer II </h2>
+                </mat-card-content>
+
+              </mat-card>
+
+
+              <mat-card class="mag col-md-6  col-xs-6 col-lg-6 ">
+                <mat-card-header>
+                  <mat-card-title>title</mat-card-title>
+                  <mat-card-subtitle>subtitle</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                </mat-card-content>
+
+              </mat-card>
+            </div>
+
+          </div>
+        </mat-card>
+      </div>
+
+
+
+    </mat-tab>
+  </section>
+
+
+
   <mat-tab label="Edit My Curriculum Vitae">
     <!--------Account Submitted Curriculum Vitae----------------->
     <app-cv-documentation [show]="false"></app-cv-documentation>
@@ -15,11 +82,11 @@
 
 
   <mat-tab label="Curriculum Vitae Preview">
-      <img src="./assets/img/icons/common/github.svg">
-      <app-preview-cv [dashboardCV] ="cvDataSource" > </app-preview-cv>
+    <img src="./assets/img/icons/common/github.svg">
+    <app-preview-cv [showCard]="false" [showHeader]="false"> </app-preview-cv>
   </mat-tab>
 
-  
+
   <mat-tab label="Curriculum Vitae Assessment"></mat-tab>
 
 
@@ -49,8 +116,13 @@
             <mat-card-actions>
               <button mat-raised-button color="primary" title="Update Account Password">
                 Update Account Username
-              </button> 
+              </button>
+
+              <button mat-raised-button color="accent" title="Update Account Password">
+                Clear All Username Fields
+              </button>
             </mat-card-actions>
+
           </mat-card>
 
 
@@ -74,6 +146,11 @@
               <button mat-raised-button color="primary" title="Update Account Password">
                 Update Account Password
               </button>
+
+              <button mat-raised-button color="accent" title="Update Account Password">
+                Clear All Passwords Fields
+              </button>
+
             </mat-card-actions>
           </mat-card>
 
