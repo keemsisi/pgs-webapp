@@ -13,7 +13,7 @@ describe('AccountDashboardComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach (() => {
     fixture = TestBed.createComponent(AccountDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

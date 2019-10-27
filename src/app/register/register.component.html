@@ -1,96 +1,175 @@
-<section class="section section-shaped section-lg">
-    <div class="shape shape-style-1">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="container pt-lg-md">
-      <div class="row justify-content-center ch">
-        <div class="col-lg-5 ch">
-          <div class="card ch">
-            <div class="card-header pb-5" style="background-color: white">
-              <div class="text-muted text-center mb-3">
-                <small></small>
-              </div>
-              <div class="btn-wrapper text-center">
-                <a class="" style="cursor: pointer;">
-                  <span class="">
-                    <img src="./assets/img/icons/common/github.svg">
-                  </span>
-                  <span class="btn-inner--text">PromoteBot</span>
-                </a>
-                <a [routerLink]="['/login']" class="btn btn-neutral btn-icon" style="cursor: pointer;">
-                  <span class="">
-                    <img src="">
-                  </span>
-                  <span class="btn-inner--text">Register New Account</span>
-                </a>
-              </div>
+<section class="section section-shaped section-lg" style="overflow-x: hidden ; width: 100%">
+  <div class="shape shape-style-1">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="container pt-lg-md">
+    <div class="row justify-content-center ch">
+      <div class="col-lg-5 ch">
+        <div class="card ch">
+          <div class="card-header pb-5" style="background-color: white">
+            <div class="text-muted text-center mb-3">
+              <small></small>
             </div>
-            <div class="card-body px-lg-5 py-lg-5">
-              <div class="text-center text-muted mb-4">
-                <small style="color: white">Provide new account details below</small>
-              </div>
-
-              <form role="form"[formGroup]="registerForm">
-                <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Email" type="email" (focus)="focus=true" (blur)="focus=false">
-                  </div>
-                </div>
-
-
-                <div class="form-group" [ngClass]="{'focused':focus1===true}">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Password" type="password" (focus)="focus1=true" (blur)="focus1=false">
-                  </div>
-                </div>
-
-
-                <div class="form-group" [ngClass]="{'focused':focus1===true}">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Re-Enter account password" type="password" (focus)="focus1=true"
-                      (blur)="focus1=false">
-                  </div>
-                </div>
-
-
-
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary my-4" (click)="registerNewAccount()">Create Account</button>
-                </div>
-
-              </form>
+            <div class="btn-wrapper text-center">
+              <a class="" style="cursor: pointer;">
+                <span class="">
+                  <img src="./assets/img/icons/common/github.svg">
+                </span>
+                <span class="btn-inner--text">PromoteBot</span>
+              </a>
+              <a [routerLink]="['/login']" class="btn btn-neutral btn-icon" style="cursor: pointer;">
+                <span class="">
+                  <img src="">
+                </span>
+                <span class="btn-inner--text">Register New Account</span>
+              </a>
             </div>
           </div>
-          <div class="row mt-3" style="background-color: rgb(192, 10, 149);
+          <div class="card-body px-lg-5 py-lg-5">
+
+            <div class="text-center text-muted mb-4">
+              <small style="color: white">Provide new account details below</small>
+            </div>
+
+            <div class="container">
+              <ng-container *ngTemplateOutlet="errorValidatorTemplate"></ng-container>
+            </div>
+
+            <form role="form" [formGroup]="registerForm">
+              <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Email" type="email" (focus)="focus=true" (blur)="focus=false"
+                    formControlName="email">
+                </div>
+              </div>
+
+
+              <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="SP Number" type="spnum" (focus)="focus1=true"
+                    (blur)="focus1=false" formControlName="spNumber">
+                </div>
+              </div>
+
+              <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Password" type="password" (focus)="focus1=true"
+                    (blur)="focus1=false" formControlName="password">
+                </div>
+              </div>
+
+
+              <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Re-Enter account password" type="password"
+                    (focus)="focus1=true" (blur)="focus1=false" formControlName="confirmPassword">
+                </div>
+              </div>
+
+
+
+              <div class="text-center">
+                <button type="button" class="btn btn-primary my-4" (click)="registerNewAccount()">Create
+                  Account</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <div class="row mt-3" style="background-color: rgb(192, 10, 149);
            border-radius: 70px;">
-            <!-- <div class="col-6">
+          <!-- <div class="col-6">
               <a href="javascript:void(0)" class="text-light">
                 <small>Forgot password?</small>
               </a>
             </div> -->
-            <div class="col-6 text-right">
-              <a [routerLink]="['/login']" class="text-light">
-                <small>Have an Account ? Sign In</small>
-              </a>
-            </div>
+          <div class="col-6 text-right">
+            <a [routerLink]="['/login']" class="text-light">
+              <small>Have an Account ? Sign In</small>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
+
+
+
+<ng-template #errorValidatorTemplate>
+
+  <small *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched" style="color: red">
+    *The email address field is required, please enter a valid email address.
+  </small>
+
+  <small *ngIf="registerForm.get('email').hasError('email')" style="color: red">
+    *Email is invalid, please enter correct email <br />
+  </small>
+
+  <small *ngIf="emailCond" style="color: red">
+    *Email address as already being used, please try using another email address <br />
+  </small>
+
+
+
+  <!-----------------SP Number-->
+  <small *ngIf="registerForm.get('spNumber').hasError('required') && registerForm.get('spNumber').touched"
+    style="color: red">
+    *Please type correct SP Number <br />
+  </small>
+
+  <small *ngIf="spNumberCond" style="color: red">
+    *Sp Number already used, please register with another! <br />
+  </small>
+
+  <small *ngIf="registerForm.get('spNumber').hasError('pattern')" style="color: red">
+    *Please type correct SP Number <br />
+  </small>
+
+  <!-----------------Password-------------------->
+  <small *ngIf="passwordVerify" style="color: red">
+    *Passwod mismtched... please check and
+    correctly type the mactching password <br />
+  </small>
+
+  <small *ngIf="mismatched" style="color: red">
+    *Passwod mismatched... <br />Please check and correctly type the mactching
+    password <br />
+  </small>
+
+
+  <small *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched"
+    style="color: red">
+    *All password fields are required.
+    <br />
+  </small>
+
+  <small *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched"
+    style="color: red">
+    *Confirm password field is required
+    <br />
+  </small>
+
+</ng-template>

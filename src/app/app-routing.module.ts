@@ -35,6 +35,7 @@ import { ForgotPasswordModule } from './forgot-paswword/module/forgto-password-m
 import { RegisterModule } from './register/module/register-mod.module';
 import { LoginModule } from './login/module/login-mod.module';
 import { AccountDashboardModModule } from './account-dashboard/account-dashboard-mod/account-dashboard-mod.module';
+import { RegsuccessmoduleModule } from './regsuccess/regsuccessmodule/regsuccessmodule.module';
 
 const appRoute: Routes = [
 
@@ -144,6 +145,27 @@ const appRoute: Routes = [
       )
   },
 
+
+  {
+    path: 'regsuccess',
+    loadChildren: () => import (
+      './regsuccess/regsuccessmodule/regsuccessmodule.module').then(
+        function (module) {
+          module.RegsuccessmoduleModule
+        }
+      )
+  },
+
+  // {
+  //   path: 'regsuccess',
+  //   loadChildren: () => import (
+  //     './regsuccess/regsuccessmodule/regsuccessmodule.module').then(
+  //       function (module) {
+  //         module.RegsuccessmoduleModule
+  //       }
+  //     )
+  // },
+
   { path: '**', component: PagenotfoundComponent },
 
 
@@ -163,7 +185,8 @@ const appRoute: Routes = [
     ForgotPasswordModule, 
     LoginModule,
     RegisterModule,
-    AccountDashboardModModule
+    AccountDashboardModModule,
+    RegsuccessmoduleModule
 
   ]
 })

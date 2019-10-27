@@ -1878,7 +1878,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
      * *********************************
      */
     this.loginCredentials.get('SpNo').valueChanges.subscribe(data => {
-      this.httpRequest.checkSpNo(this.loginCredentials.get('SpNo').value).subscribe(
+      this.httpRequest.checkspNumber(this.loginCredentials.get('SpNo').value).subscribe(
         dat => {
           if (dat.exists) {
             this.SpNoCond = true;

@@ -69,6 +69,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ForgotPaswwordComponent } from './forgot-paswword/forgot-paswword.component';
 import { SunbmitCvComponent } from './sunbmit-cv/sunbmit-cv.component';
 import { RegisterComponent } from './register/register.component';
+import { RegsuccessComponent } from './regsuccess/regsuccess.component';
+import { NonteachingstaffComponent } from './nonteachingstaff/nonteachingstaff.component';
 
 
 
@@ -99,19 +101,55 @@ import { RegisterComponent } from './register/register.component';
     PagenotfoundComponent,
     ForgotPaswwordComponent,
     SunbmitCvComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegsuccessComponent,
+    NonteachingstaffComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule,
+    BrowserModule,
     AppRoutingModule,
     MatPasswordStrengthModule.forRoot(),
-    MatButtonModule, MatSidenavModule, MatStepperModule, MatCardModule, MatFormFieldModule, MatCardModule
-    , MatCheckboxModule, ReactiveFormsModule, FormsModule, MatOptionModule, MatSelectModule, MatDatepickerModule,
-    MatDatepickerModule, MatRadioModule, MatNativeDateModule, MatInputModule,
-    SignaturePadModule, MatRadioModule, BrowserAnimationsModule, MatToolbarModule, MatListModule, MatTableModule, MatProgressSpinnerModule,
-    MatIconModule, FileUploadModule, HttpClientModule, MatExpansionModule, MessagesModule, ToastModule,
-    MatPasswordStrengthModule, TreeTableModule, DialogModule, MatSnackBarModule,
-    ButtonModule, ConfirmDialogModule, ToggleButtonModule, GrowlModule, MatTabsModule, CalendarModule, InputTextModule, RadioButtonModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatStepperModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    MatInputModule,
+    SignaturePadModule,
+    MatRadioModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatListModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    FileUploadModule,
+    HttpClientModule,
+    MatExpansionModule,
+    MessagesModule,
+    ToastModule,
+    MatPasswordStrengthModule,
+    TreeTableModule,
+    DialogModule,
+    MatSnackBarModule,
+    ButtonModule,
+    ConfirmDialogModule,
+    ToggleButtonModule,
+    GrowlModule,
+    MatTabsModule,
+    CalendarModule,
+    InputTextModule,
+    RadioButtonModule,
   ],
   providers: [MessageService, CacheService, ConfirmationService],
   bootstrap: [AppComponent]

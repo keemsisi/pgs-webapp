@@ -8,8 +8,8 @@ import { CacheService } from './cache.service';
   providedIn: 'root'
 })
 export class CustomHttpServicesService {
-  // readonly serverURL = 'http://localhost:8081';
-  readonly serverURL: 'https://promotbotformserver.herokuapp.com';
+  serverURL = 'http://localhost:8081';
+  // serverURL: 'https://promotbotformserver.herokuapp.com';
 
   constructor(private clientHttpRequest: HttpClient , private cacheService: CacheService) {
 
@@ -34,34 +34,43 @@ export class CustomHttpServicesService {
 
   /**
    * 
-   * @param SpNo
+   * @param spNumber
    */
-  public checkSpNo(value): Observable <any> {
-    return this.clientHttpRequest.post(this.serverURL + '/users/exists', { 'SpNo' : value }, {responseType : 'json'});
+  public checkspNumber(value): Observable <any> {
+    return this.clientHttpRequest.post(this.serverURL + '/users/spNumber/exists', { 'spNumber' : value }, {responseType : 'json'});
   }
 
 
   /**
    * 
-   * @param SpNo
+   * @param email 
    */
-  public grantUserLogin(SpNo , password): Observable <any> {
+  public checkEmail(value): Observable <any> {
+    return this.clientHttpRequest.post(this.serverURL + '/users/email/exists', { 'email' : value }, {responseType : 'json'});
+  }
+
+
+  /** 
+   * 
+   * @param spNumber
+   */
+  public grantUserLogin(spNumber , password): Observable <any> {
     return this.clientHttpRequest.post(this.serverURL + '/users/grant',
-    { 'SpNo' : SpNo, 'password': password }, {responseType : 'json'});
+    { 'spNumber' : spNumber, 'password': password }, {responseType : 'json'});
   }
 
     /**
    * 
-   * @param SpNo The usename of the user
+   * @param spNumber The usename of the user
    */
-  getUserInformation(SpNo): Observable<any> {
-    return this.clientHttpRequest.get(`${this.serverURL}` + '/applicants/bySpNo/'  + SpNo, {responseType: 'json'});
+  getUserInformation(spNumber): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + '/applicants/byspNumber/'  + spNumber, {responseType: 'json'});
   }
 
 
   /**
    *
-   * @param SpNo The usename of the user
+   * @param spNumber The usename of the user
    */
   submitSurvey(survey): Observable<any> {
     return this.clientHttpRequest.post(`${this.serverURL}` + '/survey/add' , {'survey' : survey } , {responseType: 'json'} );

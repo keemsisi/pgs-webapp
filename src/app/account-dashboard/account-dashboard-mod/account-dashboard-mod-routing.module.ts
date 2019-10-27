@@ -7,7 +7,9 @@ const routes: Routes = [
   {
     path: "account-dashboard",
     component: AccountDashboardComponent,
-    // canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
+    canLoad : [LoginGuard],
+    canActivateChild: [LoginGuard]
   }
 ];
 
@@ -16,13 +18,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AccountDashboardModRoutingModule { 
-  // constructor(){
-  //   new Promise(function(resolve  , reject){
-  //     resolve(3232323);
-  //     reject(23232)
-  //   }).then(function(value) {
-  //     console.log(value)
-  //     return value ;
-  //   });
-  // }
+  
 }

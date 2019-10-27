@@ -10,6 +10,7 @@ export class CacheService {
   serverURL = 'http://localhost:8081';
   // serverURL: 'https://promotbotformserver.herokuapp.com';
   payloadData: string ;
+  registrationSuccessful: Boolean ;
 
   constructor() { }
 }
