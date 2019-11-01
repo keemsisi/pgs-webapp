@@ -31,7 +31,7 @@
                       <!-- <span class="">
                         <img src="./assets/img/icons/common/github.svg">
                       </span> -->
-                      <span class="btn-inner--text">Academic / Teachin Staff Login</span>
+                      <span class="btn-inner--text">Academic / Teaching Staff Login</span>
                     </a>
                     <p class="" style="cursor: pointer;">
                       <!-- <span class="">
@@ -74,7 +74,7 @@
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-primary my-4" (click)="signIn()">Log in</button>
+                      <button type="button" class="btn btn-primary my-4" (click)="signIn()" [disabled]="!loginForm.valid">Log in</button>
                     </div>
                   </form>
                 </div>
@@ -124,7 +124,7 @@
                       <!-- <span class="">
                         <img src="./assets/img/icons/common/github.svg">
                       </span> -->
-                      <span class="btn-inner--text"> Non-Teachin Staff Login</span>
+                      <span class="btn-inner--text"> None-Teaching Staff Login</span>
                     </a>
                     <p class="" style="cursor: pointer;">
                       <!-- <span class="">

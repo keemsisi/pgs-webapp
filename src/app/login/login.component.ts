@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CustomHttpServicesService } from '../services/custom-http-services.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -15,18 +16,20 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   durationInSeconds = 5;
+
   message = '';
-  loginForm : FormGroup ;
+  
+  loginForm: FormGroup;
 
 
   constructor(private _snackBar: MatSnackBar,
-    private messageService: MessageService, private cacheService: CacheService, private router: Router 
-    , private fb : FormBuilder ,private customHttp : CustomHttpServicesService) { 
-      this.loginForm = fb.group({
-        spNumber : new FormControl( "", [Validators.required]),
-        password : new FormControl( "", [Validators.required]),
-      })
-    }
+    private messageService: MessageService, private cacheService: CacheService, private router: Router
+    , private fb: FormBuilder, private customHttp: CustomHttpServicesService) {
+    this.loginForm = fb.group({
+      spNumber: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required]),
+    })
+  }
 
 
 
@@ -37,38 +40,51 @@ export class LoginComponent implements OnInit {
 
     this.customHttp.grantUserLogin(
 
-      this.loginForm.get('spNumber'),this.loginForm.get('password')).subscribe(
+      this.loginForm.get('spNumber').value, this.loginForm.get('password').value).subscribe(
 
-      function(vdata){
+        vdata => {
 
-        this.message = "Registeration was successful, please check your email to confirm activate your account!";
+          if (vdata.valid) {
 
-        this.messageService.add({ severity: 'success', summary: this.message, detail: "Successful" });
 
-        this.router.navigate(['/regsuccess']).catch(function(reason){
+            this.cacheService.loggedIn = true ;
+            
+            this.message = "Login was successful, please wait while you get access to your account";
 
-          console.table(reason);
+            this.messageService.add({ severity: 'success', summary: "Successful", detail: this.message });
 
-        })
-        
+            this.router.navigate(['/account-dashboard']).catch(function (reason) {
 
-      }),(error : HttpErrorResponse)=> {
+              console.table(reason);
 
-        this.messageService.add({ severity: 'info', summary: this.message, detail: "Retryinh to login" });
+            });
+            
 
-        setTimeout(function(){
+          } else {
 
-          this.registerNewAccount();
+            console.log(vdata.valid);
 
-        },2000);
-        
-    }
 
-    this.message = "Account authenticated successfully!";
-    this.messageService.add({ severity: 'info', summary: this.message, detail: "Successful" });
-    this._snackBar.openFromComponent(CustomSnackBar, {
-      duration: this.durationInSeconds * 100,
-    });
+            this.message = "Unauthorised access, username and password not correct. please enter correct account credentials";
+
+            this.messageService.add({ severity: 'error', summary: "Invalid Credentials ", detail: this.message });
+
+          }
+
+
+
+        }), (error: HttpErrorResponse) => {
+
+          console.table(error);
+
+          this.messageService.add({ severity: 'error', summary: this.message, detail: "Retrying to login" });
+
+          setTimeout(function () {
+
+            this.registerNewAccount();
+
+          }, 2000);
+        }
 
   }
 

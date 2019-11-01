@@ -88,7 +88,8 @@
 
 
               <div class="text-center">
-                <button type="button" class="btn btn-primary my-4" (click)="registerNewAccount()">Create
+                <button type="button" class="btn btn-primary my-4" (click)="registerNewAccount()" [disabled]=
+                  "!registerForm.valid || mismatched || spNumberCond">Create
                   Account</button>
               </div>
 
@@ -149,10 +150,10 @@
   </small>
 
   <!-----------------Password-------------------->
-  <small *ngIf="passwordVerify" style="color: red">
+  <!-- <small *ngIf="passwordVerify" style="color: red">
     *Passwod mismtched... please check and
     correctly type the mactching password <br />
-  </small>
+  </small> -->
 
   <small *ngIf="mismatched" style="color: red">
     *Passwod mismatched... <br />Please check and correctly type the mactching
