@@ -1,22 +1,56 @@
-<div style="height: 100%; overflow-y: hidden;">
-    <div class="get-started">
-        <div style="margin-top: 20%; margin-bottom: 10%; width: 700px; height: 400px;" class="container">
+<div style="min-height: 100%; min-width: 100% ;overflow-y: hidden; background-color: rgb(136, 6, 119)" >
+    <div style="margin-top: 10%">
+        <div class="container">
             <mat-card>
-                <mat-card-header>
-                    <mat-card-title>Provide your registered Email Address</mat-card-title>
-                    <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
-                </mat-card-header>
-                <mat-card-content>
-                    <mat-form-field appearance="outline" class="width-100">
-                        <input matInput placeholder="Please provide your email address..." value="">
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-raised-button mat-raised-button color="primary" style="min-width: 100px; font-weight: bold">
-                        Reset Password
-                    </button>
-                </mat-card-actions>
+
+                <div *ngIf="show1">
+                    <ng-container *ngTemplateOutlet="o1"></ng-container>
+                </div>
+
+                <div *ngIf="show2">
+                    <ng-container *ngTemplateOutlet="o2"></ng-container>
+                </div>
+
             </mat-card>
         </div>
     </div>
 </div>
+
+
+<p-toast position="top-right"></p-toast>
+
+<ng-template #o1>
+
+    <mat-card-header>
+        <mat-card-title>Provide your registered Email Address</mat-card-title>
+        <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-form-field appearance="outline" class="width-100">
+            <mat-label>Email Address</mat-label>
+            <input matInput placeholder="Please provide your email address..." value="" [formControl]="accountEmail">
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button mat-raised-button color="primary" class="animated fadeInUp"
+            style="min-width: 100px; font-weight: bold" (click)="processForgotPasswordLink()"
+            *ngIf="accountEmail.valid">
+            Send Password Reset Link
+        </button>
+    </mat-card-actions>
+</ng-template>
+
+
+<ng-template #o2>
+
+    <mat-card-header>
+        <mat-card-title>Successfull</mat-card-title>
+        <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content>
+        <h4 style="color: rgb(148, 236, 15)">Forgot password link request was successful!</h4>
+    </mat-card-content>
+
+</ng-template>

@@ -71,6 +71,9 @@ import { SunbmitCvComponent } from './sunbmit-cv/sunbmit-cv.component';
 import { RegisterComponent } from './register/register.component';
 import { RegsuccessComponent } from './regsuccess/regsuccess.component';
 import { NonteachingstaffComponent } from './nonteachingstaff/nonteachingstaff.component';
+import { AccountactivationComponent } from './accountactivation/accountactivation.component';
+// import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 
 
 
@@ -103,7 +106,10 @@ import { NonteachingstaffComponent } from './nonteachingstaff/nonteachingstaff.c
     SunbmitCvComponent,
     RegisterComponent,
     RegsuccessComponent,
-    NonteachingstaffComponent
+    NonteachingstaffComponent,
+    AccountactivationComponent,
+    // ForgotpasswordComponent,
+    PasswordresetComponent
   ],
   imports: [
     BrowserModule,

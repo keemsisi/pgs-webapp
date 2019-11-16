@@ -114,7 +114,7 @@ export class RegisterComponent implements OnInit {
 
       data => {
 
-        let message = "Registeration was successful, please check your email to confirm activate your account!";
+        // let message = data.message; 
 
         console.table("DATA", data)
 

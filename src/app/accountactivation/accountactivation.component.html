@@ -1,0 +1,74 @@
+<section class="container">
+
+    <mat-toolbar color="primary">
+        <span>Account Activation</span>
+    </mat-toolbar>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <h3 style="font: bolder">
+                    Account Activation Message
+                </h3>
+            </mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+            <ng-container *ngIf="show1">
+
+                <h4>Congraturlations!!!!
+                    The account with email <span style="color: rgb(88, 88, 243); font: bold">{{accountEmail}}</span>,
+                    has been activated successfully, please click on the below
+                    button to continue
+                </h4>
+
+            </ng-container>
+
+            <ng-container *ngIf="show2">
+
+                <h4>The account with email <span style="color: rgb(88, 88, 243); font: bold">{{accountEmail}}</span>,
+                    failed to be activated. This may occur if your account is not registered or the account activation
+                    token is not valid /
+                    expired.
+                </h4>
+
+            </ng-container>
+
+            <ng-container *ngIf="show3">
+                <h4>The account with email <span style="color: rgb(88, 88, 243); font: bold">{{accountEmail}}</span>,
+                    has already been activated, please proceed to authenticate your login
+                </h4>
+
+            </ng-container>
+
+
+            <ng-container *ngIf="show4">
+
+                <h4 style="color: greenyellow">An activation has been sent to your account  <span style="color: rgb(88, 88, 243); font: bold">{{accountEmail}}</span>,
+                    . Kindly check to get the link in other to activate your account.
+                </h4>
+
+            </ng-container>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <a [routerLink]="['/login']" routerLinkActive="router-link-active">
+                <button mat-button btn-primary mat-raised-button>Account Authentication (Login)</button>
+            </a>
+
+            <button mat-button btn-primary mat-raised-button (click)="sendActivation()" *ngIf="showR"> Request Activation Link </button>
+
+        </mat-card-actions>
+    </mat-card>
+
+    <footer style="margin-bottom: 10px">
+        <mat-toolbar color="primary">
+            <span>Funaab Promot Bot Application &copy; 2019 All rights Reserved. </span>
+        </mat-toolbar>
+    </footer>
+
+</section>
+
+
+<p-toast position="top-right"></p-toast>

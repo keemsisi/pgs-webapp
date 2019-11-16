@@ -36,6 +36,8 @@ import { RegisterModule } from './register/module/register-mod.module';
 import { LoginModule } from './login/module/login-mod.module';
 import { AccountDashboardModModule } from './account-dashboard/account-dashboard-mod/account-dashboard-mod.module';
 import { RegsuccessmoduleModule } from './regsuccess/regsuccessmodule/regsuccessmodule.module';
+import { AccountactivationmoduleModule } from './accountactivation/accountactivationmodule/accountactivationmodule.module';
+import { PasswordresetmoduleModule } from './passwordreset/passwordresetmodule/passwordresetmodule.module';
 
 const appRoute: Routes = [
 
@@ -156,15 +158,40 @@ const appRoute: Routes = [
       )
   },
 
+  {
+    path: 'activate',
+    loadChildren: () => import (
+      './accountactivation/accountactivationmodule/accountactivationmodule.module').then(
+        function (module) {
+          module.AccountactivationmoduleModule
+        }
+      )
+  },
+
+
+  {
+    path: 'password-reset',
+    loadChildren: () => import (
+      './passwordreset/passwordresetmodule/passwordresetmodule.module').then(
+        function (module) {
+          module.PasswordresetmoduleModule
+        }
+      )
+  },
+
+
   // {
-  //   path: 'regsuccess',
+  //   path: 'forgotpassword',
   //   loadChildren: () => import (
-  //     './regsuccess/regsuccessmodule/regsuccessmodule.module').then(
+  //     './forgotpassword/forgotpasswordmodule/forgotpasswordmodule.module').then(
   //       function (module) {
-  //         module.RegsuccessmoduleModule
+  //         module.ForgotpasswordmoduleModule
   //       }
   //     )
   // },
+
+  
+
 
   { path: '**', component: PagenotfoundComponent },
 
@@ -186,7 +213,10 @@ const appRoute: Routes = [
     LoginModule,
     RegisterModule,
     AccountDashboardModModule,
-    RegsuccessmoduleModule
+    RegsuccessmoduleModule,
+    AccountactivationmoduleModule,
+    ForgotPasswordModule,
+    PasswordresetmoduleModule
 
   ]
 })

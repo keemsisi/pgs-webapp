@@ -69,11 +69,22 @@ export class CustomHttpServicesService {
 
 
   /**
+   * 
+   * @param spNumber The usename of the user
+   */
+  sendPasswordResetLink(email): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + '/users/'  + email, {responseType: 'json'});
+  }
+
+
+  /**
    *
    * @param spNumber The usename of the user
    */
   submitSurvey(survey): Observable<any> {
+
     return this.clientHttpRequest.post(`${this.serverURL}` + '/survey/add' , {'survey' : survey } , {responseType: 'json'} );
+    
   }
 
 }

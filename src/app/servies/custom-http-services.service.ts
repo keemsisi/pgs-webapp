@@ -8,8 +8,8 @@ import { CacheService } from './cache.service';
   providedIn: 'root'
 })
 export class CustomHttpServicesService {
-  // readonly serverURL = 'http://localhost:8081';
-  readonly serverURL: 'https://promotbotformserver.herokuapp.com';
+  readonly serverURL = 'http://localhost:8081';
+  // readonly serverURL: 'https://promotbotformserver.herokuapp.com';
 
   constructor(private clientHttpRequest: HttpClient , private cacheService: CacheService) {
 
@@ -59,12 +59,72 @@ export class CustomHttpServicesService {
   }
 
 
+
+  /**
+   * 
+   * @param email 
+   */
+  sendPasswordResetLink(email : String): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + '/users/forgotpassword/'  + email, {responseType: 'json'});
+  }
+
+
+
+  /**
+   * 
+   * @param document 
+   */
+  resetPassword(document : Object , email : String , token: String ): Observable<any> {
+    return this.clientHttpRequest.post(`${this.serverURL}` + `/users/resetpassword/?email=${email}&token=${token}` , document , {responseType: 'json'});
+  }
+
+
+
+    /**
+   * 
+   * @param email 
+   */
+  verifyResetPasswordLink(email : String , token : String ): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + '/users/verify-forgot-password-link/'  + token , {responseType: 'json'});
+  }
+
+
   /**
    *
    * @param SpNo The usename of the user
    */
   submitSurvey(survey): Observable<any> {
     return this.clientHttpRequest.post(`${this.serverURL}` + '/survey/add' , {'survey' : survey } , {responseType: 'json'} );
+  }
+
+
+    /**
+   *
+   * @param SpNo The usename of the user
+   */
+  activateAccount(email : String , spNumber : String , token : String): Observable<any> {
+
+    return this.clientHttpRequest.post(`${this.serverURL}` +
+
+     `/users/activate?email=${email}&spNumber=${spNumber}&token=${token}`,
+
+     {} , {responseType: 'json'} );
+  }
+
+
+
+
+      /**
+   *
+   * @param SpNo The usename of the user
+   */
+  sendAnotherLink(email : String , spNumber : String): Observable<any> {
+
+    return this.clientHttpRequest.post(`${this.serverURL}` +
+
+     `/users/activate/link?email=${email}&spNumber=${spNumber}`,
+
+     {} , {responseType: 'json'} );
   }
 
 }
