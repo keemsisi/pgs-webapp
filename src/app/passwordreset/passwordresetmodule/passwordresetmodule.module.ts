@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PasswordresetmoduleRoutingModule } from './passwordresetmodule-routing.module';
+import { PasswordresetComponent } from '../passwordreset.component';
 
 
 @NgModule({
@@ -9,6 +10,6 @@ import { PasswordresetmoduleRoutingModule } from './passwordresetmodule-routing.
   imports: [
     CommonModule,
     PasswordresetmoduleRoutingModule
-  ]
+  ],
 })
 export class PasswordresetmoduleModule { }

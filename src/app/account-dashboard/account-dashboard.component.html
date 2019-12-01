@@ -3,6 +3,12 @@
     <img src="./assets/img/icons/common/github.svg">
   </span>
   <span>PromoteBot User Account Dashboard </span>
+  <span style="float: right">
+    <button mat-raised-button color="secondary" title="Logout" (click)="logout()">
+      Log Out
+    </button>
+  </span>
+
 </mat-toolbar>
 
 
@@ -109,6 +115,77 @@
             <tr mat-row *matRowDef="let row; columns: ['column'];"></tr>
           </table> -->
 
+          <mat-accordion class="container">
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Books
+              </mat-expansion-panel-header>
+              content
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Academic Qualification Assessment
+              </mat-expansion-panel-header>
+              content2
+            </mat-expansion-panel>
+
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Publication Assessment
+              </mat-expansion-panel-header>
+              content2
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Community Service Assessment
+              </mat-expansion-panel-header>
+              content2
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Community Service Assessment
+              </mat-expansion-panel-header>
+              content2
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Community Service Assessment
+              </mat-expansion-panel-header>
+              content2
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Community Service Assessment
+              </mat-expansion-panel-header>
+              content2
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Community Service Assessment
+              </mat-expansion-panel-header>
+              content2
+            </mat-expansion-panel>
+
+
+
+
+
+          </mat-accordion>
+
         </mat-card-content>
         <!-- <mat-card-actions>
           <button mat-button>Ok</button>
@@ -122,12 +199,12 @@
 
 
   <!--------------- Settings tab ----------------------->
-  <section>
+  <section class="container">
     <mat-tab label="Settings">
       <div>
         <!-------Update Account Username or Login Username -->
         <div>
-          <mat-card color="primary">
+          <mat-card color="primary" class="container">
             <mat-card-header>
               <mat-card-title>Change Account Username</mat-card-title>
               <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
@@ -135,15 +212,18 @@
             <mat-card-content>
 
               <mat-form-field appearance="outline" class="width-80 marging-left-10">
+                <mat-label>Old Account Username</mat-label>
                 <input matInput placeholder="Old Account Username" value="">
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="width-80 marging-left-10">
+                <mat-label>New Account Username</mat-label>
                 <input matInput placeholder="New Account Username" value="">
               </mat-form-field>
 
 
               <mat-form-field appearance="outline" class="width-80 marging-left-10">
+                <mat-label>Confirm Account Username</mat-label>
                 <input matInput placeholder="Confirm Account Username" value="">
               </mat-form-field>
 
@@ -161,7 +241,7 @@
           </mat-card>
 
 
-          <mat-card>
+          <mat-card class="container">
             <mat-card-header>
               <mat-card-title>Change Account Password</mat-card-title>
               <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
@@ -169,14 +249,17 @@
             <mat-card-content>
 
               <mat-form-field appearance="outline" class="width-80 marging-left-10">
+                <mat-label>Old Account Password</mat-label>
                 <input matInput placeholder="Old Account Password" value="">
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="width-80 marging-left-10">
+                <mat-label>New Account Password</mat-label>
                 <input matInput placeholder="New Account Password" value="">
               </mat-form-field>
-              
+
               <mat-form-field appearance="outline" class="width-80 marging-left-10">
+                <mat-label>Confrim Account Password</mat-label>
                 <input matInput placeholder="Confrim Account Password" value="">
               </mat-form-field>
 
@@ -189,10 +272,6 @@
               <button mat-raised-button color="accent" title="Update Account Password">
                 Clear All Passwords Fields
               </button>
-
-
-
-
 
             </mat-card-actions>
           </mat-card>

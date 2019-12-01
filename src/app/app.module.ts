@@ -74,6 +74,7 @@ import { NonteachingstaffComponent } from './nonteachingstaff/nonteachingstaff.c
 import { AccountactivationComponent } from './accountactivation/accountactivation.component';
 // import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { ScoringtableComponent } from './scoringtable/scoringtable.component';
 
 
 
@@ -109,7 +110,8 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
     NonteachingstaffComponent,
     AccountactivationComponent,
     // ForgotpasswordComponent,
-    PasswordresetComponent
+    PasswordresetComponent,
+    ScoringtableComponent
   ],
   imports: [
     BrowserModule,

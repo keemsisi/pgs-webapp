@@ -19,7 +19,7 @@ export class AccountDashboardComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpRequest: CustomHttpServicesService,
     private messageService: MessageService, private cacheService: CacheService, private router: Router) {
 
-      if (this.cacheService.SpNo == undefined ) {
+      if (typeof this.cacheService.SpNo == 'undefined' ) {
         this.cacheService.payloadData = JSON.stringify(new DataObjectModel().model);
         console.log("DATA MODEL " + this.cacheService.payloadData.toString());
       } else {
@@ -36,6 +36,14 @@ export class AccountDashboardComponent implements OnInit {
   public fetchStaffCV(){
     //fetch the staff SpNo from the server 
     const data = of(fetch(this.cacheService.serverURL+"/bySpNo/" + this.cacheService.SpNo))
+  }
+
+  public logout(){
+    const ms = this.messageService ;
+    this.router.navigate(['/login']).catch(function(){
+      window.localStorage.setItem('loggedIn' , 'false');
+      ms.add({ severity: 'error', summary: "Server Error ", detail: "Could not logout..." });
+    })
   }
 
 }

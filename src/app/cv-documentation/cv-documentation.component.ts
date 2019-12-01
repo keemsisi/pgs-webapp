@@ -115,17 +115,17 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   surveyAnswers: { [question: string]: string };
 
   @ViewChild(SignaturePad , {static : true}) signaturePad: SignaturePad;
-  @ViewChild('prizes', {static : true}) prizesF: FileUpload;
-  @ViewChild('commendation', {static : true}) commendationF: FileUpload;
-  @ViewChild('nationalRecommendation', {static : true}) nationalRecommendationF: FileUpload;
-  @ViewChild('internationalRecommendations', {static : true}) internationalRecommendationsF: FileUpload;
-  @ViewChild('academicQualifications', {static : true}) academicQualificationsF: FileUpload;
-  @ViewChild('specialAssignements', {static : true}) specialAssignemtnsF: FileUpload;
-  @ViewChild('publications', {static : true}) publicationsF: FileUpload;
-  @ViewChild('extraCurriculaActivities', {static : true}) extraCurriculaActivitiesF: FileUpload;
-  @ViewChild('educationalCertificates', {static : true}) educationalCertificatesF: FileUpload;
-  @ViewChild('honours', {static : true}) honoursF: FileUpload;
-  @ViewChild('awards', {static : true}) awardsF: FileUpload;
+  // @ViewChild('prizes', {static : true}) prizesF: FileUpload;
+  // @ViewChild('commendation', {static : true}) commendationF: FileUpload;
+  // @ViewChild('nationalRecommendation', {static : true}) nationalRecommendationF: FileUpload;
+  // @ViewChild('internationalRecommendations', {static : true}) internationalRecommendationsF: FileUpload;
+  // @ViewChild('academicQualifications', {static : true}) academicQualificationsF: FileUpload;
+  // @ViewChild('specialAssignements', {static : true}) specialAssignemtnsF: FileUpload;
+  // @ViewChild('publications', {static : true}) publicationsF: FileUpload;
+  // @ViewChild('extraCurriculaActivities', {static : true}) extraCurriculaActivitiesF: FileUpload;
+  // @ViewChild('educationalCertificates', {static : true}) educationalCertificatesF: FileUpload;
+  // @ViewChild('honours', {static : true}) honoursF: FileUpload;
+  // @ViewChild('awards', {static : true}) awardsF: FileUpload;
 
 
 
