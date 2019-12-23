@@ -115,76 +115,10 @@
             <tr mat-row *matRowDef="let row; columns: ['column'];"></tr>
           </table> -->
 
-          <mat-accordion class="container">
 
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Books
-              </mat-expansion-panel-header>
-              content
-            </mat-expansion-panel>
+          <ng-container *ngTemplateOutlet="assessment"></ng-container>
 
 
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Academic Qualification Assessment
-              </mat-expansion-panel-header>
-              content2
-            </mat-expansion-panel>
-
-
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Publication Assessment
-              </mat-expansion-panel-header>
-              content2
-            </mat-expansion-panel>
-
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Community Service Assessment
-              </mat-expansion-panel-header>
-              content2
-            </mat-expansion-panel>
-
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Community Service Assessment
-              </mat-expansion-panel-header>
-              content2
-            </mat-expansion-panel>
-
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Community Service Assessment
-              </mat-expansion-panel-header>
-              content2
-            </mat-expansion-panel>
-
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Community Service Assessment
-              </mat-expansion-panel-header>
-              content2
-            </mat-expansion-panel>
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                Community Service Assessment
-              </mat-expansion-panel-header>
-              content2
-            </mat-expansion-panel>
-
-
-
-
-
-          </mat-accordion>
 
         </mat-card-content>
         <!-- <mat-card-actions>
@@ -305,3 +239,138 @@
 <mat-toolbar color="primary">
   <span> PROMOTBOT FUNAAB 2019 &copy; </span>
 </mat-toolbar>
+
+
+
+
+
+
+
+<ng-template #assessment>
+  <mat-accordion class="container">
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Journal In Print Assement
+      </mat-expansion-panel-header>
+      content2
+    </mat-expansion-panel>
+
+
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Conference Paper - Peer Reviewed Proceedings
+      </mat-expansion-panel-header>
+      content
+    </mat-expansion-panel>
+
+
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Books Assessment
+      </mat-expansion-panel-header>
+      content
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Books Articles or Chapters Assessment
+      </mat-expansion-panel-header>
+      content
+    </mat-expansion-panel>
+
+
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Academic Qualification Assessment
+      </mat-expansion-panel-header>
+      content2
+    </mat-expansion-panel>
+
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Cognate Experience
+      </mat-expansion-panel-header>
+      content2
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Teaching Assessment
+      </mat-expansion-panel-header>
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Work Load
+        </mat-expansion-panel-header>
+        content2
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          HOD's Assesment
+        </mat-expansion-panel-header>
+        content2
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Student Assessment
+        </mat-expansion-panel-header>
+        content2
+      </mat-expansion-panel>
+
+
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Community Service Assessment
+      </mat-expansion-panel-header>
+      content2
+    </mat-expansion-panel>
+
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Research Publication Assessment
+      </mat-expansion-panel-header>
+      content2
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Activity Profile Assessment
+      </mat-expansion-panel-header>
+      content2
+    </mat-expansion-panel>
+
+
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Academic Distinction/ Commendation Assessment
+      </mat-expansion-panel-header>
+      content2
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</ng-template>

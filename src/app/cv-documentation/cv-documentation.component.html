@@ -6,7 +6,8 @@
   <!--start read more button-->
   <div class="col-md-6 col-lg-6 col-x-6" #1>
     <div class="margin-top-70 marging-left-40">
-      <button mat-raised-button mat-raised-button style="float: left ;min-width: 100px; background-color: red ; font-weight: bold ; text-align: center; color: white"
+      <button mat-raised-button mat-raised-button
+        style="float: left ;min-width: 100px; background-color: red ; font-weight: bold ; text-align: center; color: white"
         (click)="deleteAllSavedFormsValues()">
         Clear All Fields
       </button>
@@ -15,8 +16,9 @@
 
   <div class="col-md-6 col-lg-6 col-x-6" #2>
     <div class="margin-top-70 marging-left-40">
-      <button mat-raised-button mat-raised-button style="clear:  ; float:right;min-width: 100px; background-color: rgb(137, 6, 236) ; font-weight: bold ; text-align: center; color: white"
-        (click)="saveAllFormsValues()">
+      <button mat-raised-button mat-raised-button
+        style="clear:  ; float:right;min-width: 100px; background-color: rgb(137, 6, 236) ; font-weight: bold ; text-align: center; color: white"
+        (click)="saveToLocalStorage()">
         Save and Continue
       </button>
     </div>
@@ -59,22 +61,22 @@
                 Invalid SpNo
               </mat-error> -->
 
-              <!-- <mat-error *ngIf="loginCredentials.get('SpNo').hasError('exists')">
+        <!-- <mat-error *ngIf="loginCredentials.get('SpNo').hasError('exists')">
                           SpNo is already taken...
                         </mat-error> -->
 
-            <!-- </mat-form-field>
+        <!-- </mat-form-field>
             <mat-error *ngIf="SpNoCond">
               SpNo already taken
             </mat-error> -->
 
-            <!-- 
+        <!-- 
                     <mat-error *ngIf="loginCredentials.get('SpNo').hasError('exists')">
                       SpNo is already taken...
                     </mat-error> -->
 
 
-            <!-- <div>
+        <!-- <div>
               <mat-form-field appearance="outline" style="width: 100% ; margin-top: 5%">
                 <mat-label>Password</mat-label>
 
@@ -89,23 +91,23 @@
                   Password is required
                 </mat-error> -->
 
-                <!-- <mat-error *ngIf="loginCredentials.get('password').hasError('required') && loginCredentials.get('password').touched">
+        <!-- <mat-error *ngIf="loginCredentials.get('password').hasError('required') && loginCredentials.get('password').touched">
                                 <mat-icon matPrefix>sad</mat-icon>
                                 Password is not valid
                             </mat-error> -->
 
-              <!-- </mat-form-field>
+        <!-- </mat-form-field>
 
               <mat-password-strength #passwordComponentWithValidation (onStrengthChanged)="onStrengthChanged($event)"
                 [password]="passwordWithValidation.value">
               </mat-password-strength> -->
 
-              <!--Password's strength info-->
-            <!-- </div> -->
+        <!--Password's strength info-->
+        <!-- </div> -->
 
 
-            <!-- <div> -->
-              <!-- <mat-form-field appearance="outline" style="width: 100%; margin-top: 5%">
+        <!-- <div> -->
+        <!-- <mat-form-field appearance="outline" style="width: 100%; margin-top: 5%">
                             <mat-label> Confirm Password</mat-label>
                             <input matInput #confirmPassword
                                    type="password"
@@ -119,33 +121,33 @@
                                 Password is required
                              </mat-error> -->
 
-              <!-- <mat-error *ngIf="loginCredentials.get('confirmPassword').hasError('pattern')">
+        <!-- <mat-error *ngIf="loginCredentials.get('confirmPassword').hasError('pattern')">
                               Password is not valid
                             </mat-error> -->
 
-              <!-- <mat-error *ngIf="loginCredentials.get('password').hasError('mismatched')">
+        <!-- <mat-error *ngIf="loginCredentials.get('password').hasError('mismatched')">
                               <mat-icon matPrefix></mat-icon>
                               Password mismatched...
                             </mat-error> -->
 
-              <!-- </mat-form-field> -->
+        <!-- </mat-form-field> -->
 
 
-              <!-- <mat-password-strength #confirmPasswordValidation
+        <!-- <mat-password-strength #confirmPasswordValidation
                                                           (onStrengthChanged)="onStrengthChanged($event)"
                                                           [password]="confirmPassword.value">
                           </mat-password-strength> -->
-              <!--Password's strength info-->
-              <!-- <mat-password-strength-info
+        <!--Password's strength info-->
+        <!-- <mat-password-strength-info
                             [passwordComponent]="confirmPasswordValidation">
                           </mat-password-strength-info> -->
-            <!-- </div>
+        <!-- </div>
 
             <mat-password-strength-info [passwordComponent]="passwordComponentWithValidation">
             </mat-password-strength-info> -->
 
 
-            <!-- <div class="margin-top-20" style="float: right;">
+        <!-- <div class="margin-top-20" style="float: right;">
               <button mat-raised-button matStepperNext mat-raised-button color="primary" style="min-width: 100px;"
                 [disabled]='SpNoCond'>Next </button>
             </div>
@@ -213,8 +215,8 @@
             </mat-form-field>
 
             <div formArrayName="contactAddresses">
-              <button mat-raised-button color="primary" title="Remove" (click)="addContactAddress()" class="width-20 marging-left-10 "
-                style="margin-bottom: 10px ;">
+              <button mat-raised-button color="primary" title="Remove" (click)="addContactAddress()"
+                class="width-20 marging-left-10 " style="margin-bottom: 10px ;">
                 <mat-icon matSuffix>add</mat-icon>
               </button>
 
@@ -226,8 +228,8 @@
                     <input matInput placeholder="Contact Address" formControlName="contactAddress">
                   </mat-form-field>
 
-                  <button mat-raised-button title="Remove" (click)="removeContactAddress(i)" style="margin-bottom: 20px ; height: 40px; ; "
-                    class="width-20 marging-left-10 ">
+                  <button mat-raised-button title="Remove" (click)="removeContactAddress(i)"
+                    style="margin-bottom: 20px ; height: 40px; ; " class="width-20 marging-left-10 ">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
 
@@ -238,8 +240,8 @@
 
 
             <div formArrayName="phoneNumbers">
-              <button mat-raised-button color="primary" title="Remove" (click)="addPhoneNumber()" class="width-20 marging-left-10 "
-                style="margin-bottom: 10px ;">
+              <button mat-raised-button color="primary" title="Remove" (click)="addPhoneNumber()"
+                class="width-20 marging-left-10 " style="margin-bottom: 10px ;">
                 <mat-icon matSuffix>add</mat-icon>
               </button>
 
@@ -249,8 +251,8 @@
                     <mat-label>Phone Number</mat-label>
                     <input matInput placeholder="Enter Phone Number" formControlName="phoneNumber">
                   </mat-form-field>
-                  <button mat-raised-button title="Remove" (click)="removePhoneNumber(i)" style="margin-bottom: 20px ; height: 40px; ;color : red "
-                    class="width-20 marging-left-10 ">
+                  <button mat-raised-button title="Remove" (click)="removePhoneNumber(i)"
+                    style="margin-bottom: 20px ; height: 40px; ;color : red " class="width-20 marging-left-10 ">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
                 </div>
@@ -259,8 +261,8 @@
 
 
             <div formArrayName="emailAddresses">
-              <button mat-raised-button color="primary" title="Add" (click)="addEmailAdress()" class="width-20 marging-left-10 "
-                style="margin-bottom: 10px ;color : red">
+              <button mat-raised-button color="primary" title="Add" (click)="addEmailAdress()"
+                class="width-20 marging-left-10 " style="margin-bottom: 10px ;color : red">
                 <mat-icon matSuffix>add</mat-icon>
               </button>
 
@@ -273,8 +275,8 @@
                     <input matInput placeholder="Email Address" formControlName="emailAddress">
                   </mat-form-field>
 
-                  <button mat-raised-button title="Remove" (click)="removeEmailAdress(i)" style="margin-bottom: 20px ; height: 40px;color : red ; "
-                    class="width-20 marging-right-10 ; ">
+                  <button mat-raised-button title="Remove" (click)="removeEmailAdress(i)"
+                    style="margin-bottom: 20px ; height: 40px;color : red ; " class="width-20 marging-right-10 ; ">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
                 </div>
@@ -290,7 +292,15 @@
 
             <mat-form-field appearance="outline" class="width-45 marging-left-10">
               <mat-label>Post On Promotion</mat-label>
-              <input matInput placeholder="Post On Promotion" formControlName="postOnPromotion">
+              <mat-select placeholder="Marital Status" formControlName="postOnPromotion">
+                <mat-option value=""></mat-option>
+                <mat-option value="Professor">Professor</mat-option>
+                <mat-option value="Reader">Reader</mat-option>
+                <mat-option value="Senior Lecturer">Senior Lecturer</mat-option>
+                <mat-option value="Lecturer I Ph.D. (M.Sc)">Lecturer I Ph.D. (M.Sc)</mat-option>
+                <mat-option value="Lecturer II">Lecturer II</mat-option>
+                <mat-option value="Assistant Lecturer">Assistant Lecturer</mat-option>
+              </mat-select>
             </mat-form-field>
 
           </form>
@@ -319,35 +329,48 @@
                   </mat-panel-title>
                 </mat-expansion-panel-header>
 
-                <div formArrayName="educationArray">
+                <div formArrayName="educationArray" class="container">
                   <div *ngFor="let education of formDataEaphni[0].controls; let i = index">
 
-                    <button mat-raised-button title="Remove" (click)="removeEducational(i)" style="margin-bottom: 10px; color: red;">
+                    <button mat-raised-button title="Remove" (click)="removeEducational(i)"
+                      style="margin-bottom: 10px; color: red;">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
 
-                    <div formGroupName="{{i}}">
-                      <mat-form-field appearance="outline" class="width-100 marging-right-5">
+                    <div formGroupName="{{i}}" class="container">
+                      <mat-form-field appearance="outline" class="width-40 marging-right-10">
                         <mat-label>Institution Attended</mat-label>
                         <input matInput placeholder="Institution Attended" formControlName="schoolAttended">
                       </mat-form-field>
 
-                      <!-- <mat-form-field appearance="outline" class="width-30 marging-right-5 ">
-                            <mat-label>From Date</mat-label>
-                             <input matInput [matDatepicker]="picker3" placeholder="From Year" formControlName="fromDate"> -->
-                      <!-- <input matInput placeholder="From Year" formControlName="fromDate"> -->
-                      <!-- </mat-form-field> -->
+                      <mat-form-field appearance="outline" class="width-40 marging-right-10">
+                        <mat-label> Educational Degree </mat-label>
+                        <mat-select placeholder="Select degree" formControlName="degree" class="input">
+                          <mat-option value="BSc.">BSc</mat-option>
+                          <mat-option value="MSc.">MSc.</mat-option>
+                          <mat-option value="MICT">MICT</mat-option>
+                          <mat-option value="MPhil">MPhil</mat-option>
+                          <mat-option value="Phd">Phd</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="width-40 marging-right-10">
+                        <mat-label>From Date</mat-label>
+                        <!-- <input matInput [matDatepicker]="picker3" placeholder="From Year" formControlName="fromDate"> -->
+                        <input matInput placeholder="From Year" formControlName="fromDate">
+                      </mat-form-field>
 
 
-                      <!-- <mat-form-field appearance="outline" class="width-30">
-                            <mat-label>To Date</mat-label>
-                            <input matInput placeholder="To Date" formControlName="toDate">
-                          </mat-form-field> -->
+                      <mat-form-field appearance="outline" class="width-40 marging-right-10 ">
+                        <mat-label>To Date</mat-label>
+                        <input matInput placeholder="To Date" formControlName="toDate">
+                      </mat-form-field>
 
                       <!-- <p-fileUpload auto="auto"   name="myfile[]" #educationalCertificates  multiple="multiple" auto="auto" (onUpload)="onBasicUpload($event)"  (onError) = onBasicError($event)></p-fileUpload> -->
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" title="Add" (click)="addEducational()" style="margin-bottom: 10px ; min-width: 150px;">
+                  <button mat-raised-button color="primary" title="Add" (click)="addEducational()"
+                    style="margin-bottom: 10px ; min-width: 150px;">
                     <mat-icon matSuffix>add</mat-icon>
                   </button>
                 </div>
@@ -369,10 +392,11 @@
                   </mat-panel-title>
                 </mat-expansion-panel-header>
 
-                <div formArrayName="academicQualifications" >
+                <div formArrayName="academicQualifications">
 
                   <div *ngFor="let work of formDataEaphni[1].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeAcademicQualification(i)" style="margin-bottom: 10px ; color: red;">
+                    <button mat-raised-button title="Remove" (click)="removeAcademicQualification(i)"
+                      style="margin-bottom: 10px ; color: red;">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
 
@@ -385,12 +409,14 @@
 
                       <mat-form-field appearance="outline" class="width-30 marging-right-10 ">
                         <mat-label>Date Received</mat-label>
-                        <input matInput placeholder="Date Academic Qualification was received...." formControlName="date">
+                        <input matInput placeholder="Date Academic Qualification was received...."
+                          formControlName="date">
                       </mat-form-field>
 
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" title="Add" (click)="addAcademicQualification()" style="margin-bottom: 10px ; min-width: 150px;">
+                  <button mat-raised-button color="primary" title="Add" (click)="addAcademicQualification()"
+                    style="margin-bottom: 10px ; min-width: 150px;">
                     <mat-icon matSuffix>add</mat-icon>
                   </button>
                 </div>
@@ -413,7 +439,8 @@
 
                   <div *ngFor="let work of formDataEaphni[2].controls; let i = index">
 
-                    <button mat-raised-button title="Remove" (click)="removeProfessionalQualification(i)" style="margin-bottom: 10px ; color: red">
+                    <button mat-raised-button title="Remove" (click)="removeProfessionalQualification(i)"
+                      style="margin-bottom: 10px ; color: red">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
 
@@ -434,7 +461,8 @@
 
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" title="Add" (click)="addProfessionalQualification()" style="margin-bottom: 10px ; min-width: 150px;">
+                  <button mat-raised-button color="primary" title="Add" (click)="addProfessionalQualification()"
+                    style="margin-bottom: 10px ; min-width: 150px;">
                     <mat-icon matSuffix>add</mat-icon>
                   </button>
                 </div>
@@ -455,7 +483,8 @@
                 <div formArrayName="prizes">
 
                   <div *ngFor="let work of formDataEaphni[3].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removePrizes(i)" style="margin-bottom: 10px; color: red ">
+                    <button mat-raised-button title="Remove" (click)="removePrizes(i)"
+                      style="margin-bottom: 10px; color: red ">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
                     <div formGroupName="{{i}}">
@@ -485,7 +514,8 @@
 
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" title="Remove" (click)="addPrizes()" style="margin-bottom: 10px ; min-width: 150px;">
+                  <button mat-raised-button color="primary" title="Remove" (click)="addPrizes()"
+                    style="margin-bottom: 10px ; min-width: 150px;">
                     <mat-icon matSuffix>add</mat-icon>
                   </button>
                 </div>
@@ -508,7 +538,8 @@
                 <div formArrayName="scholarships">
 
                   <div *ngFor="let work of formDataEaphni[4].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeScholarship(i)" style="margin-bottom: 10px ; color: red ;">
+                    <button mat-raised-button title="Remove" (click)="removeScholarship(i)"
+                      style="margin-bottom: 10px ; color: red ;">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
                     <div formGroupName="{{i}}">
@@ -529,8 +560,8 @@
                       </mat-form-field>
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" (click)="addScholarship()" style="margin-bottom: 10px; ; min-width: 150px;"
-                    title="Add New">
+                  <button mat-raised-button color="primary" (click)="addScholarship()"
+                    style="margin-bottom: 10px; ; min-width: 150px;" title="Add New">
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
@@ -554,7 +585,8 @@
                 <div formArrayName="honours">
 
                   <div *ngFor="let work of formDataEaphni[5].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeHonours(i)" style="margin-bottom: 10px ; color: red">
+                    <button mat-raised-button title="Remove" (click)="removeHonours(i)"
+                      style="margin-bottom: 10px ; color: red">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
                     <div formGroupName="{{i}}">
@@ -577,8 +609,8 @@
                       <!-- <p-fileUpload auto="auto"   name="myfile[]" #honours  multiple="multiple" auto="auto" (onUpload)="onBasicUpload($event)"  (onError) = onBasicError($event)></p-fileUpload> -->
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" (click)="addHonours()" style="margin-bottom: 10px; ; min-width: 150px;"
-                    title="Add New">
+                  <button mat-raised-button color="primary" (click)="addHonours()"
+                    style="margin-bottom: 10px; ; min-width: 150px;" title="Add New">
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
@@ -601,12 +633,14 @@
 
                 <div formArrayName="nationalRecommendations">
 
-                  <button mat-raised-button color="primary" title="Add" (click)="addNationalRecommendations()" style="margin-bottom: 10px ; min-width: 150px;">
+                  <button mat-raised-button color="primary" title="Add" (click)="addNationalRecommendations()"
+                    style="margin-bottom: 10px ; min-width: 150px;">
                     <mat-icon matSuffix>add</mat-icon>
                   </button>
 
                   <div *ngFor="let work of formDataEaphni[6].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeNationalRecommendations(i)" style="margin-bottom: 10px ; color: red">
+                    <button mat-raised-button title="Remove" (click)="removeNationalRecommendations(i)"
+                      style="margin-bottom: 10px ; color: red">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
                     <div formGroupName="{{i}}">
@@ -634,7 +668,8 @@
 
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" title="Add" (click)="addNationalRecommendations()" style="margin-bottom: 10px ; min-width: 150px;">
+                  <button mat-raised-button color="primary" title="Add" (click)="addNationalRecommendations()"
+                    style="margin-bottom: 10px ; min-width: 150px;">
                     <mat-icon matSuffix>add</mat-icon>
                   </button>
                 </div>
@@ -661,14 +696,16 @@
                 <div formArrayName="internationalRecommendations">
 
                   <div *ngFor="let work of formDataEaphni[7].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeInternationalRecommendations(i)" style="margin-bottom: 10px ; color: red">
+                    <button mat-raised-button title="Remove" (click)="removeInternationalRecommendations(i)"
+                      style="margin-bottom: 10px ; color: red">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
                     <div formGroupName="{{i}}">
 
                       <mat-form-field appearance="outline" class="width-30 marging-right-5">
                         <mat-label>Received From</mat-label>
-                        <input matInput placeholder="International Rcommendation received from ?" formControlName="receivedFrom">
+                        <input matInput placeholder="International Rcommendation received from ?"
+                          formControlName="receivedFrom">
                       </mat-form-field>
 
                       <mat-form-field appearance="outline" class="width-30 marging-right-5">
@@ -731,7 +768,8 @@
 
                 <div formArrayName="workExperience">
                   <div *ngFor="let w of formDataMasterFormGroupings[0].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeWorkExp(i)" style="margin-bottom: 10px ; color: red">
+                    <button mat-raised-button title="Remove" (click)="removeWorkExp(i)"
+                      style="margin-bottom: 10px ; color: red">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
 
@@ -773,7 +811,8 @@
 
                     </div>
                   </div>
-                  <button mat-raised-button color="primary" (click)="addWorkExp()" style="margin-bottom: 10px;" title="Add New">
+                  <button mat-raised-button color="primary" (click)="addWorkExp()" style="margin-bottom: 10px;"
+                    title="Add New">
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
@@ -822,7 +861,8 @@
 
                       <mat-form-field appearance="outline" class="width-20 marging-left-10 ">
                         <mat-label>Number of Lecturers</mat-label>
-                        <input matInput placeholder="Number of Lecturers for the course" formControlName="numOfLecturers">
+                        <input matInput placeholder="Number of Lecturers for the course"
+                          formControlName="numOfLecturers">
                       </mat-form-field>
 
                       <mat-form-field appearance="outline" class="width-20 marging-left-10 ">
@@ -832,7 +872,8 @@
 
                       <mat-form-field appearance="outline" class="width-20 marging-left-10 ">
                         <mat-label> Number Of Registered Students </mat-label>
-                        <input matInput placeholder="Number of Students that took the course" formControlName="numberOfRegStd">
+                        <input matInput placeholder="Number of Students that took the course"
+                          formControlName="numberOfRegStd">
                       </mat-form-field>
 
                       <mat-form-field appearance="outline" class="width-20 marging-left-10 ">
@@ -853,7 +894,8 @@
                     </div>
 
 
-                    <button mat-raised-button title="Remove" (click)="removeCausesTaught(i)" style="margin-bottom: 10px ; color :red ; ">
+                    <button mat-raised-button title="Remove" (click)="removeCausesTaught(i)"
+                      style="margin-bottom: 10px ; color :red ; ">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
 
@@ -889,7 +931,8 @@
 
                     </div>
 
-                    <button mat-raised-button title="Remove" (click)="removeCourseDescription(i)" style="margin-bottom: 10px ; color: red;">
+                    <button mat-raised-button title="Remove" (click)="removeCourseDescription(i)"
+                      style="margin-bottom: 10px ; color: red;">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
 
@@ -912,7 +955,8 @@
 
                   <div formArrayName="otherWorkExperience">
                     <div *ngFor="let w of formDataMasterFormGroupings[1].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeOtherWorkExp(i)" style="margin-bottom: 10px ; color: red ; ">
+                      <button mat-raised-button title="Remove" (click)="removeOtherWorkExp(i)"
+                        style="margin-bottom: 10px ; color: red ; ">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
@@ -962,7 +1006,8 @@
                     </div>
                   </div>
                   <mat-action-row>
-                    <button mat-raised-button color="warn" (click)="prevStep()" class="marging-right-10">Previous</button>
+                    <button mat-raised-button color="warn" (click)="prevStep()"
+                      class="marging-right-10">Previous</button>
                     <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
                   </mat-action-row>
                 </mat-expansion-panel>
@@ -981,7 +1026,7 @@
 
 
         <mat-step [stepControl]="masterFormGroupings">
-          <ng-template matStepLabel> SPECIAL ASSIGNMENTS / COMMUMICATION SERVICE </ng-template>
+          <ng-template matStepLabel> SPECIAL ASSIGNMENTS / COMMUMITYSERVICE </ng-template>
 
 
           <h4 style=" margin-top: 5% ; font-weight: bold"> A. ADMINISTRATIVE/TECHNICAL EXPERINCES </h4>
@@ -990,7 +1035,8 @@
 
             <div formArrayName="specialAssignmentATE">
               <div *ngFor="let sa of formDataMasterFormGroupings[13].controls; let i = index">
-                <button mat-raised-button title="Remove" (click)="removeSpecialAssignmentATE(i)" style="margin-bottom: 10px ; color: red">
+                <button mat-raised-button title="Remove" (click)="removeSpecialAssignmentATE(i)"
+                  style="margin-bottom: 10px ; color: red">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
@@ -1037,7 +1083,8 @@
             <div formArrayName="specialAssignmentMC">
               <div *ngFor="let sa of formDataMasterFormGroupings[28].controls; let i = index">
 
-                <button mat-raised-button title="Remove" (click)="removeSpecialAssignmentMC(i)" style="margin-bottom: 10px ; color: red">
+                <button mat-raised-button title="Remove" (click)="removeSpecialAssignmentMC(i)"
+                  style="margin-bottom: 10px ; color: red">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
@@ -1086,7 +1133,8 @@
             <h4 style=" margin-top: 5% ; font-weight: bold"> C. COMMUNITY SERVICE </h4>
             <div formArrayName="specialAssignmentCS">
               <div *ngFor="let sa of formDataMasterFormGroupings[29].controls; let i = index">
-                <button mat-raised-button title="Remove" (click)="removeSpecialAssignmentCS(i)" style="margin-bottom: 10px ; color: red ;">
+                <button mat-raised-button title="Remove" (click)="removeSpecialAssignmentCS(i)"
+                  style="margin-bottom: 10px ; color: red ;">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
@@ -1098,7 +1146,8 @@
 
                   <mat-form-field appearance="outline" class="width-45 marging-right-10">
                     <mat-label> Community Service Provided </mat-label>
-                    <input matInput placeholder="Describe the community service that you provided" formControlName="communityServiceDescription">
+                    <input matInput placeholder="Describe the community service that you provided"
+                      formControlName="communityServiceDescription">
                   </mat-form-field>
 
                   <mat-form-field appearance="outline" class="width-45 marging-right-10">
@@ -1147,7 +1196,8 @@
 
             <div formArrayName="trainingProgramme">
               <div *ngFor="let tp of formDataMasterFormGroupings[14].controls; let i = index">
-                <button mat-raised-button title="Remove" (click)="removeTrainingProgramme(i)" style="margin-bottom: 10px ; color: red ; ">
+                <button mat-raised-button title="Remove" (click)="removeTrainingProgramme(i)"
+                  style="margin-bottom: 10px ; color: red ; ">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
@@ -1160,8 +1210,8 @@
 
                   <mat-form-field appearance="outline" class="width-95 marging-left-10 ">
                     <mat-label>Training Received</mat-label>
-                    <input matInput placeholder="Training Received ... eg WorkShop on CISCO Server" formControlName="training"
-                      class="custom-textarea">
+                    <input matInput placeholder="Training Received ... eg WorkShop on CISCO Server"
+                      formControlName="training" class="custom-textarea">
                   </mat-form-field>
                 </div>
               </div>
@@ -1191,14 +1241,16 @@
 
             <div formArrayName="commendation">
               <div *ngFor="let cm of formDataMasterFormGroupings[5].controls; let i = index">
-                <button mat-raised-button title="Remove" (click)="removeCommd(i)" style="margin-bottom: 10px ; color: red">
+                <button mat-raised-button title="Remove" (click)="removeCommd(i)"
+                  style="margin-bottom: 10px ; color: red">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
                 <div formGroupName="{{i}}">
                   <mat-form-field appearance="outline" class="width-25 marging-right-5">
                     <mat-label>Commnedation Letter By</mat-label>
-                    <input matInput placeholder="The Commendation Letter was presented to you by ?" formControlName="by">
+                    <input matInput placeholder="The Commendation Letter was presented to you by ?"
+                      formControlName="by">
                   </mat-form-field>
 
                   <mat-form-field appearance="outline" class="width-25 marging-right-5">
@@ -1219,7 +1271,8 @@
                 </div>
 
               </div>
-              <button mat-raised-button color="primary" (click)="addCommd()" style="margin-bottom: 10px;" title="Add New">
+              <button mat-raised-button color="primary" (click)="addCommd()" style="margin-bottom: 10px;"
+                title="Add New">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -1245,7 +1298,8 @@
 
             <div formArrayName="membershipOfProfessionalBodies">
               <div *ngFor="let mp of formDataMasterFormGroupings[12].controls; let i = index">
-                <button mat-raised-button title="Remove" (click)="removeMembershipOfProfessionalBodiesIndex(i)" style="margin-bottom: 10px ; color: red ;">
+                <button mat-raised-button title="Remove" (click)="removeMembershipOfProfessionalBodiesIndex(i)"
+                  style="margin-bottom: 10px ; color: red ;">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
@@ -1280,8 +1334,8 @@
                             </mat-form-field> -->
 
                 </div>
-                <button mat-raised-button color="primary" (click)="addMembershipOfProfessionalBodies()" style="margin-bottom: 10px;"
-                  title="Add New">
+                <button mat-raised-button color="primary" (click)="addMembershipOfProfessionalBodies()"
+                  style="margin-bottom: 10px;" title="Add New">
                   <mat-icon>add</mat-icon>
                 </button>
               </div>
@@ -1316,13 +1370,15 @@
 
                 <div formArrayName="researchInterests">
                   <div *ngFor="let ri of formDataMasterFormGroupings[6].controls let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeResearchInterests(i)" style="margin-bottom: 10px ; color: red ;" class="">
+                    <button mat-raised-button title="Remove" (click)="removeResearchInterests(i)"
+                      style="margin-bottom: 10px ; color: red ;" class="">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
                     <div formGroupName="{{i}}">
                       <mat-form-field appearance="outline" class="width-95 marging-left-10 ">
                         <mat-label> Research Interest </mat-label>
-                        <input matInput placeholder="Trainign Received" formControlName="interest" class="custom-textarea">
+                        <input matInput placeholder="Trainign Received" formControlName="interest"
+                          class="custom-textarea">
                       </mat-form-field>
                       <!-- <mat-form-field appearance="outline" class="width-95 marging-left-10 ">
                                             <mat-label>Outline</mat-label>
@@ -1331,8 +1387,8 @@
                     </div>
 
                   </div>
-                  <button mat-raised-button color="primary" (click)="addResearchInterests()" style="margin-bottom: 10px;"
-                    title="Add New">
+                  <button mat-raised-button color="primary" (click)="addResearchInterests()"
+                    style="margin-bottom: 10px;" title="Add New">
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
@@ -1354,19 +1410,21 @@
 
                 <div formArrayName="commissionedProject">
                   <div *ngFor="let c of formDataMasterFormGroupings[7].controls; let i = index">
-                    <button mat-raised-button title="Remove" (click)="removeCommissionedProject(i)" style="margin-bottom: 10px ; color: red ;">
+                    <button mat-raised-button title="Remove" (click)="removeCommissionedProject(i)"
+                      style="margin-bottom: 10px ; color: red ;">
                       <mat-icon matSuffix>delete</mat-icon>
                     </button>
                     <div formGroupName="{{i}}">
                       <mat-form-field appearance="outline" class="width-90 marging-left-10 ">
                         <mat-label> Commisioned Project </mat-label>
-                        <input matInput placeholder="Commisioned Projects " formControlName="commissionedProject" class="custom-textarea">
+                        <input matInput placeholder="Commisioned Projects " formControlName="commissionedProject"
+                          class="custom-textarea">
                       </mat-form-field>
                     </div>
 
                   </div>
-                  <button mat-raised-button color="primary" (click)="addCommissionedProject()" style="margin-bottom: 10px;"
-                    title="Add New">
+                  <button mat-raised-button color="primary" (click)="addCommissionedProject()"
+                    style="margin-bottom: 10px;" title="Add New">
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
@@ -1406,7 +1464,8 @@
 
                   <div formGroupName="thesisDissPro">
                     <div *ngFor="let t of formDataMasterFormGroupings[26].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeThesisDissPro(i)" style="margin-bottom: 10px ; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeThesisDissPro(i)"
+                        style="margin-bottom: 10px ; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
@@ -1438,46 +1497,77 @@
 
                   <div formGroupName="artInP">
                     <div *ngFor="let t of formDataMasterFormGroupings[30].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeArtInP(i)" style="margin-bottom: 10px; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeArtInP(i)"
+                        style="margin-bottom: 10px; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
                       <div formGroupName="{{i}}">
 
-                        <mat-form-field appearance="outline" class="40 marging-right-10">
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Your Name On Journal </mat-label>
-                          <input matInput placeholder="Your Name on the publication... eg Shodiya S.A" formControlName="pubName">
+                          <input matInput placeholder="Your Name on the publication... eg Shodiya S.A"
+                            formControlName="pubName">
                         </mat-form-field>
 
 
-                        <mat-form-field appearance="outline" class="40 marging-right-10">
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
+                          <mat-label> Authorship </mat-label>
+                          <mat-select placeholder="Authorship" formControlName="authorship" class="input">
+                            <mat-option value="Sole/Major">Sole/Major</mat-option>
+                            <mat-option value="Minor">Minor</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+
+
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
+                          <mat-label> Co-Authors </mat-label>
+                          <input matInput placeholder="Co-authors of the journal sperated with comma"
+                            formControlName="coAuthors">
+                        </mat-form-field>
+
+
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Journal Title</mat-label>
                           <input matInput placeholder="The Journal Title" formControlName="title">
                         </mat-form-field>
 
-
-
-                        <mat-form-field appearance="outline" class="40 marging-right-10">
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Journal Publiher</mat-label>
                           <input matInput placeholder="Journal Publisher " formControlName="publisher">
                         </mat-form-field>
 
-
-
-                        <mat-form-field appearance="outline" class="40 marging-right-10">
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Journal Serial Number</mat-label>
                           <input matInput placeholder="Journal Serial Number" formControlName="sn">
                         </mat-form-field>
 
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
+                          <mat-label> Volume </mat-label>
+                          <input matInput placeholder="Journal Serial Number" formControlName="volume">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
+                          <mat-label> Provide G8 Country </mat-label>
+                          <mat-select placeholder="Provide G8 Country" formControlName="g8Country" class="input">
+                            <mat-option value="null">None</mat-option>
+                            <mat-option value="Germany">Germany</mat-option>
+                            <mat-option value="France">France</mat-option>
+                            <mat-option value="Italy">Italy</mat-option>
+                            <mat-option value="United Kingdom (UK)">United Kingdom (UK)</mat-option>
+                            <mat-option value="Japan">Japan</mat-option>
+                            <mat-option value="US">US</mat-option>
+                          </mat-select>
+                        </mat-form-field>
 
 
-                        <mat-form-field appearance="outline" class="40 marging-right-10">
+                        <mat-form-field appearance="outline" class="width-40 marging-right-10">
                           <mat-label> Journal Avalable at </mat-label>
                           <input matInput placeholder="Available online at.... eg https://journal.com/journallink"
                             formControlName="availableAt">
                         </mat-form-field>
 
-                        <br />
                         <mat-form-field appearance="outline" class="width-40 marging-right-10">
                           <mat-label> Used for Promotion ? </mat-label>
                           <mat-select placeholder="Used for promotion before ? " formControlName="used" class="input">
@@ -1488,19 +1578,22 @@
 
                         <mat-form-field appearance="outline" class="width-40 marging-right-10">
                           <mat-label> Local Or Ferign Publication </mat-label>
-                          <mat-select placeholder="Was the publication local or foreign ?" formControlName="lf" class="input">
+                          <mat-select placeholder="Was the publication local or foreign ?" formControlName="lf"
+                            class="input">
                             <mat-option value="local">Local Publication</mat-option>
                             <mat-option value="foreign">Foreign Publication</mat-option>
                           </mat-select>
                         </mat-form-field>
 
-                        <textarea name="" id="#" cols="70" rows="5" formControlName="journalA" style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
+                        <textarea name="" id="#" cols="70" rows="5" formControlName="journalA"
+                          style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
                           placeholder="Paste Complete Journal details here">
-                              </textarea>
+                        </textarea>
 
                       </div>
                     </div>
-                    <button mat-raised-button color="primary" (click)="addArtInP()" style="margin-bottom: 10px;" title="Add New">
+                    <button mat-raised-button color="primary" (click)="addArtInP()" style="margin-bottom: 10px;"
+                      title="Add New">
                       <mat-icon>add</mat-icon>
                     </button>
                   </div>
@@ -1526,7 +1619,8 @@
 
                   <div formGroupName="articlesAcc">
                     <div *ngFor="let t of  formDataMasterFormGroupings[20].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeArticleAcc(i)" style="margin-bottom: 10px ; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeArticleAcc(i)"
+                        style="margin-bottom: 10px ; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
@@ -1534,7 +1628,8 @@
 
                         <mat-form-field appearance="outline" class="40 marging-right-10">
                           <mat-label> Your name on Article</mat-label>
-                          <input matInput placeholder="Your Name on the publication... eg Shodiya S.A" formControlName="pubName">
+                          <input matInput placeholder="Your Name on the publication... eg Shodiya S.A"
+                            formControlName="pubName">
                         </mat-form-field>
 
 
@@ -1576,15 +1671,17 @@
 
                         <mat-form-field appearance="outline" class="width-40 marging-right-10">
                           <mat-label> Local Or Ferign Article </mat-label>
-                          <mat-select placeholder="Was the article local or foreign ?" formControlName="lf" class="input">
+                          <mat-select placeholder="Was the article local or foreign ?" formControlName="lf"
+                            class="input">
                             <mat-option value="local">Local Accepted Article </mat-option>
                             <mat-option value="foreign">Foreign Accepted Article</mat-option>
                           </mat-select>
                         </mat-form-field>
 
-                        <textarea name="" id="#1" cols="70" rows="5" formControlName="journalAc" style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
+                        <textarea name="" id="#1" cols="70" rows="5" formControlName="journalAc"
+                          style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
                           placeholder="Paste Complete Journal details here">
-                              </textarea>
+                        </textarea>
 
 
                       </div>
@@ -1614,7 +1711,8 @@
 
                   <div formGroupName="books">
                     <div *ngFor="let b of formDataMasterFormGroupings[21].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeBook(i)" style="margin-bottom: 10px ; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeBook(i)"
+                        style="margin-bottom: 10px ; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
@@ -1633,10 +1731,29 @@
                             <mat-option value="No">No</mat-option>
                           </mat-select>
                         </mat-form-field>
+
+
+
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
+                          <mat-label> Authorship </mat-label>
+                          <mat-select placeholder="Authorship" formControlName="authorship" class="input">
+                            <mat-option value="Sole/Major">Sole/Major</mat-option>
+                            <mat-option value="Minor">Minor</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+
+                        <textarea name="" id="#" cols="70" rows="5" formControlName="bookDetails"
+                          style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
+                          placeholder="Paste Complete Journal details here">
+                      </textarea>
+
+
                       </div>
                     </div>
 
-                    <button mat-raised-button color="primary" (click)="addBook()" style="margin-bottom: 10px;" title="Add New">
+                    <button mat-raised-button color="primary" (click)="addBook()" style="margin-bottom: 10px;"
+                      title="Add New">
                       <mat-icon>add</mat-icon>
                     </button>
                   </div>
@@ -1660,7 +1777,8 @@
 
                   <div formArrayName="bookArticlesOrChapter">
                     <div *ngFor="let b of  formDataMasterFormGroupings[22].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeBookArticlesOrChapter(i)" style="margin-bottom: 10px ; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeBookArticlesOrChapter(i)"
+                        style="margin-bottom: 10px ; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
@@ -1678,11 +1796,29 @@
                             <mat-option value="No">No</mat-option>
                           </mat-select>
                         </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
+                          <mat-label> Authorship </mat-label>
+                          <mat-select placeholder="Authorship" formControlName="authorship" class="input">
+                            <mat-option value="Sole/Major">Sole/Major</mat-option>
+                            <mat-option value="Minor">Minor</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <textarea name="" id="#" cols="70" rows="5" formControlName="bookArtChaptDetails"
+                          style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
+                          placeholder="Paste Complete Journal details here">
+                      </textarea>
+
+
                       </div>
 
+
+
+
                     </div>
-                    <button mat-raised-button color="primary" (click)="addBookArticlesOrChapter()" style="margin-bottom: 10px;"
-                      title="Add New">
+                    <button mat-raised-button color="primary" (click)="addBookArticlesOrChapter()"
+                      style="margin-bottom: 10px;" title="Add New">
                       <mat-icon>add</mat-icon>
                     </button>
                   </div>
@@ -1704,14 +1840,16 @@
 
                   <div formArrayName="editedConf">
                     <div *ngFor="let p of formDataMasterFormGroupings[31].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeEditedCP(i)" style="margin-bottom: 10px ; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeEditedCP(i)"
+                        style="margin-bottom: 10px ; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
                       <div formGroupName="{{i}}">
 
                         <mat-form-field appearance="outline" class="40 marging-right-10">
                           <mat-label> Name on publication </mat-label>
-                          <input matInput placeholder="Your Name on the publication... eg Shodiya S.A" formControlName="pubName">
+                          <input matInput placeholder="Your Name on the publication... eg Shodiya S.A"
+                            formControlName="pubName">
                         </mat-form-field>
 
 
@@ -1752,16 +1890,25 @@
 
                         <mat-form-field appearance="outline" class="width-40 marging-right-10">
                           <mat-label> Local Or Ferign Conference Proceeding </mat-label>
-                          <mat-select placeholder="Was the Conference Proceeding Local or Foreign ?" formControlName="lf"
-                            class="input">
+                          <mat-select placeholder="Was the Conference Proceeding Local or Foreign ?"
+                            formControlName="lf" class="input">
                             <mat-option value="local">Local Conference Proceeding</mat-option>
                             <mat-option value="foreign">Foreign Conference Proceeding</mat-option>
                           </mat-select>
                         </mat-form-field>
 
-                        <textarea name="" id="#2" cols="70" rows="5" formControlName="editCP" style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
+                        <mat-form-field appearance="outline" class="width-25 marging-right-10">
+                          <mat-label> Authorship </mat-label>
+                          <mat-select placeholder="Authorship" formControlName="authorship" class="input">
+                            <mat-option value="Sole/Major">Sole/Major</mat-option>
+                            <mat-option value="Minor">Minor</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <textarea name="" id="#2" cols="70" rows="5" formControlName="editCP"
+                          style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
                           placeholder="Paste Complete Journal details here">
-                                  </textarea>
+                        </textarea>
 
                       </div>
 
@@ -1792,19 +1939,21 @@
 
                   <div formArrayName="researchInProgress">
                     <div *ngFor="let c of formDataMasterFormGroupings[24].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeResearchInProgress(i)" style="margin-bottom: 10px ; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeResearchInProgress(i)"
+                        style="margin-bottom: 10px ; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
                       <div formGroupName="{{i}}">
                         <mat-form-field appearance="outline" class="width-90 marging-left-10 ">
                           <mat-label> Research In Progress </mat-label>
-                          <input matInput placeholder="Enter the research in progress" formControlName="researchInProgress"
-                            class="custom-textarea">
+                          <input matInput placeholder="Enter the research in progress"
+                            formControlName="researchInProgress" class="custom-textarea">
                         </mat-form-field>
                       </div>
                     </div>
-                    <button mat-raised-button color="primary" title="Remove" (click)="addResearchInProgress()" style="margin-bottom: 10px">
+                    <button mat-raised-button color="primary" title="Remove" (click)="addResearchInProgress()"
+                      style="margin-bottom: 10px">
                       <mat-icon matSuffix>add</mat-icon>
                     </button>
                   </div>
@@ -1829,22 +1978,34 @@
 
                   <div formGroupName="technicalReport">
                     <div *ngFor="let tr of  formDataMasterFormGroupings[25].controls; let i = index">
-                      <button mat-raised-button title="Remove" (click)="removeTechnicalReport(i)" style="margin-bottom: 10px ; color: red">
+                      <button mat-raised-button title="Remove" (click)="removeTechnicalReport(i)"
+                        style="margin-bottom: 10px ; color: red">
                         <mat-icon matSuffix>delete</mat-icon>
                       </button>
 
                       <div formGroupName="{{i}}">
+
                         <mat-form-field appearance="outline" class="width-90 marging-right-10">
                           <mat-label> Technical Report </mat-label>
                           <input matInput placeholder="New Technical Report" formControlName="report">
                         </mat-form-field>
+
+
+                        <textarea name="" id="#" cols="70" rows="5" formControlName="technicalReportDetails"
+                          style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
+                          placeholder="Paste Complete Journal details here">
+                    </textarea>
+
                       </div>
 
 
 
+
+
+
                     </div>
-                    <button mat-raised-button color="primary" (click)="addTechnicalReport()" style="margin-bottom: 10px;"
-                      title="Add New">
+                    <button mat-raised-button color="primary" (click)="addTechnicalReport()"
+                      style="margin-bottom: 10px;" title="Add New">
                       <mat-icon>add</mat-icon>
                     </button>
                   </div>
@@ -1919,7 +2080,8 @@
 
               <div formArrayName="conferencesAttended">
                 <div *ngFor="let ca of formDataMasterFormGroupings[9].controls; let i = index">
-                  <button mat-raised-button title="Remove" (click)="removeConferenceAttended(i)" style="margin-bottom: 10px ; color: red">
+                  <button mat-raised-button title="Remove" (click)="removeConferenceAttended(i)"
+                    style="margin-bottom: 10px ; color: red">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
 
@@ -1963,7 +2125,8 @@
 
               <div formArrayName="papersRead">
                 <div *ngFor="let pr of formDataMasterFormGroupings[10].controls; let i = index">
-                  <button mat-raised-button title="Remove" (click)="removePapersRead(i)" style="margin-bottom: 10px ; color: red ">
+                  <button mat-raised-button title="Remove" (click)="removePapersRead(i)"
+                    style="margin-bottom: 10px ; color: red ">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
 
@@ -2016,7 +2179,8 @@
                   FELLOWSHIP
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <button mat-raised-button color="primary" (click)="addFellowship()" style="margin-bottom: 10px;" title="Add New">
+              <button mat-raised-button color="primary" (click)="addFellowship()" style="margin-bottom: 10px;"
+                title="Add New">
                 <mat-icon>add</mat-icon>
               </button>
 
@@ -2034,7 +2198,8 @@
 
                     <mat-form-field appearance="outline" class="width-25 marging-left-5 ">
                       <mat-label> Fellowship </mat-label>
-                      <input matInput placeholder="Enter the Fellowship Organisation here " formControlName="fellowship">
+                      <input matInput placeholder="Enter the Fellowship Organisation here "
+                        formControlName="fellowship">
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="width-25 marging-left-5 ">
@@ -2043,7 +2208,8 @@
                     </mat-form-field>
 
                   </div>
-                  <button mat-raised-button title="Remove" (click)="removeFellowship(i)" style="margin-bottom: 10px ; color: red ;">
+                  <button mat-raised-button title="Remove" (click)="removeFellowship(i)"
+                    style="margin-bottom: 10px ; color: red ;">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
                 </div>
@@ -2077,7 +2243,8 @@
 
               <div formArrayName="supervisionPost">
                 <div *ngFor="let p of formDataMasterFormGroupings[16].controls; let i = index">
-                  <button mat-raised-button title="Remove" (click)="removeSupervisionPost(i)" style="margin-bottom: 10px ; color: red; ">
+                  <button mat-raised-button title="Remove" (click)="removeSupervisionPost(i)"
+                    style="margin-bottom: 10px ; color: red; ">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
 
@@ -2144,7 +2311,8 @@
               </button>
               <div formArrayName="supervisionPostPart">
                 <div *ngFor="let pp of formDataMasterFormGroupings[17].controls; let i = index">
-                  <button mat-raised-button title="Remove" (click)="removeSupervisionPostPart(i)" style="margin-bottom: 10px ; color: red ;">
+                  <button mat-raised-button title="Remove" (click)="removeSupervisionPostPart(i)"
+                    style="margin-bottom: 10px ; color: red ;">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
                   <div formGroupName="{{i}}">
@@ -2198,14 +2366,15 @@
 
           <form [formGroup]="masterFormGroupings">
 
-            <button mat-raised-button color="primary" (click)="addExtraCurriculaActivities()" style="margin-bottom: 10px;"
-              title="Add New">
+            <button mat-raised-button color="primary" (click)="addExtraCurriculaActivities()"
+              style="margin-bottom: 10px;" title="Add New">
               <mat-icon col>add</mat-icon>
             </button>
 
             <div formArrayName="extraCurriculaActivities">
               <div *ngFor="let work of formDataMasterFormGroupings[18].controls; let i = index">
-                <button mat-raised-button title="Remove" (click)="removeExtraCurriculaActivities(i)" style="margin-bottom: 10px ; color: red ;">
+                <button mat-raised-button title="Remove" (click)="removeExtraCurriculaActivities(i)"
+                  style="margin-bottom: 10px ; color: red ;">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
@@ -2218,7 +2387,8 @@
 
                   <mat-form-field appearance="outline" class="width-90 marging-right-10">
                     <mat-label>Activity</mat-label>
-                    <input matInput placeholder="Your Extrac curricula activity here... eg dancing" formControlName="activity">
+                    <input matInput placeholder="Your Extrac curricula activity here... eg dancing"
+                      formControlName="activity">
                   </mat-form-field>
 
                   <!-- <mat-form-field appearance="outline" class="width-45 marging-right-10 ">
@@ -2262,13 +2432,15 @@
 
           <form [formGroup]="masterFormGroupings">
 
-            <button mat-raised-button color="primary" (click)="addRefree()" style="margin-bottom: 10px;" title="Add New">
+            <button mat-raised-button color="primary" (click)="addRefree()" style="margin-bottom: 10px;"
+              title="Add New">
               <mat-icon>add</mat-icon>
             </button>
 
             <div formArrayName="refrees">
               <div *ngFor="let r of formDataMasterFormGroupings[11].controls; let i = index">
-                <button mat-raised-button title="Remove" (click)="removeRefree(i)" style="margin-bottom: 10px ; color: red;">
+                <button mat-raised-button title="Remove" (click)="removeRefree(i)"
+                  style="margin-bottom: 10px ; color: red;">
                   <mat-icon matSuffix>delete</mat-icon>
                 </button>
 
@@ -2330,7 +2502,8 @@
             </mat-form-field>
 
             <div class="marging-right-10 ">
-              <button mat-raised-button color="secondary" (click)="clearSignature()" class="marging-right-10" style="font: bold">Clear
+              <button mat-raised-button color="secondary" (click)="clearSignature()" class="marging-right-10"
+                style="font: bold">Clear
                 Signature</button>
             </div>
           </form>
@@ -2359,7 +2532,8 @@
           <div class="margin-top-50" style="float: right;">
             <button mat-raised-button color="warn" matStepperPrevious class="marging-right-10"> Previous
             </button>
-            <button mat-raised-button color="primary" (click)="processApplication()" [disabled]="SpNoCond && loginCredentials.get('SpNo').value!=''">
+            <button mat-raised-button color="primary" (click)="processApplication()"
+              [disabled]="SpNoCond && loginCredentials.get('SpNo').value!=''">
               Proceed to Preview
             </button>
           </div>

@@ -12,7 +12,7 @@ export class CVDataModel {
     researchInterestsDisplayColumn: string[] = ['no', 'interest'];
     commissionedProjectDisplayColumn: string[] = ['no', 'commissionedProject'];
     articlesAccDisplayColumn: string[] = ['no', 'pubName', 'title', 'publisher', 'sn', 'availableAt', 'used', 'lf', 'journalAc'];
-    artInPDisplayColumn: string[] = ['no', 'pubName', 'title', 'publisher', 'sn', 'availableAt', 'used', 'lf', 'journalA'];
+    artInPDisplayColumn: string[] = ['no', 'pubName', 'title', 'publisher', 'sn', 'availableAt', 'used', 'lf', 'journalA' , 'coAuthors' , 'g8Country' , 'volume'];
     booksDisplayColumn: string[] = ['no', 'book', 'used'];
     bookArticlesOrChapterDisplayColumn: string[] = ['no', 'bookArtChapt', 'used'];
     editedConfDisplayColumn: string[] = ['no', 'pubName', 'title', 'publisher', 'sn', 'availableAt', 'used', 'lf', 'editCP'];
@@ -32,7 +32,7 @@ export class CVDataModel {
     fellowshipProgrammeDisplayColumn: string[] = ['no', 'post', 'organization', 'date'];
     supervisionPostDisplayColumn: string[] = ['no', 'title', 'nameOfStudent', '_d1', '_d2', 'soleColla', 'degree'];
     extraCurriculaActivitiesDisplayColumn: string[] = ['no', 'activity'];
-    educationArrayDisplayColumn: string[] = ['no', 'schoolAttended', 'fromDate', 'toDate'];
+    educationArrayDisplayColumn: string[] = ['no', 'schoolAttended', 'degree' , 'fromDate', 'toDate'];
     academicQualificationsDisplayColumn: string[] = ['no', 'title', 'date'];
     professionalQualificationsDisplayColumn: string[] = ['no', 'title', 'date'];
     prizesDisplayColumn: string[] = ['no', 'title', 'date'];

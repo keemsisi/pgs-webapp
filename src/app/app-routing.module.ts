@@ -48,28 +48,25 @@ const appRoute: Routes = [
   {
     path: 'cv-documentation',
     loadChildren: () => import(
-      './cv-documentation/cv-documentation-mod/cv-documentation-mod.module').then(
-        function (module) {
-          module.CvDocumentationModModule
-        }
+      './cv-documentation/cv-documentation-mod/cv-documentation-mod.module').then(M =>
+        M.CvDocumentationModModule
       )
   },
 
 
   {
     path: 'login',
-    loadChildren: () => import('./login/module/login-mod.module').then(function (module) {
-      module.LoginModule
-    })
+    loadChildren: () => import('./login/module/login-mod.module').then(M =>
+      M.LoginModule
+    )
   },
 
 
 
   {
     path: 'register',
-    loadChildren: () => import('./register/module/register-routing-mod.module').then(function (module) {
-      module.RegisterRoutingModule
-    })
+    loadChildren: () => import('./register/module/register-routing-mod.module').then( 
+      M => M.RegisterRoutingModule)
   },
 
 
@@ -77,9 +74,7 @@ const appRoute: Routes = [
     path: 'forgot-password',
     loadChildren: () => import(
       './forgot-paswword/module/forgto-password-mod.module').then(
-        function (module) {
-          module.ForgotPasswordModule
-        }
+        M => M.ForgotPasswordModule
       ),
   },
 
@@ -97,9 +92,7 @@ const appRoute: Routes = [
   {
     path: 'account-dashboard', loadChildren: () => import(
       './account-dashboard/account-dashboard-mod/account-dashboard-mod.module').then(
-        function (module) {
-          module.AccountDashboardModModule
-        }
+        M => M.AccountDashboardModModule
       ),
   },
 
@@ -118,67 +111,46 @@ const appRoute: Routes = [
   {
     path: 'view-edit-cv',
     loadChildren: () => import(
-      './edit-cv/edit-cv-mod/edit-cv-mod.module').then(
-        function (module) {
-          module.EditCvModModule
-        }
-      ),
-  },
+      './edit-cv/edit-cv-mod/edit-cv-mod.module').then( 
+        M => M.EditCvModModule)
+    },
 
   {
     path: 'admin-contact',
     loadChildren: () => import(
-      './contact-administrator/contact-administrator-mod/contact-administrator-mod.module').then(
-        function (module) {
-          module.ContactAdministratorModModule
-        }
-      ),
-  },
+      './contact-administrator/contact-administrator-mod/contact-administrator-mod.module').then( 
+        M => M.ContactAdministratorModModule)
+    },
 
   { path: 'predatory-journals', component: PredatoryJournalsComponent } ,
 
   {
     path: 'cv-assessment',
     loadChildren: () => import (
-      './assesment/assessment/asssessment-mod/asssessment-mod.module').then(
-        function (module) {
-          module.AsssessmentModModule
-        }
-      )
-  },
+      './assesment/assessment/asssessment-mod/asssessment-mod.module').then( 
+        M => M.AsssessmentModModule)
+    },
 
 
   {
     path: 'regsuccess',
     loadChildren: () => import (
-      './regsuccess/regsuccessmodule/regsuccessmodule.module').then(
-        function (module) {
-          module.RegsuccessmoduleModule
-        }
-      )
-  },
-
+      './regsuccess/regsuccessmodule/regsuccessmodule.module').then( 
+        M => M.RegsuccessmoduleModule)
+    },
   {
     path: 'activate',
     loadChildren: () => import (
-      './accountactivation/accountactivationmodule/accountactivationmodule.module').then(
-        function (module) {
-          module.AccountactivationmoduleModule
-        }
-      )
-  },
-
+      './accountactivation/accountactivationmodule/accountactivationmodule.module').then( 
+        M => M.AccountactivationmoduleModule)
+    },
 
   {
     path: 'password-reset',
     loadChildren: () => import (
-      './passwordreset/passwordresetmodule/passwordresetmodule.module').then(
-        function (module) {
-          module.PasswordresetmoduleModule
-        }
-      )
-  },
-
+      './passwordreset/passwordresetmodule/passwordresetmodule.module').then( 
+        M => M.PasswordresetmoduleModule)
+    },
 
   // {
   //   path: 'forgotpassword',

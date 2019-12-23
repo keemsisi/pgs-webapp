@@ -54,7 +54,7 @@ import { PreviewCvComponent } from './preview-cv/preview-cv.component';
 import { CvAccountLoginComponent } from './cv-account-login/cv-account-login.component';
 import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
 import { EditCvComponent } from './edit-cv/edit-cv.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent} from './login/login.component';
 import { SearchCvComponent } from './search-cv/search-cv.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { AdminComponent } from './admin/admin.component';
@@ -75,6 +75,7 @@ import { AccountactivationComponent } from './accountactivation/accountactivatio
 // import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { ScoringtableComponent } from './scoringtable/scoringtable.component';
+import { LoginCredentialsComponent } from './login-credentials/login-credentials.component';
 
 
 
@@ -111,7 +112,8 @@ import { ScoringtableComponent } from './scoringtable/scoringtable.component';
     AccountactivationComponent,
     // ForgotpasswordComponent,
     PasswordresetComponent,
-    ScoringtableComponent
+    ScoringtableComponent,
+    LoginCredentialsComponent ,
   ],
   imports: [
     BrowserModule,

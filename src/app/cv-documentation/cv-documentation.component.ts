@@ -487,10 +487,11 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initeaphni(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       schoolAttended: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
-      fromDate: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4,}'))]),
-      toDate: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4,}'))]),
+      degree: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
+      fromDate: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4}'))]),
+      toDate: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4}'))]),
     });
   }
 
@@ -512,7 +513,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initAcademicQualification() {
-    return this.fb.group({
+    return new FormGroup({
       title: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       date: new FormControl('', [Validators.required]),
     });
@@ -563,7 +564,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initScholarship(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       receivedFrom: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       title: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       date: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4,}'))]),
@@ -616,7 +617,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initWorkExp(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       organization: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       postHeld: new FormControl('', [Validators.required]),
       duties: new FormControl('', [Validators.required]),
@@ -644,7 +645,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initOtherWorkExp(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       organization: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       postHeld: new FormControl('', [Validators.required]),
       duties: new FormControl('', [Validators.required]),
@@ -670,7 +671,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initCourseDescription(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       courseCode: new FormControl('', [Validators.required]),
       courseTitle: new FormControl('', [Validators.required]),
     });
@@ -694,7 +695,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initSchoolWorkExp(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       courseCode: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]{3}\\d{3}')]),
       creditHours: new FormControl('', [Validators.required, Validators.pattern('\\d*')]),
       numOfLecturers: new FormControl('', [Validators.required, Validators.pattern('\\d*')]),
@@ -724,7 +725,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initThesisDissPro(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       // title : new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       // publicationYear : new FormControl('', [Validators.required]),
       // publisher: new FormControl('', [Validators.required]),
@@ -752,14 +753,18 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initArtInP(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       pubName: new FormControl('', [Validators.required]),
       title: new FormControl('', [Validators.required]),
+      coAuthors: new FormControl('', [Validators.required]),
       publisher: new FormControl('', [Validators.required]),
       sn: new FormControl('', [Validators.required]),
+      g8Country: new FormControl('', [Validators.required]),
+      volume: new FormControl('', [Validators.required, Validators.pattern('\\d*')]),
       availableAt: new FormControl('', [Validators.required]),
       lf: new FormControl('', [Validators.required]),
       journalA: new FormControl('', [Validators.required]),
+      authorship: new FormControl('', [Validators.required]),
       used: new FormControl('', [Validators.required]),
     });
   }
@@ -778,7 +783,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   initArticleAcc(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       pubName: new FormControl('', [Validators.required]),
       title: new FormControl('', [Validators.required]),
       publisher: new FormControl('', [Validators.required]),
@@ -807,7 +812,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initArticlesInLearnedJournals(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       // title : new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       // publicationYear : new FormControl('', [Validators.required]),
       // publisher: new FormControl('', [Validators.required]),
@@ -832,9 +837,11 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initBook(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       book: new FormControl('', []),
       used: new FormControl('', []),
+      bookDetails : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
+      authorship : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')])
     });
   }
 
@@ -853,7 +860,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   initPaperReviewing(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       paperR: new FormControl('', []),
     });
   }
@@ -873,9 +880,11 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   initBookArticlesOrChapter(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       bookArtChapt: new FormControl('', [Validators.required]),
-      used: new FormControl('', [Validators.required])
+      used: new FormControl('', [Validators.required]),
+      bookArtChaptDetails : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
+      authorship : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')])
     });
   }
 
@@ -896,7 +905,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initEditedCP(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       pubName: new FormControl('', [Validators.required]),
       title: new FormControl('', [Validators.required]),
       publisher: new FormControl('', [Validators.required]),
@@ -905,6 +914,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       used: new FormControl('', [Validators.required]),
       lf: new FormControl('', [Validators.required]),
       editCP: new FormControl('', [Validators.required]),
+      authorship: new FormControl('', [Validators.required]),
     });
   }
 
@@ -926,7 +936,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initPaper(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       paper: new FormControl('', [Validators.required]),
       used: new FormControl('', [Validators.required])
     });
@@ -959,7 +969,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initCommd(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       by: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       commendationFor: new FormControl(''),
       commendationDate: new FormControl(''),
@@ -983,7 +993,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   initRefree(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       refreeFullName: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       occupation: new FormControl(''),
       phoneNumber: new FormControl('', [Validators.min(13), Validators.max(13), Validators.pattern(new RegExp('\\d{13,13}'))]),
@@ -1011,7 +1021,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initMembershipOfProfessionalBodies(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       postHeld: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       organization: new FormControl(''),
       no: new FormControl(''),
@@ -1035,7 +1045,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initSpecialAssignemtATE(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       postHeld: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       organization: new FormControl(''),
       fromDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
@@ -1060,7 +1070,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initSpecialAssignemtMC(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       postHeld: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       organization: new FormControl(''),
       fromDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
@@ -1084,7 +1094,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initSpecialAssignemtCS(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       postHeld: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       communityServiceDescription: new FormControl(''),
       fromDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
@@ -1109,7 +1119,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initResearchInterests(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       interest: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       // outline: new FormControl('')
     });
@@ -1135,7 +1145,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initCommissionedProject(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       commissionedProject: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
   }
@@ -1156,7 +1166,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initResearchInProgress(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       researchInProgress: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
   }
@@ -1177,7 +1187,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initFellowship(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       post: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       fellowship: new FormControl(''),
       date: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))])
@@ -1200,7 +1210,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initSupervisionPost(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       title: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       nameOfStudent: new FormControl(''),
       _d1: new FormControl(''),
@@ -1225,8 +1235,9 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   public initTechnicalReport(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       report: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
+      technicalReportDetails: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
   }
 
@@ -1248,7 +1259,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initSupervisionPostPart(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       title: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       nameOfStudent: new FormControl(''),
       _d1: new FormControl(''),
@@ -1276,7 +1287,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initTrainingProgramme(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       training: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       description: new FormControl('')
     });
@@ -1297,7 +1308,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   public initConferenceAttended(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       confPapR: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
   }
@@ -1314,7 +1325,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   public initPapersRead(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       paper: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
   }
@@ -1334,7 +1345,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initEmailAdress(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       emailAddress: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
   }
@@ -1355,7 +1366,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initPhoneNumber(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       phoneNumber: new FormControl('', [Validators.pattern(new RegExp('\\+\\d{13}|\\d{11}'))]),
     });
   }
@@ -1375,7 +1386,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   public initContactAddress(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       contactAddress: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
   }
@@ -1398,13 +1409,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initExtraCurriculaActivities(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       activity: new FormControl('')
     });
   }
 
   public initPHNI(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       receivedFrom: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       title: new FormControl(''),
       date: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
@@ -1421,7 +1432,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
   public initProfessionalQualification(): FormGroup {
-    return this.fb.group({
+    return new FormGroup({
       receivedFrom: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       date: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
     });
@@ -1473,7 +1484,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
     // send the preview page to show
     // this.router.navigate(['/preview-cv'] , {queryParams: {'payload' : JSON.stringify(this.payGram)} } ) ;
-    this.saveAllFormsValues();
+    this.saveToLocalStorage();
 
     this.cacheService.payloadData = JSON.stringify(this.payGram);
     this.router.navigate(['/preview-cv']);
@@ -1621,34 +1632,37 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     const emailAddresses = personalFormValues['emailAddresses'];
 
 
-    this.loadFormGroupValues('workExperience', workExperience, this.initWorkExp());
-    this.loadFormGroupValues('otherWorkExperience', otherWorkExperience, this.initOtherWorkExp());
-    this.loadFormGroupValues('schoolworkexp', schoolworkexp, this.initSchoolWorkExp());
-    this.loadFormGroupValues('courseDescriptions', courseDescriptions, this.initCourseDescription());
-    this.loadFormGroupValues('paperReviewing', paperReviewing, this.initPaperReviewing());
-    this.loadFormGroupValues('commendation', commendation, this.initCommd());
-    this.loadFormGroupValues('researchInterests', researchInterests, this.initResearchInterests());
-    this.loadFormGroupValues('commissionedProject', commissionedProject, this.initCommissionedProject());
-    this.loadFormGroupValues('conferencesAttended', conferencesAttended, this.initConferenceAttended());
-    this.loadFormGroupValues('papersRead', papersRead, this.initPaper());
-    this.loadFormGroupValues('refrees', refrees, this.initRefree());
-    this.loadFormGroupValues('membershipOfProfessionalBodies', membershipOfProfessionalBodies, this.initMembershipOfProfessionalBodies());
-    this.loadFormGroupValues('specialAssignmentATE', specialAssignmentATE, this.initSpecialAssignemtATE());
-    this.loadFormGroupValues('trainingProgramme', trainingProgramme, this.initTrainingProgramme());
-    this.loadFormGroupValues('supervisionPost', supervisionPost, this.initSupervisionPost());
-    this.loadFormGroupValues('supervisionPostPart', supervisionPostPart, this.initSupervisionPostPart());
-    this.loadFormGroupValues('extraCurriculaActivities', extraCurriculaActivities, this.initExtraCurriculaActivities());
-    this.loadFormGroupValues('specialAssignmentMC', specialAssignmentMC, this.initSpecialAssignemtMC());
-    this.loadFormGroupValues('specialAssignmentCS', specialAssignmentCS, this.initSpecialAssignemtCS());
-    this.loadFormGroupValuesPub('articlesAcc', articlesAcc, this.initArticleAcc());
-    this.loadFormGroupValuesPub('books', books, this.initBook());
-    this.loadFormGroupValuesPub('bookArticlesOrChapter', bookArticlesOrChapter, this.initBookArticlesOrChapter());
-    this.loadFormGroupValuesPub('papers', papers, this.initPaper());
-    this.loadFormGroupValuesPub('researchInProgress', researchInProgress, this.initResearchInProgress());
-    this.loadFormGroupValuesPub('technicalReport', technicalReport, this.initTechnicalReport());
-    this.loadFormGroupValuesPub('thesisDissPro', thesisDissPro, this.initThesisDissPro());
-    this.loadFormGroupValuesPub('artInP', artInP, this.initArtInP());
-    this.loadFormGroupValuesPub('editedConf', editedConf, this.initEditedCP());
+    this.loadFormGroupValues('workExperience', workExperience, this.initWorkExp);
+    this.loadFormGroupValues('otherWorkExperience', otherWorkExperience, this.initOtherWorkExp);
+    this.loadFormGroupValues('schoolworkexp', schoolworkexp, this.initSchoolWorkExp);
+    this.loadFormGroupValues('courseDescriptions', courseDescriptions, this.initCourseDescription);
+    this.loadFormGroupValues('paperReviewing', paperReviewing, this.initPaperReviewing);
+    this.loadFormGroupValues('commendation', commendation, this.initCommd);
+    this.loadFormGroupValues('researchInterests', researchInterests, this.initResearchInterests);
+    this.loadFormGroupValues('commissionedProject', commissionedProject, this.initCommissionedProject);
+    this.loadFormGroupValues('conferencesAttended', conferencesAttended, this.initConferenceAttended);
+    this.loadFormGroupValues('papersRead', papersRead, this.initPaper);
+    this.loadFormGroupValues('refrees', refrees, this.initRefree);
+    this.loadFormGroupValues('membershipOfProfessionalBodies', membershipOfProfessionalBodies, this.initMembershipOfProfessionalBodies);
+    this.loadFormGroupValues('specialAssignmentATE', specialAssignmentATE, this.initSpecialAssignemtATE);
+    this.loadFormGroupValues('trainingProgramme', trainingProgramme, this.initTrainingProgramme);
+    this.loadFormGroupValues('supervisionPost', supervisionPost, this.initSupervisionPost);
+    this.loadFormGroupValues('supervisionPostPart', supervisionPostPart, this.initSupervisionPostPart);
+    this.loadFormGroupValues('extraCurriculaActivities', extraCurriculaActivities, this.initExtraCurriculaActivities);
+    this.loadFormGroupValues('specialAssignmentMC', specialAssignmentMC, this.initSpecialAssignemtMC);
+    this.loadFormGroupValues('specialAssignmentCS', specialAssignmentCS, this.initSpecialAssignemtCS);
+
+
+    
+    this.loadFormGroupValuesPub('articlesAcc', articlesAcc, this.initArticleAcc);
+    this.loadFormGroupValuesPub('books', books, this.initBook);
+    this.loadFormGroupValuesPub('bookArticlesOrChapter', bookArticlesOrChapter, this.initBookArticlesOrChapter);
+    this.loadFormGroupValuesPub('papers', papers, this.initPaper);
+    this.loadFormGroupValuesPub('researchInProgress', researchInProgress, this.initResearchInProgress);
+    this.loadFormGroupValuesPub('technicalReport', technicalReport, this.initTechnicalReport);
+    this.loadFormGroupValuesPub('thesisDissPro', thesisDissPro, this.initThesisDissPro);
+    this.loadFormGroupValuesPub('artInP', artInP, this.initArtInP);
+    this.loadFormGroupValuesPub('editedConf', editedConf, this.initEditedCP);
     (<FormArray>this.masterFormGroupings.get('dateAndSignature')).setValue(dateAndSignature);
 
 
@@ -1662,37 +1676,41 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     const internationalRecommendations = eaphiFormValues['internationalRecommendations'];
 
 
-    this.loadFormGroupValuesE('educationArray', educationArray, this.initeaphni());
-    this.loadFormGroupValuesE('academicQualifications', academicQualifications, this.initAcademicQualification());
-    this.loadFormGroupValuesE('professionalQualifications', professionalQualifications, this.initProfessionalQualification());
-    this.loadFormGroupValuesE('prizes', prizes, this.initPHNI());
-    this.loadFormGroupValuesE('scholarships', scholarships, this.initScholarship());
-    this.loadFormGroupValuesE('honours', honours, this.initPHNI());
-    this.loadFormGroupValuesE('nationalRecommendations', nationalRecommendations, this.initPHNI());
-    this.loadFormGroupValuesE('internationalRecommendations', internationalRecommendations, this.initPHNI());
+    this.loadFormGroupValuesE('educationArray', educationArray, this.initeaphni);
+    this.loadFormGroupValuesE('academicQualifications', academicQualifications, this.initAcademicQualification);
+    this.loadFormGroupValuesE('professionalQualifications', professionalQualifications, this.initProfessionalQualification);
+    this.loadFormGroupValuesE('prizes', prizes, this.initPHNI);
+    this.loadFormGroupValuesE('scholarships', scholarships, this.initScholarship);
+    this.loadFormGroupValuesE('honours', honours, this.initPHNI);
+    this.loadFormGroupValuesE('nationalRecommendations', nationalRecommendations, this.initPHNI);
+    this.loadFormGroupValuesE('internationalRecommendations', internationalRecommendations, this.initPHNI);
 
     this.personalInformation.patchValue(personalFormValues); // set the partial value of the formgroup
-    this.loadFormGroupValuesPer('phoneNumbers', phoneNumbers, this.initPhoneNumber());
-    this.loadFormGroupValuesPer('contactAddresses', contactAddresses, this.initContactAddress());
-    this.loadFormGroupValuesPer('emailAddresses', emailAddresses, this.initEmailAdress());
+    this.loadFormGroupValuesPer('phoneNumbers', phoneNumbers, this.initPhoneNumber);
+    this.loadFormGroupValuesPer('contactAddresses', contactAddresses, this.initContactAddress);
+    this.loadFormGroupValuesPer('emailAddresses', emailAddresses, this.initEmailAdress);
 
   }
 
-  private loadFormGroupValues(formGroupName: string, formGroupObject: Array<Object>, formGroup: FormGroup): boolean {
-    (<FormArray>this.masterFormGroupings.get(formGroupName)).removeAt(0);
+  private loadFormGroupValues(formGroupName: string, formGroupObject: Array<Object>, formGroup: Function): boolean {
+    (<FormArray>this.masterFormGroupings.get(formGroupName)).removeAt(0);//clear the initial form control 
+    console.log(formGroupName , "--------------------------------");
     for (let index = 0; index < formGroupObject.length; index++) {
-      const formValue = formGroup;
+      const formValue = formGroup();
+      console.log(formGroupObject[index]);
       formValue.setValue(formGroupObject[index]);
       (<FormArray>this.masterFormGroupings.get(formGroupName)).push(formValue);
+      console.log(<FormArray>this.masterFormGroupings.get(formGroupName).value)
+      
     }
     return true;
   }
 
 
-  private loadFormGroupValuesE(formGroupName: string, formGroupObject: Array<Object>, formGroup: FormGroup): boolean {
-    (<FormArray>this.eaphni.get(formGroupName)).removeAt(0);
+  private loadFormGroupValuesE(formGroupName: string, formGroupObject: Array<Object>, formGroup: Function): boolean {
+    (<FormArray>this.eaphni.get(formGroupName)).removeAt(0);//clear the initial form control 
     for (let index = 0; index < formGroupObject.length; index++) {
-      const formValue = formGroup;
+      const formValue = formGroup();
       formValue.setValue(formGroupObject[index]);
       (<FormArray>this.eaphni.get(formGroupName)).push(formValue);
     }
@@ -1701,10 +1719,10 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
 
-  private loadFormGroupValuesPub(formGroupName: string, formGroupObject: Array<Object>, formGroup: FormGroup): boolean {
-    (<FormArray>this.masterFormGroupings.get('publications').get(formGroupName)).removeAt(0);
+  private loadFormGroupValuesPub(formGroupName: string, formGroupObject: Array<Object>, formGroup: Function): boolean {
+    (<FormArray>this.masterFormGroupings.get('publications').get(formGroupName)).removeAt(0);//clear the initial form control 
     for (let index = 0; index < formGroupObject.length; index++) {
-      const formValue = formGroup;
+      const formValue = formGroup();
       formValue.setValue(formGroupObject[index]);
       (<FormArray>this.masterFormGroupings.get('publications').get(formGroupName)).push(formValue);
     }
@@ -1712,10 +1730,10 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
 
-  private loadFormGroupValuesPer(formGroupName: string, formGroupObject: Array<Object>, formGroup: FormGroup): boolean {
-    (<FormArray>this.personalInformation.get(formGroupName)).removeAt(0);
+  private loadFormGroupValuesPer(formGroupName: string, formGroupObject: Array<Object>, formGroup: Function): boolean {
+    (<FormArray>this.personalInformation.get(formGroupName)).removeAt(0);//clear the initial form control 
     for (let index = 0; index < formGroupObject.length; index++) {
-      const formValue = formGroup;
+      const formValue = formGroup();
       formValue.setValue(formGroupObject[index]);
       (<FormArray>this.personalInformation.get(formGroupName)).push(formValue);
     }
@@ -1725,6 +1743,11 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
 
+
+
+  /**
+   * Initialise all the form group 
+   */
   FORM_INIT() {
     this.personalInformation = this.fb.group({
       nameInFull: new FormControl('', Validators.required),
@@ -1907,7 +1930,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    * This public function saves all the input form values the
    * user as entered into the CV Documentation Page
    */
-  public saveAllFormsValues(): void {
+  public saveToLocalStorage(): void {
     this.dateAndSignature.controls.signature.setValue(this.signaturePad.toData());
     window.localStorage.setItem('personalInformation', JSON.stringify(this.personalInformation.value));
     window.localStorage.setItem('loginCredentials', JSON.stringify(this.loginCredentials.value));
@@ -1918,10 +1941,26 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       detail: 'Your Form Fields inputs have been saved'
     });
 
+
+    //this will print all the filled details to the console 
     // console.log(JSON.parse(window.localStorage.getItem('personalInformation')));
     // console.log(JSON.parse(window.localStorage.getItem('loginCredentials')));
     // console.log(JSON.parse(window.localStorage.getItem('eaphni')));
     // console.log(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
+
+    console.log(window.localStorage.getItem('personalInformation'));
+    console.log("----------------------------------------------------")
+    console.log(window.localStorage.getItem('loginCredentials'));
+    console.log("----------------------------------------------------")
+    console.log(window.localStorage.getItem('eaphni'));
+    console.log("----------------------------------------------------")
+    console.log(window.localStorage.getItem('masterFormGroupings'));
+    console.log("----------------------------------------------------")
+
+
+
+
+
 
   }
 

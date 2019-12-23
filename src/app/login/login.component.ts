@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
+  focus : boolean = false ;
+  focus1 : boolean = false ;
+
 
   constructor(private _snackBar: MatSnackBar,
 
@@ -140,13 +143,13 @@ export class LoginComponent implements OnInit {
 }
 
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styles: [`
-    .snack {
-      color: hotpink;
-    }
-  `],
-})
-export class CustomSnackBar { }
+// @Component({
+//   selector: 'app-login',
+//   templateUrl: './login.component.html',
+//   styles: [`
+//     .snack {
+//       color: hotpink;
+//     }
+//   `],
+// })
+// export class CustomSnackBar { }

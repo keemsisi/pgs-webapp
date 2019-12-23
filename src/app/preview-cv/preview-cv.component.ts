@@ -33,6 +33,8 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     width: 550
   };
 
+  objectSource : {} = new DataObjectModel().model ;
+
   @Input('dashboardCV') dashboardCV: Object;
 
   showBlurBackgroundOverlay = false;
@@ -46,10 +48,12 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   @Input() showCard: Boolean = true;
   @Input() showHeader: Boolean = true;
 
+  objectDataSource = new DataObjectModel().model ;
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router, 
     private messageService: MessageService,
     private httpRequest: CustomHttpServicesService,
     private cacheService: CacheService,
@@ -89,29 +93,36 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   }
 
 
+  //if the staff data is loaded from the database server then this will run and get the staff stored cv
   private processOne() {
     this.SpNo = this.activatedRoute.snapshot.paramMap.get('SpNo');
     this.getUserInformation(this.SpNo);
-    this.initPreviewPage();
+    console.log('Preview One and the othter proces...');
+    this.loadPersoalInformation();
     this.addSuccessMessage('Your data was loaded successfully');
   }
 
 
+  //this runs just to preview the cv before submitting to the backend service 
   private processTwo() {
-    // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload'));
+    // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload')); //get the value of the parameter from the avtivated route
     this.objectDataSource = JSON.parse(this.cacheService.payloadData);
-    this.initPreviewPage();
-    // console.log(this.objectDataSource);
+    this.loadPersoalInformation();
+    console.log(this.objectDataSource);
     this.processLoadedData();
-    this.addSuccessMessage('Your data was loaded successfully');
+    // this.addSuccessMessage('Your data was loaded successfully');
+    console.log("Message from process two");
+    
   }
 
 
-  private initPreviewPage() {
+  private loadPersoalInformation() {
     let phoneNum = '';
     let contactAdd = '';
     let emailAdd = '';
 
+
+    //get the personal phone number the staff has suplied 
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['phoneNumbers']).length; index++) {
       const element = this.objectDataSource['personalInformation']['phoneNumbers'][index]['phoneNumber'];
       // // console.log(element);
@@ -122,6 +133,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
 
 
+    //append the contact address suplied by the staff
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['contactAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['contactAddresses'][index]['contactAddress'];
       // // console.log(element);
@@ -131,6 +143,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     }
 
 
+    //get and apend all the email address of the staff entered 
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['emailAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['emailAddresses'][index]['emailAddress'];
       // console.log(element);
@@ -139,6 +152,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     }
 
 
+    //initialise the personal information of the staff suplied
     this.ELEMENT_DATA = [{ name: 'NAME IN FULL ', value: this.objectDataSource['personalInformation']['nameInFull'] },
     { name: 'DATE OF BIRTH', value: this.objectDataSource['personalInformation']['dob'] },
     { name: 'PLACE OF BIRTH', value: this.objectDataSource['personalInformation']['placeOfBirth'] },
@@ -259,8 +273,8 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   protected processLoadedData() {
     // this.personalInformation = this.objectDataSource['personalInformation'];
     // this.loginCredentials = this.objectDataSource['loginCredentials'];
-    // this.eaphni = this.objectDataSource['eaphni'];
-    // this.masterFormGroupings = this.objectDataSource['masterFormGroupings'];
+    this.eaphni =  Array<Object>(this.objectDataSource['eaphni']);
+    this.masterFormGroupings = Array<Object>(this.objectDataSource['masterFormGroupings']);
   }
 
   getUserInformation(SpNo): void {

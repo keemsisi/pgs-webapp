@@ -1,5 +1,5 @@
 export class DataObjectModel {
-  model: Object = {
+  model = {
     'masterFormGroupings':
     {
       'workExperience': [{}],

@@ -117,9 +117,11 @@
 
 
       <h3 style=" margin-top: 5% ; font-weight: bold">02. EDUCATIONAL BACKGROUND</h3>
+      <h4 style=" margin-top: 5% ; font-weight: bold">(i) Educational Institutions Attended (with dates) </h4>
+
       <div id="educationa-background">
 
-        <mat-table [dataSource]="objectDataSource.eaphni.academicQualifications" class="mat-elevation-z8"
+        <mat-table [dataSource]="objectDataSource.eaphni.educationArray" class="mat-elevation-z8"
           style="width: 100% ;">
           <!-- name Column -->
 
@@ -128,30 +130,36 @@
             <td mat-cell *matCellDef="let element ;let i  = index; "> {{ i  + 1 }} </td>
           </ng-container>
 
-          <ng-container matColumnDef="edu">
-            <th mat-header-cell *matHeaderCellDef> ACADEMIC QUALIFICATIONS </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <ng-container matColumnDef="schoolAttended">
+            <th mat-header-cell *matHeaderCellDef> Educational Institution</th>
+            <td mat-cell *matCellDef="let element"> {{element.schoolAttended}} </td>
           </ng-container>
 
-          <!-- value Column -->
-          <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef> TITLE OF QUALIFICATION </th>
-            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+
+          <ng-container matColumnDef="degree">
+            <th mat-header-cell *matHeaderCellDef> Degree </th>
+            <td mat-cell *matCellDef="let element"> {{element.degree}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> DATE RECEIVED </th>
-            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+          <ng-container matColumnDef="fromDate">
+            <th mat-header-cell *matHeaderCellDef> From Date</th>
+            <td mat-cell *matCellDef="let element"> {{element.fromDate}} </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="academicQualificationsDisplayColumn"></tr>
-          <tr mat-row *matRowDef="let row; columns: academicQualificationsDisplayColumn"></tr>
+          <ng-container matColumnDef="toDate">
+            <th mat-header-cell *matHeaderCellDef> To Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.toDate}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="educationArrayDisplayColumn"></tr>
+          <tr mat-row *matRowDef="let row; columns: educationArrayDisplayColumn"></tr>
+
         </mat-table>
 
 
 
-        <h4 style=" margin-top: 5% ; font-weight: bold">(ii) ACADEMIC AND PROFESSIONAL QUALIFICATIONS (WITH DATES)</h4>
-        <h5 style=" margin-top: 5% ; font-weight: bold">(A) Academic Qualification </h5>
+        <h4 style=" margin-top: 5% ; font-weight: bold">(ii) {{ 'ACADEMIC AND PROFESSIONAL QUALIFICATIONS (WITH DATES)' | titlecase }}</h4>
+        <h5 style=" margin-top: 5% ; font-weight: bold">(A) Academic Qualifications </h5>
         <mat-table [dataSource]="objectDataSource.eaphni.academicQualifications" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -177,7 +185,7 @@
           <tr mat-row *matRowDef="let row; columns: academicQualificationsDisplayColumn"></tr>
         </mat-table>
 
-        <h5 style=" margin-top: 5% ; font-weight: bold">(B) Professional Qualification </h5>
+        <h5 style=" margin-top: 5% ; font-weight: bold">(B) Professional Qualifications </h5>
         <mat-table [dataSource]="objectDataSource.eaphni.professionalQualifications" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -206,7 +214,7 @@
 
 
 
-        <h4 style=" margin-top: 5% ; font-weight: bold">(ii) PRIZES , HONOURS , SCHOLARSHIPS , NATIONAL AND
+        <h4 style=" margin-top: 5% ; font-weight: bold">(iii) PRIZES , HONOURS , SCHOLARSHIPS , NATIONAL AND
           PRIZES
         </h4>
         <mat-table [dataSource]="objectDataSource.eaphni.prizes" class="mat-elevation-z8" style="width: 100% ;">
@@ -896,6 +904,22 @@
           </ng-container>
 
 
+          <ng-container matColumnDef="coAuthors">
+            <th mat-header-cell *matHeaderCellDef> Co-Authors</th>
+            <td mat-cell *matCellDef="let element"> {{element.coAuthors}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="g8Country">
+            <th mat-header-cell *matHeaderCellDef> G8-Country </th>
+            <td mat-cell *matCellDef="let element"> {{element.g8Country}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="volume">
+            <th mat-header-cell *matHeaderCellDef> Volume </th>
+            <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
+          </ng-container>
+
+
           <tr mat-header-row *matHeaderRowDef="artInPDisplayColumn"></tr>
           <tr mat-row *matRowDef="let row; columns: artInPDisplayColumn"></tr>
         </mat-table>
@@ -938,7 +962,7 @@
 
 
             <ng-container matColumnDef="availableAt">
-              <th mat-header-cell *matHeaderCellDef> SERIAL NUMBER </th>
+              <th mat-header-cell *matHeaderCellDef> AVAILABLE AT </th>
               <td mat-cell *matCellDef="let element"> {{element.availableAt}} </td>
             </ng-container>
 
@@ -1353,7 +1377,7 @@
 
           <ng-container matColumnDef="no">
             <th mat-header-cell *matHeaderCellDef>S/N</th>
-            <td mat-cell *matCellDef="let element ;let i  = index; "> {{romanNumbering[i]}} </td>
+            <td mat-cell *matCellDef="let element ;let i  = index; "> {{i+1}} </td>
           </ng-container>
 
           <ng-container matColumnDef="refreeFullName">

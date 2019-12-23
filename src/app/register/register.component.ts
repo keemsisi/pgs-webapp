@@ -26,6 +26,11 @@ export class RegisterComponent implements OnInit {
 
   allFieldsValid : Boolean = false ;
 
+  focus : boolean = false ;
+
+  focus1 : boolean = false ;
+  
+
   constructor(private fb: FormBuilder, private router: Router, private customHttp: CustomHttpServicesService,
 
     private customCache: CacheService,
