@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FileAupploadingsComponent implements OnInit {
   totalFileAttached: number ;
-  SpNo: string ;
+  spNumber: string ;
   stepper: number;
 
 
@@ -37,9 +37,9 @@ export class FileAupploadingsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.SpNo = this.activatedRoute.snapshot.params['SpNo'];
+    this.spNumber = this.activatedRoute.snapshot.params['spNumber'];
     this.loadHandlers();
-    if (this.SpNo === null) {
+    if (this.spNumber === null) {
       this.router.navigate(['/home']);
     }
   }
@@ -83,27 +83,27 @@ export class FileAupploadingsComponent implements OnInit {
 
   loadHandlers() {
     this.prizesF.url  = this.cacheService.serverURL + '/upload/prizes/' +
-      this.SpNo;
+      this.spNumber;
       this.commendationF.url  = this.cacheService.serverURL + '/upload/commendations/' +
-      this.SpNo;
+      this.spNumber;
       this.nationalRecommendationF.url  = this.cacheService.serverURL + '/upload/national-recognitions/' +
-      this.SpNo;
+      this.spNumber;
       this.internationalRecommendationsF.url  = this.cacheService.serverURL + '/upload/international-recognitions/' +
-      this.SpNo;
+      this.spNumber;
       this.academicAndProfessionalQaulificationF.url  = this.cacheService.serverURL + '/upload/national-and-professional-qaulifications/' +
-      this.SpNo;
+      this.spNumber; 
       this.specialAssignemtnsF.url  = this.cacheService.serverURL + '/upload/special-assignments/' +
-      this.SpNo;
+      this.spNumber;
       this.publicationsF.url  = this.cacheService.serverURL + '/upload/publications/' +
-      this.SpNo;
+      this.spNumber;
       this.extraCurriculaActivitiesF.url  = this.cacheService.serverURL + '/upload/extra-curricula-activities/' +
-      this.SpNo;
+      this.spNumber;
       this.educationalCertificatesF.url  = this.cacheService.serverURL + '/upload/educational-certificates/' +
-      this.SpNo;
+      this.spNumber;
       this.honoursF.url  = this.cacheService.serverURL + '/upload/honours/' +
-      this.SpNo;
+      this.spNumber;
       this.awardsF.url  = this.cacheService.serverURL + '/upload/awards/' +
-      this.SpNo;
+      this.spNumber;
   }
 
   /**

@@ -15,7 +15,7 @@ export class EditCvComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpRequest: CustomHttpServicesService,
     private messageService: MessageService, private cacheService: CacheService, private router: Router) {
       this.form = this.fb.group({
-        SpNo : new FormControl('' , [Validators.requiredTrue])
+        spNumber : new FormControl('' , [Validators.requiredTrue])
       });
     }
 

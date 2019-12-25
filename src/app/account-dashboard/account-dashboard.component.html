@@ -100,11 +100,25 @@
 
       <mat-card class="container">
         <mat-card-header>
-          <mat-card-title>Your Publication Assesment</mat-card-title>
+          <mat-card-title>Staff Curriculum Vitae Assesment</mat-card-title>
           <mat-card-subtitle>According to your CV, the following table shows the score assigned to each publication
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
+
+          <div class="margin-top-20">
+            <!-- <button mat-raised-button color="info" class="marging-right-10" (click)="downloadCVAsPDF()"> DOWNLOAD CV -->
+            <!-- </button> -->
+            <!-- <button mat-raised-button color="accent" class="marging-left-10" (click)="submit()">
+              PROCESS GRADING
+            </button> -->
+            <!-- <button mat-raised-button color="primary" class="marging-left-10" (click)="printCV()">
+              PRINT CV
+            </button> -->
+            <button mat-raised-button color="primary" class="marging-left-10" (click)="grade()">
+              GRADE CURRENT CV
+            </button>
+          </div>
 
           <!-- <table mat-table #table [dataSource]="dataSource">
             <ng-container matColumnDef="column">
@@ -254,7 +268,20 @@
       <mat-expansion-panel-header>
         Journal In Print Assement
       </mat-expansion-panel-header>
-      content2
+    
+
+
+
+      <p-dataTable #dt0  [tableStyle]="{'table-layout':'auto'}"  [value]="personalInformation" [paginator]="true" [rows]="30" [scrollable]="true" >
+        <p-column field="sn" header="Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="quality-score-on-paper" header="Quality Score" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+   
     </mat-expansion-panel>
 
 
@@ -264,7 +291,17 @@
       <mat-expansion-panel-header>
         Conference Paper - Peer Reviewed Proceedings
       </mat-expansion-panel-header>
-      content
+
+      <p-dataTable #dt0  [tableStyle]="{'table-layout':'auto'}"  [value]="personalInformation" [paginator]="true" [rows]="30" [scrollable]="true" >
+        <p-column field="sn" header="Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="quality-score-on-paper" header="Quality Score" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+
     </mat-expansion-panel>
 
 
@@ -274,7 +311,15 @@
       <mat-expansion-panel-header>
         Books Assessment
       </mat-expansion-panel-header>
-      content
+     <p-dataTable #dt0  [tableStyle]="{'table-layout':'auto'}"  [value]="personalInformation" [paginator]="true" [rows]="30" [scrollable]="true" >
+        <p-column field="sn" header="Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="quality-score-on-paper" header="Quality Score" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
     </mat-expansion-panel>
 
 
@@ -282,7 +327,17 @@
       <mat-expansion-panel-header>
         Books Articles or Chapters Assessment
       </mat-expansion-panel-header>
-      content
+
+      <p-dataTable #dt0  [tableStyle]="{'table-layout':'auto'}"  [value]="personalInformation" [paginator]="true" [rows]="30" [scrollable]="true" >
+        <p-column field="sn" header="Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="quality-score-on-paper" header="Quality Score on Paper" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+
     </mat-expansion-panel>
 
 

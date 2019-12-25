@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginCacheService {
-  SpNo : string ;
+  spNumber : string ;
   password : string ;
   loggedIn = false ;
   constructor() {
     this.password = '' ;
-    this.SpNo = '';
+    this.spNumber = '';
    }
 }

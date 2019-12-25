@@ -11,7 +11,7 @@ export class LoginGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(window.localStorage.getItem('loggedIn')  == 'true' ) { // allow the login is the SpNo is verified from the server
+    if(window.localStorage.getItem('loggedIn')  == 'true' ) { // allow the login is the spNumber is verified from the server
       return true ;
     } else { 
        return false;

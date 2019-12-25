@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     window.localStorage.setItem('loggedIn' , 'false' ); // 
 
 
-    this.cacheService.SpNo = "";
+    this.cacheService.spNumber = "";
 
     this.cacheService.password = "";
 
@@ -70,8 +70,8 @@ export class LoginComponent implements OnInit {
             this.cacheService.loggedIn = true;
 
             window.localStorage.setItem('loggedIn' , 'true' );
+            window.localStorage.setItem('spNumber' , this.loginForm.get('spNumber').value );
 
-            this.message = "Login was successful, please wait while you get access to your account";
 
             this.messageService.add({ severity: 'success', summary: "Authentication Granted Successfully", detail: vdata.message });
 

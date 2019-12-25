@@ -42,7 +42,7 @@ import { PasswordresetmoduleModule } from './passwordreset/passwordresetmodule/p
 const appRoute: Routes = [
 
   { path: '', component: PgsHomeLandingComponent },
-  // { path: 'cv-documentation/:SpNo', component: CvDocumentationComponent },
+  // { path: 'cv-documentation/:spNumber', component: CvDocumentationComponent },
 
 
   {
@@ -83,7 +83,7 @@ const appRoute: Routes = [
 
   { path: 'preview-cv', component: PreviewCvComponent },
 
-  { path: 'preview-cv/:SpNo', component: PreviewCvComponent },
+  { path: 'preview-cv/:spNumber', component: PreviewCvComponent },
 
   { path: 'admin-dashboard', component: AdminComponent },
   // {path : 'preview-cv' , component : PreviewCvComponent},
@@ -103,7 +103,7 @@ const appRoute: Routes = [
   { path: 'quick-survey', component: SurveyFormComponent },
 
   // {
-  //   path: 'fileuploads/:SpNo',
+  //   path: 'fileuploads/:spNumber',
   //   loadChildren: './file-aupploadings/file-uploading-mod/file-uploading-mod.module#FileUploadingModModule'
   //   , canActivate: [FileUploadGuard]
   // },

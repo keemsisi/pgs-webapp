@@ -2,11 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {
-  TreeTableModule, DialogModule, RadioButtonModule,
-  ButtonModule, ConfirmDialogModule, ToggleButtonModule,
-  ConfirmationService, GrowlModule, CalendarModule, InputTextModule
+
+  ConfirmDialogModule, ToggleButtonModule,
+  ConfirmationService, GrowlModule, InputTextModule, DataTableModule
 
 } from 'primeng/primeng';
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 
 /***Primeng Modules are here*/
@@ -75,7 +78,7 @@ import { AccountactivationComponent } from './accountactivation/accountactivatio
 // import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { ScoringtableComponent } from './scoringtable/scoringtable.component';
-import { LoginCredentialsComponent } from './login-credentials/login-credentials.component';
+import { infoComponent } from './login-credentials/login-credentials.component';
 
 
 
@@ -113,7 +116,7 @@ import { LoginCredentialsComponent } from './login-credentials/login-credentials
     // ForgotpasswordComponent,
     PasswordresetComponent,
     ScoringtableComponent,
-    LoginCredentialsComponent ,
+    infoComponent ,
   ],
   imports: [
     BrowserModule,
@@ -149,17 +152,14 @@ import { LoginCredentialsComponent } from './login-credentials/login-credentials
     MessagesModule,
     ToastModule,
     MatPasswordStrengthModule,
-    TreeTableModule,
-    DialogModule,
     MatSnackBarModule,
-    ButtonModule,
     ConfirmDialogModule,
     ToggleButtonModule,
     GrowlModule,
     MatTabsModule,
-    CalendarModule,
     InputTextModule,
-    RadioButtonModule,
+    DataTableModule
+
   ],
   providers: [MessageService, CacheService, ConfirmationService],
   bootstrap: [AppComponent]

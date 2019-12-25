@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomHttpServicesService } from '../services/custom-http-services.service';
-import { darcula } from 'react-syntax-highlighter/dist/styles/prism';
 import { HttpErrorResponse } from '@angular/common/http';
-import { timeout } from 'q';
-import { func } from 'prop-types';
 import { MessageService } from 'primeng/api';
 import { CacheService } from '../services/cache.service';
 
@@ -115,7 +112,7 @@ export class RegisterComponent implements OnInit {
   public registerNewAccount() {
     console.log(this.registerForm.value)
 
-    this.customHttp.sendApplicantInformation(this.registerForm.value).subscribe(
+    this.customHttp.registerNewUser(this.registerForm.value).subscribe(
 
       data => {
 
@@ -125,6 +122,7 @@ export class RegisterComponent implements OnInit {
 
         this.messageService.add({ severity: 'success', summary: "Registration Successfull", detail: data.message });
 
+        //redirect the user to the registration successful page 
         setTimeout(() => {
 
           this.customCache.registrationSuccessful = true;

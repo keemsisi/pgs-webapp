@@ -13,7 +13,7 @@ import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
 
 
 
-export class LoginCredentialsComponent implements OnInit {
+export class infoComponent implements OnInit {
 
 
   loginForm: FormGroup;

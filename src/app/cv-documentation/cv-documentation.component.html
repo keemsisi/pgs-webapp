@@ -43,36 +43,36 @@
 
     <mat-card-content>
       <mat-vertical-stepper [linear]="false" #stepper>
-        <!-- <mat-step [stepControl]="loginCredentials">
+        <!-- <mat-step [stepControl]="info">
           <ng-template matStepLabel>LOGGING CREDENTIALS </ng-template>
 
-          <form [formGroup]="loginCredentials">
+          <form [formGroup]="info">
             <mat-form-field appearance="outline" style="width: 100% ; margin-top: 5%">
-              <mat-label>SpNo</mat-label>
+              <mat-label>spNumber</mat-label>
 
               <mat-icon matPrefix>user</mat-icon>
-              <input matInput placeholder="Enter SpNo" formControlName="SpNo">
+              <input matInput placeholder="Enter spNumber" formControlName="spNumber">
 
-              <mat-error *ngIf="loginCredentials.get('SpNo').hasError('required') && loginCredentials.get('SpNo').touched">
-                SpNo is required
+              <mat-error *ngIf="info.get('spNumber').hasError('required') && info.get('spNumber').touched">
+                spNumber is required
               </mat-error>
 
-              <mat-error *ngIf="loginCredentials.get('SpNo').hasError('pattern')">
-                Invalid SpNo
+              <mat-error *ngIf="info.get('spNumber').hasError('pattern')">
+                Invalid spNumber
               </mat-error> -->
 
-        <!-- <mat-error *ngIf="loginCredentials.get('SpNo').hasError('exists')">
-                          SpNo is already taken...
+        <!-- <mat-error *ngIf="info.get('spNumber').hasError('exists')">
+                          spNumber is already taken...
                         </mat-error> -->
 
         <!-- </mat-form-field>
-            <mat-error *ngIf="SpNoCond">
-              SpNo already taken
+            <mat-error *ngIf="spNumberCond">
+              spNumber already taken
             </mat-error> -->
 
         <!-- 
-                    <mat-error *ngIf="loginCredentials.get('SpNo').hasError('exists')">
-                      SpNo is already taken...
+                    <mat-error *ngIf="info.get('spNumber').hasError('exists')">
+                      spNumber is already taken...
                     </mat-error> -->
 
 
@@ -87,11 +87,11 @@
                   {{passwordWithValidation.value.length}} / 25
                 </mat-hint>
 
-                <mat-error *ngIf="loginCredentials.get('password').hasError('required') && loginCredentials.get('password').touched">
+                <mat-error *ngIf="info.get('password').hasError('required') && info.get('password').touched">
                   Password is required
                 </mat-error> -->
 
-        <!-- <mat-error *ngIf="loginCredentials.get('password').hasError('required') && loginCredentials.get('password').touched">
+        <!-- <mat-error *ngIf="info.get('password').hasError('required') && info.get('password').touched">
                                 <mat-icon matPrefix>sad</mat-icon>
                                 Password is not valid
                             </mat-error> -->
@@ -117,15 +117,15 @@
                             <mat-hint align="end" aria-live="polite">
                               {{confirmPassword.value.length}} / 25
                             </mat-hint>
-                            <mat-error *ngIf="loginCredentials.get('confirmPassword').hasError('required')">
+                            <mat-error *ngIf="info.get('confirmPassword').hasError('required')">
                                 Password is required
                              </mat-error> -->
 
-        <!-- <mat-error *ngIf="loginCredentials.get('confirmPassword').hasError('pattern')">
+        <!-- <mat-error *ngIf="info.get('confirmPassword').hasError('pattern')">
                               Password is not valid
                             </mat-error> -->
 
-        <!-- <mat-error *ngIf="loginCredentials.get('password').hasError('mismatched')">
+        <!-- <mat-error *ngIf="info.get('password').hasError('mismatched')">
                               <mat-icon matPrefix></mat-icon>
                               Password mismatched...
                             </mat-error> -->
@@ -149,7 +149,7 @@
 
         <!-- <div class="margin-top-20" style="float: right;">
               <button mat-raised-button matStepperNext mat-raised-button color="primary" style="min-width: 100px;"
-                [disabled]='SpNoCond'>Next </button>
+                [disabled]='spNumberCond'>Next </button>
             </div>
           </form>
         </mat-step> -->
@@ -229,7 +229,7 @@
                   </mat-form-field>
 
                   <button mat-raised-button title="Remove" (click)="removeContactAddress(i)"
-                    style="margin-bottom: 20px ; height: 40px; ; " class="width-20 marging-left-10 ">
+                    style="margin-bottom: 20px ; height: 40px; ;color : red " class="width-20 marging-left-10 ">
                     <mat-icon matSuffix>delete</mat-icon>
                   </button>
 
@@ -262,7 +262,7 @@
 
             <div formArrayName="emailAddresses">
               <button mat-raised-button color="primary" title="Add" (click)="addEmailAdress()"
-                class="width-20 marging-left-10 " style="margin-bottom: 10px ;color : red">
+                class="width-20 marging-left-10 " style="margin-bottom: 10px ;color : rgb(255, 255, 255)">
                 <mat-icon matSuffix>add</mat-icon>
               </button>
 
@@ -2533,9 +2533,11 @@
             <button mat-raised-button color="warn" matStepperPrevious class="marging-right-10"> Previous
             </button>
             <button mat-raised-button color="primary" (click)="processApplication()"
-              [disabled]="SpNoCond && loginCredentials.get('SpNo').value!=''">
+              [disabled]="spNumberCond && info.get('spNumber').value!=''">
               Proceed to Preview
             </button>
+
+            
           </div>
         </mat-step>
 

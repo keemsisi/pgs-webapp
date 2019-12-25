@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CacheService {
-  SpNo: string ;
+  spNumber: string ;
   password: string ;
   loggedIn: boolean;
   registered: boolean ;

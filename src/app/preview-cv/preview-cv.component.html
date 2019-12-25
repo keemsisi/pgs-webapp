@@ -83,14 +83,27 @@
 
   
   <ng-template #cardElse>
+
+    <button mat-raised-button color="accent" class="marging-left-10" (click)="printCV()">
+      PRINT CV
+    </button>
     <!---------------------Display no card if the condition if false -->
+    <button mat-raised-button color="primary" class="marging-left-10" (click)="processTwo()">
+      RELOAD PREVIEW
+    </button>
+
+
+    <button mat-raised-button color="accent" class="marging-left-10" (click)="submit()">
+      FINALISE AND UPLOAD
+    </button>
+
   </ng-template>
 
 
 
 
 
-  <div style="margin-left: 100px ; margin-right: 100px;">
+  <div style="margin-left: 100px ; margin-right: 100px; overflow-x: auto;">
     <form>
       <h3 style="font-weight: bold">01. PERSONAL</h3>
       <mat-table [dataSource]="ELEMENT_DATA" class="mat-elevation-z8" style="width: 100%">

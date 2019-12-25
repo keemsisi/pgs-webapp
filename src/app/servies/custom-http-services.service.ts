@@ -34,28 +34,28 @@ export class CustomHttpServicesService {
 
   /**
    * 
-   * @param SpNo
+   * @param spNumber
    */
-  public checkSpNo(value): Observable <any> {
-    return this.clientHttpRequest.post(this.serverURL + '/users/exists', { 'SpNo' : value }, {responseType : 'json'});
+  public checkspNumber(value): Observable <any> {
+    return this.clientHttpRequest.post(this.serverURL + '/users/exists', { 'spNumber' : value }, {responseType : 'json'});
   }
 
 
   /**
    * 
-   * @param SpNo
+   * @param spNumber
    */
-  public grantUserLogin(SpNo , password): Observable <any> {
+  public grantUserLogin(spNumber , password): Observable <any> {
     return this.clientHttpRequest.post(this.serverURL + '/users/grant',
-    { 'SpNo' : SpNo, 'password': password }, {responseType : 'json'});
+    { 'spNumber' : spNumber, 'password': password }, {responseType : 'json'});
   }
 
     /**
    * 
-   * @param SpNo The usename of the user
+   * @param spNumber The usename of the user
    */
-  getUserInformation(SpNo): Observable<any> {
-    return this.clientHttpRequest.get(`${this.serverURL}` + '/applicants/bySpNo/'  + SpNo, {responseType: 'json'});
+  getUserInformation(spNumber): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + '/applicants/byspNumber/'  + spNumber, {responseType: 'json'});
   }
 
 
@@ -91,7 +91,7 @@ export class CustomHttpServicesService {
 
   /**
    *
-   * @param SpNo The usename of the user
+   * @param spNumber The usename of the user
    */
   submitSurvey(survey): Observable<any> {
     return this.clientHttpRequest.post(`${this.serverURL}` + '/survey/add' , {'survey' : survey } , {responseType: 'json'} );
@@ -100,7 +100,7 @@ export class CustomHttpServicesService {
 
     /**
    *
-   * @param SpNo The usename of the user
+   * @param spNumber The usename of the user
    */
   activateAccount(email : String , spNumber : String , token : String): Observable<any> {
 
@@ -116,7 +116,7 @@ export class CustomHttpServicesService {
 
       /**
    *
-   * @param SpNo The usename of the user
+   * @param spNumber The usename of the user
    */
   sendAnotherLink(email : String , spNumber : String): Observable<any> {
 

@@ -1,6 +1,6 @@
 import { DataObjectModel } from 'src/app/models/object.model';
 
-export class LoginCredentials {
+export class info {
          accountUsername : string ;
          accountPassword: string ;
     

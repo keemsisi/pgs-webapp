@@ -25,7 +25,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   // serverURL: 'http://localhost:8081';
   serverURL: 'https://promotbotformserver.herokuapp.com';
 
-  @Output() yesdash : EventEmitter = new EventEmitter();
+  @Output() yesdash: EventEmitter = new EventEmitter();
   // @Input()  
 
   belongsTo: Array<string> = [
@@ -47,7 +47,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   paperReviewing: FormArray;
   articlesAcc: FormArray;
   artInP: FormArray;
-  @Input() show: Boolean = true ;
+  @Input() show: Boolean = true;
 
   refrees: FormArray;
   publications: FormGroup;
@@ -70,7 +70,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   researchInProgress: FormArray;
   finalStage: FormGroup;
   showBlurBackgroundOverlay: Boolean = false;
-  loginCredentials: FormGroup;
+  info: FormGroup;
   totalFileAttached = 0;
   supervisionPostPart: FormArray;
   conferencesAttended: FormArray;
@@ -101,7 +101,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   academicAndProfessionFiles: Array<File> = [];
   nationalRecommendationFiles: Array<File> = [];
   myfile = [];
-  SpNoCond: boolean;
+  spNumberCond: boolean;
   passwordMismatched: boolean;
   signatureFound = false;
 
@@ -114,7 +114,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    */
   surveyAnswers: { [question: string]: string };
 
-  @ViewChild(SignaturePad , {static : true}) signaturePad: SignaturePad;
+  @ViewChild(SignaturePad, { static: true }) signaturePad: SignaturePad;
   // @ViewChild('prizes', {static : true}) prizesF: FileUpload;
   // @ViewChild('commendation', {static : true}) commendationF: FileUpload;
   // @ViewChild('nationalRecommendation', {static : true}) nationalRecommendationF: FileUpload;
@@ -145,7 +145,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     this.FORM_INIT();
     // this.asynchronousValidators();
     if (JSON.parse(window.localStorage.getItem('personalInformation')) !== null
-      && JSON.parse(window.localStorage.getItem('loginCredentials')) !== null
+      && JSON.parse(window.localStorage.getItem('info')) !== null
       && JSON.parse(window.localStorage.getItem('eaphni')) !== null
       && JSON.parse(window.localStorage.getItem('masterFormGroupings')) !== null
     ) {
@@ -477,7 +477,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   onBasicError(event) {
     // console.log(event);
     // if( event.error.TypeError  === "Cannot read property 'toLowerCase' of undefined" ) {
-    // this.addErrorMessage('Cant not upload file (SpNo field is empty)');
+    // this.addErrorMessage('Cant not upload file (spNumber field is empty)');
     // } else {
     this.addErrorMessage('File(s) failed to attach');
     // }
@@ -840,8 +840,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     return new FormGroup({
       book: new FormControl('', []),
       used: new FormControl('', []),
-      bookDetails : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-      authorship : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')])
+      bookDetails: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
+      authorship: new FormControl('', [Validators.required,])
     });
   }
 
@@ -883,8 +883,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     return new FormGroup({
       bookArtChapt: new FormControl('', [Validators.required]),
       used: new FormControl('', [Validators.required]),
-      bookArtChaptDetails : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-      authorship : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')])
+      bookArtChaptDetails: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
+      authorship: new FormControl('', [Validators.required])
     });
   }
 
@@ -996,7 +996,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     return new FormGroup({
       refreeFullName: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       occupation: new FormControl(''),
-      phoneNumber: new FormControl('', [Validators.min(13), Validators.max(13), Validators.pattern(new RegExp('\\d{13,13}'))]),
+      phoneNumber: new FormControl('', [Validators.min(13), Validators.max(13), Validators.pattern(new RegExp('\\d{13}'))]),
       address: new FormControl(''),
       email: new FormControl(''),
     });
@@ -1477,23 +1477,12 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     // });
 
     const dataLoadGram = [];
-    this.payGram.loginCred = this.loginCredentials.value;
-    this.payGram.personalInformation = this.personalInformation.value;
-    this.payGram.eaphni = this.eaphni.value;
-    this.payGram.masterFormGroupings = this.masterFormGroupings.value;
-
-    // send the preview page to show
-    // this.router.navigate(['/preview-cv'] , {queryParams: {'payload' : JSON.stringify(this.payGram)} } ) ;
     this.saveToLocalStorage();
-
-    this.cacheService.payloadData = JSON.stringify(this.payGram);
-    this.router.navigate(['/preview-cv']);
-    // this.router.navigate(['/preview-cv', JSON.stringify(this.payGram)]);
+    this.saveToCache();
 
 
 
-
-    // (Array)(this.loginCredentials.value).forEach(v => {
+    // (Array)(this.info.value).forEach(v => {
     //   dataLoadGram.push(v);
     // });
 
@@ -1525,7 +1514,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     //     // window.open('http://localhost:4300', '_self');
 
     //     // disable the file upload navigation from the front end app
-    //     // this.router.navigate(['/fileuploads', this.loginCredentials.get('SpNo').value]);
+    //     // this.router.navigate(['/fileuploads', this.info.get('spNumber').value]);
 
 
     //     // navigate back to the home page after successful cv
@@ -1540,6 +1529,23 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     //   }
     // });
   }
+
+
+
+  public saveToCache(): void {
+
+    // this.payGram.loginCred = this.info.value;
+    // this.payGram.personalInformation = this.personalInformation.value;
+    // this.payGram.eaphni = this.eaphni.value;
+    // this.payGram.masterFormGroupings = this.masterFormGroupings.value;
+    // send the preview page to show
+    // this.router.navigate(['/preview-cv'] , {queryParams: {'payload' : JSON.stringify(this.payGram)} } ) ;
+    // this.cacheService.payloadData = JSON.stringify(this.payGram);
+    window.localStorage.setItem('loginCred', JSON.stringify(this.info.value));
+    // window.localStorage.setItem('payloadData', JSON.stringify(this.payGram));
+
+  }
+
 
   public done() {
     this.router.navigateByUrl('http://localhost:8083'); // user dashboard login page
@@ -1653,7 +1659,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     this.loadFormGroupValues('specialAssignmentCS', specialAssignmentCS, this.initSpecialAssignemtCS);
 
 
-    
+
     this.loadFormGroupValuesPub('articlesAcc', articlesAcc, this.initArticleAcc);
     this.loadFormGroupValuesPub('books', books, this.initBook);
     this.loadFormGroupValuesPub('bookArticlesOrChapter', bookArticlesOrChapter, this.initBookArticlesOrChapter);
@@ -1694,14 +1700,14 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
   private loadFormGroupValues(formGroupName: string, formGroupObject: Array<Object>, formGroup: Function): boolean {
     (<FormArray>this.masterFormGroupings.get(formGroupName)).removeAt(0);//clear the initial form control 
-    console.log(formGroupName , "--------------------------------");
+    console.log(formGroupName, "--------------------------------");
     for (let index = 0; index < formGroupObject.length; index++) {
       const formValue = formGroup();
       console.log(formGroupObject[index]);
       formValue.setValue(formGroupObject[index]);
       (<FormArray>this.masterFormGroupings.get(formGroupName)).push(formValue);
       console.log(<FormArray>this.masterFormGroupings.get(formGroupName).value)
-      
+
     }
     return true;
   }
@@ -1766,14 +1772,14 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       postOnPromotion: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
     });
 
-    this.loginCredentials = this.fb.group({
-      SpNo: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      dateReg: new FormControl(Date())
+    this.info = this.fb.group({
+      spNumber: new FormControl(window.localStorage.getItem('spNumber')),
+      // password: new FormControl('', [Validators.required]),
+      dateSumitted: new FormControl(Date())
     });
 
-    this.loginCredentials.get('SpNo').valueChanges.subscribe(data => {
-      // console.log('has ERROR ', this.loginCredentials.get('SpNo').hasError('exists'));
+    this.info.get('spNumber').valueChanges.subscribe(data => {
+      // console.log('has ERROR ', this.info.get('spNumber').hasError('exists'));
     });
 
     /**
@@ -1900,13 +1906,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
      * Custom asynchronous validator
      * *********************************
      */
-    this.loginCredentials.get('SpNo').valueChanges.subscribe(data => {
-      this.httpRequest.checkspNumber(this.loginCredentials.get('SpNo').value).subscribe(
+    this.info.get('spNumber').valueChanges.subscribe(data => {
+      this.httpRequest.checkspNumber(this.info.get('spNumber').value).subscribe(
         dat => {
           if (dat.exists) {
-            this.SpNoCond = true;
+            this.spNumberCond = true;
           } else {
-            this.SpNoCond = false;
+            this.spNumberCond = false;
           }
         }
       );
@@ -1917,7 +1923,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   public populateFormValues(): void {
     // save in local storage here
     // this.personalInformation.patchValue(JSON.parse(window.localStorage.getItem('personalInformation')));
-    // this.loginCredentials.patchValue(JSON.parse(window.localStorage.getItem('loginCredentials')));
+    // this.info.patchValue(JSON.parse(window.localStorage.getItem('info')));
     // this.eaphni.patchValue(JSON.parse(window.localStorage.getItem('eaphni')));
     // this.masterFormGroupings.patchValue(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
 
@@ -1931,31 +1937,36 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    * user as entered into the CV Documentation Page
    */
   public saveToLocalStorage(): void {
+
+    this.saveToCache(); // save to the cache of the application 
+
     this.dateAndSignature.controls.signature.setValue(this.signaturePad.toData());
     window.localStorage.setItem('personalInformation', JSON.stringify(this.personalInformation.value));
-    window.localStorage.setItem('loginCredentials', JSON.stringify(this.loginCredentials.value));
+    window.localStorage.setItem('info', JSON.stringify(this.info.value));
     window.localStorage.setItem('eaphni', JSON.stringify(this.eaphni.value));
     window.localStorage.setItem('masterFormGroupings', JSON.stringify(this.masterFormGroupings.value));
+
     this.messageService.add({
-      severity: 'success', summary: 'Details Saved Successfully',
+      severity: 'success',
+      summary: 'Details Saved Successfully',
       detail: 'Your Form Fields inputs have been saved'
     });
 
 
     //this will print all the filled details to the console 
     // console.log(JSON.parse(window.localStorage.getItem('personalInformation')));
-    // console.log(JSON.parse(window.localStorage.getItem('loginCredentials')));
+    // console.log(JSON.parse(window.localStorage.getItem('info')));
     // console.log(JSON.parse(window.localStorage.getItem('eaphni')));
     // console.log(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
 
-    console.log(window.localStorage.getItem('personalInformation'));
-    console.log("----------------------------------------------------")
-    console.log(window.localStorage.getItem('loginCredentials'));
-    console.log("----------------------------------------------------")
-    console.log(window.localStorage.getItem('eaphni'));
-    console.log("----------------------------------------------------")
-    console.log(window.localStorage.getItem('masterFormGroupings'));
-    console.log("----------------------------------------------------")
+    // console.log(window.localStorage.getItem('personalInformation'));
+    // console.log("----------------------------------------------------")
+    // console.log(window.localStorage.getItem('info'));
+    // console.log("----------------------------------------------------")
+    // console.log(window.localStorage.getItem('eaphni'));
+    // console.log("----------------------------------------------------")
+    // console.log(window.localStorage.getItem('masterFormGroupings'));
+    // console.log("----------------------------------------------------")
 
 
 
@@ -1972,7 +1983,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   public deleteAllSavedFormsValues(): void {
     // save in local storage here
     window.localStorage.removeItem('personalInformation');
-    window.localStorage.removeItem('loginCredentials');
+    window.localStorage.removeItem('info');
     window.localStorage.removeItem('eaphni');
     window.localStorage.removeItem('masterFormGroupings');
 

@@ -64,6 +64,6 @@ export class DataObjectModel {
       'postOnPromotion': '',
     },
     
-    'loginCredentials': [{}]
+    'info': [{}]
   };
 }

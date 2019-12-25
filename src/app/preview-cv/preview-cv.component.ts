@@ -19,11 +19,11 @@ import { DataObjectModel } from '../models/object.model';
 })
 export class PreviewCvComponent extends CVDataModel implements OnInit {
   personalInformation: Object = {};
-  loginCredentials: Array<Object> = [{}];
+  info: Array<Object> = [{}];
   eaphni: Array<Object> = [{}];
   masterFormGroupings: Array<Object> = [{}];
 
-  SpNo: String;
+  spNumber: String;
   payloadData: FormGroup;
   base64Img = null;
   margins = {
@@ -70,7 +70,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
   ngOnInit() {
 
-    if (this.activatedRoute.snapshot.paramMap.has('SpNo')) {
+    if (this.activatedRoute.snapshot.paramMap.has('spNumber')) {
 
       this.processOne();
       // } else if (this.activatedRoute.snapshot.paramMap.has('payload')) {
@@ -79,6 +79,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     }
 
     else if (this.cacheService.payloadData !== undefined ) {
+      console.log("Processing two already....");
       this.processTwo();
 
     }
@@ -95,8 +96,8 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
   //if the staff data is loaded from the database server then this will run and get the staff stored cv
   private processOne() {
-    this.SpNo = this.activatedRoute.snapshot.paramMap.get('SpNo');
-    this.getUserInformation(this.SpNo);
+    this.spNumber = this.activatedRoute.snapshot.paramMap.get('spNumber');
+    this.getUserInformation(this.spNumber);
     console.log('Preview One and the othter proces...');
     this.loadPersoalInformation();
     this.addSuccessMessage('Your data was loaded successfully');
@@ -106,13 +107,17 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   //this runs just to preview the cv before submitting to the backend service 
   private processTwo() {
     // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload')); //get the value of the parameter from the avtivated route
-    this.objectDataSource = JSON.parse(this.cacheService.payloadData);
+    const payloadData =  new DataObjectModel().model ;
+    payloadData.personalInformation = JSON.parse(window.localStorage.getItem('personalInformation'));
+    payloadData.eaphni = JSON.parse(window.localStorage.getItem('eaphni'));
+    payloadData.masterFormGroupings= JSON.parse(window.localStorage.getItem('masterFormGroupings'));
+    payloadData['loginCred'] = JSON.parse(window.localStorage.getItem('loginCred'));
+    this.objectDataSource = payloadData;
     this.loadPersoalInformation();
     console.log(this.objectDataSource);
     this.processLoadedData();
     // this.addSuccessMessage('Your data was loaded successfully');
     console.log("Message from process two");
-    
   }
 
 
@@ -272,14 +277,14 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   // process the data recieved from the other view or from the server
   protected processLoadedData() {
     // this.personalInformation = this.objectDataSource['personalInformation'];
-    // this.loginCredentials = this.objectDataSource['loginCredentials'];
+    // this.info = this.objectDataSource['info'];
     this.eaphni =  Array<Object>(this.objectDataSource['eaphni']);
     this.masterFormGroupings = Array<Object>(this.objectDataSource['masterFormGroupings']);
   }
 
-  getUserInformation(SpNo): void {
-    this.httpRequest.getUserInformation(SpNo).subscribe(data => {
-      this.objectDataSource = data; // assigns the SpNo ;
+  getUserInformation(spNumber): void {
+    this.httpRequest.getUserInformation(spNumber).subscribe(data => {
+      this.objectDataSource = data; // assigns the spNumber ;
       this.processLoadedData();
     }, (error: HttpErrorResponse) => {
       this.messageService.add({
@@ -291,14 +296,17 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   public submit() {
     this.hideCard = true;
     this.blurDocument(true);
-    this.httpRequest.sendApplicantInformation(this.objectDataSource).subscribe(data => {
+
+
+
+    this.httpRequest.sendApplicantInformation(window.localStorage.getItem('spNumber') ,this.objectDataSource).subscribe(data => {
       // console.log('Response Message', data);
       this.blurDocument(false);
       this.cacheService.registered = true;
       this.addSuccessMessage('Your Registration was successfull , please proceed to uploads files...');
       setTimeout(() => {
-        this.router.navigate(['/']);
-        this.deleteAllSavedFormsValues();
+        // this.router.navigate(['/']);
+        // this.deleteAllSavedFormsValues();
       }, 2000);
     }, (error: HttpErrorResponse) => {
       if (error.status === 500) {
@@ -323,7 +331,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   public deleteAllSavedFormsValues(): void {
     // save in local storage here
     window.localStorage.removeItem('personalInformation');
-    window.localStorage.removeItem('loginCredentials');
+    window.localStorage.removeItem('info');
     window.localStorage.removeItem('eaphni');
     window.localStorage.removeItem('masterFormGroupings');
   }
@@ -452,14 +460,14 @@ export interface ResearchInterests {
     //       'nationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }],
     //       'internationalRecommendations': [{ 'receivedFrom': '', 'title': '', 'date': '' }]
     //     },
-    //     'loginCred': { 'SpNo': '', 'password': '', 'dateReg': 'Fri Jul 26 2019 23:05:19 GMT+0100 (West Africa Standard Time)' }
+    //     'loginCred': { 'spNumber': '', 'password': '', 'dateReg': 'Fri Jul 26 2019 23:05:19 GMT+0100 (West Africa Standard Time)' }
     //   };
 
 
     // this.personalInformation = this.objectDataSource['personalInformation'];
     // this.masterFormGroupings = this.objectDataSource['masterFormGroupings'];
     // this.eaphni = this.objectDataSource['eaphni'];
-    // this.loginCredentials = this.objectDataSource['loginCredentials'];
+    // this.info = this.objectDataSource['info'];
 
     // const phoneNum = '';
     // const contactAdd = '';

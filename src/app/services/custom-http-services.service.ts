@@ -15,8 +15,8 @@ export class CustomHttpServicesService {
 
    }
 
-   public sendApplicantInformation(data: Object): Observable <any> {
-     return this.clientHttpRequest.post(this.serverURL + '/applicants/register',
+   public sendApplicantInformation(spNumber : string , data: Object): Observable <any> {
+     return this.clientHttpRequest.post(this.serverURL + `/applicants/submit-cv/${spNumber}`,
       data, {responseType : 'text'});
    }
 
@@ -49,6 +49,18 @@ export class CustomHttpServicesService {
     return this.clientHttpRequest.post(this.serverURL + '/users/email/exists', { 'email' : value }, {responseType : 'json'});
   }
 
+
+
+
+  /**
+   * 
+   * @param spNumber 
+   * @param data 
+   */
+  public registerNewUser(data: Object): Observable <any> {
+    return this.clientHttpRequest.post(this.serverURL + `/users/create-account`,
+     data, {responseType : 'text'});
+  }
 
   /** 
    * 
@@ -85,6 +97,33 @@ export class CustomHttpServicesService {
 
     return this.clientHttpRequest.post(`${this.serverURL}` + '/survey/add' , {'survey' : survey } , {responseType: 'json'} );
     
+  }
+
+
+  /**
+   * 
+   * @param spNumber The usename of the user
+   */
+  gradeUserCV(spNumber : string ): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + `/grader/grade/${spNumber}`  + spNumber, {responseType: 'json'});
+  }
+
+
+    /**
+   * 
+   * @param spNumber The usename of the user
+   */
+  loadUserGradedCV(spNumber : string ): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + `/grader/load/${spNumber}`  + spNumber, {responseType: 'json'});
+  }
+
+
+  /**
+   * 
+   * @param spNumber The usename of the user
+   */
+  clearUserGradedCV(spNumber : string ): Observable<any> {
+    return this.clientHttpRequest.get(`${this.serverURL}` + `/grader/clear/${spNumber}`  + spNumber, {responseType: 'json'});
   }
 
 }

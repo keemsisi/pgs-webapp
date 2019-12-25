@@ -4,7 +4,7 @@ import { FileUploadGuard } from 'src/app/guard/file-upload.guard';
 import { FileAupploadingsComponent } from '../file-aupploadings.component';
 
 const routes: Routes = [
-  {'path' : 'fileuploads/:SpNo' , component:FileAupploadingsComponent , canActivate: [FileUploadGuard]}
+  {'path' : 'fileuploads/:spNumber' , component:FileAupploadingsComponent , canActivate: [FileUploadGuard]}
 ];
 
 @NgModule({

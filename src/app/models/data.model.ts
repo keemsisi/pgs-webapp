@@ -40,7 +40,7 @@ export class CVDataModel {
     scholarshipsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
     nationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
     internationalRecommendationsDisplayColumn: string[] = ['no', 'receivedFrom', 'title', 'date'];
-    loginCredRecommendationsDisplayColumn: string[] = ['no', 'SpNo', 'password', 'dateReg'];
+    loginCredRecommendationsDisplayColumn: string[] = ['no', 'spNumber', 'password', 'dateReg'];
     paperReviewingDisplayColumn: string[] = ['no', 'paperR'];
   
     displayEdu: string[] = ['no', 'edu', 'fromDate', 'toDate'];
