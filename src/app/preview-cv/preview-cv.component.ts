@@ -33,7 +33,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     width: 550
   };
 
-  objectSource : {} = new DataObjectModel().model ;
+  objectSource: {} = new DataObjectModel().model;
 
   @Input('dashboardCV') dashboardCV: Object;
 
@@ -48,12 +48,12 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   @Input() showCard: Boolean = true;
   @Input() showHeader: Boolean = true;
 
-  objectDataSource = new DataObjectModel().model ;
+  objectDataSource = new DataObjectModel().model;
 
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router, 
+    private router: Router,
     private messageService: MessageService,
     private httpRequest: CustomHttpServicesService,
     private cacheService: CacheService,
@@ -78,7 +78,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
     }
 
-    else if (this.cacheService.payloadData !== 'undefined' ) {
+    else if (this.cacheService.payloadData !== 'undefined') {
       console.log("Processing two already....");
       this.processTwo();
 
@@ -107,11 +107,11 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   //this runs just to preview the cv before submitting to the backend service 
   private processTwo() {
     // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload')); //get the value of the parameter from the avtivated route
-    const payloadData =  new DataObjectModel().model ;
+    const payloadData = new DataObjectModel().model;
 
     payloadData.personalInformation = JSON.parse(window.localStorage.getItem('personalInformation'));
     payloadData.eaphni = JSON.parse(window.localStorage.getItem('eaphni'));
-    payloadData.masterFormGroupings= JSON.parse(window.localStorage.getItem('masterFormGroupings'));
+    payloadData.masterFormGroupings = JSON.parse(window.localStorage.getItem('masterFormGroupings'));
     payloadData['loginCred'] = JSON.parse(window.localStorage.getItem('loginCred'));
     this.objectDataSource = payloadData;
 
@@ -278,10 +278,9 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   // process the data recieved from the other view or from the server
   protected processLoadedData() {
     this.loadPersoalInformation();
-    // this.personalInformation = this.objectDataSource['personalInformation'];
-    this.info = Array<Object>(this.objectDataSource['info']);
-    this.eaphni =  Array<Object>(this.objectDataSource['eaphni']);
+    this.eaphni = Array<Object>(this.objectDataSource['eaphni']);
     this.masterFormGroupings = Array<Object>(this.objectDataSource['masterFormGroupings']);
+    this.info = Array<Object>(this.objectDataSource['info']);
   }
 
   getUserInformation(spNumber): void {
@@ -303,7 +302,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     console.log(this.objectDataSource);
 
 
-    this.httpRequest.sendApplicantInformation(window.localStorage.getItem('spNumber') ,this.objectDataSource).subscribe(data => {
+    this.httpRequest.sendApplicantInformation(window.localStorage.getItem('spNumber'), this.objectDataSource).subscribe(data => {
       // console.log('Response Message', data);
       this.blurDocument(false);
       this.cacheService.registered = true;

@@ -2538,7 +2538,7 @@
 
           <form [formGroup]="dateAndSignature">
             <!-- <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"> -->
-            <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()">
+            <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()" #SignaturePad>
             </signature-pad>
 
             <mat-form-field appearance="outline" class="width-45 marging-left-10 ">

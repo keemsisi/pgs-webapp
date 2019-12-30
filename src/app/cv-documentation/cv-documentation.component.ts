@@ -10,8 +10,6 @@ import { Event, Router } from '@angular/router';
 import { FileUpload } from 'primeng/fileupload';
 import { MessageService } from 'primeng/api';
 import { CacheService } from '../services/cache.service';
-import { timeout } from 'q';
-import { forkJoin } from 'rxjs';
 import { EventEmitter } from 'events';
 
 
@@ -140,8 +138,11 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   constructor(private fb: FormBuilder, private httpRequest: CustomHttpServicesService,
     private messageService: MessageService, private cacheService: CacheService, private router: Router) {
   }
+  
 
   ngOnInit() {
+
+
     this.FORM_INIT();
     // this.asynchronousValidators();
     if (JSON.parse(window.localStorage.getItem('personalInformation')) !== null
@@ -163,10 +164,15 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     // this.signaturePad is now available
     this.signaturePad.set('minWidth', 3); // set szimek/signature_pad options at runtime
     this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
-    if (this.signatureFound) {
+
+    // console.log((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value  != "");
+    if (this.signatureFound && (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value != "" ) {
       this.signaturePad.fromData((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value);
       // console.log(' ' + (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value);
+      this.signaturePad.fromDataURL((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
+      console.log(this.signatureFound)
     }
+    console.log("#####################################################################COOL#####################################")
   }
 
   clearSignature() {
@@ -178,7 +184,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    * The method called by the signature pad on draw complete
    */
   drawComplete() {
-    this.dateAndSignature.controls['signature'].setValue(this.signaturePad.toData());
+    // this.dateAndSignature.controls['signature'].setValue(this.signaturePad.toData());
+    this.dateAndSignature.controls['signature'].setValue("");
     this.dateAndSignature.controls['base64Image'].setValue(this.signaturePad.toDataURL('base64'));
   }
 
@@ -1458,26 +1465,26 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
 
-  
+
   public processApplication() {
 
     // master groupings , personal information educational bacgrounds
-    Object.keys(this.eaphni.controls).forEach( key => {
+    Object.keys(this.eaphni.controls).forEach(key => {
       this.payGram.personalInformation[key] = this.personalInformation.controls[key].value;
     });
 
 
-    Object.keys(this.eaphni.controls).forEach( key => {
+    Object.keys(this.eaphni.controls).forEach(key => {
       if (this.eaphni.controls[key].value instanceof Array) {
-        const arrayToAdd = {} ;
-        (Array)(this.eaphni.controls[key].value).forEach(k=> {
-          arrayToAdd[k] = this.eaphni.controls[key].value ;
+        const arrayToAdd = {};
+        (Array)(this.eaphni.controls[key].value).forEach(k => {
+          arrayToAdd[k] = this.eaphni.controls[key].value;
         })
       }
       this.payGram.eaphni[key] = this.eaphni.controls[key].value;
     });
 
-    Object.keys(this.eaphni.controls).forEach( key => {
+    Object.keys(this.eaphni.controls).forEach(key => {
       this.payGram.masterFormGroupings[key] = this.masterFormGroupings.controls[key].value;
     });
 
@@ -1945,7 +1952,10 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
     // this.saveToCache(); // save to the cache of the application 
 
-    this.dateAndSignature.controls.signature.setValue(this.signaturePad.toData());
+    window.localStorage.clear() ; // delete old data before inserting new
+
+    // this.dateAndSignature.controls.signature.setValue(this.signaturePad.toData());
+    this.dateAndSignature.controls.signature.setValue("");
     window.localStorage.setItem('personalInformation', JSON.stringify(this.personalInformation.value));
     window.localStorage.setItem('info', JSON.stringify(this.info.value));
     window.localStorage.setItem('eaphni', JSON.stringify(this.eaphni.value));
