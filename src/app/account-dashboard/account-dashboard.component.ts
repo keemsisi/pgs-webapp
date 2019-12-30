@@ -6,6 +6,7 @@ import { CacheService } from '../services/cache.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { DataObjectModel } from '../models/object.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-account-dashboard',
@@ -48,21 +49,18 @@ export class AccountDashboardComponent implements OnInit {
 
 
 
-  public grade() {
+   gradeCV() {
     //fetch the staff spNumber from the server 
-    this.httpRequest.gradeUserCV(this.cacheService.spNumber).subscribe(data => {
-
+    console.log("Grading now")
+    this.httpRequest.gradeUserCV(window.localStorage.getItem('spNumber')).subscribe(data => {
       this.messageService.add({ severity: 'success', summary: "Grading was successful", detail: data.message });
-
-      const router = this.router;
-
-      setTimeout(function () {
-
-      console.log("grading was sucessful")
-
-      }, 2000)
+      // const router = this.router;
+    }, (error: HttpErrorResponse) => {
+      console.error("ERROR_STATUS  ::: " + error.status);
+      console.error("ERROR_MESSAGE ::: " + error.message);
+      this.messageService.add({ severity: 'success', summary: "Error occured while grading", detail: error.message });
     })
-    
+
   }
 
 }

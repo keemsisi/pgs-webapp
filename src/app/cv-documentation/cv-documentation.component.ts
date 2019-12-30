@@ -841,7 +841,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       book: new FormControl('', []),
       used: new FormControl('', []),
       bookDetails: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-      authorship: new FormControl('', [Validators.required,])
+      authorship: new FormControl('', [Validators.required,]),
+      // lf: new FormControl('books',)
     });
   }
 
@@ -884,7 +885,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       bookArtChapt: new FormControl('', [Validators.required]),
       used: new FormControl('', [Validators.required]),
       bookArtChaptDetails: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-      authorship: new FormControl('', [Validators.required])
+      authorship: new FormControl('', [Validators.required]),
+      // lf: new FormControl('chapters_in_books',)
     });
   }
 
@@ -912,7 +914,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       sn: new FormControl('', [Validators.required]),
       availableAt: new FormControl('', [Validators.required]),
       used: new FormControl('', [Validators.required]),
-      lf: new FormControl('', [Validators.required]),
+      lf: new FormControl('conference_paper_peer_reviewed_proceedings', [Validators.required]),
       editCP: new FormControl('', [Validators.required]),
       authorship: new FormControl('', [Validators.required]),
     });
@@ -1454,31 +1456,34 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     (<FormArray>this.extraCurriculaActivities).removeAt(indexAt);
     return true;
   }
+
+
+  
   public processApplication() {
 
-    // // master groupings , personal information educational bacgrounds
-    // Object.keys(this.eaphni.controls).forEach( key => {
-    //   this.payGram.personalInformation[key] = this.personalInformation.controls[key].value;
-    // });
+    // master groupings , personal information educational bacgrounds
+    Object.keys(this.eaphni.controls).forEach( key => {
+      this.payGram.personalInformation[key] = this.personalInformation.controls[key].value;
+    });
 
 
-    // Object.keys(this.eaphni.controls).forEach( key => {
-    //   if (this.eaphni.controls[key].value instanceof Array) {
-    //     const arrayToAdd = {} ;
-    //     (Array)(this.eaphni.controls[key].value).forEach(k=> {
-    //       arrayToAdd[k] = this.eaphni.controls[key].value ;
-    //     })
-    //   }
-    //   this.payGram.eaphni[key] = this.eaphni.controls[key].value;
-    // });
+    Object.keys(this.eaphni.controls).forEach( key => {
+      if (this.eaphni.controls[key].value instanceof Array) {
+        const arrayToAdd = {} ;
+        (Array)(this.eaphni.controls[key].value).forEach(k=> {
+          arrayToAdd[k] = this.eaphni.controls[key].value ;
+        })
+      }
+      this.payGram.eaphni[key] = this.eaphni.controls[key].value;
+    });
 
-    // Object.keys(this.eaphni.controls).forEach( key => {
-    //   this.payGram.masterFormGroupings[key] = this.masterFormGroupings.controls[key].value;
-    // });
+    Object.keys(this.eaphni.controls).forEach( key => {
+      this.payGram.masterFormGroupings[key] = this.masterFormGroupings.controls[key].value;
+    });
 
     const dataLoadGram = [];
     this.saveToLocalStorage();
-    this.saveToCache();
+    // this.saveToCache();
 
 
 
@@ -1532,19 +1537,19 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
 
-  public saveToCache(): void {
+  // public saveToCache(): void {
 
-    // this.payGram.loginCred = this.info.value;
-    // this.payGram.personalInformation = this.personalInformation.value;
-    // this.payGram.eaphni = this.eaphni.value;
-    // this.payGram.masterFormGroupings = this.masterFormGroupings.value;
-    // send the preview page to show
-    // this.router.navigate(['/preview-cv'] , {queryParams: {'payload' : JSON.stringify(this.payGram)} } ) ;
-    // this.cacheService.payloadData = JSON.stringify(this.payGram);
-    window.localStorage.setItem('loginCred', JSON.stringify(this.info.value));
-    // window.localStorage.setItem('payloadData', JSON.stringify(this.payGram));
+  //   // this.payGram.loginCred = this.info.value;
+  //   // this.payGram.personalInformation = this.personalInformation.value;
+  //   // this.payGram.eaphni = this.eaphni.value;
+  //   // this.payGram.masterFormGroupings = this.masterFormGroupings.value;
+  //   // send the preview page to show
+  //   // this.router.navigate(['/preview-cv'] , {queryParams: {'payload' : JSON.stringify(this.payGram)} } ) ;
+  //   // this.cacheService.payloadData = JSON.stringify(this.payGram);
+  //   window.localStorage.setItem('loginCred', JSON.stringify(this.info.value));
+  //   // window.localStorage.setItem('payloadData', JSON.stringify(this.payGram));
 
-  }
+  // }
 
 
   public done() {
@@ -1938,13 +1943,15 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    */
   public saveToLocalStorage(): void {
 
-    this.saveToCache(); // save to the cache of the application 
+    // this.saveToCache(); // save to the cache of the application 
 
     this.dateAndSignature.controls.signature.setValue(this.signaturePad.toData());
     window.localStorage.setItem('personalInformation', JSON.stringify(this.personalInformation.value));
     window.localStorage.setItem('info', JSON.stringify(this.info.value));
     window.localStorage.setItem('eaphni', JSON.stringify(this.eaphni.value));
     window.localStorage.setItem('masterFormGroupings', JSON.stringify(this.masterFormGroupings.value));
+    window.localStorage.setItem('loginCred', JSON.stringify(this.info.value));
+
 
     this.messageService.add({
       severity: 'success',
@@ -1959,14 +1966,14 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     // console.log(JSON.parse(window.localStorage.getItem('eaphni')));
     // console.log(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
 
-    // console.log(window.localStorage.getItem('personalInformation'));
-    // console.log("----------------------------------------------------")
-    // console.log(window.localStorage.getItem('info'));
-    // console.log("----------------------------------------------------")
-    // console.log(window.localStorage.getItem('eaphni'));
-    // console.log("----------------------------------------------------")
-    // console.log(window.localStorage.getItem('masterFormGroupings'));
-    // console.log("----------------------------------------------------")
+    console.log(window.localStorage.getItem('personalInformation'));
+    console.log("----------------------------------------------------")
+    console.log(window.localStorage.getItem('info'));
+    console.log("----------------------------------------------------")
+    console.log(window.localStorage.getItem('eaphni'));
+    console.log("----------------------------------------------------")
+    console.log(window.localStorage.getItem('masterFormGroupings'));
+    console.log("----------------------------------------------------")
 
 
 

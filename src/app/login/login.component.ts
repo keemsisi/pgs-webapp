@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CustomHttpServicesService } from '../services/custom-http-services.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { IfStmt } from '@angular/compiler';
-import { func } from 'prop-types';
+import { DataObjectModel } from '../models/object.model';
+
 
 @Component({
   selector: 'app-login',
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  focus : boolean = false ;
-  focus1 : boolean = false ;
+  focus: boolean = false;
+  focus1: boolean = false;
 
 
   constructor(private _snackBar: MatSnackBar,
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
     this.cacheService.loggedIn = false;
 
-    window.localStorage.setItem('loggedIn' , 'false' ); // 
+    window.localStorage.setItem('loggedIn', 'false'); // 
 
 
     this.cacheService.spNumber = "";
@@ -64,18 +64,43 @@ export class LoginComponent implements OnInit {
 
           console.log(vdata);
 
+
           if (vdata.valid && vdata.activated) {
 
 
             this.cacheService.loggedIn = true;
 
-            window.localStorage.setItem('loggedIn' , 'true' );
-            window.localStorage.setItem('spNumber' , this.loginForm.get('spNumber').value );
+            window.localStorage.setItem('loggedIn', 'true');
+            window.localStorage.setItem('spNumber', this.loginForm.get('spNumber').value);
+
+            //load the data inside the local storage to make it accessible for the preview and the cv editing tab 
+            if ( vdata.cv != 'undefined' && vdata.cv != null ) {
+
+              console.log("################################################################################")
+              console.log(vdata.cv.masterFormGroupings);
+              console.log(vdata.cv.personalInformation);
+              console.log(vdata.cv.info);
+              console.log(vdata.cv.eaphni);
+              console.log("################################################################################")
+              window.localStorage.setItem('personalInformation', JSON.stringify(vdata.cv.personalInformation));
+              window.localStorage.setItem('info', JSON.stringify(vdata.cv.info));
+              window.localStorage.setItem('eaphni', JSON.stringify(vdata.cv.eaphni));
+              window.localStorage.setItem('masterFormGroupings', JSON.stringify(vdata.cv.masterFormGroupings));
+
+            }
+
+            else {
+              const tempData = new DataObjectModel().model;
+              window.localStorage.setItem('personalInformation', JSON.stringify(tempData.personalInformation));
+              window.localStorage.setItem('info', JSON.stringify(tempData.info));
+              window.localStorage.setItem('eaphni', JSON.stringify(tempData.eaphni));
+              window.localStorage.setItem('masterFormGroupings', JSON.stringify(tempData.masterFormGroupings));
+            }
 
 
             this.messageService.add({ severity: 'success', summary: "Authentication Granted Successfully", detail: vdata.message });
 
-            const router = this.router ;
+            const router = this.router;
 
             setTimeout(function () {
 
@@ -138,6 +163,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  saveCredentials( event : Event ) {
+    console.log(event)
+    window.localStorage.setItem('username' , this.loginForm.get('username').value);
+    window.localStorage.setItem('password' , this.loginForm.get('password').value);
   }
 
 }

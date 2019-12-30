@@ -1514,8 +1514,9 @@
                         <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Authorship </mat-label>
                           <mat-select placeholder="Authorship" formControlName="authorship" class="input">
-                            <mat-option value="Sole/Major">Sole/Major</mat-option>
-                            <mat-option value="Minor">Minor</mat-option>
+                            <mat-option value="sole">Sole</mat-option>
+                            <mat-option value="major">Major</mat-option>
+                            <mat-option value="minor">Minor</mat-option>
                           </mat-select>
                         </mat-form-field>
 
@@ -1551,13 +1552,13 @@
                         <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Provide G8 Country </mat-label>
                           <mat-select placeholder="Provide G8 Country" formControlName="g8Country" class="input">
-                            <mat-option value="null">None</mat-option>
                             <mat-option value="Germany">Germany</mat-option>
                             <mat-option value="France">France</mat-option>
                             <mat-option value="Italy">Italy</mat-option>
                             <mat-option value="United Kingdom (UK)">United Kingdom (UK)</mat-option>
                             <mat-option value="Japan">Japan</mat-option>
                             <mat-option value="US">US</mat-option>
+                            <mat-option value="Non_G8">NON-G8</mat-option>
                           </mat-select>
                         </mat-form-field>
 
@@ -1577,13 +1578,32 @@
                         </mat-form-field>
 
                         <mat-form-field appearance="outline" class="width-40 marging-right-10">
-                          <mat-label> Local Or Ferign Publication </mat-label>
-                          <mat-select placeholder="Was the publication local or foreign ?" formControlName="lf"
+                          <mat-label> Publication Category </mat-label>
+                          <mat-select placeholder="Was the article local or foreign ?" formControlName="lf"
                             class="input">
-                            <mat-option value="local">Local Publication</mat-option>
-                            <mat-option value="foreign">Foreign Publication</mat-option>
+                            <mat-option value="local_journal_society">Local Journal Society </mat-option>
+                            <mat-option value="local_journal_university">Local Journal University</mat-option>
+                            <mat-option value="local_journal_research_institute">Local Journal Research Institute
+                            </mat-option>
+                            <mat-option value="local_journal_faculty">Local Journal Research Faculty</mat-option>
+                            <mat-option value="local_journal_college">Local Journal College</mat-option>
+                            <mat-option value="local_journal_department">Local Journal Department</mat-option>
+                            <mat-option value="local_journal_fce">Local Journal FCE</mat-option>
+                            <mat-option value="local_journal_poly">Local Journal Polytechnic</mat-option>
+                            <mat-option value="local_journal_monotechnic">Local Journal Monotechnic</mat-option>
+                            <mat-option value="foreign_journal_gradeA">Foreign Journal Grade A</mat-option>
+                            <mat-option value="foreign_journal_gradeB">Foreign Journal Grade B</mat-option>
+                            <mat-option value="foreign_journal_gradeC">Foreign Journal Grade C</mat-option>
+                            <mat-option value="foreign_journal_gradeD">Foreign Journal Grade D</mat-option>
+                            <mat-option value="books">Books</mat-option>
+                            <mat-option value="chatpers_in_books">Chapters in Books</mat-option>
+                            <mat-option value="patent_and_certified_invention">Patent and Certified Invention
+                            </mat-option>
+                            <mat-option value="documented_exhibition_or_creative_work">Docuemted Exhibition or Creative
+                              work</mat-option>
                           </mat-select>
                         </mat-form-field>
+
 
                         <textarea name="" id="#" cols="70" rows="5" formControlName="journalA"
                           style="font-family: Arial, Helvetica, sans-serif ; font-size: 20px;"
@@ -1669,12 +1689,32 @@
                           </mat-select>
                         </mat-form-field>
 
+
+
                         <mat-form-field appearance="outline" class="width-40 marging-right-10">
-                          <mat-label> Local Or Ferign Article </mat-label>
+                          <mat-label> Publication Category </mat-label>
                           <mat-select placeholder="Was the article local or foreign ?" formControlName="lf"
                             class="input">
-                            <mat-option value="local">Local Accepted Article </mat-option>
-                            <mat-option value="foreign">Foreign Accepted Article</mat-option>
+                            <mat-option value="local_journal_society">Local Journal Society </mat-option>
+                            <mat-option value="local_journal_university">Local Journal University</mat-option>
+                            <mat-option value="local_journal_research_institute">Local Journal Research Institute
+                            </mat-option>
+                            <mat-option value="local_journal_faculty">Local Journal Research Faculty</mat-option>
+                            <mat-option value="local_journal_college">Local Journal College</mat-option>
+                            <mat-option value="local_journal_department">Local Journal Department</mat-option>
+                            <mat-option value="local_journal_fce">Local Journal FCE</mat-option>
+                            <mat-option value="local_journal_poly">Local Journal Polytechnic</mat-option>
+                            <mat-option value="local_journal_monotechnic">Local Journal Monotechnic</mat-option>
+                            <mat-option value="foreign_journal_gradeA">Foreign Journal Grade A</mat-option>
+                            <mat-option value="foreign_journal_gradeB">Foreign Journal Grade B</mat-option>
+                            <mat-option value="foreign_journal_gradeC">Foreign Journal Grade C</mat-option>
+                            <mat-option value="foreign_journal_gradeD">Foreign Journal Grade D</mat-option>
+                            <mat-option value="books">Books</mat-option>
+                            <mat-option value="chatpers_in_books">Chpters in Books</mat-option>
+                            <mat-option value="patent_and_certified_invention">Patent and Certified Invention
+                            </mat-option>
+                            <mat-option value="documented_exhibition_or_creative_work">Docuemted Exhibition or Creative
+                              work</mat-option>
                           </mat-select>
                         </mat-form-field>
 
@@ -1685,11 +1725,12 @@
 
 
                       </div>
-                      <button mat-raised-button color="primary" (click)="addArticleAcc()" style="margin-bottom: 10px;"
-                        title="Add New">
-                        <mat-icon>add</mat-icon>
-                      </button>
+
                     </div>
+                    <button mat-raised-button color="primary" (click)="addArticleAcc()" style="margin-bottom: 10px;"
+                      title="Add New">
+                      <mat-icon>add</mat-icon>
+                    </button>
                   </div>
 
                 </mat-expansion-panel>
@@ -1737,8 +1778,9 @@
                         <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Authorship </mat-label>
                           <mat-select placeholder="Authorship" formControlName="authorship" class="input">
-                            <mat-option value="Sole/Major">Sole/Major</mat-option>
-                            <mat-option value="Minor">Minor</mat-option>
+                            <mat-option value="sole">Sole</mat-option>
+                            <mat-option value="major">Major</mat-option>
+                            <mat-option value="minor">Minor</mat-option>
                           </mat-select>
                         </mat-form-field>
 
@@ -1800,8 +1842,9 @@
                         <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Authorship </mat-label>
                           <mat-select placeholder="Authorship" formControlName="authorship" class="input">
-                            <mat-option value="Sole/Major">Sole/Major</mat-option>
-                            <mat-option value="Minor">Minor</mat-option>
+                            <mat-option value="sole">Sole</mat-option>
+                            <mat-option value="major">Major</mat-option>
+                            <mat-option value="minor">Minor</mat-option>
                           </mat-select>
                         </mat-form-field>
 
@@ -1888,20 +1931,24 @@
                           </mat-select>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="width-40 marging-right-10">
+
+
+                        <!-- <mat-form-field appearance="outline" class="width-40 marging-right-10">
                           <mat-label> Local Or Ferign Conference Proceeding </mat-label>
                           <mat-select placeholder="Was the Conference Proceeding Local or Foreign ?"
                             formControlName="lf" class="input">
-                            <mat-option value="local">Local Conference Proceeding</mat-option>
-                            <mat-option value="foreign">Foreign Conference Proceeding</mat-option>
+                            <mat-option value="conference_paper_peer_reviewed_proceedings">Local Conference Proceeding</mat-option>
+                            <mat-option value="foreign_conference_proceedings">Foreign Conference Proceeding
+                            </mat-option>
                           </mat-select>
-                        </mat-form-field>
+                        </mat-form-field> -->
 
                         <mat-form-field appearance="outline" class="width-25 marging-right-10">
                           <mat-label> Authorship </mat-label>
                           <mat-select placeholder="Authorship" formControlName="authorship" class="input">
-                            <mat-option value="Sole/Major">Sole/Major</mat-option>
-                            <mat-option value="Minor">Minor</mat-option>
+                            <mat-option value="sole">Sole</mat-option>
+                            <mat-option value="major">Major</mat-option>
+                            <mat-option value="minor">Minor</mat-option>
                           </mat-select>
                         </mat-form-field>
 
@@ -2537,7 +2584,7 @@
               Proceed to Preview
             </button>
 
-            
+
           </div>
         </mat-step>
 

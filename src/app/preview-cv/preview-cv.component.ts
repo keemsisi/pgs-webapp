@@ -78,7 +78,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
     }
 
-    else if (this.cacheService.payloadData !== undefined ) {
+    else if (this.cacheService.payloadData !== 'undefined' ) {
       console.log("Processing two already....");
       this.processTwo();
 
@@ -108,12 +108,13 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   private processTwo() {
     // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload')); //get the value of the parameter from the avtivated route
     const payloadData =  new DataObjectModel().model ;
+
     payloadData.personalInformation = JSON.parse(window.localStorage.getItem('personalInformation'));
     payloadData.eaphni = JSON.parse(window.localStorage.getItem('eaphni'));
     payloadData.masterFormGroupings= JSON.parse(window.localStorage.getItem('masterFormGroupings'));
     payloadData['loginCred'] = JSON.parse(window.localStorage.getItem('loginCred'));
     this.objectDataSource = payloadData;
-    this.loadPersoalInformation();
+
     console.log(this.objectDataSource);
     this.processLoadedData();
     // this.addSuccessMessage('Your data was loaded successfully');
@@ -276,8 +277,9 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
   // process the data recieved from the other view or from the server
   protected processLoadedData() {
+    this.loadPersoalInformation();
     // this.personalInformation = this.objectDataSource['personalInformation'];
-    // this.info = this.objectDataSource['info'];
+    this.info = Array<Object>(this.objectDataSource['info']);
     this.eaphni =  Array<Object>(this.objectDataSource['eaphni']);
     this.masterFormGroupings = Array<Object>(this.objectDataSource['masterFormGroupings']);
   }
@@ -297,6 +299,8 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     this.hideCard = true;
     this.blurDocument(true);
 
+
+    console.log(this.objectDataSource);
 
 
     this.httpRequest.sendApplicantInformation(window.localStorage.getItem('spNumber') ,this.objectDataSource).subscribe(data => {

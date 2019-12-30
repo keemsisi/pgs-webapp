@@ -105,7 +105,7 @@ export class CustomHttpServicesService {
    * @param spNumber The usename of the user
    */
   gradeUserCV(spNumber : string ): Observable<any> {
-    return this.clientHttpRequest.get(`${this.serverURL}` + `/grader/grade/${spNumber}`  + spNumber, {responseType: 'json'});
+    return this.clientHttpRequest.post(`${this.serverURL}` + `/grader/grade/${spNumber}`, {responseType: 'json'});
   }
 
 
