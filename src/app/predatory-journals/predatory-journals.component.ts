@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PredatoryPublishers } from '../models/predatory.model';
 
 @Component({
   selector: 'app-predatory-journals',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PredatoryJournalsComponent implements OnInit {
 
-  constructor() { }
+
+  predatoryJournalArray : any;
+
+  constructor(){
+    this.loadData();
+  }
 
   ngOnInit() {
+    
+  }
+
+  loadData() : void {
+    const promisse = new Promise((resolve , reject)=> {
+      resolve(new  PredatoryPublishers().getPredatoryJournals().split('\n'));
+    });
+    promisse.then(result=> {
+      this.predatoryJournalArray  =  result ;
+    })
   }
 
 }

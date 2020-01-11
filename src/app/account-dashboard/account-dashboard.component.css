@@ -2,3 +2,11 @@
     /* margin-left: 3px ; */
     width: 100%
 }
+
+.ptablestyle {
+    white-space: normal;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+

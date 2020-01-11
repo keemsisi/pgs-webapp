@@ -343,16 +343,16 @@
                         <input matInput placeholder="Institution Attended" formControlName="schoolAttended">
                       </mat-form-field>
 
-                      <mat-form-field appearance="outline" class="width-40 marging-right-10">
+                      <!-- <mat-form-field appearance="outline" class="width-40 marging-right-10">
                         <mat-label> Educational Degree </mat-label>
                         <mat-select placeholder="Select degree" formControlName="degree" class="input">
-                          <mat-option value="BSc.">BSc</mat-option>
-                          <mat-option value="MSc.">MSc.</mat-option>
+                          <mat-option value=">B.Sc.">B.Sc.</mat-option>
+                          <mat-option value="M.Sc.">M.Sc.</mat-option>
                           <mat-option value="MICT">MICT</mat-option>
-                          <mat-option value="MPhil">MPhil</mat-option>
-                          <mat-option value="Phd">Phd</mat-option>
+                          <mat-option value="M.Phil.">M.Phil.</mat-option>
+                          <mat-option value="Ph.D.">Ph.D.</mat-option>
                         </mat-select>
-                      </mat-form-field>
+                      </mat-form-field> -->
 
                       <mat-form-field appearance="outline" class="width-40 marging-right-10">
                         <mat-label>From Date</mat-label>
@@ -406,6 +406,18 @@
                         <mat-label>Academic Qualification</mat-label>
                         <input matInput placeholder="Title of Academic Qualification" formControlName="title">
                       </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="width-40 marging-right-10">
+                        <mat-label> Educational Degree </mat-label>
+                        <mat-select placeholder="Select degree" formControlName="degree" class="input">
+                          <mat-option value=">B.Sc.">B.Sc.</mat-option>
+                          <mat-option value="M.Sc.">M.Sc.</mat-option>
+                          <mat-option value="MICT">MICT</mat-option>
+                          <mat-option value="M.Phil.">M.Phil.</mat-option>
+                          <mat-option value="Ph.D.">Ph.D.</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
 
                       <mat-form-field appearance="outline" class="width-30 marging-right-10 ">
                         <mat-label>Date Received</mat-label>
@@ -1758,9 +1770,15 @@
                       </button>
 
                       <div formGroupName="{{i}}">
+                       
                         <mat-form-field appearance="outline" class="width-45 marging-right-10">
                           <mat-label> Book Published</mat-label>
                           <input matInput placeholder="Enter the book Published" formControlName="book">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="40 marging-right-10">
+                          <mat-label>Book Publisher</mat-label>
+                          <input matInput placeholder="Article Publisher " formControlName="publisher">
                         </mat-form-field>
 
 
@@ -1829,6 +1847,14 @@
                           <mat-label> Book Artile or Chapter </mat-label>
                           <input matInput placeholder="Book Artiles or Chapter here" formControlName="bookArtChapt">
                         </mat-form-field>
+
+
+                        <mat-form-field appearance="outline" class="40 marging-right-10">
+                          <mat-label>Book Article or Chapter Publisher</mat-label>
+                          <input matInput placeholder="Article Publisher " formControlName="publisher">
+                        </mat-form-field>
+
+
 
                         <mat-form-field appearance="outline" class="width-45 marging-right-10">
                           <mat-label> Used for Promotion ? </mat-label>

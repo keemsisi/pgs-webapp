@@ -1,3 +1,29 @@
-<p>
-  Predatory journals will be displayed here soon! Thanks
-</p>
+<div>
+  
+  <section class="bg bg-2" id="faq-area">
+    <div class="faq-area-img"><img alt="" class="img-fluid" src="/assets/new-assets/images/faq-bg-1.png"></div>
+    <div class="container">
+      <div class="row">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Predaory Journals (Publishers) </mat-card-title>
+            <mat-card-subtitle>If any of these publishers is found in your publication the publicatiion will <strong style="color: red;">NOT BE GRADED.</strong> 
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngFor="let item of predatoryJournalArray ; let i=index;">
+              <mat-card>
+                <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{i}})</span>{{item}}
+              </mat-card>
+
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+
+
+</div>

@@ -15,14 +15,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AccountDashboardComponent implements OnInit {
 
-
+  results  = {} ;
+  postOnPromotion : any ;
 
   constructor(private fb: FormBuilder, private httpRequest: CustomHttpServicesService,
     private messageService: MessageService, private cacheService: CacheService, private router: Router) {
-
+      console.log(JSON.parse(window.localStorage.getItem('personalInformation'))['postOnPromotion'])
+    this.postOnPromotion = JSON.parse(window.localStorage.getItem('personalInformation')).postOnPromotion;
     if (typeof this.cacheService.spNumber == 'undefined') {
       this.cacheService.payloadData = JSON.stringify(new DataObjectModel().model);
-      console.log("DATA MODEL " + this.cacheService.payloadData.toString());
+      // console.log("DATA MODEL " + this.cacheService.payloadData.toString());
     } else {
       // ... fetch from the database and display
       console.log("NO");
@@ -30,7 +32,6 @@ export class AccountDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 
@@ -53,6 +54,8 @@ export class AccountDashboardComponent implements OnInit {
     //fetch the staff spNumber from the server 
     console.log("Grading now")
     this.httpRequest.gradeUserCV(window.localStorage.getItem('spNumber')).subscribe(data => {
+      console.log(data.grades)
+      this.results = data.grades ;
       this.messageService.add({ severity: 'success', summary: "Grading was successful", detail: data.message });
       // const router = this.router;
     }, (error: HttpErrorResponse) => {

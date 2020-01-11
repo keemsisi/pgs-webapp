@@ -163,20 +163,22 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // this.signaturePad is now available
     this.signaturePad.set('minWidth', 3); // set szimek/signature_pad options at runtime
-    this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
 
+    // console.log("data" , (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
+    
     // console.log((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value  != "");
-    if (this.signatureFound && (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value != "" ) {
+    if (this.signatureFound && (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value != "" ) {
       this.signaturePad.fromData((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value);
       // console.log(' ' + (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value);
       this.signaturePad.fromDataURL((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
-      console.log(this.signatureFound)
+      // console.log("data" , (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
     }
-    console.log("#####################################################################COOL#####################################")
+    // console.log("#####################################################################COOL#####################################")
   }
 
   clearSignature() {
     this.signaturePad.clear();
+    (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].setValue("");
   }
 
 
@@ -496,7 +498,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   initeaphni(): FormGroup {
     return new FormGroup({
       schoolAttended: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
-      degree: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
+      degree: new FormControl(''),
       fromDate: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4}'))]),
       toDate: new FormControl('', [Validators.required, Validators.pattern(new RegExp('\\d{4}'))]),
     });
@@ -523,6 +525,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     return new FormGroup({
       title: new FormControl('', [Validators.required, Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       date: new FormControl('', [Validators.required]),
+      degree: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))])
     });
   }
 
@@ -849,7 +852,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       used: new FormControl('', []),
       bookDetails: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       authorship: new FormControl('', [Validators.required,]),
-      // lf: new FormControl('books',)
+      publisher: new FormControl('books',)
     });
   }
 
@@ -894,6 +897,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       bookArtChaptDetails: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       authorship: new FormControl('', [Validators.required]),
       // lf: new FormControl('chapters_in_books',)
+      publisher: new FormControl('',  [Validators.required] )
+
     });
   }
 
@@ -1056,7 +1061,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   public initSpecialAssignemtATE(): FormGroup {
     return new FormGroup({
       postHeld: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
-      organization: new FormControl(''),
+      organization: new FormControl('' , [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       fromDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
       toDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))])
     });
@@ -1081,7 +1086,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   public initSpecialAssignemtMC(): FormGroup {
     return new FormGroup({
       postHeld: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
-      organization: new FormControl(''),
+      organization: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       fromDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
       toDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))])
     });
@@ -1105,7 +1110,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   public initSpecialAssignemtCS(): FormGroup {
     return new FormGroup({
       postHeld: new FormControl('', [Validators.pattern(new RegExp('[a-zA-Z]*'))]),
-      communityServiceDescription: new FormControl(''),
+      communityServiceDescription: new FormControl('' , [ Validators.pattern(new RegExp('[a-zA-Z]*'))]),
       fromDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))]),
       toDate: new FormControl('', [Validators.pattern(new RegExp('\\d{4,}'))])
     });
@@ -1712,13 +1717,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
   private loadFormGroupValues(formGroupName: string, formGroupObject: Array<Object>, formGroup: Function): boolean {
     (<FormArray>this.masterFormGroupings.get(formGroupName)).removeAt(0);//clear the initial form control 
-    console.log(formGroupName, "--------------------------------");
+    // console.log(formGroupName, "--------------------------------");
     for (let index = 0; index < formGroupObject.length; index++) {
       const formValue = formGroup();
-      console.log(formGroupObject[index]);
+      // console.log(formGroupObject[index]);
       formValue.setValue(formGroupObject[index]);
       (<FormArray>this.masterFormGroupings.get(formGroupName)).push(formValue);
-      console.log(<FormArray>this.masterFormGroupings.get(formGroupName).value)
+      // console.log(<FormArray>this.masterFormGroupings.get(formGroupName).value)
 
     }
     return true;
@@ -1810,6 +1815,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
     /***********************************************
      * INITIALISATIONS
+     * *********************************************
      */
     this.workExperience = this.fb.array([this.initWorkExp()]);
     this.otherWorkExperience = this.fb.array([this.initWorkExp()]);
@@ -1833,6 +1839,8 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
       papers: this.fb.array([this.initPaper()]),
 
     });
+
+
     this.refrees = this.fb.array([this.initRefree()]);
     this.dateAndSignature = this.fb.group({
       dateSigned: new FormControl('', [Validators.required]),
@@ -1949,18 +1957,20 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    * user as entered into the CV Documentation Page
    */
   public saveToLocalStorage(): void {
-
-    // this.saveToCache(); // save to the cache of the application 
-
-    window.localStorage.clear() ; // delete old data before inserting new
-
+    // window.localStorage.clear() ; // delete old data before inserting new
     // this.dateAndSignature.controls.signature.setValue(this.signaturePad.toData());
-    this.dateAndSignature.controls.signature.setValue("");
+    if(!this.signaturePad.isEmpty()) {
+      this.dateAndSignature.controls.base64Image.setValue(this.signaturePad.toDataURL());
+    }else{
+      this.dateAndSignature.controls.base64Image.setValue("");
+    }
     window.localStorage.setItem('personalInformation', JSON.stringify(this.personalInformation.value));
     window.localStorage.setItem('info', JSON.stringify(this.info.value));
     window.localStorage.setItem('eaphni', JSON.stringify(this.eaphni.value));
     window.localStorage.setItem('masterFormGroupings', JSON.stringify(this.masterFormGroupings.value));
     window.localStorage.setItem('loginCred', JSON.stringify(this.info.value));
+
+   console.log( this.masterFormGroupings.get('dateAndSignature').get('base64Image').value )
 
 
     this.messageService.add({

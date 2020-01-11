@@ -53,7 +53,7 @@
 
 <!-- <div style="overflow-x: hidden ; width: 100% ; height: 100%; margin-top: 30px;"> -->
 
-  <div style="overflow-x: hidden; margin-top: 30px;">
+<div style="overflow-x: hidden; margin-top: 30px;">
 
   <ng-container *ngIf="showCard == true; else cardElse">
     <div [ngClass]="{'card-header': hideCard}" id="pdfwrapper">
@@ -81,7 +81,7 @@
     </div>
   </ng-container>
 
-  
+
   <ng-template #cardElse>
 
     <button mat-raised-button color="accent" class="marging-left-10" (click)="printCV()">
@@ -119,8 +119,12 @@
         </ng-container>
 
         <ng-container matColumnDef="value">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px ; max-width: 400px;"></th>
+          <td mat-cell *matCellDef="let element">
+            <div>
+              {{element.value}}
+            </div>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -134,9 +138,25 @@
 
       <div id="educationa-background">
 
-        <mat-table [dataSource]="objectDataSource.eaphni.educationArray" class="mat-elevation-z8"
-          style="width: 100% ;">
-          <!-- name Column -->
+
+        <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.eaphni.educationArray" [paginator]="true"
+          [rows]="3000" [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="schoolAttended" header="School Attended" [filter]="true" filterMatchMode="contains"
+            [sortable]="true"></p-column>
+          <p-column field="degree" header="Degree" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable> -->
+
+        <mat-table [dataSource]="objectDataSource.eaphni.educationArray" class="mat-elevation-z8" style="width: 100% ;">
 
           <ng-container matColumnDef="no">
             <th mat-header-cell *matHeaderCellDef></th>
@@ -149,10 +169,10 @@
           </ng-container>
 
 
-          <ng-container matColumnDef="degree">
+          <!-- <ng-container matColumnDef="degree">
             <th mat-header-cell *matHeaderCellDef> Degree </th>
             <td mat-cell *matCellDef="let element"> {{element.degree}} </td>
-          </ng-container>
+          </ng-container> -->
 
           <ng-container matColumnDef="fromDate">
             <th mat-header-cell *matHeaderCellDef> From Date</th>
@@ -171,8 +191,23 @@
 
 
 
-        <h4 style=" margin-top: 5% ; font-weight: bold">(ii) {{ 'ACADEMIC AND PROFESSIONAL QUALIFICATIONS (WITH DATES)' | titlecase }}</h4>
+        <h4 style=" margin-top: 5% ; font-weight: bold">(ii)
+          {{ 'ACADEMIC AND PROFESSIONAL QUALIFICATIONS (WITH DATES)' | titlecase }}</h4>
         <h5 style=" margin-top: 5% ; font-weight: bold">(A) Academic Qualifications </h5>
+
+
+        <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.eaphni.academicQualifications" [paginator]="true"
+          [rows]="3000" [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable> -->
+
         <mat-table [dataSource]="objectDataSource.eaphni.academicQualifications" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -182,13 +217,17 @@
           </ng-container>
 
 
-          <!-- name Column -->
           <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef> ACADEMIC QUALIFICATION </th>
             <td mat-cell *matCellDef="let element"> {{element.title}} </td>
           </ng-container>
 
-          <!-- value Column -->
+          <ng-container matColumnDef="degree">
+            <th mat-header-cell *matHeaderCellDef> Degree </th>
+            <td mat-cell *matCellDef="let element"> {{element.degree}} </td>
+          </ng-container>
+
+
           <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> DATE </th>
             <td mat-cell *matCellDef="let element"> {{element.date}} </td>
@@ -199,6 +238,22 @@
         </mat-table>
 
         <h5 style=" margin-top: 5% ; font-weight: bold">(B) Professional Qualifications </h5>
+
+
+        <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.eaphni.professionalQualifications"
+          [paginator]="true" [rows]="3000" [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="receivedFrom" header="Received From" [filter]=" true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable> -->
+
         <mat-table [dataSource]="objectDataSource.eaphni.professionalQualifications" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -207,13 +262,11 @@
             <td mat-cell *matCellDef="let element ;let i  = index; "> {{ i  + 1 }} </td>
           </ng-container>
 
-          <!-- name Column -->
           <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef> TITLE </th>
             <td mat-cell *matCellDef="let element"> {{element.title}} </td>
           </ng-container>
 
-          <!-- value Column -->
           <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> DATE </th>
             <td mat-cell *matCellDef="let element"> {{element.date}} </td>
@@ -225,11 +278,27 @@
         </mat-table>
 
 
-
-
         <h4 style=" margin-top: 5% ; font-weight: bold">(iii) PRIZES , HONOURS , SCHOLARSHIPS , NATIONAL AND
           PRIZES
         </h4>
+
+
+        <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.eaphni.prizes" [paginator]="true" [rows]="3000"
+          [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable> -->
+
         <mat-table [dataSource]="objectDataSource.eaphni.prizes" class="mat-elevation-z8" style="width: 100% ;">
 
           <ng-container matColumnDef="no">
@@ -259,6 +328,23 @@
         </mat-table>
 
         <h4 style=" margin-top: 5% ; font-weight: bold">HONOURS</h4>
+        <!-- 
+        <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.eaphni.honours" [paginator]="true" [rows]="3000"
+          [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable> -->
+
         <mat-table [dataSource]="objectDataSource.eaphni.honours" class="mat-elevation-z8" style="width: 100% ;">
 
           <ng-container matColumnDef="no">
@@ -290,6 +376,24 @@
 
 
         <h4 style=" margin-top: 5% ; font-weight: bold">SCHOLARSHIPS</h4>
+
+        <!-- 
+        <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource['eaphni']['scholarships']" [paginator]="true"
+          [rows]="3000" [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable>
+         -->
         <mat-table [dataSource]="objectDataSource['eaphni']['scholarships']" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -322,6 +426,25 @@
 
 
         <h4 style=" margin-top: 5% ; font-weight: bold">NATIONAL RECOMMENDATION</h4>
+
+        <!-- 
+        <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.eaphni.nationalRecommendations" [paginator]="true"
+          [rows]="3000" [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable> -->
+
+
         <mat-table [dataSource]="objectDataSource.eaphni.nationalRecommendations" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -353,6 +476,24 @@
 
 
         <h4 style=" margin-top: 5% ; font-weight: bold">INTERNATIONAL RECOMMENDATION</h4>
+
+
+        <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.eaphni.internationalRecommendations"
+          [paginator]="true" [rows]="3000" [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable> -->
+
         <mat-table [dataSource]="objectDataSource.eaphni.internationalRecommendations" class="mat-elevation-z8"
           style="width: 100% ;">
 
@@ -390,9 +531,30 @@
       <div id="work-experience" #createdCV>
 
         <h3 style=" margin-top: 5% ; font-weight: bold">(i) UNIVERSITY TEACHING AND RESEARCH EXPERIENCE</h3>
+
+
+        <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.masterFormGroupings.workExperience"
+          [paginator]="true" [rows]="3000" [scrollable]="true">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="organization" header="Organisation" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="postHeld" header="Post Held" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="duties" header="Duties" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+        </p-dataTable> -->
+
         <mat-table [dataSource]="objectDataSource.masterFormGroupings.workExperience" class="mat-elevation-z8"
           style="width: 100% ;">
-          <!-- name Column -->
 
           <ng-container matColumnDef="no">
             <th mat-header-cell *matHeaderCellDef>S/N</th>
@@ -404,7 +566,6 @@
             <td mat-cell *matCellDef="let element"> {{element.organization}} </td>
           </ng-container>
 
-          <!-- value Column -->
           <ng-container matColumnDef="postHeld">
             <th mat-header-cell *matHeaderCellDef> POST HELD </th>
             <td mat-cell *matCellDef="let element"> {{element.postHeld}} </td>
@@ -436,9 +597,44 @@
 
 
       <h3 style=" margin-top: 5% ; font-weight: bold">(ii) COURSES TAUGHT IN THE LAST FOUR (4) YEARS</h3>
+
+
+
+      <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.masterFormGroupings.schoolworkexp" [paginator]="true"
+        [rows]="3000" [scrollable]="true">
+        <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          <ng-template let-i="rowIndex">
+            {{i}}
+          </ng-template>
+        </p-column>
+        <p-column field="courseCode" header="Course Code" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="creditHours" header="Credit Hours" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="duties" header="Duties" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="numOfLecturers" header="Number of Lecturers" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="level" header="Level" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="numberOfRegStd" header="Number of Registered Students" [filter]="true"
+          filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="contribution" header="Contribution" [filter]=" true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="session" header="Session" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="school" header="School" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable> -->
+
       <mat-table [dataSource]="objectDataSource.masterFormGroupings.schoolworkexp" class="mat-elevation-z8"
         style="width: 100% ;">
-        <!-- name Column -->
 
         <ng-container matColumnDef="no">
           <th mat-header-cell *matHeaderCellDef>S/N</th>
@@ -450,7 +646,6 @@
           <td mat-cell *matCellDef="let element"> {{element.courseCode}} </td>
         </ng-container>
 
-        <!-- value Column -->
         <ng-container matColumnDef="creditHours">
           <th mat-header-cell *matHeaderCellDef> CREDIT HOURS </th>
           <td mat-cell *matCellDef="let element"> {{element.creditHours}} </td>
@@ -475,7 +670,7 @@
 
 
         <ng-container matColumnDef="numberOfRegStd">
-          <th mat-header-cell *matHeaderCellDef> NUMBER OF STUDENTSS REGISTERED </th>
+          <th mat-header-cell *matHeaderCellDef> NUMBER OF STUDENTS REGISTERED </th>
           <td mat-cell *matCellDef="let element"> {{element.numberOfRegStd}} </td>
         </ng-container>
 
@@ -859,10 +1054,85 @@
       <div>
         <h3 style=" margin-top: 5% ; font-weight: bold"> 09. PUBLICATION </h3>
         <h4 style=" margin-top: 5% ; font-weight: bold"> (i) JOURNAL ARTICLES IN PRINT </h4>
+
+
+        <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.masterFormGroupings.publications.artInP"
+          [paginator]="true" [rows]="3000" [scrollable]="true" [responsive]="true" [loading]="loading"
+          [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+          <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
+            <ng-template let-i="rowIndex">
+              {{i}}
+            </ng-template>
+          </p-column>
+          <p-column field="pubName" header="Jourbal Article In Print" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="publisher" header="Journal Publisher" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="sn" header="Serial Number" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="availableAt" header="Available At" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="used" header="Used" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="lf" header="Journal Category" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+          <p-column field="journalA" header="Journal Full Details" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="coAuthors" header="Journal Co-Authors" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="g8Country" header="Journal G8-Country" [filter]="true" filterMatchMode="contains"
+            [sortable]="true">
+          </p-column>
+          <p-column field="volume" header="Journal Volume" [filter]="true" filterMatchMode="contains" [sortable]="true">
+          </p-column>
+
+        </p-dataTable>
+
+        <!-- <table class="table">
+          <thead>
+            <tr>
+              <th>sn</th>
+              <th>Jourbal Article In Print</th>
+              <th>Title</th>
+              <th>Journal Publisher</th>
+              <th>Serial Number</th>
+              <th>Available At</th>
+              <th>Used</th>
+              <th>Journal Category</th>
+              <th>Journal Full Details</th>
+              <th>Journal G8-Country</th>
+              <th>Journal Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of objectDataSource.masterFormGroupings.publications.artInP; let index=i; ">
+              <td scope="row">{{i}}</td>
+              <td>{{item.pubName}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.publisher}}</td>
+              <td>{{item.sn}}</td>
+              <td>{{item.availableAt}}</td>
+              <td>{{item.used}}</td>
+              <td>{{item.lf}}</td>
+              <td>{{item.journalA}}</td>
+              <td>{{item.coAuthors}</td>
+              <td>{{item.g8Country}}</td>
+              <td>{{item.volume}</td>
+            </tr>
+          </tbody>
+        </table> -->
+
         <mat-table [dataSource]="objectDataSource.masterFormGroupings.publications.artInP" class="mat-elevation-z8"
           style="width: 100% ;">
-          <!-- name Column   artInPDisplayColumn: string[] = ['no', 'pubName' , 'title', 'publisher' , 'sn', 'availableAt', 'used' , 'lf' , 'journalAc',];
-   -->
+          <!-- name Column   artInPDisplayColumn: string[] = ['no', 'pubName' , 'title', 'publisher' , 'sn', 'availableAt', 'used' , 'lf' , 'journalAc',]; -->
+
 
 
           <ng-container matColumnDef="no">

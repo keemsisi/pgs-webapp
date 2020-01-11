@@ -105,7 +105,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
 
   //this runs just to preview the cv before submitting to the backend service 
-  private processTwo() {
+  public processTwo() {
     // this.objectDataSource = JSON.parse(this.activatedRoute.snapshot.paramMap.get('payload')); //get the value of the parameter from the avtivated route
     const payloadData = new DataObjectModel().model;
 
@@ -115,8 +115,8 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     payloadData['loginCred'] = JSON.parse(window.localStorage.getItem('loginCred'));
     this.objectDataSource = payloadData;
 
-    console.log(this.objectDataSource);
-    this.processLoadedData();
+    console.log(payloadData);
+    this.processLoadedData(this.payloadData);
     // this.addSuccessMessage('Your data was loaded successfully');
     console.log("Message from process two");
   }
@@ -276,41 +276,54 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
 
   // process the data recieved from the other view or from the server
-  protected processLoadedData() {
+  protected processLoadedData(dataToLoad) {
     this.loadPersoalInformation();
-    this.eaphni = Array<Object>(this.objectDataSource['eaphni']);
-    this.masterFormGroupings = Array<Object>(this.objectDataSource['masterFormGroupings']);
-    this.info = Array<Object>(this.objectDataSource['info']);
+    if (typeof dataToLoad != 'undefined') {
+      this.eaphni = Array<Object>(dataToLoad['eaphni']);
+      this.masterFormGroupings = Array<Object>(dataToLoad['masterFormGroupings']);
+      this.info = Array<Object>(dataToLoad['info']);
+    } else {
+      this.eaphni = Array<Object>(this.objectDataSource['eaphni']);
+      this.masterFormGroupings = Array<Object>(this.objectDataSource['masterFormGroupings']);
+      this.info = Array<Object>(this.objectDataSource['info']);
+    }
+
   }
 
   getUserInformation(spNumber): void {
     this.httpRequest.getUserInformation(spNumber).subscribe(data => {
       this.objectDataSource = data; // assigns the spNumber ;
-      this.processLoadedData();
+      this.processLoadedData(undefined);
     }, (error: HttpErrorResponse) => {
       this.messageService.add({
         severity: 'error', detail: 'Error Message', summary: 'Failed to load user infomation'
       });
+      console.log(error);
     });
   }
 
   public submit() {
+
     this.hideCard = true;
-    this.blurDocument(true);
+    this.showLoader(true)
 
+    // // console.log(this.objectDataSource.masterFormGroupings.dateAndSignature.base64Image);
+    // let data = {
+    //   personalInformation: JSON.parse(window.localStorage.getItem('personalInformation')),
+    //   eaphni: JSON.parse(window.localStorage.getItem('eaphni')),
+    //   masterFormGroupings: JSON.parse(window.localStorage.getItem('eaphni')),
+    //   loginCred: JSON.parse(window.localStorage.getItem('eaphni'))
+    // }
 
-    console.log(this.objectDataSource);
-
-
-    this.httpRequest.sendApplicantInformation(window.localStorage.getItem('spNumber'), this.objectDataSource).subscribe(data => {
-      // console.log('Response Message', data);
-      this.blurDocument(false);
+    this.httpRequest.sendApplicantInformation(window.localStorage.getItem('spNumber'), this.objectDataSource ).subscribe(data => {
+      console.log('Response Message', data);
+      this.showLoader(false);
       this.cacheService.registered = true;
       this.addSuccessMessage('Your Registration was successfull , please proceed to uploads files...');
-      setTimeout(() => {
-        // this.router.navigate(['/']);
-        // this.deleteAllSavedFormsValues();
-      }, 2000);
+      // setTimeout(() => {
+      //   // this.router.navigate(['/']);
+      //   // this.deleteAllSavedFormsValues();
+      // }, 2000);
     }, (error: HttpErrorResponse) => {
       if (error.status === 500) {
         // console.log('Server error occured please contact admin');
@@ -327,7 +340,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   }
 
 
-  public blurDocument(cond) {
+  public showLoader(cond) {
     this.showBlurBackgroundOverlay = cond;
   }
 

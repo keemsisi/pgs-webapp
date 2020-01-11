@@ -1,3 +1,15 @@
+td , th {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 300px;
+}
+
+.ptablestyle {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100px;
+}
+
 .text-field {
   width: 400px;
 }

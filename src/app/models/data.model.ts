@@ -32,8 +32,8 @@ export class CVDataModel {
     fellowshipProgrammeDisplayColumn: string[] = ['no', 'post', 'organization', 'date'];
     supervisionPostDisplayColumn: string[] = ['no', 'title', 'nameOfStudent', '_d1', '_d2', 'soleColla', 'degree'];
     extraCurriculaActivitiesDisplayColumn: string[] = ['no', 'activity'];
-    educationArrayDisplayColumn: string[] = ['no', 'schoolAttended', 'degree' , 'fromDate', 'toDate'];
-    academicQualificationsDisplayColumn: string[] = ['no', 'title', 'date'];
+    educationArrayDisplayColumn: string[] = ['no', 'schoolAttended' , 'fromDate', 'toDate'];
+    academicQualificationsDisplayColumn: string[] = ['no', 'title', 'degree' , 'date'];
     professionalQualificationsDisplayColumn: string[] = ['no', 'title', 'date'];
     prizesDisplayColumn: string[] = ['no', 'title', 'date'];
     honoursDisplayColumn: string[] = ['no', 'title', 'date'];
