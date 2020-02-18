@@ -79,6 +79,8 @@ import { AccountactivationComponent } from './accountactivation/accountactivatio
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { ScoringtableComponent } from './scoringtable/scoringtable.component';
 import { infoComponent } from './login-credentials/login-credentials.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -158,7 +160,8 @@ import { infoComponent } from './login-credentials/login-credentials.component';
     GrowlModule,
     MatTabsModule,
     InputTextModule,
-    DataTableModule
+    DataTableModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [MessageService, CacheService, ConfirmationService],

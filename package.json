@@ -23,7 +23,9 @@
     "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.9",
     "@angular/platform-browser-dynamic": "~8.2.9",
+    "@angular/pwa": "^0.900.2",
     "@angular/router": "~8.2.9",
+    "@angular/service-worker": "~8.2.9",
     "angular2-signaturepad": "^2.9.0",
     "chart.js": "^2.8.0",
     "hammer": "0.0.5",
@@ -38,7 +40,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.8",
+    "@angular-devkit/build-angular": "^0.900.2",
     "@angular/cli": "~8.3.8",
     "@angular/compiler-cli": "~8.2.9",
     "@angular/language-service": "~8.2.9",

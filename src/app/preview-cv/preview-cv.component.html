@@ -1056,7 +1056,7 @@
         <h4 style=" margin-top: 5% ; font-weight: bold"> (i) JOURNAL ARTICLES IN PRINT </h4>
 
 
-        <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.masterFormGroupings.publications.artInP"
+        <!-- <p-dataTable #dt0 [tableStyle]="" [value]="objectDataSource.masterFormGroupings.publications.artInP"
           [paginator]="true" [rows]="3000" [scrollable]="true" [responsive]="true" [loading]="loading"
           [style]="{ 'min-width' : '300px'}" class="ptablestyle">
           <p-column header="S/N" [filter]="true" filterMatchMode="contains" [sortable]="true">
@@ -1093,41 +1093,7 @@
           <p-column field="volume" header="Journal Volume" [filter]="true" filterMatchMode="contains" [sortable]="true">
           </p-column>
 
-        </p-dataTable>
-
-        <!-- <table class="table">
-          <thead>
-            <tr>
-              <th>sn</th>
-              <th>Jourbal Article In Print</th>
-              <th>Title</th>
-              <th>Journal Publisher</th>
-              <th>Serial Number</th>
-              <th>Available At</th>
-              <th>Used</th>
-              <th>Journal Category</th>
-              <th>Journal Full Details</th>
-              <th>Journal G8-Country</th>
-              <th>Journal Volume</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of objectDataSource.masterFormGroupings.publications.artInP; let index=i; ">
-              <td scope="row">{{i}}</td>
-              <td>{{item.pubName}}</td>
-              <td>{{item.title}}</td>
-              <td>{{item.publisher}}</td>
-              <td>{{item.sn}}</td>
-              <td>{{item.availableAt}}</td>
-              <td>{{item.used}}</td>
-              <td>{{item.lf}}</td>
-              <td>{{item.journalA}}</td>
-              <td>{{item.coAuthors}</td>
-              <td>{{item.g8Country}}</td>
-              <td>{{item.volume}</td>
-            </tr>
-          </tbody>
-        </table> -->
+        </p-dataTable> -->
 
         <mat-table [dataSource]="objectDataSource.masterFormGroupings.publications.artInP" class="mat-elevation-z8"
           style="width: 100% ;">
@@ -1309,41 +1275,8 @@
         </div>
 
 
-
-
         <div>
-          <h4 style=" margin-top: 5% ; font-weight: bold"> (iv) ARTICLES ACCEPTED FOR PUBLICATION ( IN PRESS ) </h4>
-          <mat-table [dataSource]="objectDataSource.masterFormGroupings.publications.bookArticlesOrChapter"
-            class="mat-elevation-z8" style="width: 100% ;">
-
-
-            <ng-container matColumnDef="no">
-              <th mat-header-cell *matHeaderCellDef>S/N</th>
-              <td mat-cell *matCellDef="let element ;let i  = index; "> {{ i  + 1 }} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="bookArtChapt">
-              <th mat-header-cell *matHeaderCellDef> BOOK ARTICLE / CHATPER </th>
-              <td mat-cell *matCellDef="let element"> {{element.bookArtChapt}} </td>
-            </ng-container>
-
-
-            <ng-container matColumnDef="used">
-              <th mat-header-cell *matHeaderCellDef> USED FOR PROMOTION </th>
-              <td mat-cell *matCellDef="let element"> {{element.used}} </td>
-            </ng-container>
-
-
-            <tr mat-header-row *matHeaderRowDef="bookArticlesOrChapterDisplayColumn"></tr>
-            <tr mat-row *matRowDef="let row; columns: bookArticlesOrChapterDisplayColumn"></tr>
-          </mat-table>
-
-
-        </div>
-
-
-        <div>
-          <h4 style=" margin-top: 5% ; font-weight: bold"> (v) EDITED CONFERENCES PROCEEDINGS </h4>
+          <h4 style=" margin-top: 5% ; font-weight: bold"> (iv) EDITED CONFERENCES PROCEEDINGS </h4>
           <mat-table [dataSource]="objectDataSource.masterFormGroupings.publications.editedConf"
             class="mat-elevation-z8" style="width: 100% ;">
 
@@ -1408,7 +1341,7 @@
 
 
         <div>
-          <h4 style=" margin-top: 5% ; font-weight: bold"> (iii) RESEARCH IN PROGRESS </h4>
+          <h4 style=" margin-top: 5% ; font-weight: bold"> (v) RESEARCH IN PROGRESS </h4>
           <mat-table [dataSource]="objectDataSource.masterFormGroupings.publications.researchInProgress"
             class="mat-elevation-z8" style="width: 100% ;">
 
@@ -1419,7 +1352,7 @@
 
 
             <ng-container matColumnDef="researchInProgress">
-              <th mat-header-cell *matHeaderCellDef> TECHNICAL SUPPORT </th>
+              <th mat-header-cell *matHeaderCellDef> RESEARCH IN PROGRESS </th>
               <td mat-cell *matCellDef="let element"> {{element.researchInProgress}} </td>
             </ng-container>
 
@@ -1434,7 +1367,7 @@
 
 
         <div>
-          <h4 style=" margin-top: 5% ; font-weight: bold"> (iv) TECHNICAL SUPPORT </h4>
+          <h4 style=" margin-top: 5% ; font-weight: bold"> (vi) TECHNICAL REPORT </h4>
           <mat-table [dataSource]="objectDataSource.masterFormGroupings.publications.technicalReport"
             class="mat-elevation-z8" style="width: 100% ;">
 
@@ -1445,7 +1378,7 @@
 
 
             <ng-container matColumnDef="report">
-              <th mat-header-cell *matHeaderCellDef> TECHNICAL SUPPORT </th>
+              <th mat-header-cell *matHeaderCellDef> TECHNICAL REPORT </th>
               <td mat-cell *matCellDef="let element"> {{element.report}} </td>
             </ng-container>
 
@@ -1460,7 +1393,7 @@
 
 
         <div>
-          <h4 style=" margin-top: 5% ; font-weight: bold"> (v) THESIS , DISSERTATION AND PROJECTS </h4>
+          <h4 style=" margin-top: 5% ; font-weight: bold"> (vii) THESIS , DISSERTATION AND PROJECTS </h4>
           <mat-table [dataSource]="objectDataSource.masterFormGroupings.publications.technicalReport"
             class="mat-elevation-z8" style="width: 100% ;">
 
@@ -1508,16 +1441,8 @@
           <tr mat-header-row *matHeaderRowDef="conferencesAttendedDisplayColumn"></tr>
           <tr mat-row *matRowDef="let row; columns: conferencesAttendedDisplayColumn"></tr>
         </mat-table>
-        <!-- <ol style="list-style: lower-roman;">
-          <li *ngFor="let item of objectDataSource.masterFormGroupings.conferencesAttended">
-            {{item.confPapR}}
-          </li>
-        </ol> -->
 
-
-
-
-
+        
         <h4 style=" margin-top: 5% ; font-weight: bold"> * PAPERS READ </h4>
         <mat-table [dataSource]="objectDataSource.masterFormGroupings.papersRead" class="mat-elevation-z8"
           style="width: 100% ;">
