@@ -143,5 +143,8 @@
       }
     }
   },
-  "defaultProject": "promotbot-app"
+  "defaultProject": "promotbot-app",
+  "cli": {
+    "analytics": "3894c09c-eba5-4986-8d42-9abf25e878aa"
+  }
 }
