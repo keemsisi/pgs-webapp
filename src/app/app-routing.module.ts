@@ -1,30 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-
-import { CvDocumentationComponent } from './cv-documentation/cv-documentation.component';
-
-// import {FlexLayoutModule} from '@angular/flex-layout';
 import { PgsHomeLandingComponent } from './pgs-home-landing/pgs-home-landing.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { FileAupploadingsComponent } from './file-aupploadings/file-aupploadings.component';
-import { FileUploadGuard } from './guard/file-upload.guard';
 import { PreviewCvComponent } from './preview-cv/preview-cv.component';
-import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
-import { LoginGuard } from './login.guard';
 import { EditCvComponent } from './edit-cv/edit-cv.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
-import { ContactAdministratorComponent } from './contact-administrator/contact-administrator.component';
-
-// import {
-// } from 'primeng';
-
-
-
 import { AdminComponent } from './admin/admin.component';
 import { PredatoryJournalsComponent } from './predatory-journals/predatory-journals.component';
 import { CvDocumentationStageComponent } from './cv-documentation-stage/cv-documentation-stage.component';
-import { AssesmentComponent } from './assesment/assesment.component';
 import { CvDocumentationModModule } from './cv-documentation/cv-documentation-mod/cv-documentation-mod.module';
 import { PgsHomeLandingModModule } from './pgs-home-landing/pgs-home-landing-mod/pgs-home-landing-mod.module';
 import { ContactAdministratorModModule } from './contact-administrator/contact-administrator-mod/contact-administrator-mod.module';
@@ -42,8 +25,6 @@ import { PasswordresetmoduleModule } from './passwordreset/passwordresetmodule/p
 const appRoute: Routes = [
 
   { path: '', component: PgsHomeLandingComponent },
-  // { path: 'cv-documentation/:spNumber', component: CvDocumentationComponent },
-
 
   {
     path: 'cv-documentation',
@@ -102,12 +83,6 @@ const appRoute: Routes = [
 
   { path: 'quick-survey', component: SurveyFormComponent },
 
-  // {
-  //   path: 'fileuploads/:spNumber',
-  //   loadChildren: './file-aupploadings/file-uploading-mod/file-uploading-mod.module#FileUploadingModModule'
-  //   , canActivate: [FileUploadGuard]
-  // },
-
   {
     path: 'view-edit-cv',
     loadChildren: () => import(
@@ -151,20 +126,6 @@ const appRoute: Routes = [
       './passwordreset/passwordresetmodule/passwordresetmodule.module').then( 
         M => M.PasswordresetmoduleModule)
     },
-
-  // {
-  //   path: 'forgotpassword',
-  //   loadChildren: () => import (
-  //     './forgotpassword/forgotpasswordmodule/forgotpasswordmodule.module').then(
-  //       function (module) {
-  //         module.ForgotpasswordmoduleModule
-  //       }
-  //     )
-  // },
-
-  
-
-
   { path: '**', component: PagenotfoundComponent },
 
 

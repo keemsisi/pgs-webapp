@@ -42,6 +42,8 @@
               "src/assets/js/jquery-3.3.1.min.js",
               "node_modules/hammerjs/hammer.js",
               "src/assets/js/bootstrap.min.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/contact.js",
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/quill/dist/quill.js"
             ]
@@ -58,16 +60,16 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumError": "7mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -107,7 +109,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
             ],
             "styles": [
               "src/styles.scss"

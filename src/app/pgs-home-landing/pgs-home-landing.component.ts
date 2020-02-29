@@ -12,4 +12,14 @@ export class PgsHomeLandingComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  scrollToAbout(event : Event){
+    event.preventDefault();
+    console.log(event)
+    let x = document.querySelector("#about");
+    if (x){
+        x.scrollIntoView();
+    }
+}
+
 }

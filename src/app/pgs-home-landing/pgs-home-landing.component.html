@@ -31,11 +31,11 @@
                 <a class="nav-link"  data-scroll-nav="9" style="color: white">Promot Bot</a>
               </li> -->
               <li class="nav-item ">
-                <a class="nav-link active" [routerLink]="[ '']" data-scroll-nav="0">Home</a>
+                <a class="nav-link active" [routerLink]="['']" data-scroll-nav="0">Home</a>
               </li>
               <li class="nav-item ">
                 <!-- <a class="nav-link" href="#" data-scroll-nav="1">Features</a> -->
-                <a class="nav-link" href="#" data-scroll-nav="1">About</a>
+                <a class="nav-link" href="" (click)="scrollToAbout($event)" data-scroll-nav="1">About</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link" href="#" data-scroll-nav="3">Terms and Condition</a>
@@ -104,8 +104,8 @@
         <div class="col-lg-8">
           <div class="caption d-table">
             <div class="d-table-cell align-middle">
-              <h1 class="text-white mediah1" id="mediah1">PromotBot : A Revolusionalised System to Automate Promotion
-                In FUNAAB</h1>
+              <h1 class="text-white mediah1" id="mediah1">PromotBot : A Revolusionalised System For Promotion Accessments
+              </h1>
               <h4 class="text-light font-open-sans">This is an innovative development by the Department of Computer
                 Science
                 and strictly for the use of FUNAAB Members of staff
@@ -139,12 +139,12 @@
       <img class="circle2" src="/assets/new-assets/images/asset-2.png" alt="">
       <img class="circle3" src="/assets/new-assets/images/asset-2.png" alt="">
     </div>
-    <div class="container">
+    <div class="container" id="about">
       <div class="row">
         <!--start section heading-->
         <div class="col-md-10 offset-md-1">
           <div class="section-heading text-center">
-            <h5>About FUNAAB Promot Bot</h5>
+            <h5>About FUNAAB PromotBot</h5>
             <h2 class="text-white">A Secured , Fast and Accurate System to Promote Academic / Non - Teaching
               staff in FUNAAB</h2>
             <p class="text-light">

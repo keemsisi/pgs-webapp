@@ -75,7 +75,6 @@ import { RegisterComponent } from './register/register.component';
 import { RegsuccessComponent } from './regsuccess/regsuccess.component';
 import { NonteachingstaffComponent } from './nonteachingstaff/nonteachingstaff.component';
 import { AccountactivationComponent } from './accountactivation/accountactivation.component';
-// import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { ScoringtableComponent } from './scoringtable/scoringtable.component';
 import { infoComponent } from './login-credentials/login-credentials.component';
@@ -161,7 +160,7 @@ import { environment } from '../environments/environment';
     MatTabsModule,
     InputTextModule,
     DataTableModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
   ],
   providers: [MessageService, CacheService, ConfirmationService],
