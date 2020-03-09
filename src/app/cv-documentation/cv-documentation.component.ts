@@ -164,16 +164,16 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     // this.signaturePad is now available
     this.signaturePad.set('minWidth', 3); // set szimek/signature_pad options at runtime
 
-    // console.log("data" , (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
+    // //console.log("data" , (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
     
-    // console.log((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value  != "");
+    // //console.log((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value  != "");
     if (this.signatureFound && (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value != "" ) {
       this.signaturePad.fromData((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value);
-      // console.log(' ' + (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value);
+      // //console.log(' ' + (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['signature'].value);
       this.signaturePad.fromDataURL((<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
-      // console.log("data" , (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
+      // //console.log("data" , (<FormGroup>this.masterFormGroupings.controls['dateAndSignature']).controls['base64Image'].value)
     }
-    // console.log("#####################################################################COOL#####################################")
+    // //console.log("#####################################################################COOL#####################################")
   }
 
   clearSignature() {
@@ -192,7 +192,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   }
 
   drawStart() {
-    // console.log('begin drawing');
+    // //console.log('begin drawing');
   }
 
 
@@ -217,7 +217,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   onBasicUpload(event) {
     // var g = new FileReader() ;
     // g.readAsArrayBuffer(this.prizesF.files[0]);
-    // console.log('File was uploaded successfully!', event.files.length);
+    // //console.log('File was uploaded successfully!', event.files.length);
     this.addSuccessMessage('Attachments was successful');
     this.totalFileAttached += 1;
   }
@@ -232,13 +232,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
   //     'url': 'prizes', 'data':
   //       this.personalInformation.controls['prizesFilesmetaData'].value
   //   }).subscribe(data => {
-  //     // console.log('Response Message', data);
+  //     // //console.log('Response Message', data);
   //     this.personalInformation.controls['prizesFilesmetaData'].setValue(data);
   //   }, (error: HttpErrorResponse) => {
   //     if (error.status === 500) {
-  //       // console.log('Server error occured please contact admin');
+  //       // //console.log('Server error occured please contact admin');
   //     } else {
-  //       // console.log(error);
+  //       // //console.log(error);
   //     }
   //   });
   // }
@@ -484,7 +484,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
    * @param event
    */
   onBasicError(event) {
-    // console.log(event);
+    // //console.log(event);
     // if( event.error.TypeError  === "Cannot read property 'toLowerCase' of undefined" ) {
     // this.addErrorMessage('Cant not upload file (spNumber field is empty)');
     // } else {
@@ -1516,13 +1516,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     // });
 
 
-    // // console.log(JSON.stringify(this.payGram));
-    // // console.log(JSON.stringify(dataLoadGram));
+    // // //console.log(JSON.stringify(this.payGram));
+    // // //console.log(JSON.stringify(dataLoadGram));
     // // send the data to the server
     // this.blurDocument(true);
     // this.httpRequest.sendApplicantInformation(this.payGram).subscribe(data => {
     //   // this.httpRequest.sendApplicantInformation(dataLoadGram).subscribe( data => {
-    //   // console.log('Response Message', data);
+    //   // //console.log('Response Message', data);
     //   // this.router.navigate(['/userdashboard']);
     //   this.blurDocument(false);
     //   this.cacheService.registered = true;
@@ -1539,10 +1539,10 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
     // }, (error: HttpErrorResponse) => {
     //   if (error.status === 500) {
-    //     // console.log('Server error occured please contact admin');
+    //     // //console.log('Server error occured please contact admin');
     //     this.addErrorMessage('Failed to submit registration form data');
     //   } else {
-    //     // console.log(error);
+    //     // //console.log(error);
     //   }
     // });
   }
@@ -1717,13 +1717,13 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
   private loadFormGroupValues(formGroupName: string, formGroupObject: Array<Object>, formGroup: Function): boolean {
     (<FormArray>this.masterFormGroupings.get(formGroupName)).removeAt(0);//clear the initial form control 
-    // console.log(formGroupName, "--------------------------------");
+    // //console.log(formGroupName, "--------------------------------");
     for (let index = 0; index < formGroupObject.length; index++) {
       const formValue = formGroup();
-      // console.log(formGroupObject[index]);
+      // //console.log(formGroupObject[index]);
       formValue.setValue(formGroupObject[index]);
       (<FormArray>this.masterFormGroupings.get(formGroupName)).push(formValue);
-      // console.log(<FormArray>this.masterFormGroupings.get(formGroupName).value)
+      // //console.log(<FormArray>this.masterFormGroupings.get(formGroupName).value)
 
     }
     return true;
@@ -1796,7 +1796,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     });
 
     this.info.get('spNumber').valueChanges.subscribe(data => {
-      // console.log('has ERROR ', this.info.get('spNumber').hasError('exists'));
+      // //console.log('has ERROR ', this.info.get('spNumber').hasError('exists'));
     });
 
     /**
@@ -1947,7 +1947,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     // this.eaphni.patchValue(JSON.parse(window.localStorage.getItem('eaphni')));
     // this.masterFormGroupings.patchValue(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
 
-    // console.log(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
+    // //console.log(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
     this.getFormValuesFromLocalStorage();
 
   }
@@ -1970,7 +1970,7 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
     window.localStorage.setItem('masterFormGroupings', JSON.stringify(this.masterFormGroupings.value));
     window.localStorage.setItem('loginCred', JSON.stringify(this.info.value));
 
-   console.log( this.masterFormGroupings.get('dateAndSignature').get('base64Image').value )
+   //console.log( this.masterFormGroupings.get('dateAndSignature').get('base64Image').value )
 
 
     this.messageService.add({
@@ -1981,19 +1981,19 @@ export class CvDocumentationComponent implements OnInit, AfterViewInit {
 
 
     //this will print all the filled details to the console 
-    // console.log(JSON.parse(window.localStorage.getItem('personalInformation')));
-    // console.log(JSON.parse(window.localStorage.getItem('info')));
-    // console.log(JSON.parse(window.localStorage.getItem('eaphni')));
-    // console.log(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
+    // //console.log(JSON.parse(window.localStorage.getItem('personalInformation')));
+    // //console.log(JSON.parse(window.localStorage.getItem('info')));
+    // //console.log(JSON.parse(window.localStorage.getItem('eaphni')));
+    // //console.log(JSON.parse(window.localStorage.getItem('masterFormGroupings')));
 
-    console.log(window.localStorage.getItem('personalInformation'));
-    console.log("----------------------------------------------------")
-    console.log(window.localStorage.getItem('info'));
-    console.log("----------------------------------------------------")
-    console.log(window.localStorage.getItem('eaphni'));
-    console.log("----------------------------------------------------")
-    console.log(window.localStorage.getItem('masterFormGroupings'));
-    console.log("----------------------------------------------------")
+    //console.log(window.localStorage.getItem('personalInformation'));
+    //console.log("----------------------------------------------------")
+    //console.log(window.localStorage.getItem('info'));
+    //console.log("----------------------------------------------------")
+    //console.log(window.localStorage.getItem('eaphni'));
+    //console.log("----------------------------------------------------")
+    //console.log(window.localStorage.getItem('masterFormGroupings'));
+    //console.log("----------------------------------------------------")
 
 
 

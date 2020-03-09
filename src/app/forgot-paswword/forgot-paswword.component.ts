@@ -50,10 +50,10 @@ export class ForgotPaswwordComponent implements OnInit {
 
         if (error.status == 404 ) {
           this.messageService.add({ severity: 'error', summary: "Email Not Recognised ", detail: "The email address does not exit. Please provide a valid email" });
-          // console.log(error.error);
+          // //console.log(error.error);
         }else {
           this.messageService.add({ severity: 'error', summary: "Server Error", detail: error.error.errorMsg });
-          console.log(error.status);
+          //console.log(error.status);
         }
 
 

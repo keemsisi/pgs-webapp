@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
         vdata => {
 
-          console.log(vdata);
+          //console.log(vdata);
 
 
           if (vdata.valid && vdata.activated) {
@@ -76,17 +76,17 @@ export class LoginComponent implements OnInit {
             //load the data inside the local storage to make it accessible for the preview and the cv editing tab 
             if ( vdata.cv != 'undefined' && vdata.cv != null ) {
 
-              // console.log("################################################################################")
-              // console.log(vdata.cv.masterFormGroupings);
-              // console.log(vdata.cv.personalInformation);
-              // console.log(vdata.cv.info);
-              // console.log(vdata.cv.eaphni);
-              // console.log("################################################################################")
+              // //console.log("################################################################################")
+              // //console.log(vdata.cv.masterFormGroupings);
+              // //console.log(vdata.cv.personalInformation);
+              // //console.log(vdata.cv.info);
+              // //console.log(vdata.cv.eaphni);
+              // //console.log("################################################################################")
               window.localStorage.setItem('personalInformation', JSON.stringify(vdata.cv.personalInformation));
               window.localStorage.setItem('info', JSON.stringify(vdata.cv.info));
               window.localStorage.setItem('eaphni', JSON.stringify(vdata.cv.eaphni));
               window.localStorage.setItem('masterFormGroupings', JSON.stringify(vdata.cv.masterFormGroupings));
-              // console.log('masterFormGroupings', vdata.cv.masterFormGroupings.dateAndSignature.base64image);
+              // //console.log('masterFormGroupings', vdata.cv.masterFormGroupings.dateAndSignature.base64image);
               window.localStorage.setItem('postOnPromotion' , vdata.cv.personalInformation.postOnPromotion);
 
             }
@@ -169,7 +169,7 @@ export class LoginComponent implements OnInit {
   }
 
   saveCredentials( event : Event ) {
-    console.log(event)
+    //console.log(event)
     window.localStorage.setItem('username' , this.loginForm.get('username').value);
     window.localStorage.setItem('password' , this.loginForm.get('password').value);
   }

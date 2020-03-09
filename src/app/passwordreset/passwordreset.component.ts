@@ -44,7 +44,7 @@ export class PasswordresetComponent implements OnInit {
     this.formGrp.get('accountEmail').disabled ;
 
 
-    console.log(this.emailParam , this.tokenParam)
+    //console.log(this.emailParam , this.tokenParam)
     this.verifyLink(this.emailParam, this.tokenParam);
 
 
@@ -117,7 +117,7 @@ export class PasswordresetComponent implements OnInit {
       },
 
       (error: HttpErrorResponse) => {
-        console.log(error)
+        //console.log(error)
         this.show4 = true;
         this.messageService.add({ severity: 'error', summary: "Server Error ", detail: error.error.errorMsg });
       
@@ -127,13 +127,13 @@ export class PasswordresetComponent implements OnInit {
 
   forgotPassword(){
     this.router.navigate(['/forgot-password']).catch(function(reject){
-      console.log(reject) ;
+      //console.log(reject) ;
     })
   }
 
   login(){
       this.router.navigate(['/login']).catch(function(reject){
-        console.log(reject) ;
+        //console.log(reject) ;
       })
   }
 

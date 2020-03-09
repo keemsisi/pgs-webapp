@@ -110,7 +110,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerNewAccount() {
-    console.log(this.registerForm.value)
+    //console.log(this.registerForm.value)
 
     this.customHttp.registerNewUser(this.registerForm.value).subscribe(
 

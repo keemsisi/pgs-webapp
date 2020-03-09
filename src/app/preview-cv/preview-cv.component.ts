@@ -79,7 +79,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     }
 
     else if (this.cacheService.payloadData !== 'undefined') {
-      console.log("Processing two already....");
+      //console.log("Processing two already....");
       this.processTwo();
 
     }
@@ -98,7 +98,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
   private processOne() {
     this.spNumber = this.activatedRoute.snapshot.paramMap.get('spNumber');
     this.getUserInformation(this.spNumber);
-    console.log('Preview One and the othter proces...');
+    //console.log('Preview One and the othter proces...');
     this.loadPersoalInformation();
     this.addSuccessMessage('Your data was loaded successfully');
   }
@@ -115,10 +115,10 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     payloadData['loginCred'] = JSON.parse(window.localStorage.getItem('loginCred'));
     this.objectDataSource = payloadData;
 
-    console.log(payloadData);
+    //console.log(payloadData);
     this.processLoadedData(this.payloadData);
     // this.addSuccessMessage('Your data was loaded successfully');
-    console.log("Message from process two");
+    //console.log("Message from process two");
   }
 
 
@@ -131,9 +131,9 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     //get the personal phone number the staff has suplied 
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['phoneNumbers']).length; index++) {
       const element = this.objectDataSource['personalInformation']['phoneNumbers'][index]['phoneNumber'];
-      // // console.log(element);
+      // // //console.log(element);
       phoneNum += + element + ' , ';
-      // console.log(phoneNum);
+      // //console.log(phoneNum);
 
     }
 
@@ -142,9 +142,9 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     //append the contact address suplied by the staff
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['contactAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['contactAddresses'][index]['contactAddress'];
-      // // console.log(element);
+      // // //console.log(element);
       contactAdd += element + ' , ';
-      // console.log(contactAdd);
+      // //console.log(contactAdd);
 
     }
 
@@ -152,9 +152,9 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     //get and apend all the email address of the staff entered 
     for (let index = 0; index < Object.keys(this.objectDataSource['personalInformation']['emailAddresses']).length; index++) {
       const element = this.objectDataSource['personalInformation']['emailAddresses'][index]['emailAddress'];
-      // console.log(element);
+      // //console.log(element);
       emailAdd += ' , ' + element;
-      // console.log(emailAdd);
+      // //console.log(emailAdd);
     }
 
 
@@ -212,7 +212,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
           pdf.text('', margins.left + 50, 40);
           pdf.line(3, 70, margins.width + 43, 70); // horizontal line
           // this.toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function(dataUrl) {
-          //   // console.log('RESULT:', dataUrl);
+          //   // //console.log('RESULT:', dataUrl);
           // });
         }
       },
@@ -240,7 +240,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     doc.text('', this.margins.left + 50, 40);
     doc.line(3, 70, this.margins.width + 43, 70); // horizontal line
     // this.toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function(dataUrl) {
-    //   // console.log('RESULT:', dataUrl);
+    //   // //console.log('RESULT:', dataUrl);
     // });
   }
 
@@ -261,7 +261,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
 
   public printCV(): void {
     this.hideCard = true;
-    // console.log(document.getElementsByClassName('card-header'));
+    // //console.log(document.getElementsByClassName('card-header'));
     window.print(); // prints the web page
   }
 
@@ -298,7 +298,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
       this.messageService.add({
         severity: 'error', detail: 'Error Message', summary: 'Failed to load user infomation'
       });
-      console.log(error);
+      //console.log(error);
     });
   }
 
@@ -307,7 +307,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     this.hideCard = true;
     this.showLoader(true)
 
-    // // console.log(this.objectDataSource.masterFormGroupings.dateAndSignature.base64Image);
+    // // //console.log(this.objectDataSource.masterFormGroupings.dateAndSignature.base64Image);
     // let data = {
     //   personalInformation: JSON.parse(window.localStorage.getItem('personalInformation')),
     //   eaphni: JSON.parse(window.localStorage.getItem('eaphni')),
@@ -316,7 +316,7 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
     // }
 
     this.httpRequest.sendApplicantInformation(window.localStorage.getItem('spNumber'), this.objectDataSource ).subscribe(data => {
-      console.log('Response Message', data);
+      //console.log('Response Message', data);
       this.showLoader(false);
       this.cacheService.registered = true;
       this.addSuccessMessage('Your Registration was successfull , please proceed to uploads files...');
@@ -326,10 +326,10 @@ export class PreviewCvComponent extends CVDataModel implements OnInit {
       // }, 2000);
     }, (error: HttpErrorResponse) => {
       if (error.status === 500) {
-        // console.log('Server error occured please contact admin');
+        // //console.log('Server error occured please contact admin');
         this.addErrorMessage('Failed to submit registration form data');
       } else {
-        // console.log(error);
+        // //console.log(error);
       }
     });
   }

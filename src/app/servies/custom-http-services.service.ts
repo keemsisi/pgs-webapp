@@ -21,7 +21,7 @@ export class CustomHttpServicesService {
    }
 
    public sendFiles(data: Object): Observable <any> {
-     console.log(JSON.stringify(data['data']));
+     //console.log(JSON.stringify(data['data']));
     return this.clientHttpRequest.post(this.serverURL + '/upload/' + data['url'],
      data['data'], {responseType : 'json'});
   }

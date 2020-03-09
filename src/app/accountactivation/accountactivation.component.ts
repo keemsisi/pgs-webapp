@@ -123,7 +123,7 @@ export class AccountactivationComponent implements OnInit {
 
         if (data.tokenGenrated) {
 
-          console.log(data);
+          //console.log(data);
 
           this.messageService.add({ severity: 'success', summary: "Account Activation Link", detail: "If your mail is registered on our system you will get a a link to activate your account" });
 
@@ -137,7 +137,7 @@ export class AccountactivationComponent implements OnInit {
 
       (error: HttpErrorResponse) => {
 
-        console.log(error.message);
+        //console.log(error.message);
 
         this.messageService.add({ severity: 'error', detail: error.message, summary: "Error Occured While Sending Link" });
 

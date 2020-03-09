@@ -25,7 +25,7 @@ export class SurveyFormComponent implements OnInit {
   }
 
   submitSurvey() {
-    // console.log(this.surveyGroup.value);
+    // //console.log(this.surveyGroup.value);
     this.customHttp.submitSurvey(this.surveyGroup.value).subscribe(e => {
       this.messageService.add({
         severity: 'success', 'closable': true,
@@ -34,14 +34,14 @@ export class SurveyFormComponent implements OnInit {
       this.surveyGroup.setValue({ 'survey1': '', 'survey2': '', 'survey3': '', 'survey4': '' });
     }, (error: HttpErrorResponse) => {
       if (error.status === 500) {
-        // console.log('Server side error occured please try again later');
+        // //console.log('Server side error occured please try again later');
       } else if (error.status === 404) {
         this.messageService.add({
           severity: 'success', 'closable': true,
           detail: 'Slight Issue', summary: 'Your Survey can not be processed now, please try again later'
         });
       } else {
-        // console.log(error);
+        // //console.log(error);
         this.messageService.add({
           severity: 'failure', 'closable': true,
           detail: 'Slight Issue', summary: 'Your Survey can not be processed now, please try again later'
