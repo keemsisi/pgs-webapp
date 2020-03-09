@@ -1,6 +1,6 @@
 {
-  "name": "promotbot-app",
-  "version": "0.0.0",
+  "name": "PromotBot",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve ",

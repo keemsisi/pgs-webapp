@@ -9,7 +9,7 @@ import { CacheService } from './cache.service';
 })
 export class CustomHttpServicesService {
   // serverURL = 'http://localhost:8081';
-  serverURL: 'https://promotbotformserver.herokuapp.com';
+  serverURL = 'https://promotbotformserver.herokuapp.com';
 
   constructor(private clientHttpRequest: HttpClient , private cacheService: CacheService) {
 
